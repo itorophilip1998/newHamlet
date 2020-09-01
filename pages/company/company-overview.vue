@@ -262,7 +262,8 @@ export default {
                   console.log(error);
                 }
               );
-            this.reload();
+           this.getCompany();
+           this.$router.push("/company-overview")
           } else {
             this.$message({
               message: "Company Details remains the same !",
@@ -282,7 +283,7 @@ export default {
         .get("https://hamlet.payfill.co/api/auth/admin")
         .then((res) => {
           console.log(res.data.company);
-          this.company = res.data.company;
+          this.company = res.data.user.company;
           //   for (let key in data) {
           //     const details = data[key];
           //     details.company.id = key;

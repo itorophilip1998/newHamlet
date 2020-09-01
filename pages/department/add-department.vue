@@ -225,7 +225,8 @@ export default {
                 message: "Department Successfully Added!",
                 type: "success",
               });
-              this.reload();
+              // this.getDepartment();
+              this.$router.push("/add-department")
               // this.departmentInfo.name = ""
               this.isLoading = true;
             })

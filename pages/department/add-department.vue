@@ -9,7 +9,7 @@
           <div class="one6">
             <div class="one7">
 
-              <div v-if="loader" class="text-center">
+              <div v-if="loader" class="text-center" style="display : none">
                 <span disabled>
                   <span
                     class="spinner-border text-primary spinner-border-sm"
@@ -225,7 +225,9 @@ export default {
                 message: "Department Successfully Added!",
                 type: "success",
               });
-              this.reload();
+              // this.reload();
+              this.getDepartment()
+              this.$router.push('/dashboard')
               // this.departmentInfo.name = ""
               this.isLoading = true;
             })
@@ -247,6 +249,7 @@ export default {
           console.log(res.data.user.company.company_departments);
           this.loader2 = false;
           this.departments = res.data.user.company.company_departments;
+          this.departments.unshift()
         })
         .catch((error) => {
           console.error(error);
@@ -286,7 +289,9 @@ export default {
                     });
                     this.isLoading_1 = true;
                   });
-                this.reload();
+                // this.reload();
+                 this.getDepartment()
+              this.$router.push('/dashboard')
                 //  this.departmentInfo.name = ""
                 this.isLoading = true;
               } else {

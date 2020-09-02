@@ -157,7 +157,7 @@ export default {
       this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
         .then((res) => {
-          console.log(res.data.company);
+          console.log(res.data.user.company);
           this.company = res.data.user.company;
           //   for (let key in data) {
           //     const details = data[key];
@@ -187,9 +187,10 @@ export default {
             );
             formData.append("address", this.profileInfo.address);
             formData.append("profile_pic", this.profileInfo.profile_pic);
+            formData.append("_method", 'PUT');
             this.$axios
               .post(`https://hamlet.payfill.co/api/profile/${i}`, formData, {
-                headers: { Authorization: `Bearer ${this.user}` },
+                headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
               .then(
                 (res) => {
@@ -199,6 +200,7 @@ export default {
                     type: "success",
                   });
                   this.isloading_1 = true;
+                  this.$router.push("/dashboard")
                   // this.getallBlogs()
                 },
                 function (error) {
@@ -224,7 +226,7 @@ export default {
       this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
         .then((res) => {
-          console.log(res.data.profile);
+          console.log(res.data.user.profile);
           this.profile = res.data.user.profile;
           //   for (let key in data) {
           //     const details = data[key];

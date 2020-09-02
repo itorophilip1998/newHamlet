@@ -17,7 +17,7 @@
       <div v-if="loader" class="text-center">
                   <span disabled>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                Loading...
+                
                 </span>
               </div>
       <div class="card" v-else>

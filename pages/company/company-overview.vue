@@ -244,9 +244,10 @@ export default {
             formData.append("services", this.companyInfo.services);
             formData.append("company_logo", this.companyInfo.company_logo);
             formData.append("company_phone", this.companyInfo.company_phone);
+            formData.append("_method", 'PUT');
             this.$axios
               .post(`https://hamlet.payfill.co/api/company/${i}`, formData, {
-                headers: { Authorization: `Bearer ${this.user}` },
+                headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
               .then(
                 (res) => {

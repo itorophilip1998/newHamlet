@@ -83,7 +83,7 @@
                   <th scope="col">Action</th>
                 </tr>
 
-                <tr v-for="(employee, index) in employees" :key="index">
+                <tr v-for="(employee, index) in filterAll" :key="index">
                   <th scope="row">{{ index + 1 }}</th>
                   <td>{{ employee.first_name + " " + employee.other_names }}</td>
                   <td>
@@ -145,21 +145,18 @@ export default {
       filterbyName: "",
     };
   },
-  // computed:
-  // {
-  //    filterAll()
-  //    {
-  //      return this.employees
-  //  .filter(post => {
-  //  console.log(post.title.toLowerCase().includes(this.filterbyName.toLowerCase()))
-  // //  .filter
-  // //  (post => {
-  // //   return post.first_name.match(this.filterbyName)
-  // })
+  computed:
+  {
+     filterAll()
+     {
+       return this.employees.filter(post => {
+        return post.first_name.toLowerCase().match(this.filterbyName.toLowerCase() ||  this.filterbyName.toUpperCase())
+  })
 
-  //  }
 
-  // },
+   }
+
+  },
   methods: {
     view(data) {
       this.singleEmployee = data;

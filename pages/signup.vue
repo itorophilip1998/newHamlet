@@ -18,7 +18,7 @@
                                         class="invalid-feedback"
                                     >
                                     {{ errors.first("username")}}
-                                    </small>  
+                                    </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="email" name="email" class="form-control" id="" placeholder="Email" v-model="signUp.email" v-validate="'required|email'"
@@ -28,7 +28,7 @@
                                         class="invalid-feedback"
                                          >
                                     {{ errors.first("email")}}
-                                    </small>  
+                                    </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
@@ -39,7 +39,7 @@
                                         class="invalid-feedback"
                                          >
                                     {{ errors.first("password")}}
-                                    </small>  
+                                    </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
@@ -50,14 +50,15 @@
                                         class="invalid-feedback"
                                          >
                                     {{ errors.first("password")}}
-                                    </small>  
+                                    </small>
                                 </div>
                             </div>
                             <button type="submit" class="btn1">Create Account</button>
                     </form>
                     <div class="account">
-                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span> 
+                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
                     </div>
+                     <a href="http://localhost:9000/google"><i class="fa fa-google" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="wrapper">
@@ -95,18 +96,18 @@
                             </div>
                         </div> -->
                     </div>
-                   
+
                 </div>
-            
+
 
             </div>
-           
+
                 </div>
 
                 <!-- Mobile View -->
-                <div class="container wrapper mobileShow"> 
+                <div class="container wrapper mobileShow">
                     <div class="mobile-form">
-                        <form  @submit.prevent="createAccount"> 
+                        <form  @submit.prevent="createAccount">
                             <div class="first-form">
                                 <h1 class="mobile-text">Set Up an Account</h1>
                                 <div class="mt-4">
@@ -125,12 +126,22 @@
                              <button type="submit" class="btn1" style="color:white; ">Create Account</button>
                         </form>
                         <div class="account">
-                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span> 
+                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
+
+                     <a href="http://localhost:9000/google"><i class="fa fa-google" aria-hidden="true"></i></a>
+
                     </div>
                     </div>
+
+                    <nav class="navbar navbar-expand navbar-light bg-light">
+                        <div class="nav navbar-nav">
+                            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#">Home</a>
+                        </div>
+                    </nav>
                 </div>
                 <!-- Mobile View End -->
-    </div> 
+    </div>
 </template>
 
 <script>
@@ -142,7 +153,7 @@ export default {
   components : {
         Navbar,
         'app-loader' : newLoader
-    }, 
+    },
     data(){
         return{
             signUp : {
@@ -167,7 +178,7 @@ export default {
             else{
             this.loader = true
             }
-            
+
             this.submitted = true;
             this.$validator.validateAll().then( async (valid) => {
                 if (valid) {
@@ -176,15 +187,15 @@ export default {
                  try {
             let response = await this.$axios.post('https://hamlet.payfill.co/api/auth/signup',this.signUp)
             let token = response.data.token
-            this.$auth.$storage.setLocalStorage('jwt', token); 
-            console.log(response) 
+            this.$auth.$storage.setLocalStorage('jwt', token);
+            console.log(response)
              await this.$auth.loginWith('local', {
           data: {
                 email : this.signUp.email,
                 password : this.signUp.password
           },
-        })  
-                
+        })
+
 
           this.$message({
           message: "Account created successfully!",
@@ -192,11 +203,11 @@ export default {
         })
          this.$router.push("/manager-account");
       }
-     
+
       catch (e) {
         console.log(e);
         this.error = e.res;
-        
+
          if (e.response.status === 422) {
           this.$message({
             message: "Sorry, Email has been taken",
@@ -205,7 +216,7 @@ export default {
         }
         this.loader = false
       }
-                
+
                 }
                 else{
 
@@ -223,7 +234,7 @@ export default {
     //             email : this.signUp.email,
     //             password : this.signUp.password
     //       },
-    //     }) 
+    //     })
     //      let user = response.data.user
     //      this.$auth.$storage.setLocalStorage('user', user);
     //       this.$message({
@@ -232,11 +243,11 @@ export default {
     //     })
     //      this.$router.push("/manager-account");
     //   }
-     
+
     //   catch (e) {
     //     console.log(e);
     //     this.error = e.res;
-        
+
     //     //  if (e.response.status === 422) {
     //     //   this.$message({
     //     //     message: "Sorry, Email has been taken",
@@ -247,17 +258,17 @@ export default {
     //   }
         },
         // createAccount(){
-        //     axios.post('https://hamlet-hrm.herokuapp.com/api/auth/signup',this.signUp).then(res=> 
+        //     axios.post('https://hamlet-hrm.herokuapp.com/api/auth/signup',this.signUp).then(res=>
         //     {
         //         this.$router.push('/managerAccount')
         //         console.log(res.data)
-        //     }) 
+        //     })
         //      .catch((error) => {
         //   this.loader = false;
         //   console.log(error);
         // });
-        // }      
-    } 
+        // }
+    }
 }
 </script>>
 
@@ -298,14 +309,14 @@ input{
     background-color: rgba(255,255,255,1) !important;
 }
 .file-border{
-    padding: 1rem 5rem 1rem 1rem; 
-    border: 1px solid rgb(192, 192, 192);  
-    outline: none; 
+    padding: 1rem 5rem 1rem 1rem;
+    border: 1px solid rgb(192, 192, 192);
+    outline: none;
 }
 textarea{
     width: 70%;
     height: 10vh;
-    border: 1px solid rgb(192, 192, 192);  
+    border: 1px solid rgb(192, 192, 192);
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     background-color: rgba(255,255,255,1) !important;
 }
@@ -410,7 +421,7 @@ h1{
     font-size: 1rem;
     color: #FFFFFF;
     }
-    
+
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
     .mobileShow{
@@ -452,7 +463,7 @@ h1{
     }
     input[type=button]span{
         color: #FFFFFF !important;
-    } 
+    }
     .btn1{
     padding: 1rem 6.8rem;
     margin-top: 2rem;

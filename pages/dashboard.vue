@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-3">
-            <img :src="this.company.company_logo" alt class="w-100" />
+            <img v-if="this.company.company_logo != 'undefined'" :src="this.company.company_logo" alt class="w-100" />
             <span v-if="loader" class="text-center">
               <app-loader />
             </span>
@@ -38,14 +38,16 @@
                   style="text-align:center"
                 >
                   <div>
-                    <img
+                   <nuxt-link :to="`/employees/${employee.id}`"> <img
+
+                      v-if="employee.profile_pic != 'undefined'"
                       :src="employee.profile_pic"
                       alt
                       class="rounded-circle"
                       width="80px"
                       height="80px"
                       style="margin-top:1rem; margin-left:.5rem"
-                    />
+                    /></nuxt-link>
                     <div
                       class="text-center ml-2 mt-2"
                       style="font-size:1rem "

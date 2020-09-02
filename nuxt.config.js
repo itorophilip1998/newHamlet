@@ -91,11 +91,11 @@ export default {
     {
       src: "./plugins/element-ui.js",
       ssr: false
+    },
+    {
+      src: "./plugins/aos.js",
+      ssr: false
     }
-    // {
-    //   src: "./plugins/vuetify.js",
-    //   ssr: false
-    // }
   ],
   /*
    ** Auto import components

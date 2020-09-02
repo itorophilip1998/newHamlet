@@ -282,6 +282,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Overpass', sans-serif;
 }
 .one2 {
   width: 50%;

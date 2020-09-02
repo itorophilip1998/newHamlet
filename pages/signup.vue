@@ -58,6 +58,7 @@
                     <div class="account">
                         Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
                     </div>
+                     <a href="http://localhost:9000/google"><i class="fa fa-google" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="wrapper">
@@ -128,6 +129,13 @@
                         Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
                     </div>
                     </div>
+
+                    <nav class="navbar navbar-expand navbar-light bg-light">
+                        <div class="nav navbar-nav">
+                            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#">Home</a>
+                        </div>
+                    </nav>
                 </div>
                 <!-- Mobile View End -->
     </div>
@@ -262,6 +270,9 @@ export default {
 </script>>
 
 <style scoped>
+*{
+    font-family: 'Overpass', sans-serif;
+}
 .wrapper{
     background: linear-gradient(to right, rgba(8, 29, 41, 0.7),
        rgba(8, 29, 41, 0.7)), url("/img/nesa.jpg") no-repeat center center/cover;
@@ -537,7 +548,7 @@ h1{
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
-    width: 70%; 
+    width: 70%;
     }
 }
 @media only screen and (min-width: 2000px) and (max-width: 2560px) {

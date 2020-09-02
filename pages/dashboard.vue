@@ -160,6 +160,7 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
+  font-family: 'Overpass', sans-serif;
 }
 .big-nav {
   background-color: rgb(192, 192, 192, 0.2) !important;

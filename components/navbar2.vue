@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="boxShadowV fixed-top bg-white">
+    <div class="boxShadowV shadow fixed-top bg-white">
       <!-- desktop view -->
-      <div class="oneV desktopViewV">
+      <div class="oneV container desktopViewV">
         <nav class="navbar navbar-expand-lg navbar-light">
           <nuxt-link to="/" class="navbar-brand" href="#" style="color: #0065FC">Hamlet</nuxt-link>
           <button
@@ -114,8 +114,8 @@ export default {
 }
 
 .oneV {
-  margin-left: 100px;
-  margin-right: 100px;
+  /* margin-left: 100px;
+  margin-right: 100px; */
 }
 .nav-item {
   margin-left: 2rem;
@@ -131,16 +131,16 @@ a {
   color: #0065fc;
   border-radius: 5px;
   padding: 5px 20px;
-  border: 1px solid #0065fc;
+  border: none;
   outline: none !important;
 }
-.btn1V:hover {
+/* .btn1V:hover {
   background: #0065fc;
   color: white;
   border-radius: 5px;
   padding: 5px 20px;
   border: 1px solid #0065fc;
-}
+} */
 .btn2V {
   background: #0065fc;
   color: white;

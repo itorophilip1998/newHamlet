@@ -158,7 +158,7 @@ export default {
         .get("https://hamlet.payfill.co/api/auth/admin")
         .then((res) => {
           console.log(res.data.company);
-          this.company = res.data.company;
+          this.company = res.data.user.company;
           //   for (let key in data) {
           //     const details = data[key];
           //     details.company.id = key;
@@ -187,7 +187,6 @@ export default {
             );
             formData.append("address", this.profileInfo.address);
             formData.append("profile_pic", this.profileInfo.profile_pic);
-        
             this.$axios
               .post(`https://hamlet.payfill.co/api/profile/${i}`, formData, {
                 headers: { Authorization: `Bearer ${this.user}` },
@@ -226,7 +225,7 @@ export default {
         .get("https://hamlet.payfill.co/api/auth/admin")
         .then((res) => {
           console.log(res.data.profile);
-          this.profile = res.data.profile;
+          this.profile = res.data.user.profile;
           //   for (let key in data) {
           //     const details = data[key];
           //     details.company.id = key;
@@ -325,6 +324,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Overpass', sans-serif;
 }
 .form-row {
   margin-bottom: 2rem !important;

@@ -72,12 +72,16 @@
    
 </template>
 <script>
+import axios from 'axios'
+import newLoader from "~/components/loader.vue";
 export default {
   data(){
     return{
      styleObject : {
-       width : '0px'
-     }
+       width : '0px',
+       
+     },
+     loader : true,
     }
   },
   methods : {

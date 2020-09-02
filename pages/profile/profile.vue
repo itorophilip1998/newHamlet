@@ -172,7 +172,7 @@ export default {
       swal({
         title: "Are you sure?",
         text: "Once you Update, previous manager information will be lost",
-        icon: "warning",
+        icon: "warning", 
         buttons: true,
         dangerMode: true,
       })

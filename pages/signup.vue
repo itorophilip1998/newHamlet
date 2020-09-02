@@ -128,17 +128,8 @@
                         <div class="account">
                         Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
 
-                     <a href="http://localhost:9000/google"><i class="fa fa-google" aria-hidden="true"></i></a>
-
                     </div>
                     </div>
-
-                    <nav class="navbar navbar-expand navbar-light bg-light">
-                        <div class="nav navbar-nav">
-                            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="#">Home</a>
-                        </div>
-                    </nav>
                 </div>
                 <!-- Mobile View End -->
     </div>

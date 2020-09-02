@@ -232,6 +232,12 @@ export default {
               this.isLoading = true;
             })
             .catch((error) => {
+                if(error.response.status=== 422){
+                this.$message({
+                message: "Error, Department already Exist!",
+                type: "error",
+              });
+              }
               console.log(error);
               // this.loader = true;
               this.isLoading = true;
@@ -303,6 +309,12 @@ export default {
               }
             })
             .catch((error) => {
+              if(error.response.status === 422){
+                this.$message({
+                message: "Error, Department already Exist!",
+                type: "error",
+              });
+              }
               this.$message({
                 message: "Error, Unable to update, Try again!",
                 type: "error",

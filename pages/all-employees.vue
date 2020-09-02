@@ -17,7 +17,7 @@
       <div v-if="loader" class="text-center">
                   <span disabled>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                
+
                 </span>
               </div>
       <div class="card" v-else>
@@ -83,9 +83,9 @@
                   <th scope="col">Action</th>
                 </tr>
 
-                <tr v-for="(employee, index) in employees" :key="index">
+                <tr v-for="(employee, index) in filterAll" :key="index">
                   <th scope="row" style="display : none">{{ index + 1 }}</th>
-                  <td> 
+                  <td>
                     <img
                       :src="employee.profile_pic"
                       alt

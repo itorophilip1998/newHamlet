@@ -113,10 +113,6 @@ export default {
   font-family: "Overpass", sans-serif;
 }
 
-.oneV {
-  /* margin-left: 100px;
-  margin-right: 100px; */
-}
 .nav-item {
   margin-left: 2rem;
 }

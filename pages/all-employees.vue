@@ -154,21 +154,18 @@ export default {
       filterbyName: "",
     };
   },
-  // computed:
-  // {
-  //    filterAll()
-  //    {
-  //      return this.employees
-  //  .filter(post => {
-  //  console.log(post.title.toLowerCase().includes(this.filterbyName.toLowerCase()))
-  // //  .filter
-  // //  (post => {
-  // //   return post.first_name.match(this.filterbyName)
-  // })
+  computed:
+  {
+     filterAll()
+     {
+       return this.employees.filter(post => {
+        return post.first_name.toLowerCase().match(this.filterbyName.toLowerCase() ||  this.filterbyName.toUpperCase())
+  })
 
-  //  }
 
-  // },
+   }
+
+  },
   methods: {
     view(data) {
       this.singleEmployee = data;

@@ -306,71 +306,6 @@ export default {
       this.companyInfo.company_logo = input.files[0];
       console.log(this.companyInfo.company_logo);
     },
-    // submitBtn() {
-    //   this.loader = false;
-    //   const formData = new FormData();
-    //   formData.append("company_name", this.companyInfo.company_name);
-    //   formData.append("company_address", this.companyInfo.company_address);
-    //   formData.append("company_email", this.companyInfo.company_email);
-    //   formData.append("company_website", this.companyInfo.company_website);
-    //   formData.append("no_of_employees", this.companyInfo.no_of_employees);
-    //   formData.append("city", this.companyInfo.city);
-    //   formData.append("state", this.companyInfo.state);
-    //   formData.append("zip_code", this.companyInfo.zip_code);
-    //   formData.append("services", this.companyInfo.services);
-    //   formData.append("company_logo", this.companyInfo.profile_pic);
-    //   formData.append("company_phone", this.companyInfo.company_phone);
-    //   axios
-    //     .post("https://hamlet-hrm.herokuapp.com/api/company", formData, {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //         Authorization: `Bearer ${this.user}`,
-    //       },
-    //     })
-    //     .then((res) => {
-    //       swal({
-    //         title: "Congratulations",
-    //         text: "Registration Completed Successfully!",
-    //         icon: "success",
-    //         button: false,
-    //       });
-    //       this.$router.push("/dashboard");
-    //       this.loader = false;
-    //       console.log(res.data);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //       this.loader = true;
-    //       if (
-    //         this.companyInfo.company_name === "" ||
-    //         this.companyInfo.company_address === "" ||
-    //         this.companyInfo.company_email === "" ||
-    //         this.companyInfo.company_website === "" ||
-    //         this.companyInfo.no_of_employees === "" ||
-    //         this.companyInfo.city === "" ||
-    //         this.companyInfo.state === "" ||
-    //         this.companyInfo.zip_code === "" ||
-    //         this.companyInfo.services === "" ||
-    //         this.companyInfo.company_phone === "" ||
-    //         this.companyInfo.profile_pic === ""
-    //       ) {
-    //         swal({
-    //           title: "Oops!",
-    //           text: "feilds cannot be empty!",
-    //           icon: "error",
-    //           button: false,
-    //         });
-    //       } else {
-    //         swal({
-    //           title: "Oops!",
-    //           text: "Unauthorized user, Please register!",
-    //           icon: "error",
-    //           button: false,
-    //         });
-    //       }
-    //     });
-    //   console.log(this.companyInfo);
-    // },
   },
   created() {
     // this.getCompany();
@@ -383,6 +318,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Overpass', sans-serif;
 }
 .form-row {
   margin-bottom: 2rem !important;

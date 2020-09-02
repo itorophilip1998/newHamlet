@@ -162,6 +162,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family: 'Overpass', sans-serif;
+}
 .two {
   background: linear-gradient(
       to right,
@@ -217,7 +220,7 @@ input {
   border: none;
   padding: 0.5rem;
   color: #0065fc;
-  border: 1px solid #0065fc;
+  /* border: 1px solid #0065fc; */
 }
 
 @media (max-width: 567px) {

@@ -92,8 +92,10 @@ export default {
      profile_pic : {},
      loader : true,
      styleObject : {
-       width : '0px'
-     }
+       width : '0px',
+       
+     },
+     loader : true,
     }
   },
   mounted(){

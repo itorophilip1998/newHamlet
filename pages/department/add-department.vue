@@ -296,7 +296,6 @@ export default {
                     this.isLoading_1 = true;
                   });
                 // this.reload();
-                 this.getDepartment()
               this.$router.push('/dashboard')
                 //  this.departmentInfo.name = ""
                 this.isLoading = true;

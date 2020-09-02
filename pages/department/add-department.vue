@@ -290,7 +290,6 @@ export default {
                     this.isLoading_1 = true;
                   });
                 // this.reload();
-                 this.getDepartment()
               this.$router.push('/dashboard')
                 //  this.departmentInfo.name = ""
                 this.isLoading = true;
@@ -344,6 +343,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Overpass', sans-serif;
 }
 #style-loader {
   width: 100%;

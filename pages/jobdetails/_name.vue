@@ -136,7 +136,7 @@
                 <select class="custom-select form-control one6" id="inputGroupSelect04" name="job-category" aria-label="Example select with button addon" v-model="jobDetails.job_category"
                  v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('job-category') }"
-                >
+                ><option value selected disabled>Select Job Category</option>
                   <option value="Male">Executive Officers and Managers</option>
                   <option value="Female">Mid-Level Officers and Managers</option>
                   <option value="Male">Professionals</option>
@@ -160,7 +160,7 @@
                 <select class="custom-select one6" name="department" id="inputGroupSelect04" aria-label="Example select with button addon" v-model="jobDetails.department"
                 v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('department') }"
-                >
+                ><option value selected disabled>Select Department</option>
                   <option  v-for="(department, index) in departments" :key="index">{{department.name}}</option>
                 </select>
                 <div></div>
@@ -283,6 +283,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Overpass', sans-serif;
 
   }
   .one2{

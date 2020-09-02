@@ -611,6 +611,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family: 'Overpass', sans-serif;
+}
 .wrapper {
   background: linear-gradient(
       to right,

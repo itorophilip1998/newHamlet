@@ -326,6 +326,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Overpass', sans-serif;
 }
 .form-row {
   margin-bottom: 2rem !important;

@@ -13,7 +13,17 @@
       {{auth.user.email}}
       <span class="ml-3">Log out</span>
     </li> -->
-      <li class="nav-item active">
+     <li class="nav-item active">
+        <nuxt-link to="/profile/profile"><img
+                      :src="this.profile_pic.profile_pic"
+                      alt
+                      class="rounded-circle"
+                      width="40px"
+                      height="40px"
+
+           /></nuxt-link>
+      </li>
+      <li class="nav-item">
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
       </li>
@@ -72,11 +82,15 @@
    
 </template>
 <script>
-import axios from 'axios'
 import newLoader from "~/components/loader.vue";
 export default {
+   components : {
+    'app-loader' : newLoader,
+  },
   data(){
     return{
+     profile_pic : {},
+     loader : true,
      styleObject : {
        width : '0px',
        
@@ -84,7 +98,18 @@ export default {
      loader : true,
     }
   },
+  mounted(){
+    this.getProfile()
+  },
   methods : {
+     getProfile(){
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.company);
+          this.profile_pic = res.data.user.profile;
+        });
+    },
     openNav(){
       this.styleObject.width = '100%'
     },
@@ -109,6 +134,9 @@ export default {
     *{
         font-family: 'Overpass', sans-serif;
         
+    }
+     ul li{
+      margin-left: 1.5rem;
     }
     .boxShadow{
        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;

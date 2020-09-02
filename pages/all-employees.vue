@@ -73,7 +73,7 @@
             <div class="col-sm-10 pl-3">
               <table class="table table-responsive table-bordered table-hover border-0">
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col" style="display : none">#</th>
                   <th scope="col">Full Name</th>
                   <th scope="col">Employment Type</th>
                   <th scope="col">Job Title</th>
@@ -84,8 +84,16 @@
                 </tr>
 
                 <tr v-for="(employee, index) in employees" :key="index">
-                  <th scope="row">{{ index + 1 }}</th>
-                  <td>{{ employee.first_name + " " + employee.other_names }}</td>
+                  <th scope="row" style="display : none">{{ index + 1 }}</th>
+                  <td> 
+                    <img
+                      :src="employee.profile_pic"
+                      alt
+                      class="rounded-circle"
+                      width="50px"
+                      height="50px"
+
+           />   {{ employee.first_name + " " + employee.other_names }}</td>
                   <td>
                     <span
                       v-if="employee.job_details"
@@ -139,30 +147,36 @@ export default {
   },
   data() {
     return {
+       profile_pic : {},
       employees: [],
       loader: true,
       singleEmployee: {},
       filterbyName: "",
     };
   },
-  // computed:
-  // {
-  //    filterAll()
-  //    {
-  //      return this.employees
-  //  .filter(post => {
-  //  console.log(post.title.toLowerCase().includes(this.filterbyName.toLowerCase()))
-  // //  .filter
-  // //  (post => {
-  // //   return post.first_name.match(this.filterbyName)
-  // })
+  computed:
+  {
+     filterAll()
+     {
+       return this.employees.filter(post => {
+        return post.first_name.toLowerCase().match(this.filterbyName.toLowerCase() ||  this.filterbyName.toUpperCase())
+  })
 
-  //  }
 
-  // },
+   }
+
+  },
   methods: {
     view(data) {
       this.singleEmployee = data;
+    },
+     getProfile(){
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.company);
+          this.profile_pic = res.data.user.profile;
+        });
     },
     getEmployees() {
       this.$axios
@@ -179,6 +193,7 @@ export default {
   },
   mounted() {
     this.getEmployees();
+    this.getProfile()
   },
 };
 </script>

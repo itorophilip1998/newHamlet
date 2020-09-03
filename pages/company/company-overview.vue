@@ -250,7 +250,8 @@ export default {
                 headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
               .then(
-                (res) => {
+                (res) => { 
+                  this.getCompany()
                   console.log(res);
                   this.$message({
                     message: "Company Details Updated Successfully!",
@@ -264,8 +265,8 @@ export default {
                 }
               );
             // this.reload();
-            this.getCompany()
-            this.$router.push("/dashboard")
+           
+            // this.$router.push("/dashboard")
           } else {
             this.$message({
               message: "Company Details remains the same !",

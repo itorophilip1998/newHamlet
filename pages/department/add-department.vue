@@ -333,7 +333,6 @@ export default {
 
               }
             })
-
         } else {
           this.isLoading_1 = true;
         }

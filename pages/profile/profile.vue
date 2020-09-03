@@ -20,7 +20,7 @@
               <div class="one7">
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1">Back</button>
+                    <button class="btn1"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->
@@ -33,15 +33,15 @@
                 <h3>Manager's Information</h3>
                 <hr />
                 <div class="grid">
-                  <p>First Name</p>
+                  <p style="color : #0065fc; font-weight : 400">First Name</p>
                   <p>{{this.profile.first_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Last Name</p>
+                  <p style="color : #0065fc; font-weight : 400">Last Name</p>
                   <p>{{this.profile.last_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Address</p>
+                  <p style="color : #0065fc; font-weight : 400">Address</p>
                   <p>{{this.profile.address}}</p>
                 </div>
                 <hr />
@@ -73,7 +73,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label>Profile Picture</label>
+                  <label>Profile Picture</label> <br />
                   <input
                     type="file"
                     name
@@ -372,6 +372,9 @@ textarea {
 #style-loader {
   margin-top: 30vh;
   text-align: center;
+}
+.file-border{
+  width: 100%;
 }
 
 @media (max-width: 567px) {

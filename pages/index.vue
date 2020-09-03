@@ -131,7 +131,7 @@
           <div class="row">
             <div class="col-lg-6 system-bg-2" 
               data-aos="fade-right"
-              data-aos-duration="600"
+              data-aos-duration="1000"
               data-aos-easing="ease-in-sine">
               <img src="/img/system.png" class="img-fluid" alt srcset />
             </div>
@@ -159,7 +159,7 @@
       <div class="pb-5 pt-5 bg-curve">
         <div class="container pb-5" 
               data-aos="fade-right"
-              data-aos-duration="600"
+              data-aos-duration="1000"
               data-aos-easing="zoom-in-down">
           <div class="how-it-works pb-5 mt-5 pt-5">HOW IT WORKS</div>
           <div class="row">
@@ -218,9 +218,9 @@
       <div class="pt-5 testimonial-bg">
         <div class="letter-under text-center pt-5 mt-5 mb-5 pb-5 btn-mobile-works">TESTIMONIALS</div>
         <div class="container shadow p-0 lady-bg" 
-           data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-easing="zoom-in-down">
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-sine">
           <div class="row m-0 p-0" style="background-color : #FFFFFF">
             <div class="col-sm-5 pl-0 m-0 l-center">
               <img src="/img/lady.png" class="img-fluid pr-0 mr-0" alt srcset />
@@ -434,7 +434,7 @@ export default {
   font-weight: normal;
   font-size: 1.2rem;
   margin-top: 1rem !important;
-  line-height: 42px;
+  
 
   /* width: 90%; */
   letter-spacing: 0.03em;

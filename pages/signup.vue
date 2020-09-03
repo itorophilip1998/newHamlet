@@ -53,48 +53,15 @@
                                     </small>
                                 </div>
                             </div>
-                            <button type="submit" class="btn1">Create Account</button>
+                            <button type="submit" class="btn1 btn btn-primary">Create Account</button>
                     </form>
                     <div class="account">
                         Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
                     </div>
-                     <a href="http://localhost:9000/google"><i class="fa fa-google" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="wrapper">
                     <div class="box-down">
-                        <!-- <div class="d-flex">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div> -->
                     </div>
 
                 </div>
@@ -107,24 +74,55 @@
                 <!-- Mobile View -->
                 <div class="container wrapper mobileShow">
                     <div class="mobile-form">
-                        <form  @submit.prevent="createAccount">
-                            <div class="first-form">
-                                <h1 class="mobile-text">Set Up an Account</h1>
+                       <form @submit.prevent="createAccount">
+                            <div class="active first-form" id="hide-form">
+                                <h1>Set Up An Account</h1>
+                                <span class="mt-4 text-center" v-if="loader"><app-loader /></span>
                                 <div class="mt-4">
-                                     <input type="text" name="" class="form-control" id="" required placeholder="Username" v-model="signUp.username">
+                                     <input type="text" class="form-control" id="" name="username" placeholder="Username" v-model="signUp.username"  v-validate="'required'"
+                                     :class="{ 'is-invalid': submitted && errors.has('username') }">
+                                     <small
+                                        v-if="submitted && errors.has('username')"
+                                        class="invalid-feedback"
+                                    >
+                                    {{ errors.first("username")}}
+                                    </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="email" name="" class="form-control" id="" required placeholder="Email" v-model="signUp.email">
+                                     <input type="email" name="email" class="form-control" id="" placeholder="Email" v-model="signUp.email" v-validate="'required|email'"
+                                     :class="{ 'is-invalid': submitted && errors.has('email') }">
+                                       <small
+                                        v-if="submitted && errors.has('email')"
+                                        class="invalid-feedback"
+                                         >
+                                    {{ errors.first("email")}}
+                                    </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="password" name="" class="form-control" id="" required placeholder="Password" v-model="signUp.password">
+                                     <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
+                                     :class="{ 'is-invalid': submitted && errors.has('password') }">
+                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast 8 characters long)</small>
+                                      <small
+                                        v-if="submitted && errors.has('password')"
+                                        class="invalid-feedback"
+                                         >
+                                    {{ errors.first("password")}}
+                                    </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="password" name="" class="form-control" id="" required placeholder="Password Confirmation" v-model="signUp.password_confirmation">
+                                     <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
+                                     :class="{ 'is-invalid': submitted && errors.has('password') }">
+                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
+                                        <small
+                                        v-if="submitted && errors.has('password')"
+                                        class="invalid-feedback"
+                                         >
+                                    {{ errors.first("password")}}
+                                    </small>
                                 </div>
                             </div>
-                             <button type="submit" class="btn1" style="color:white; ">Create Account</button>
-                        </form>
+                            <button type="submit" class="btn1 btn btn-primary">Create Account</button>
+                    </form>
                         <div class="account">
                         Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
 
@@ -210,55 +208,11 @@ export default {
 
                 }
                 else{
-
+                    this.loader = false
                 }
             });
-    //          try {
-    //         let response = await this.$axios.post('https://hamlet.payfill.co/api/auth/signup',this.signUp)
-    //         let token = response.data.token
-    //         this.$auth.$storage.setLocalStorage('jwt', token);
-    //     // localStorage.setItem("jwt", token);
-    //         console.log(response)
-    //     //   this.$router.push("/managerAccount");
-    //          await this.$auth.loginWith('local', {
-    //       data: {
-    //             email : this.signUp.email,
-    //             password : this.signUp.password
-    //       },
-    //     })
-    //      let user = response.data.user
-    //      this.$auth.$storage.setLocalStorage('user', user);
-    //       this.$message({
-    //       message: "Account created successfully!",
-    //       type: 'success'
-    //     })
-    //      this.$router.push("/manager-account");
-    //   }
-
-    //   catch (e) {
-    //     console.log(e);
-    //     this.error = e.res;
-
-    //     //  if (e.response.status === 422) {
-    //     //   this.$message({
-    //     //     message: "Sorry, Email has been taken",
-    //     //     type: "error"
-    //     //   });
-    //     // }
-    //     this.loader = false
-    //   }
         },
-        // createAccount(){
-        //     axios.post('https://hamlet-hrm.herokuapp.com/api/auth/signup',this.signUp).then(res=>
-        //     {
-        //         this.$router.push('/managerAccount')
-        //         console.log(res.data)
-        //     })
-        //      .catch((error) => {
-        //   this.loader = false;
-        //   console.log(error);
-        // });
-        // }
+    
     }
 }
 </script>>
@@ -362,6 +316,10 @@ h1{
     font-size: 1.1rem;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
+     h1{
+        font-size: 2rem;
+        color: #FFFFFF;
+    }
     .mobileShow{
         display: block;
     }
@@ -386,6 +344,7 @@ h1{
     }
     .btn1{
         width: 100%;
+        border-radius: 5px;
     }
     .btn2{
         margin-left: .1rem;
@@ -418,6 +377,10 @@ h1{
 
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
+    h1{
+        font-size: 2rem;
+        color: #FFFFFF;
+    }
     .mobileShow{
         display: block;
     }
@@ -445,9 +408,11 @@ h1{
     }
     .btn1{
         width: 100%;
+        border-radius: 5px;
     }
     .btn2{
         margin-left: .1rem;
+        
     }
     .btn3{
         margin-left: .1rem;
@@ -503,6 +468,7 @@ h1{
     }
     h1{
         font-size: 2rem !important;
+        color: #FFFFFF;
     }
     .margin-form{
         margin-left: 1rem;

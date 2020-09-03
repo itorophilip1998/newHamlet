@@ -39,7 +39,7 @@
             </ul>
             <form class="form-inline ml-auto my-2 my-lg-0">
               <nuxt-link to="/signin" class="nav-link">
-                <button class="btn1V">Sign In</button>
+                <button class="btn1V">Log In</button>
               </nuxt-link>
               <nuxt-link to="/signup" class="nav-link" href="#">
                 <button class="btn2V">Get Started</button>
@@ -52,7 +52,7 @@
     <!-- desktop view end -->
 
     <!-- mobile-view -->
-    <div class="boxShadowV fixed-top bg-white">
+    <div class="boxShadowV fixed-top bg-white p-2">
       <div class="container mobileViewV bg-white">
         <div class="mobileViewV">
           <div id="mySidenavV" :style="styleObject" class="sidenavV">
@@ -64,10 +64,10 @@
 
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#">
+                <nuxt-link to="/" class="nav-link nav-new">
                   Home
                   <span class="sr-only">(current)</span>
-                </a>
+                </nuxt-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link nav-new" href="#">Service</a>
@@ -80,7 +80,7 @@
               </li>
               <li class="nav-item active">
                 <nuxt-link to="/signin" class="nav-link">
-                  <button class="btn1V">Sign In</button>
+                  <button class="btn1V">Log In</button>
                 </nuxt-link>
               </li>
               <li class="nav-item">
@@ -232,7 +232,7 @@ a {
 .wrapper2V {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
   .desktopViewV {

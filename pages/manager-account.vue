@@ -65,45 +65,9 @@
                 </div>
                 <div class="wrapper">
                     <div class="box-down">
-                        <!-- <div class="d-flex">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div> -->
                     </div>
-
                 </div>
-
-
             </div>
-
                 </div>
 
                 <!-- Mobile View -->
@@ -123,7 +87,7 @@
                                     </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="text" name="lastName" class="form-control" id="" required placeholder="Last Name" v-model="managerInfo.last_name" v-validate="'required'"
+                                     <input type="text" name="lastName" class="form-control" id=""  placeholder="Last Name" v-model="managerInfo.last_name" v-validate="'required'"
                                      :class="{ 'is-invalid': submitted && errors.has('lastName') }">
                                      <small
                                         v-if="submitted && errors.has('lastName')"
@@ -307,6 +271,7 @@ textarea{
     border: 1px solid #0065FC;
     outline: none !important;
     width: 70%;
+    border-radius: 5px;
 }
 .active {
     display: block !important;

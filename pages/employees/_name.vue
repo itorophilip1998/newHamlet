@@ -867,6 +867,9 @@ Personal()
 </script>
 
 <style scoped>
+*{
+  font-family: "Overpass", sans-serif;
+}
  .nuxt-link-active{
         border-left: 3px solid #64a2ff !important ;
         padding-left: .5rem;

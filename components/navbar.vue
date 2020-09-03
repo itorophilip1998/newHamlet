@@ -52,9 +52,9 @@
             <img :src="this.company.company_logo" alt class="w-50" />
 
             <h5 style="color:white; margin-top:2rem">HIRING CHECKLIST</h5>
-            <p><nuxt-link to="/contactinfo" style="text-decoration:none; color : #FFFFFF;">Employee Details</nuxt-link></p>
-            <p><nuxt-link to="/employmenttype" style="text-decoration:none;  color : #FFFFFF">Contact Information</nuxt-link></p>
-            <p><nuxt-link to="/jobdetails" style="text-decoration:none;  color : #FFFFFF">Job Details</nuxt-link></p>
+            <p><nuxt-link to="/employee-details" style="text-decoration:none; color : #FFFFFF;">Employee Details</nuxt-link></p>
+            <p><nuxt-link to="/contactinfo/_name.vue" style="text-decoration:none;  color : #FFFFFF">Contact Information</nuxt-link></p>
+            <p><nuxt-link to="/jobdetails/_name.vue" style="text-decoration:none;  color : #FFFFFF">Job Details</nuxt-link></p>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
        <!-- <li v-if="$auth.loggedIn">
       {{auth.user.email}}

@@ -292,7 +292,7 @@
     border-radius: 5px;
     background: #FFFFFF;
     margin-top: 5rem;
-    height: 150vh;
+    height: 200vh;
     margin-left: 25%;
   }
   .grid{
@@ -432,7 +432,7 @@
     .one2{
       width: 100%;
       margin-left: 0%;
-      height: 130vh;
+      height: 200vh;
     }
     .grid{
       grid-template-columns: 1fr ;

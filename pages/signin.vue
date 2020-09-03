@@ -84,6 +84,7 @@ export default {
       submitted: false,
       login: false,
       isValid: false,
+      profile: {},
       // tokenUser : {}
     };
   },
@@ -156,6 +157,21 @@ export default {
         }
       });
     
+    },
+    getProfile() {
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.user.profile);
+          this.profile = res.data.user.profile;
+          //   for (let key in data) {
+          //     const details = data[key];
+          //     details.company.id = key;
+          //     this.company.unshift(details);
+          //   }
+          //   this.company = res.data.company;
+          this.loader = false;
+        });
     },
   },
 };

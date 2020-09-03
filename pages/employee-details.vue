@@ -351,11 +351,11 @@ select {
   padding: 5px;
 }
 .file-border {
-  /* padding: 1rem 1rem 1rem 1rem !important; */
+  padding: 1rem 1rem 1rem 1rem !important;
   border: 0.5px solid #081d29 !important;
   outline: none !important;
   border-radius: 5px;
-  width:10% !important;
+  width:100% !important;
 }
 
 @media (max-width: 567px) {

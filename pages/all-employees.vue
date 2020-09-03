@@ -54,36 +54,40 @@
                   <label class="check-1">Intern</label>
                 </div>
               </div>
-
+<!--
               <h5 class="mt-5">Job Title</h5>
               <select class="custom-select increase_height" name>
                 <option value selected disabled>Select Role</option>
                 <option value="OND">Senior Back-end Dev</option>
                 <option value="HND">Front-end Inter</option>
-              </select>
+              </select> -->
 
               <h5 class="mt-5">Department</h5>
-              <select class="custom-select increase_height" name>
-                <option value selected disabled>Department</option>
-                <option value="OND">VR</option>
-                <option value="HND">Jiggle</option>
+              <select class="custom-select increase_height"  >
+                <option value="" selected>Select Department</option>
+                <option  v-for="(item, index) in filterbyDepartment" :key="index"  :value="item.name" >{{item.name}}</option>
+
               </select>
             </div>
 
             <div class="col-sm-10 pl-3">
-              <table class="table table-responsive table-bordered table-hover border-0">
-                <tr>
-                  <th scope="col" style="display : none">#</th>
-                  <th scope="col">Full Name</th>
-                  <th scope="col">Employment Type</th>
-                  <th scope="col">Job Title</th>
-                  <th scope="col">Department</th>
-                  <th scope="col">Location</th>
-                  <th scope="col">Date Hired</th>
-                  <th scope="col">Action</th>
-                </tr>
+              <table class="table table-bordered  border-0 rounded-lg rounded-lg shadow">
 
-                <tr v-for="(employee, index) in filterAll" :key="index">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col" style="display : none">#</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Employment Type</th>
+                    <th scope="col">Job Title</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date Hired</th>
+                    <!-- <th scope="col">Action</th> -->
+                  </tr>
+                </thead>
+                <tbody >
+
+                <tr class="linksingleEmployee" v-for="(employee, index) in filterAll" :key="index" @click='linksingleEmployee(employee.id)' >
                   <th scope="row" style="display : none">{{ index + 1 }}</th>
                   <td>
                     <img
@@ -119,14 +123,15 @@
                       v-if="employee.job_details"
                     >{{ (employee.job_details) ? employee.job_details.date_hired : '...'}}</span>
                   </td>
-                  <td>
+                  <!-- <td>
                     <nuxt-link
                       :to="`/employees/${employee.id}`"
                       :title="`View ${employee.first_name} ${employee.other_names}`"
                       class="btn text-primary fa fa-eye"
                     ></nuxt-link>
-                  </td>
+                  </td> -->
                 </tr>
+              </tbody>
               </table>
 
 
@@ -152,6 +157,7 @@ export default {
       loader: true,
       singleEmployee: {},
       filterbyName: "",
+      filterbyDepartment: [],
     };
   },
   computed:
@@ -167,6 +173,10 @@ export default {
 
   },
   methods: {
+    linksingleEmployee(employee)
+    {
+      this.$router.push(`/employees/${employee}`)
+    },
     view(data) {
       this.singleEmployee = data;
     },
@@ -184,6 +194,7 @@ export default {
         .then((res) => {
           console.log(res.data.employees);
           this.employees = res.data.user.employees;
+          this.filterbyDepartment = res.data.user.company.company_departments;
           this.loader = false;
         });
     },
@@ -199,6 +210,15 @@ export default {
 </script>
 
 <style scoped>
+  .linksingleEmployee{
+     cursor: pointer;
+
+  }
+  .linksingleEmployee:hover{
+     cursor: pointer;
+     background:#e8e9eb;
+
+  }
 * {
   box-sizing: border-box;
 }

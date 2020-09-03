@@ -21,7 +21,7 @@
               <div v-else>
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1">Back</button>
+                    <button class="btn1"><i class="fa fa-home" aria-hidden="true"></i></button>
                   </nuxt-link>
                 </span>
                 <h2>{{this.company.company_name}}</h2>
@@ -51,13 +51,9 @@
                         name="Department-name"
                         class="form-control mt-3 mr-3 mb-3 pl-1"
                         v-model="departmentInfo.name"
-                        v-validate="'required'"
-                        :class="{ 'is-invalid': submitted && errors.has('Department-name') }"
+
                       />
-                      <small
-                        v-if="submitted && errors.has('Department-name')"
-                        class="invalid-feedback"
-                      >{{ errors.first("Department-name") }}</small>
+
                       <span class="one9">
                         <span>
                           <button type="submit" class="btn1">
@@ -86,13 +82,9 @@
                         name="Department"
                         class="form-control mt-3 mr-3 mb-3 pl-1"
                         v-model="departmentInfo.name"
-                        v-validate="'required'"
-                        :class="{ 'is-invalid': submitted && errors.has('Department') }"
+
                       />
-                      <small
-                        v-if="submitted && errors.has('Department')"
-                        class="invalid-feedback"
-                      >{{ errors.first("Department") }}</small>
+
                       <span class="one9">
                         <span>
                           <button type="submit" class="btn1">
@@ -209,37 +201,53 @@ export default {
     },
     addDepartment() {
       // this.isLoading = false;
-      this.submitted = true;
-      this.$validator.validateAll().then((valid) => {
-        if (valid) {
-          console.log("Login");
-          this.isLoading = false;
-          this.$axios
+      // this.submitted = true;
+      // this.$validator.validateAll().then((valid) => {
+      //   if (valid) {
+      //     this.isLoading = false;
+
+  this.$axios
             .post(
               "https://hamlet.payfill.co/api/department",
               this.departmentInfo, { header: { 'Authorization': `Bearer ${this.user}` } }
             )
             .then((res) => {
-              this.isLoading = false;
+              this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
               this.$message({
                 message: "Department Successfully Added!",
                 type: "success",
               });
               // this.reload();
-              this.getDepartment()
-              this.$router.push('/dashboard')
-              // this.departmentInfo.name = ""
-              this.isLoading = true;
+              // this.$router.push('/dashboard')
+              this.departmentInfo.name = ""
+              // this.isLoading = true;
             })
             .catch((error) => {
-              console.log(error);
-              // this.loader = true;
-              this.isLoading = true;
+               if(error.response.status==422) {
+               this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: error.response.data.errors.name[0],
+                type: "error",
+              });
+               }else{
+                     this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: "Cannot add Department now, try again later! ",
+                type: "warning",
+              });
+               }
             });
-        } else {
-          this.isLoading = true;
-        }
-      });
+      //   } else {
+      //     this.isLoading = true;
+      //   }
+
+      // });
     },
 
     getDepartment() {
@@ -282,16 +290,39 @@ export default {
                     { header: { Authorization: `Bearer ${this.user}` } }
                   )
                   .then((res) => {
-                    console.log(res);
-                    this.$message({
-                      message: "Department Updated Successfully!",
-                      type: "success",
-                    });
+                   this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: "Department Successfully Added!",
+                type: "success",
+              });
+              // this.reload();
+              // this.$router.push('/dashboard')
+              this.departmentInfo.name = ""
+              // this.isLoading = true;
                     this.isLoading_1 = true;
-                  });
-                // this.reload();
-              this.$router.push('/dashboard')
-                //  this.departmentInfo.name = ""
+                  }).catch((error) => {
+               if(error.response.status==422) {
+               this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: error.response.data.errors.name[0],
+                type: "error",
+              });
+               }else{
+                     this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: "Cannot add Department now, try again later! ",
+                type: "warning",
+              });
+               }
+              this.isLoading_1 = false;
+            });
+                //
                 this.isLoading = true;
               } else {
                 this.$message({
@@ -299,19 +330,16 @@ export default {
                   type: "info",
                 });
                 this.isLoading_1 = true;
+
               }
             })
-            .catch((error) => {
-              this.$message({
-                message: "Error, Unable to update, Try again!",
-                type: "error",
-              });
-              this.isLoading_1 = false;
-            });
+
         } else {
           this.isLoading_1 = true;
         }
       });
+
+       this.editDepartment = false;
 
       // this.$axios
       //   .put(

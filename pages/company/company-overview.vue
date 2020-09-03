@@ -20,7 +20,7 @@
               <div class="one7">
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1">Back</button>
+                    <button class="btn1"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->

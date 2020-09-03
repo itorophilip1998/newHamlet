@@ -20,7 +20,7 @@
               <div class="one7">
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1">Back</button>
+                    <button class="btn1"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->
@@ -73,7 +73,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label>Profile Picture</label>
+                  <label>Profile Picture</label> <br />
                   <input
                     type="file"
                     name
@@ -373,6 +373,9 @@ textarea {
 #style-loader {
   margin-top: 30vh;
   text-align: center;
+}
+.file-border{
+  width: 100%;
 }
 
 @media (max-width: 567px) {

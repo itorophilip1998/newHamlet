@@ -3,11 +3,11 @@
         <app-navbar/>
 
         <div class="row one5">
-                <span class="one9 float-right">
+                <!-- <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
                     <button class="btn1">Back</button>
                   </nuxt-link>
-                </span>
+                </span> -->
             <div class="one">
               
         <div class="one1">
@@ -22,6 +22,11 @@
     </div>
     </div>
     <div  class="one2 ">
+        <span class="one9 float-right">
+                  <nuxt-link to="/dashboard">
+                    <button class="btn-arrow"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
+                  </nuxt-link>
+                </span>
       <div class="one6">
       <div class="one7 ">
           <div v-for="item in employee" :key="item.id"><h3>{{ item.first_name + " " + item.other_names }}</h3>
@@ -44,23 +49,23 @@
         <hr>
 
       <div class="grid">
-          <h5 style="color:#0065fc;font-weight:400">Gender</h5>
+          <p style="color : #0065fc; font-weight : 400"> Gender</p>
           <p>{{data.gender}}</p>
       </div>
       <div class="grid">
-          <h5 style="color:#0065fc;font-weight:400">Date of Birth</h5>
+          <p style="color : #0065fc; font-weight : 400">Date of Birth</p>
           <p>{{data.dob}}</p>
       </div>
       <div class="grid">
-          <h5 style="color:#0065fc;font-weight:400">Address</h5>
+          <p style="color : #0065fc; font-weight : 400">Address</p>
           <p>{{data.address}}</p>
       </div>
       <div class="grid">
-          <h5 style="color:#0065fc;font-weight:400">Qualification</h5>
+          <p style="color : #0065fc; font-weight : 400">Qualification</p>
           <p>{{data.qualification}}</p>
       </div>
       <div class="grid">
-          <h5 style="color:#0065fc;font-weight:400">City/Town</h5>
+          <p style="color : #0065fc; font-weight : 400">City/Town</p>
           <p>{{data.city}}</p>
       </div>
       <hr>
@@ -69,7 +74,7 @@
   </div>
          </div>
          <!-- personl info  edit -->
-<div id="form" style="margin-left:3rem;margin-right:3rem; margin-top:3rem" v-else>
+<div id="form" style="margin-left:4rem;margin-right:3rem; margin-top:3rem" v-else>
     <h3 style="color:#0065FC">Edit Employee Information</h3>
                 <hr>
   <form @submit.prevent="updateEmployeeInfo(employeeDetails.id)">
@@ -112,7 +117,7 @@
                     class="custom-select one6 form-control"
                     name="gender"
                     id="inputGroupSelect04"
-                    aria-label="Example select with button addon"
+                   
                     v-model="employeeDetails.gender"
                     v-validate="'required'"
                     :class="{ 'is-invalid': submitted && errors.has('gender') }"
@@ -183,15 +188,13 @@
                   class="custom-select one6 form-control"
                   name="qualifications"
                   id="inputGroupSelect04"
-                  aria-label="Example select with button addon"
+                  
                   v-model="employeeDetails.qualification"
                   v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('qualifications') }"
                 >
-                  <option value selected disabled>Select Qualification</option>
-                  <option
-                    value="Primary School Leaving Certificate"
-                  >Primary School Leaving Certificate</option>
+                  <option value="" selected disabled>Select Qualification</option>
+                  <option value="Primary School Leaving Certificate">Primary School Leaving Certificate</option>
                   <option value="JSCE">JSCE</option>
                   <option value="NECO">NECO</option>
                   <option value="WAEC">WAEC</option>
@@ -257,39 +260,39 @@
               <h3>Job Details</h3>
         <hr>
       <div class="grid">
-          <p>Job Title</p>
+          <p style="color : #0065fc; font-weight : 400">Job Title</p>
           <p>{{job_details.job_title}}</p>
       </div>
       <div class="grid">
-          <p>Employment Type</p>
+          <p style="color : #0065fc; font-weight : 400">Employment Type</p>
           <p>{{job_details.employment_type}}</p>
       </div>
       <div class="grid">
-          <p>Salary</p>
+          <p style="color : #0065fc; font-weight : 400">Salary</p>
           <p>{{job_details.salary}}</p>
       </div>
       <div class="grid">
-          <p>Date hired</p>
+          <p style="color : #0065fc; font-weight : 400">Date hired</p>
           <p>{{job_details.date_hired}}</p>
       </div>
       <div class="grid">
-          <p>Description</p>
+          <p style="color : #0065fc; font-weight : 400">Description</p>
           <p>{{job_details.description}}</p>
       </div>
       <div class="grid">
-          <p>Department</p>
+          <p style="color : #0065fc; font-weight : 400">Department</p>
           <p>{{job_details.department}}</p>
       </div>
       <div class="grid">
-          <p>Employment Classification</p>
+          <p style="color : #0065fc; font-weight : 400">Employment Classification</p>
           <p>{{job_details.employment_classification}}</p>
       </div>
       <div class="grid">
-          <p> Job Category</p>
+          <p style="color : #0065fc; font-weight : 400"> Job Category</p>
           <p>{{job_details.job_category}}</p>
       </div>
       <div class="grid">
-          <p>Work Location</p>
+          <p style="color : #0065fc; font-weight : 400">Work Location</p>
           <p>{{job_details.work_location}}</p>
       </div>
       <hr>
@@ -487,15 +490,15 @@
               <h3>Contact Info</h3>
                 <hr>
                 <div class="grid">
-                    <p>Phone</p>
+                    <p style="color : #0065fc; font-weight : 400">Phone</p>
                     <p>{{contact_info.phone}}</p>
                 </div>
                 <div class="grid">
-                    <p>Email</p>
+                    <p style="color : #0065fc; font-weight : 400">Email</p>
                     <p>{{contact_info.email}}</p>
                 </div>
                 <div class="grid">
-                    <p>Emergency Contact</p>
+                    <p style="color : #0065fc; font-weight : 400">Emergency Contact</p>
                     <p>{{contact_info.emergency_contact}}</p>
                 </div>
                 <hr>
@@ -1047,6 +1050,15 @@ Personal()
         border: 1px solid #0065FC;
         border-radius: 5px;
     }
+     .btn-arrow{
+        color: #0065FC;
+        padding: 8px 20px;
+        background: #FFFFFF;
+        border: 1px solid #0065FC;
+        border-radius: 5px;
+        outline: none;
+        margin: 1rem 0 0 -5rem;
+    }
     .btn2{
         color: #FFFFFF;
         background: #0065FC;
@@ -1061,7 +1073,7 @@ Personal()
         height: auto;
     }
     .one6{
-        padding-left: 4rem;
+        padding-left: 3rem;
         padding-right: 4rem;
         padding-top: 2rem;
         

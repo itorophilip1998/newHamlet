@@ -33,35 +33,35 @@
                 <h3>General Information</h3>
                 <hr />
                 <div class="grid">
-                  <p>Company Name</p>
+                  <h5 style="color:#0065fc;font-weight:400">Company Name</h5>
                   <p>{{this.company.company_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Company Website</p>
+                  <h5 style="color:#0065fc;font-weight:400">Company Website</h5>
                   <p>{{this.company.company_website}}</p>
                 </div>
                 <div class="grid">
-                  <p>Email</p>
+                  <h5 style="color:#0065fc;font-weight:400">Email</h5>
                   <p>{{this.company.company_email}}</p>
                 </div>
                 <div class="grid">
-                  <p>Phone Number</p>
+                  <h5 style="color:#0065fc;font-weight:400">Phone Number</h5>
                   <p>{{this.company.company_phone}}</p>
                 </div>
                 <div class="grid">
-                  <p>Address</p>
+                  <h5 style="color:#0065fc;font-weight:400">Address</h5>
                   <p>{{this.company.company_address}}</p>
                 </div>
                 <div class="grid">
-                  <p>City</p>
+                  <h5 style="color:#0065fc;font-weight:400">City</h5>
                   <p>{{this.company.city}}</p>
                 </div>
                 <div class="grid">
-                  <p>Zip Code</p>
+                  <h5 style="color:#0065fc;font-weight:400">Zip Code</h5>
                   <p>{{this.company.zip_code}}</p>
                 </div>
                 <div class="grid">
-                  <p>State</p>
+                  <h5 style="color:#0065fc;font-weight:400">State</h5>
                   <p>{{this.company.state}}</p>
                 </div>
 
@@ -336,6 +336,7 @@ export default {
 .grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-gap: 5rem;
   margin-bottom: 20px;
 }
 .grid p {
@@ -435,10 +436,11 @@ textarea {
     margin-left: 0px;
   }
   .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-bottom: 40px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 20px;
+}
   .one3 {
     padding-left: 30px;
     padding-right: 30px;

@@ -177,7 +177,7 @@ export default {
 }
 .bg-color {
   /* margin: 0 5rem 0 0 !important; */
-  padding: 10rem 2rem 2rem 5rem;
+  padding: 10rem 0 2rem 0;
 
   height: auto;
 }

@@ -44,23 +44,23 @@
         <hr>
 
       <div class="grid">
-          <p> Gender</p>
+          <h5 style="color:#0065fc;font-weight:400">Gender</h5>
           <p>{{data.gender}}</p>
       </div>
       <div class="grid">
-          <p>Date of Birth</p>
+          <h5 style="color:#0065fc;font-weight:400">Date of Birth</h5>
           <p>{{data.dob}}</p>
       </div>
       <div class="grid">
-          <p>Address</p>
+          <h5 style="color:#0065fc;font-weight:400">Address</h5>
           <p>{{data.address}}</p>
       </div>
       <div class="grid">
-          <p>Qualification</p>
+          <h5 style="color:#0065fc;font-weight:400">Qualification</h5>
           <p>{{data.qualification}}</p>
       </div>
       <div class="grid">
-          <p>City/Town</p>
+          <h5 style="color:#0065fc;font-weight:400">City/Town</h5>
           <p>{{data.city}}</p>
       </div>
       <hr>
@@ -1005,7 +1005,7 @@ Personal()
         background: #FFFFFF;
         margin-top: 5rem;
         height:200vh;
-        margin-left: 25%;
+        margin-left: 10%;
     }
     .grid{
         display: grid;

@@ -33,15 +33,15 @@
                 <h3>Manager's Information</h3>
                 <hr />
                 <div class="grid">
-                  <p>First Name</p>
+                  <h5 style="color:#0065fc;font-weight:400">First Name</h5>
                   <p>{{this.profile.first_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Last Name</p>
+                  <h5 style="color:#0065fc;font-weight:400">Last Name</h5>
                   <p>{{this.profile.last_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Address</p>
+                  <h5 style="color:#0065fc;font-weight:400">Address</h5>
                   <p>{{this.profile.address}}</p>
                 </div>
                 <hr />
@@ -281,6 +281,7 @@ export default {
 .grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-gap: 5rem;
   margin-bottom: 20px;
 }
 .grid p {
@@ -380,10 +381,11 @@ textarea {
     margin-left: 0px;
   }
   .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-bottom: 40px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 20px;
+}
   .one3 {
     padding-left: 30px;
     padding-right: 30px;

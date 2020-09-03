@@ -275,7 +275,7 @@ export default {
           console.log("Update");
           swal({
             title: "Are you sure?",
-            text: "Once you Update, the update will take effect",
+            text: "",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -294,7 +294,7 @@ export default {
               this.getCompany()
               // this.isLoading = true;
               this.$message({
-                message: "Department Successfully Added!",
+                message: "Department Successfully Updated!",
                 type: "success",
               });
               // this.reload();

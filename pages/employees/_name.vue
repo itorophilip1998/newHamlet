@@ -946,7 +946,7 @@ Personal()
         position: fixed;
     }
     .one1{
-        padding-left: 100px;
+        padding-left: 10px;
         margin-top: 10rem;
         padding-right: 10px;
     }

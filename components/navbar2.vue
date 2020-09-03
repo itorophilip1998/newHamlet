@@ -4,7 +4,9 @@
       <!-- desktop view -->
       <div class="oneV container desktopViewV">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <nuxt-link to="/" class="navbar-brand" href="#" style="color: #0065FC">Hamlet</nuxt-link>
+          <nuxt-link to="/" class="navbar-brand" href="#" style="color: #0065FC"
+            >Hamlet</nuxt-link
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -37,7 +39,7 @@
             </ul>
             <form class="form-inline ml-auto my-2 my-lg-0">
               <nuxt-link to="/signin" class="nav-link">
-                <button class="btn1V">Sign In</button>
+                <button class="btn1V">Log In</button>
               </nuxt-link>
               <nuxt-link to="/signup" class="nav-link" href="#">
                 <button class="btn2V">Get Started</button>
@@ -50,20 +52,35 @@
     <!-- desktop view end -->
 
     <!-- mobile-view -->
-    <div class="boxShadowV">
-      <div class="container mobileViewV">
+    <div class="boxShadowV fixed-top bg-white p-2">
+      <div class="container mobileViewV bg-white">
         <div class="mobileViewV">
           <div id="mySidenavV" :style="styleObject" class="sidenavV">
-            <div class="float-right pb-5">
-              <span to class="closebtn" style="color : #FFFFFF" @click="closeNav">
-                <font-awesome-icon style="height:100px" :icon="['fa', 'times']" />
+            <div class="">
+              <span class="closebtn" style="color : #FFFFFF" @click="closeNav">
+                <font-awesome-icon :icon="['fa', 'times']" />
               </span>
             </div>
 
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <nuxt-link to="/" class="nav-link nav-new">
+                  Home
+                  <span class="sr-only">(current)</span>
+                </nuxt-link>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-new" href="#">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-new" href="#">Faq</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-new" href="#">Teams</a>
+              </li>
               <li class="nav-item active">
-                <nuxt-link to="signin" class="nav-link">
-                  <button class="btn1V">Sign In</button>
+                <nuxt-link to="/signin" class="nav-link">
+                  <button class="btn1V">Log In</button>
                 </nuxt-link>
               </li>
               <li class="nav-item">
@@ -74,9 +91,9 @@
             </ul>
           </div>
           <div class="wrapper2V">
-            <div class="logo2V">Hamlet</div>
+            <nuxt-link to="/" class="logo-ham">Hamlet</nuxt-link>
             <div>
-              <span style="font-size:30px;cursor:pointer;" class="openNaV" @click="openNav">
+              <span class="openNav" @click="openNav">
                 <font-awesome-icon :icon="['fa', 'bars']" />
               </span>
             </div>
@@ -92,8 +109,8 @@ export default {
   data() {
     return {
       styleObject: {
-        width: "0px",
-      },
+        width: "0px"
+      }
     };
   },
   methods: {
@@ -103,9 +120,8 @@ export default {
     closeNav() {
       this.styleObject.width = "0px";
       // console.log('clicked')
-    },
-    
-  },
+    }
+  }
 };
 </script>
 <style scoped>
@@ -142,7 +158,7 @@ a {
   color: white;
   border-radius: 5px;
   padding: 5px 20px;
-  border: 1px solid #0065fc;
+  border: 1px solid #FFFFFF;
   outline: none !important;
 }
 .btn2V:hover {
@@ -155,9 +171,12 @@ a {
 .mobileViewV {
   display: none;
 }
-.logo2v {
-  font-size: 1.5rem;
-  color: #0065fc;
+.logo-ham {
+  font-size: 2rem;
+  color: #0065fc !important;
+}
+a {
+  text-decoration: none !important;
 }
 #maintwoV {
   transition: margin-left 0.5s;
@@ -171,38 +190,37 @@ a {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(0, 101, 252, 0.7);
-  /* background-image: linear-gradient(to right, #0288d1, #0288d1 ); */
-  /* opacity: 0.7; */
+  background-color: #0065fc;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 0;
 }
 .sidenavV ul {
-  margin-top: 2rem;
+  margin-top: 3rem !important;
 }
 .sidenavV ul li a {
-  padding: 8px 8px 8px 32px;
+  /* padding: 8px 8px 8px 32px; */
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1.2rem;
   color: #e54332;
   display: block;
   transition: 0.3s;
+  text-align: center !important;
   /* margin-top: 3rem; */
-  padding: 20px;
+  /* padding: 20px; */
 }
-.sidenavV ul li a:hover {
+/* .sidenavV ul li a:hover {
   color: hotpink;
-}
-.closebtnV {
+} */
+.closebtn {
   position: absolute;
   top: 0;
-  right: 40px;
+  right: 20px;
   font-size: 2rem !important;
-  margin-left: 50px;
 }
-.openNavV {
-  font-size: 1.8rem !important;
+.openNav {
+  font-size: 2rem !important;
+  cursor: pointer;
 }
 .logo3V {
   position: absolute;
@@ -214,16 +232,9 @@ a {
 .wrapper2V {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
-  .closebtnV {
-    position: absolute;
-    top: -0.7rem;
-    right: 2rem;
-    font-size: 2rem !important;
-    margin-left: 50px;
-  }
   .desktopViewV {
     display: none;
   }
@@ -239,10 +250,7 @@ a {
   .mobileViewV {
     display: block;
   }
-  .closebtnV {
-    top: -0.7rem;
-    right: 2rem;
-  }
+
 }
 @media only screen and (min-width: 710px) and (max-width: 768px) {
   .oneV {
@@ -254,10 +262,6 @@ a {
   }
   .mobileViewV {
     display: block;
-  }
-  .closebtnV {
-    top: -0.7rem;
-    right: 3.5rem;
   }
 }
 /* @media only screen and (min-width: 1024px) and (max-width: 2445px){

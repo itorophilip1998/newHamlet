@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-3">
-            <img v-if="this.company.company_logo != 'undefined'" :src="this.company.company_logo" alt class="w-100" />
+            <img v-if="this.company.company_logo != 'undefined'" :src="this.company.company_logo" alt class="w-100 rounded-lg shadow" />
             <span v-if="loader" class="text-center">
               <app-loader />
             </span>
@@ -14,10 +14,11 @@
           <div class="col-sm-7">
             <h2>Hello {{ this.profile.first_name }}</h2>
             <h6 class="mt-4">Welcome to Hamlet!</h6>
-            <p class="mt-4">Task!</p>
-            <div class="border-admin">Signing Up for the first time? Please add Department</div>
+
+            <div v-if="!department" class="border-admin">Please add Department</div>
+            <hr v-else>
             <!-- Add user / list of users -->
-            <div class>
+            <div >
               <!-- <div>
                 <nuxt-link to="/employee-details">
                   <div class="circle-name-1">
@@ -28,7 +29,7 @@
               <div class="row mt-5">
                 <nuxt-link to="/employee-details">
                   <div class="circle-name-1">
-                    <i class="fa fa-plus" style="font-weight : 300"></i>
+                   <font-awesome-icon :icon="['fa', 'plus']" />
                   </div>
                 </nuxt-link>
                 <div
@@ -65,24 +66,27 @@
               <div class="row">
                 <div class="col-sm-4">
                   <nuxt-link to="/company/company-overview">
-                    <div class="box-icon">
-                      <i class="fa fa-users"></i>
+                    <div class="box-icon  shadow  rounded-lg">
+                      <!-- <i class="fa fa-users"></i> -->
+                       <font-awesome-icon :icon="['fa', 'users']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Company Profile</p>
                 </div>
                 <div class="col-sm-4">
                   <nuxt-link to="/all-employees">
-                    <div class="box-icon">
-                      <i class="fa fa-file"></i>
+                    <div class="box-icon shadow  rounded-lg">
+                      <!-- <i class="fa fa-file"></i> -->
+                      <font-awesome-icon :icon="['fa', 'file']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Directory</p>
                 </div>
                 <div class="col-sm-4">
                   <nuxt-link to="/department/add-department">
-                    <div class="box-icon">
-                      <i class="fa fa-building"></i>
+                    <div class="box-icon shadow  rounded-lg">
+                      <!-- <i class="fa fa-building"></i> -->
+                      <font-awesome-icon :icon="['fa', 'building']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Departments</p>
@@ -118,6 +122,7 @@ export default {
       profile: {},
       loader: true,
       employees: [],
+      department: [],
     };
   },
   //   computed: {
@@ -140,6 +145,8 @@ export default {
           this.employees = newArray.splice(0, n);
           console.log(this.employees);
           this.profile = res.data.user.profile;
+          this.department = res.data.user.company.company_departments;
+
           this.loader = false;
         });
     },

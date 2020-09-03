@@ -21,7 +21,7 @@
               <div v-else>
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1"><i class="fa fa-home" aria-hidden="true"></i></button>
+                    <button class="btn1"> <font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
                   </nuxt-link>
                 </span>
                 <h2>{{this.company.company_name}}</h2>
@@ -115,17 +115,18 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Edit</th>
+                        <!-- <th scope="col" style="display : none">#</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th> -->
                       </tr>
                     </thead>
                     <tbody v-for="(department, index) in departments " :key="index">
                       <tr>
-                        <th scope="row">{{index + 1}}</th>
+                        <th scope="row" style="display : none">{{index + 1}}</th>
                         <td>{{department.name}}</td>
                         <td>
-                          <button class="btn text-primary fa fa-pencil" @click="edit(department)"></button>
+                          
+                          <button class="btn text-primary" @click="edit(department)"><font-awesome-icon :icon="['fa', 'pen']" /></button>
                         </td>
                       </tr>
                     </tbody>

@@ -118,7 +118,12 @@
                                     </small>
                                 </div>
                             </div>
-                             <button type="submit" class="btn1">Submit</button>
+                              <button type="submit" class="btn1">
+                                 <span v-if="loader">Submit</span>
+                                <div v-else>
+                                <app-loader />
+                                </div>
+                            </button>
                         </form>
                     </div>
                 </div>

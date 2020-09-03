@@ -434,7 +434,7 @@ export default {
   font-weight: normal;
   font-size: 1.2rem;
   margin-top: 1rem !important;
-  line-height: 42px;
+  
 
   /* width: 90%; */
   letter-spacing: 0.03em;

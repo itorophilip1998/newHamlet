@@ -952,7 +952,7 @@ Personal()
         position: fixed;
     }
     .one1{
-        padding-left: 100px;
+        padding-left: 10px;
         margin-top: 10rem;
         padding-right: 10px;
     }
@@ -1008,7 +1008,7 @@ Personal()
         background: #FFFFFF;
         margin-top: 5rem;
         height:200vh;
-        margin-left: 25%;
+        margin-left: 10%;
     }
     .grid{
         display: grid;

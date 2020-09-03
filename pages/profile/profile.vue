@@ -273,7 +273,7 @@ export default {
 .one2 {
   width: 50%;
   border-radius: 5px;
-  background: #ffffff;
+  background: #ffffff !important;
   margin-top: 5rem;
   height: auto;
   margin-left: 25%;

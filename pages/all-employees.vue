@@ -71,7 +71,7 @@
             </div>
 
             <div class="col-sm-10 pl-3">
-              <table class="table table-bordered  border-0 rounded-lg rounded-lg shadow">
+              <table class="table table-bordered table-responsive  border-0 rounded-lg rounded-lg shadow">
 
                 <thead class="thead-light">
                   <tr>
@@ -144,7 +144,7 @@
 </template>
 
 <script>
-import navbar from "~/components/navbar.vue";
+import navbar from "~/components/navbar6.vue";
 export default {
   //  middleware : ['auth'],
   components: {

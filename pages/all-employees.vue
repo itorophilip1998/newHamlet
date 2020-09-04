@@ -84,6 +84,7 @@
                     <th scope="col">Department</th>
                     <th scope="col">Location</th>
                     <th scope="col">Date Hired</th>
+                    <th scope="col">Job Description</th>
                     <!-- <th scope="col">Action</th> -->
                   </tr>
                 </thead>
@@ -125,6 +126,12 @@
                       v-if="employee.job_details"
                     >{{ (employee.job_details) ? employee.job_details.date_hired : '...'}}</span>
                   </td>
+                  <td>
+                    <span
+                      v-if="employee.job_details"
+                    >{{ (employee.job_details) ? employee.job_details.description : '...'}}</span>
+                  </td>
+                  
                   <!-- <td>
                     <nuxt-link
                       :to="`/employees/${employee.id}`"

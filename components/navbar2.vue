@@ -69,7 +69,7 @@
                   <span class="sr-only">(current)</span>
                 </nuxt-link>
               </li>
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link nav-new" href="#">Service</a>
               </li>
               <li class="nav-item">
@@ -77,7 +77,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link nav-new" href="#">Teams</a>
-              </li> -->
+              </li>
               <li class="nav-item active">
                 <nuxt-link to="/signin" class="nav-link">
                   <button class="btn1V">Log In</button>

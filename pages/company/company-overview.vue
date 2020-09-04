@@ -252,6 +252,7 @@ export default {
               .then(
                 (res) => {
                   this.getCompany()
+                  this.$router.push("/dashboard")
                   console.log(res);
                   this.$message({
                     message: "Company Details Updated Successfully!",

@@ -16,7 +16,7 @@
     <li class="nav-item active">
         <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                v-if="this.profile_pic"  :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -51,7 +51,7 @@
 
            <div class="one1">
 
-            <img :src="this.company.company_logo" alt class="w-50" style="margin-bottom:1rem" />
+            <img  v-if="this.company" :src="this.company.company_logo" alt class="w-50" style="margin-bottom:1rem" />
             <p><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <!-- <li v-if="$auth.loggedIn">
@@ -61,7 +61,7 @@
             <li class="nav-item active">
 
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                      v-if="this.profile_pic" :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="50px"

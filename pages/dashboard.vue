@@ -5,18 +5,17 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-3">
-            <img v-if="this.company.company_logo != 'undefined'" :src="this.company.company_logo" alt class="w-100 rounded-lg shadow" />
+            <img v-if="this.company" :src="this.company.company_logo" alt class="w-100 " />
             <span v-if="loader" class="text-center">
               <app-loader />
             </span>
-            <h4 v-else class="text-center mt-2">{{ this.company.company_name }}</h4>
+            <h4 v-else class="text-center mt-2"> <span v-if="this.company">{{ this.company.company_name }}</span> </h4>
           </div>
           <div class="col-sm-7">
-            <h2>Hello {{ this.profile.first_name }}</h2>
-            <h6 class="mt-4">Welcome to Hamlet!</h6>
-
-            <div v-if="!department" class="border-admin">Please add Department</div>
-            <hr v-else>
+            <h2 v-if="this.profile">Hello {{ this.profile.first_name }}</h2>
+            <h6 v-if="department ==null " class="mt-4">Welcome to Hamlet!</h6>
+           <div v-if="department ==null " class="border-admin" style="cursor:pointer" @click="departmentClick()">Please click here add Department</div>
+            <hr>
             <!-- Add user / list of users -->
             <div >
               <!-- <div>
@@ -37,11 +36,12 @@
                   class="define"
                   :key="id"
                   style="text-align:center"
+                  v-if="employees"
                 >
                   <div>
                    <nuxt-link :to="`/employees/${employee.id}`"> <img
 
-                      v-if="employee.profile_pic != 'undefined'"
+                      v-if="employee"
                       :src="employee.profile_pic"
                       alt
                       class="rounded-circle"
@@ -52,7 +52,7 @@
                     <div
                       class="text-center ml-2 mt-2"
                       style="font-size:1rem "
-                    >{{employee.first_name}}</div>
+                    v-if="employee">{{employee.first_name}}</div>
                   </div>
                 </div>
                 <nuxt-link to="/all-employees">
@@ -105,6 +105,7 @@
 </template>
 
 <script>
+
 import axios from "axios";
 import navbar from "~/components/navbar.vue";
 import newLoader from "~/components/loader.vue";
@@ -131,9 +132,13 @@ export default {
   mounted() {
     this.user = this.$auth.$storage.getLocalStorage("user").username;
     this.getCompany();
-    // this.getEmployees()
   },
+
   methods: {
+departmentClick()
+{
+this.$router.push('/department/add-department')
+},
     getCompany() {
       this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
@@ -146,7 +151,6 @@ export default {
           console.log(this.employees);
           this.profile = res.data.user.profile;
           this.department = res.data.user.company.company_departments;
-
           this.loader = false;
         });
     },

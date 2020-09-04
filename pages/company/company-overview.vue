@@ -24,8 +24,8 @@
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->
-                <h2>{{this.company.company_name}}</h2>
-                <p>Total Headcount: {{this.company.no_of_employees}} | Services: {{this.company.services}}</p>
+                <h2 v-if="this.company" >{{this.company.company_name}}</h2>
+                <p v-if="this.company">Total Headcount: {{this.company.no_of_employees}} | Services: {{this.company.services}}</p>
               </div>
             </div>
             <div>
@@ -34,35 +34,35 @@
                 <hr />
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">Company Name</h5>
-                  <p>{{this.company.company_name}}</p>
+                  <p v-if="this.company">{{this.company.company_name}}</p>
                 </div>
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">Company Website</h5>
-                  <p>{{this.company.company_website}}</p>
+                  <p v-if="this.company">{{this.company.company_website}}</p>
                 </div>
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">Email</h5>
-                  <p>{{this.company.company_email}}</p>
+                  <p v-if="this.company">{{this.company.company_email}}</p>
                 </div>
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">Phone Number</h5>
-                  <p>{{this.company.company_phone}}</p>
+                  <p v-if="this.company">{{this.company.company_phone}}</p>
                 </div>
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">Address</h5>
-                  <p>{{this.company.company_address}}</p>
+                  <p v-if="this.company">{{this.company.company_address}}</p>
                 </div>
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">City</h5>
-                  <p>{{this.company.city}}</p>
+                  <p v-if="this.company">{{this.company.city}}</p>
                 </div>
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">Zip Code</h5>
-                  <p>{{this.company.zip_code}}</p>
+                  <p v-if="this.company">{{this.company.zip_code}}</p>
                 </div>
                 <div class="grid">
                   <h5 style="color:#0065fc;font-weight:400">State</h5>
-                  <p>{{this.company.state}}</p>
+                  <p v-if="this.company">{{this.company.state}}</p>
                 </div>
 
                 <hr />
@@ -250,7 +250,7 @@ export default {
                 headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
               .then(
-                (res) => { 
+                (res) => {
                   this.getCompany()
                   console.log(res);
                   this.$message({
@@ -265,7 +265,7 @@ export default {
                 }
               );
             // this.reload();
-           
+
             // this.$router.push("/dashboard")
           } else {
             this.$message({

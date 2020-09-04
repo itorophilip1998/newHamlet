@@ -15,7 +15,7 @@
     </li> -->
      <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                v-if="this.profile_pic"    :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -27,16 +27,16 @@
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
       </li>
-      
+
     </ul>
-    
+
   </div>
 </nav>
     </div>
     <!-- desktop view end -->
 
-    
-    <!-- mobile-view -->  
+
+    <!-- mobile-view -->
     <div class="boxShadow">
     <div class="container mobileView">
       <div class="mobileView">
@@ -46,7 +46,7 @@
                <font-awesome-icon :icon="['fa', 'times']"/>
                </span>
             </div>
-        
+
            <div class="one1">
             <p><nuxt-link to="/single-employee/personal-info" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Personal Info</h5> </nuxt-link></p>
             <p><nuxt-link to="/single-employee/employmentdetails" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Employment Info and Compensation</h5></nuxt-link></p>
@@ -59,10 +59,10 @@
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
       </li>
-      
+
     </ul>
         </div>
-         
+
           </div>
         <div class="wrapper2">
           <div class="logo2">
@@ -79,7 +79,7 @@
     <!-- mobile-view end -->
 </div>
 </div>
-   
+
 </template>
 <script>
 import newLoader from "~/components/loader.vue";
@@ -93,7 +93,7 @@ export default {
      loader : true,
      styleObject : {
        width : '0px',
-       
+
      },
      loader : true,
     }
@@ -133,7 +133,7 @@ export default {
 <style scoped>
     *{
         font-family: 'Overpass', sans-serif;
-        
+
     }
      ul li{
       margin-left: 1.5rem;
@@ -145,7 +145,7 @@ export default {
     .one{
         margin-left: 100px;
         margin-right: 100px;
-       
+
     }
     .btn1{
         background: white;
@@ -161,7 +161,7 @@ export default {
         border-radius: 5px;
         padding: 5px 20px;
         border: 1px solid #0065FC;
-        
+
     }
     .btn2{
         background: #0065FC;
@@ -225,7 +225,7 @@ export default {
  position: absolute;
  top: 0;
  right: 40px;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  margin-left: 50px;
 }
 .openNav{
@@ -235,7 +235,7 @@ export default {
 position: absolute;
  top: 0;
  left: 0;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  /* margin-left: 50px; */
 }
 .wrapper2{
@@ -256,7 +256,7 @@ position: absolute;
  position: absolute;
  top: 1rem;
  right: 2rem;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  margin-left: 55px;
 }
 .desktopView{
@@ -278,7 +278,7 @@ position: absolute;
  position: absolute;
  top: 1rem;
  right: 2rem;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  margin-left: 55px;
 }
 }
@@ -294,5 +294,5 @@ position: absolute;
       display: block;
     } */
 }
-    
+
 </style>

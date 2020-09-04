@@ -134,7 +134,7 @@ export default {
     ]
   ],
   axios: {
-    baseURL: "http://127.0.0.1:9000/api"
+    baseURL: "https://hamlet.payfill.co/api"
     // requestInterceptor: (config, { store }) => {
     //    config.headers.common['Authorization'] = `Bearer ${store.getters['auth/token']}`;
     // }

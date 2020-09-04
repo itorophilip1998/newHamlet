@@ -36,11 +36,7 @@
                   class="define"
                   :key="id"
                   style="text-align:center"
-<<<<<<< HEAD
                   v-if="employee"
-=======
-
->>>>>>> d2a28e2f9762ec6295caa754d97542f6dd27adfa
                 >
                   <div>
                    <nuxt-link :to="`/employees/${employee.id}`"> <img

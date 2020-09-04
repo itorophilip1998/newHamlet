@@ -85,7 +85,6 @@
                     <th scope="col">Location</th>
                     <th scope="col">Date Hired</th>
                     <th scope="col">Job Description</th>
-                    <!-- <th scope="col">Action</th> -->
                   </tr>
                 </thead>
                 <tbody >
@@ -131,14 +130,7 @@
                       v-if="employee.job_details"
                     >{{ (employee.job_details) ? employee.job_details.description : '...'}}</span>
                   </td>
-                  
-                  <!-- <td>
-                    <nuxt-link
-                      :to="`/employees/${employee.id}`"
-                      :title="`View ${employee.first_name} ${employee.other_names}`"
-                      class="btn text-primary fa fa-eye"
-                    ></nuxt-link>
-                  </td> -->
+ 
                 </tr>
               </tbody>
               </table>

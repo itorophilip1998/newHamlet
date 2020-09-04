@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-3">
-            <img v-if="this.company" :src="this.company.company_logo" alt class="w-100 " />
+            <img v-if="this.company" :src="this.company.company_logo" alt class="w-70 " />
             <span v-if="loader" class="text-center">
               <app-loader />
             </span>

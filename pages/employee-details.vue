@@ -355,6 +355,7 @@ select {
   border: 0.5px solid #081d29 !important;
   outline: none !important;
   border-radius: 5px;
+  width:100% !important;
 }
 
 @media (max-width: 567px) {

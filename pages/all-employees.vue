@@ -69,7 +69,7 @@
           <div class="float-right">
             <nuxt-link to="/dashboard">
               <div class="btn1 ">Back</div>
-            </nuxt-link> 
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@
 </template>
 
 <script>
-import navbar from "~/components/navbar.vue";
+import navbar from "~/components/navbar6.vue";
 export default {
   //  middleware : ['auth'],
   components: {

@@ -20,7 +20,7 @@
               <div class="one7">
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1">Back</button>
+                    <button class="btn1"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->
@@ -33,15 +33,15 @@
                 <h3>Manager's Information</h3>
                 <hr />
                 <div class="grid">
-                  <p>First Name</p>
+                  <p style="color : #0065fc; font-weight : 400">First Name</p>
                   <p>{{this.profile.first_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Last Name</p>
+                  <p style="color : #0065fc; font-weight : 400">Last Name</p>
                   <p>{{this.profile.last_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Address</p>
+                  <p style="color : #0065fc; font-weight : 400">Address</p>
                   <p>{{this.profile.address}}</p>
                 </div>
                 <hr />
@@ -73,7 +73,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label>Profile Picture</label>
+                  <label>Profile Picture</label> <br />
                   <input
                     type="file"
                     name
@@ -172,7 +172,7 @@ export default {
       swal({
         title: "Are you sure?",
         text: "Once you Update, previous manager information will be lost",
-        icon: "warning",
+        icon: "warning", 
         buttons: true,
         dangerMode: true,
       })
@@ -194,6 +194,8 @@ export default {
               })
               .then(
                 (res) => {
+                  // this.getProfile();
+                  // this.getCompany();
                   console.log(res);
                   this.$message({
                     message: "Manager Profile Updated Successfully!",
@@ -221,6 +223,7 @@ export default {
             type: "error",
           });
         });
+        this.isloading = true
     },
     getProfile() {
       this.$axios
@@ -249,71 +252,7 @@ export default {
       this.profileInfo.profile_pic = input.files[0];
       console.log(this.profileInfo.profile_pic);
     },
-    // submitBtn() {
-    //   this.loader = false;
-    //   const formData = new FormData();
-    //   formData.append("company_name", this.companyInfo.company_name);
-    //   formData.append("company_address", this.companyInfo.company_address);
-    //   formData.append("company_email", this.companyInfo.company_email);
-    //   formData.append("company_website", this.companyInfo.company_website);
-    //   formData.append("no_of_employees", this.companyInfo.no_of_employees);
-    //   formData.append("city", this.companyInfo.city);
-    //   formData.append("state", this.companyInfo.state);
-    //   formData.append("zip_code", this.companyInfo.zip_code);
-    //   formData.append("services", this.companyInfo.services);
-    //   formData.append("company_logo", this.companyInfo.profile_pic);
-    //   formData.append("company_phone", this.companyInfo.company_phone);
-    //   axios
-    //     .post("https://hamlet-hrm.herokuapp.com/api/company", formData, {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //         Authorization: `Bearer ${this.user}`,
-    //       },
-    //     })
-    //     .then((res) => {
-    //       swal({
-    //         title: "Congratulations",
-    //         text: "Registration Completed Successfully!",
-    //         icon: "success",
-    //         button: false,
-    //       });
-    //       this.$router.push("/dashboard");
-    //       this.loader = false;
-    //       console.log(res.data);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //       this.loader = true;
-    //       if (
-    //         this.companyInfo.company_name === "" ||
-    //         this.companyInfo.company_address === "" ||
-    //         this.companyInfo.company_email === "" ||
-    //         this.companyInfo.company_website === "" ||
-    //         this.companyInfo.no_of_employees === "" ||
-    //         this.companyInfo.city === "" ||
-    //         this.companyInfo.state === "" ||
-    //         this.companyInfo.zip_code === "" ||
-    //         this.companyInfo.services === "" ||
-    //         this.companyInfo.company_phone === "" ||
-    //         this.companyInfo.profile_pic === ""
-    //       ) {
-    //         swal({
-    //           title: "Oops!",
-    //           text: "feilds cannot be empty!",
-    //           icon: "error",
-    //           button: false,
-    //         });
-    //       } else {
-    //         swal({
-    //           title: "Oops!",
-    //           text: "Unauthorized user, Please register!",
-    //           icon: "error",
-    //           button: false,
-    //         });
-    //       }
-    //     });
-    //   console.log(this.companyInfo);
-    // },
+   
   },
   created() {
     // this.getCompany();
@@ -334,7 +273,7 @@ export default {
 .one2 {
   width: 50%;
   border-radius: 5px;
-  background: #ffffff;
+  background: #ffffff !important;
   margin-top: 5rem;
   height: auto;
   margin-left: 25%;
@@ -433,6 +372,9 @@ textarea {
 #style-loader {
   margin-top: 30vh;
   text-align: center;
+}
+.file-border{
+  width: 100%;
 }
 
 @media (max-width: 567px) {

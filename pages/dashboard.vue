@@ -28,7 +28,7 @@
               <div class="row mt-5">
                 <nuxt-link to="/employee-details">
                   <div class="circle-name-1">
-                    <i class="fa fa-plus " style="font-weight : 300"></i>
+                   <font-awesome-icon :icon="['fa', 'plus']" />
                   </div>
                 </nuxt-link>
                 <div
@@ -66,7 +66,8 @@
                 <div class="col-sm-4">
                   <nuxt-link to="/company/company-overview">
                     <div class="box-icon  shadow  rounded-lg">
-                      <i class="fa fa-users"></i>
+                      <!-- <i class="fa fa-users"></i> -->
+                       <font-awesome-icon :icon="['fa', 'users']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Company Profile</p>
@@ -74,7 +75,8 @@
                 <div class="col-sm-4">
                   <nuxt-link to="/all-employees">
                     <div class="box-icon shadow  rounded-lg">
-                      <i class="fa fa-file"></i>
+                      <!-- <i class="fa fa-file"></i> -->
+                      <font-awesome-icon :icon="['fa', 'file']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Directory</p>
@@ -82,7 +84,8 @@
                 <div class="col-sm-4">
                   <nuxt-link to="/department/add-department">
                     <div class="box-icon shadow  rounded-lg">
-                      <i class="fa fa-building"></i>
+                      <!-- <i class="fa fa-building"></i> -->
+                      <font-awesome-icon :icon="['fa', 'building']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Departments</p>
@@ -178,7 +181,7 @@ departmentClick()
 }
 .bg-color {
   /* margin: 0 5rem 0 0 !important; */
-  padding: 10rem 2rem 2rem 5rem;
+  padding: 10rem 0 2rem 0;
 
   height: auto;
 }

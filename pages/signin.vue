@@ -50,12 +50,9 @@
               </button>
             </form>
             <hr />
-            <br />
+            
             <p class="text-center">
-              Not a user yet?
-              <nuxt-link to="/signup">
-                <button class="btn2" :disabled="isValid">Sign up</button>
-              </nuxt-link>
+              Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link>
             </p>
           </div>
         </div>
@@ -84,6 +81,7 @@ export default {
       submitted: false,
       login: false,
       isValid: false,
+      profile: {},
       // tokenUser : {}
     };
   },
@@ -157,6 +155,21 @@ export default {
       });
     
     },
+    getProfile() {
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.user.profile);
+          this.profile = res.data.user.profile;
+          //   for (let key in data) {
+          //     const details = data[key];
+          //     details.company.id = key;
+          //     this.company.unshift(details);
+          //   }
+          //   this.company = res.data.company;
+          this.loader = false;
+        });
+    },
   },
 };
 </script>
@@ -215,15 +228,59 @@ input {
   margin-bottom: 10px;
 }
 .btn2 {
-  background: white;
+  background: none;
   border-radius: 5px;
   border: none;
   padding: 0.5rem;
   color: #0065fc;
   /* border: 1px solid #0065fc; */
 }
+a{
+  text-decoration: none !important;
+}
 
 @media (max-width: 567px) {
+  .grid {
+    grid-template-columns: 1fr;
+    height: 100vh;
+  }
+  .two {
+    display: none;
+  }
+  .two2 {
+    padding: 105px 20px;
+    background: linear-gradient(
+        to right,
+        rgba(8, 29, 41, 0.7),
+        rgba(8, 29, 41, 0.7)
+      ),
+      url("/img/nesa.jpg") no-repeat center center/cover;
+    text-align: center;
+    background-size: cover;
+  }
+
+  .two1 h2 {
+    color: white;
+  }
+  .two1 p {
+    color: white;
+  }
+  .btn1 {
+    background: #0065fc;
+    border-radius: 5px;
+    border: none;
+    padding: 7px 20px;
+    color: white;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  hr {
+    margin-top: 2rem;
+    border: 1px solid #FFFFFF;
+  }
+}
+
+/* @media (max-width: 567px) {
   .grid {
     grid-template-columns: 1fr;
     height: 100vh;
@@ -259,45 +316,7 @@ input {
   hr {
     color: #0065fc !important;
   }
-}
-
-@media (max-width: 567px) {
-  .grid {
-    grid-template-columns: 1fr;
-    height: 100vh;
-  }
-  .two {
-    display: none;
-  }
-  .two2 {
-    padding: 105px 20px;
-    background: linear-gradient(
-        to right,
-        rgba(8, 29, 41, 0.7),
-        rgba(8, 29, 41, 0.7)
-      ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
-    text-align: center;
-  }
-  .two1 h2 {
-    color: white;
-  }
-  .two1 p {
-    color: white;
-  }
-  .btn1 {
-    background: #0065fc;
-    border-radius: 5px;
-    border: none;
-    padding: 7px 20px;
-    color: white;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  hr {
-    color: #0065fc !important;
-  }
-}
+} */
 
 @media (min-width: 568px) and (max-width: 768px) {
   .two2 {

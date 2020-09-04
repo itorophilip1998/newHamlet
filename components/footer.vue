@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-lg-5 col-sm-3">
               <div class="footer-logo">Hamlet</div>
-              <div class="logo-text">
+              <div class="logo-text mb-4">
                 Hamlet is a Human Resource Management
                 platform created for easy employee management.
               </div>

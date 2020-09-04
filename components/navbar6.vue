@@ -16,7 +16,7 @@
     </li> -->
      <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                   v-if="this.profile_pic"  :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -49,9 +49,9 @@
             </div>
 
            <div class="one1">
-            <img :src="this.company.company_logo" alt class="w-50" />
+            <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" />
 
-            
+
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
        <!-- <li v-if="$auth.loggedIn">
       {{auth.user.email}}
@@ -60,7 +60,7 @@
      <li class="nav-item active">
 
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                    v-if="this.profile_pic"   :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="50px"

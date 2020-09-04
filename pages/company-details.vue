@@ -540,10 +540,16 @@ export default {
       user: {},
       loader: true,
       submitted: false,
+      id:''
     };
   },
-  created() {
-    this.user = this.$auth.$storage.getLocalStorage("jwt");
+  mounted() {
+  this.user= this.$auth.$storage.getLocalStorage('jwt')
+          this.$axios.get('http://hamlet.payfill.co/api/auth/admin').then(res=>
+            {
+              this.id=res.data.user.profile.id
+            })
+
   },
   methods: {
     upload() {
@@ -645,8 +651,9 @@ export default {
       formData.append("services", this.companyInfo.services);
       formData.append("company_logo", this.companyInfo.profile_pic);
       formData.append("company_phone", this.companyInfo.company_phone);
+      formData.append("_method", 'PUT');
       axios
-        .post("https://hamlet.payfill.co/api/company", formData, {
+        .post(`https://hamlet.payfill.co/api/company/${this.id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${this.user}`,
@@ -1083,4 +1090,4 @@ p {
     margin-left: 1rem;
   }
 }
-</style> 
+</style>

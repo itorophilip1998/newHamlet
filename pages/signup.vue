@@ -1,14 +1,19 @@
 <template>
     <div>
         <Navbar />
+
         <!-- Desktop view -->
+
         <div class="bg-big">
                  <div class="grid desktopShow">
                      <div class="margin-form">
                 <div class="form-edit">
+
                     <form @submit.prevent="createAccount">
                             <div class="active first-form" id="hide-form">
+
                                 <h1>Set Up An Account</h1>
+
                                 <span class="mt-4 text-center" v-if="loader"><app-loader /></span>
                                 <div class="mt-4">
                                      <input type="text" class="form-control" id="" name="username" placeholder="Username" v-model="signUp.username"  v-validate="'required'"
@@ -19,6 +24,9 @@
                                     >
                                     {{ errors.first("username")}}
                                     </small>
+                                    <!-- validated backend error username -->
+                                     <small v-if="error.username"  class="text-danger" v-for="errors in error.username" :key="index"><span>{{errors}}</span><br></small>
+
                                 </div>
                                 <div class="mt-4">
                                      <input type="email" name="email" class="form-control" id="" placeholder="Email" v-model="signUp.email" v-validate="'required|email'"
@@ -28,23 +36,32 @@
                                         class="invalid-feedback"
                                          >
                                     {{ errors.first("email")}}
+
                                     </small>
+                                     <!-- validated backend error email -->
+                                     <small v-if="error.email"  class="text-danger" v-for="errors in error.email" :key="index"><span>{{errors}}</span><br></small>
+
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast 8 characters long)</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast <b>8 characters</b> long)</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small>
                                       <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
                                          >
+
                                     {{ errors.first("password")}}
                                     </small>
+                                      <!-- validated backend error password -->
+                                      <small v-if="error.password"  class="text-danger" v-for="errors in error.password" :key="index"><span>{{errors}}</span><br></small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
+                                       <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -150,9 +167,12 @@ export default {
                 email : '',
                 password: '',
                 password_confirmation: ''
+
             },
             loader : false,
             submitted : false,
+            getError:'',
+            error:'',
         }
     },
     methods : {
@@ -174,7 +194,7 @@ export default {
                 console.log("Login")
                 // this.login = false
                  try {
-            let response = await this.$axios.post('https://hamlet.payfill.co/api/auth/signup',this.signUp)
+            let response = await this.$axios.post('http://hamlet.payfill.co/api/auth/signup',this.signUp)
             let token = response.data.token
             this.$auth.$storage.setLocalStorage('jwt', token);
             console.log(response)
@@ -194,14 +214,23 @@ export default {
       }
 
       catch (e) {
-        console.log(e);
-        this.error = e.res;
 
          if (e.response.status === 422) {
-          this.$message({
-            message: "Sorry, Email has been taken",
-            type: "error"
-          });
+        this.error = e.response.data.messages;
+
+          //
+          // this.$message({
+          //        message: `get`,
+          //       type: "error"
+          //      });
+          //      console.log(this.getError)for (const i in this.error)
+          // {
+          //   for (const j in this.error[i])
+          //     {
+          //       console.log(`${this.error[i][j]}`);
+          //       this.getError=this.error[i][j];
+          //     }
+          // }
         }
         this.loader = false
       }
@@ -212,7 +241,7 @@ export default {
                 }
             });
         },
-    
+
     }
 }
 </script>>
@@ -412,7 +441,7 @@ h1{
     }
     .btn2{
         margin-left: .1rem;
-        
+
     }
     .btn3{
         margin-left: .1rem;

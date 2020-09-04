@@ -13,8 +13,8 @@
           </div>
           <div class="col-sm-7">
             <h2 v-if="this.profile">Hello {{ this.profile.first_name }}</h2>
-            <h6 v-if="department ==null " class="mt-4">Welcome to Hamlet!</h6>
-           <div v-if="department ==null " class="border-admin" style="cursor:pointer" @click="departmentClick()">Please click here add Department</div>
+            <h6 v-if="department =='' " class="mt-4">Welcome to Hamlet!</h6>
+           <div v-if="department =='' " class="border-admin" style="cursor:pointer" @click="departmentClick()">Please click here add Department</div>
             <hr>
             <!-- Add user / list of users -->
             <div >
@@ -36,7 +36,7 @@
                   class="define"
                   :key="id"
                   style="text-align:center"
-                  v-if="employees"
+                  v-if="employee"
                 >
                   <div>
                    <nuxt-link :to="`/employees/${employee.id}`"> <img

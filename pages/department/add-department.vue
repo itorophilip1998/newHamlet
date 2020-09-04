@@ -125,7 +125,7 @@
                         <th scope="row" style="display : none">{{index + 1}}</th>
                         <td>{{department.name}}</td>
                         <td>
-                          
+
                           <button class="btn text-primary" @click="edit(department)"><font-awesome-icon :icon="['fa', 'pen']" /></button>
                         </td>
                       </tr>

@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-3">
-            <img v-if="this.company.company_logo != 'undefined'" :src="this.company.company_logo" alt class="w-100 rounded-lg shadow" />
+            <img v-if="this.company.company_logo != 'undefined'" :src="this.company.company_logo" alt class="w-100 " />
             <span v-if="loader" class="text-center">
               <app-loader />
             </span>
@@ -13,10 +13,9 @@
           </div>
           <div class="col-sm-7">
             <h2>Hello {{ this.profile.first_name }}</h2>
-            <h6 class="mt-4">Welcome to Hamlet!</h6>
-
-            <div v-if="!department" class="border-admin">Please add Department</div>
-            <hr v-else>
+            <h6 v-if="department" class="mt-4">Welcome to Hamlet!</h6>
+           <div class="border-admin" style="cursor:pointer" @click="departmentClick">Please add Department</div>
+            <hr>
             <!-- Add user / list of users -->
             <div >
               <!-- <div>
@@ -102,6 +101,7 @@
 </template>
 
 <script>
+
 import axios from "axios";
 import navbar from "~/components/navbar.vue";
 import newLoader from "~/components/loader.vue";
@@ -128,9 +128,13 @@ export default {
   mounted() {
     this.user = this.$auth.$storage.getLocalStorage("user").username;
     this.getCompany();
-    // this.getEmployees()
   },
+
   methods: {
+departmentClick()
+{
+  
+},
     getCompany() {
       this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")

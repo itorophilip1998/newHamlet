@@ -2,18 +2,8 @@
   <div>
     <navbar />
     <div class="pr-5 pl-5 mt-5">
-      <div class="row borderShow">
-        <div class="col-sm-3 mt-3">
-          <h1>Overview</h1>
-        </div>
-        <div class="col-sm-9 pt-2">
-          <div class="float-right">
-            <nuxt-link to="/dashboard">
-              <div class="btn1">Back</div>
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
+
+      <br>
       <div v-if="loader" class="text-center">
                   <span disabled>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -71,6 +61,18 @@
             </div>
 
             <div class="col-sm-10 pl-3">
+               <div class="row borderShow">
+        <div class="col-sm-3 mt-3">
+          <h2>Overview</h2>
+        </div>
+        <div class="col-sm-9 pt-2 ">
+          <div class="float-right">
+            <nuxt-link to="/dashboard">
+              <div class="btn1 ">Back</div>
+            </nuxt-link> 
+          </div>
+        </div>
+      </div>
               <table class="table table-bordered  border-0 rounded-lg rounded-lg shadow">
 
                 <thead class="thead-light">
@@ -165,7 +167,7 @@ export default {
      filterAll()
      {
        return this.employees.filter(post => {
-        return post.first_name.toLowerCase().match(this.filterbyName.toLowerCase() ||  this.filterbyName.toUpperCase())
+        return post.first_name.toLowerCase().match(this.filterbyName.toLowerCase() ||  this.filterbyName.toUpperCase()) || post.other_names.toLowerCase().match(this.filterbyName.toLowerCase() ||  this.filterbyName.toUpperCase())
   })
 
 

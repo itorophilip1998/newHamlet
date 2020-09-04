@@ -141,7 +141,7 @@
               data-aos-easing="ease-in-sine">
               <div class="border-blue mb-3"></div>
               <div class="border-text">
-                MANAGE YOUR EMPLOYEES WITHOUT HASSLE
+                MANAGE YOUR EMPLOYEES WITHOUT HASSLES
               </div>
               <div class="border-p">
                 Business productivity is of paramount importance to the

@@ -156,6 +156,7 @@
 import Navbar from "@/components/navbar2.vue"
 import newLoader from "~/components/loader-1.vue";
 export default {
+  auth: false,
   components : {
         Navbar,
         'app-loader' : newLoader

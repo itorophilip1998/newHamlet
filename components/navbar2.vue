@@ -22,10 +22,10 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <nuxt-link to ="/" class="nav-link">
                   Home
                   <span class="sr-only">(current)</span>
-                </a>
+                </nuxt-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link nav-new" href="#">Service</a>

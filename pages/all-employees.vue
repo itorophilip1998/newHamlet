@@ -73,7 +73,7 @@
           </div>
         </div>
       </div>
-              <table class="table table-bordered  border-0 rounded-lg rounded-lg shadow">
+              <table class="table table-bordered  border-0 rounded-lg rounded-lg shadow table-responsive">
 
                 <thead class="thead-light">
                   <tr>

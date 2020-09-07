@@ -873,7 +873,8 @@ getEmployee(data)
 .one5{
         background: #F9F9F9;
         margin-top: 3.5rem;
-        height: 350vh !important;
+        height: auto !important;
+        padding-bottom: 2rem;
     }
  .nuxt-link-active{
         border-left: 3px solid #64a2ff !important ;
@@ -950,7 +951,7 @@ getEmployee(data)
         border-radius: 5px;
         background: #FFFFFF;
         margin-top: 5rem;
-        height:350vh;
+        height: auto;
         margin-left: 25%;
     }
     .one1{
@@ -1004,7 +1005,7 @@ getEmployee(data)
         border-radius: 5px;
         background: #FFFFFF;
         margin-top: 5rem;
-        height:350vh;
+        height: auto;
         margin-left: 25%;
     }
     .grid{
@@ -1066,7 +1067,8 @@ getEmployee(data)
     .one5{
         background: #F9F9F9;
         margin-top: 3.5rem;
-        height: 350vh;
+        height: auto;
+        padding-bottom: 2rem;
     }
     .one6{
         padding-left: 3rem;

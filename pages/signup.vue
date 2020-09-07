@@ -194,7 +194,7 @@ export default {
                 console.log("Login")
                 // this.login = false
                  try {
-            let response = await this.$axios.post('http://hamlet.payfill.co/api/auth/signup',this.signUp)
+            let response = await this.$axios.post('https://hamlet.payfill.co/api/auth/signup',this.signUp)
             let token = response.data.token
             this.$auth.$storage.setLocalStorage('jwt', token);
             console.log(response)

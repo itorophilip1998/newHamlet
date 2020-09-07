@@ -14,6 +14,7 @@
                 <input
                   name="phone-number"
                   class="form-control"
+                  maxlength="10"
                   v-model="contactInfo.phone"
                   v-validate="'numeric|length:11'"
                   :class="{ 'is-invalid': submitted && errors.has('phone-number') }"
@@ -45,6 +46,7 @@
                 <input
                   name="emergency-contact"
                   class="form-control"
+                  maxlength="10"
                   v-model="contactInfo.emergency_contact"
                   v-validate="'numeric|length:11'"
                   :class="{ 'is-invalid': submitted && errors.has('emergency-contact') }"

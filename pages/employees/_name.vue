@@ -685,9 +685,8 @@ getEmployee(data)
     },
     closeNav(){
       this.styleObject.width = '0px'
-    }
-,
-editContact(id) {
+    },
+    editContact(id) {
       this.editContactInfo = false;
       this.contactInfo = id;
     },
@@ -774,6 +773,9 @@ editContact(id) {
                 headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
             .then((res) => {
+              // this.mounted()
+              // this.editEmployeeDetails = true;
+              // this.employee=res.data.employee
               console.log(res.data);
               this.$message({
                 message: "You've updated your employee's personal details!",
@@ -871,7 +873,8 @@ editContact(id) {
 .one5{
         background: #F9F9F9;
         margin-top: 3.5rem;
-        height: 350vh !important;
+        height: auto !important;
+        padding-bottom: 2rem;
     }
  .nuxt-link-active{
         border-left: 3px solid #64a2ff !important ;
@@ -948,7 +951,7 @@ editContact(id) {
         border-radius: 5px;
         background: #FFFFFF;
         margin-top: 5rem;
-        height:350vh;
+        height: auto;
         margin-left: 25%;
     }
     .one1{
@@ -1002,7 +1005,7 @@ editContact(id) {
         border-radius: 5px;
         background: #FFFFFF;
         margin-top: 5rem;
-        height:350vh;
+        height: auto;
         margin-left: 25%;
     }
     .grid{
@@ -1064,7 +1067,8 @@ editContact(id) {
     .one5{
         background: #F9F9F9;
         margin-top: 3.5rem;
-        height: 350vh;
+        height: auto;
+        padding-bottom: 2rem;
     }
     .one6{
         padding-left: 3rem;

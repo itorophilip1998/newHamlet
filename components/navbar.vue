@@ -16,7 +16,8 @@
     </li> -->
      <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                    v-if="this.profile_pic"   :src="this.profile_pic.profile_pic"
+                    v-if="this.profile_pic"  
+                    :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -51,10 +52,10 @@
            <div class="one1">
             <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" />
 
-            <h5 style="color:white; margin-top:2rem">HIRING CHECKLIST</h5>
-            <p><nuxt-link to="/employee-details" style="text-decoration:none; color : #FFFFFF;">Employee Details</nuxt-link></p>
-            <p><nuxt-link to="/contactinfo/_name.vue" style="text-decoration:none;  color : #FFFFFF">Contact Information</nuxt-link></p>
-            <p><nuxt-link to="/jobdetails/_name.vue" style="text-decoration:none;  color : #FFFFFF">Job Details</nuxt-link></p>
+            <!-- <h5 style="color:white; margin-top:2rem">HIRING CHECKLIST</h5> -->
+          <p class="mt-3"><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
+            <p><nuxt-link to="/department/add-department" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Deparment</h5></nuxt-link></p>
+            <p><nuxt-link to="/all-employees" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Directory</h5></nuxt-link></p>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
        <!-- <li v-if="$auth.loggedIn">
       {{auth.user.email}}
@@ -222,7 +223,7 @@ export default {
  z-index: 1;
  top: 0;
  left: 0;
- background-color: rgb(0,101,252, 0.7);
+ background-color: rgb(0,101,252);
  /* background-image: linear-gradient(to right, #0288d1, #0288d1 ); */
 /* opacity: 0.7; */
  overflow-x: hidden;

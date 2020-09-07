@@ -266,6 +266,7 @@
 import Navbar from "~/components/navbar2.vue";
 import Footer from "~/components/footer.vue";
 export default {
+  auth: false,
   components: {
     "app-navbar": Navbar,
     Footer

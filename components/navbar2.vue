@@ -20,12 +20,12 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <!-- <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <nuxt-link to ="/" class="nav-link">
                   Home
                   <span class="sr-only">(current)</span>
-                </a>
+                </nuxt-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link nav-new" href="#">Service</a>
@@ -36,7 +36,7 @@
               <li class="nav-item">
                 <a class="nav-link nav-new" href="#">Teams</a>
               </li>
-            </ul> -->
+            </ul>
             <form class="form-inline ml-auto my-2 my-lg-0">
               <nuxt-link to="/signin" class="nav-link">
                 <button class="btn1V">Log In</button>

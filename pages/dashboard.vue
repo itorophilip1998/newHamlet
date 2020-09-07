@@ -36,7 +36,6 @@
                   class="define"
                   :key="id"
                   style="text-align:center"
-                  v-if="employee"
                 >
                   <div>
                    <nuxt-link :to="`/employees/${employee.id}`"> <img
@@ -181,7 +180,7 @@ this.$router.push('/department/add-department')
 }
 .bg-color {
   /* margin: 0 5rem 0 0 !important; */
-  padding: 10rem 0 2rem 0;
+  padding: 10rem 1em 2rem 0;
 
   height: auto;
 }
@@ -243,5 +242,21 @@ a:hover {
 .boxes {
   margin-top: 5rem;
   margin-bottom: 5rem;
+}
+/* .bg-color {
+  padding: 10rem 1em 2rem 0;
+  height: auto;
+} */
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+  .bg-color {
+  padding: 10rem .5rem 2rem .5rem;
+  height: auto;
+}
+}
+@media only screen and (min-width: 360px) and (max-width: 578px) {
+    .bg-color {
+    padding: 10rem .5rem 2rem .5rem;
+    height: auto;
+  }
 }
 </style>

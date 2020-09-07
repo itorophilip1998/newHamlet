@@ -5,7 +5,9 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-3">
-            <img v-if="this.company" :src="this.company.company_logo" alt class="w-70 " />
+            <img v-if="this.company" :src="this.company.company_logo" alt class="img-fluid
+            
+             " />
             <span v-if="loader" class="text-center">
               <app-loader />
             </span>
@@ -107,7 +109,7 @@
 <script>
 
 import axios from "axios";
-import navbar from "~/components/navbar.vue";
+import navbar from "~/components/navbar7.vue";
 import newLoader from "~/components/loader.vue";
 // import { mapGetters } from "vuex";
 export default {

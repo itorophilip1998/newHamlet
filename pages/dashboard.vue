@@ -36,7 +36,7 @@
                   class="define"
                   :key="id"
                   style="text-align:center"
-                  v-if="employees"
+                  
                 >
                   <div>
                    <nuxt-link :to="`/employees/${employee.id}`"> <img

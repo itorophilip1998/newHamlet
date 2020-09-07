@@ -16,7 +16,8 @@
     </li> -->
      <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                    v-if="this.profile_pic"   :src="this.profile_pic.profile_pic"
+                    v-if="this.profile_pic"  
+                    :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"

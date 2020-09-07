@@ -685,9 +685,8 @@ getEmployee(data)
     },
     closeNav(){
       this.styleObject.width = '0px'
-    }
-,
-editContact(id) {
+    },
+    editContact(id) {
       this.editContactInfo = false;
       this.contactInfo = id;
     },
@@ -774,6 +773,9 @@ editContact(id) {
                 headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
             .then((res) => {
+              // this.mounted()
+              // this.editEmployeeDetails = true;
+              // this.employee=res.data.employee
               console.log(res.data);
               this.$message({
                 message: "You've updated your employee's personal details!",

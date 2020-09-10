@@ -50,7 +50,9 @@
 
            <div class="one1">
             <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" />
-
+             <p class="mt-3"><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
+            <p><nuxt-link to="/department/add-department" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Department</h5></nuxt-link></p>
+            <p><nuxt-link to="/all-employees" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Directory</h5></nuxt-link></p>
 
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
        <!-- <li v-if="$auth.loggedIn">
@@ -219,7 +221,7 @@ export default {
  z-index: 1;
  top: 0;
  left: 0;
- background-color: rgb(0,101,252, 0.7);
+ background-color: rgb(0,101,252);
  /* background-image: linear-gradient(to right, #0288d1, #0288d1 ); */
 /* opacity: 0.7; */
  overflow-x: hidden;

@@ -131,6 +131,7 @@
                       class="form-control"
                       id
                       placeholder="company phone number"
+                      maxlength="11"
                       v-model="companyInfo.company_phone"
                       v-validate="'numeric'"
                       :class="{ 'is-invalid': submitted && errors.has('phone') }"
@@ -377,6 +378,7 @@
                       name="phone"
                       class="form-control"
                       id
+                      maxlength="11"
                       placeholder="company phone number"
                       v-model="companyInfo.company_phone"
                       v-validate="'numeric'"
@@ -509,7 +511,7 @@ import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import Navbar from "@/components/navbar2.vue";
 export default {
-  //  middleware : ['auth'],
+  //  auth: false,
   components: {
     Navbar,
     "app-loader": newLoader,
@@ -540,10 +542,16 @@ export default {
       user: {},
       loader: true,
       submitted: false,
+      id:''
     };
   },
-  created() {
-    this.user = this.$auth.$storage.getLocalStorage("jwt");
+  mounted() {
+  this.user= this.$auth.$storage.getLocalStorage('jwt')
+          this.$axios.get('https://hamlet.payfill.co/api/auth/admin').then(res=>
+            {
+              this.id=res.data.user.profile.id
+            })
+
   },
   methods: {
     upload() {
@@ -645,8 +653,9 @@ export default {
       formData.append("services", this.companyInfo.services);
       formData.append("company_logo", this.companyInfo.profile_pic);
       formData.append("company_phone", this.companyInfo.company_phone);
+      formData.append("_method", 'PUT');
       axios
-        .post("https://hamlet.payfill.co/api/company", formData, {
+        .post(`https://hamlet.payfill.co/api/company/${this.id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${this.user}`,
@@ -1083,4 +1092,4 @@ p {
     margin-left: 1rem;
   }
 }
-</style> 
+</style>

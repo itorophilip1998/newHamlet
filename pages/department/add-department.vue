@@ -125,7 +125,7 @@
                         <th scope="row" style="display : none">{{index + 1}}</th>
                         <td>{{department.name}}</td>
                         <td>
-                          
+
                           <button class="btn text-primary" @click="edit(department)"><font-awesome-icon :icon="['fa', 'pen']" /></button>
                         </td>
                       </tr>
@@ -201,7 +201,7 @@ export default {
         });
     },
     addDepartment() {
-      // this.isLoading = false;
+      this.isLoading = false;
       // this.submitted = true;
       // this.$validator.validateAll().then((valid) => {
       //   if (valid) {
@@ -223,7 +223,7 @@ export default {
               // this.reload();
               // this.$router.push('/dashboard')
               this.departmentInfo.name = ""
-              // this.isLoading = true;
+              this.isLoading = true;
             })
             .catch((error) => {
                if(error.response.status==422) {
@@ -292,7 +292,7 @@ export default {
                   )
                   .then((res) => {
                    this.getDepartment()
-              this.getCompany()
+                  this.getCompany()
               // this.isLoading = true;
               this.$message({
                 message: "Department Successfully Updated!",

@@ -385,7 +385,8 @@ hr {
 .one5 {
   background: #f9f9f9;
   margin-top: 3.5rem;
-  height: 130vh;
+  height: auto;
+  padding-bottom: 2rem;
 }
 .one6 {
   padding-left: 4rem;
@@ -456,9 +457,11 @@ textarea {
   }
   .btn2 {
     margin-left: 0px;
+    margin-top: .5rem;
   }
   .btn1 {
     margin-bottom: 30px;
+    
   }
   .one6 {
     padding-left: 30px;

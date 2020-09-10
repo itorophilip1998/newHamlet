@@ -15,8 +15,8 @@
           </div>
           <div class="col-sm-7">
             <h2 v-if="this.profile">Hello {{ this.profile.first_name }}</h2>
-            <h6 v-if="department ==null " class="mt-4">Welcome to Hamlet!</h6>
-           <div v-if="department ==null " class="border-admin" style="cursor:pointer" @click="departmentClick()">Please click here to add Department</div>
+            <h6 v-if="department =='' " class="mt-4">Welcome to Hamlet!</h6>
+           <div v-if="department =='' " class="border-admin" style="cursor:pointer" @click="departmentClick()">Please click here add Department</div>
             <hr>
             <!-- Add user / list of users -->
             <div >
@@ -38,7 +38,6 @@
                   class="define"
                   :key="id"
                   style="text-align:center"
-      
                 >
                   <div>
                    <nuxt-link :to="`/employees/${employee.id}`"> <img
@@ -183,7 +182,7 @@ this.$router.push('/department/add-department')
 }
 .bg-color {
   /* margin: 0 5rem 0 0 !important; */
-  padding: 10rem 0 2rem 0;
+  padding: 10rem 1em 2rem 0;
 
   height: auto;
 }
@@ -245,5 +244,21 @@ a:hover {
 .boxes {
   margin-top: 5rem;
   margin-bottom: 5rem;
+}
+/* .bg-color {
+  padding: 10rem 1em 2rem 0;
+  height: auto;
+} */
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+  .bg-color {
+  padding: 10rem .5rem 2rem .5rem;
+  height: auto;
+}
+}
+@media only screen and (min-width: 360px) and (max-width: 578px) {
+    .bg-color {
+    padding: 10rem .5rem 2rem .5rem;
+    height: auto;
+  }
 }
 </style>

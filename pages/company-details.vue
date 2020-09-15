@@ -131,6 +131,7 @@
                       class="form-control"
                       id
                       placeholder="company phone number"
+                      maxlength="11"
                       v-model="companyInfo.company_phone"
                       v-validate="'numeric'"
                       :class="{ 'is-invalid': submitted && errors.has('phone') }"
@@ -377,6 +378,7 @@
                       name="phone"
                       class="form-control"
                       id
+                      maxlength="11"
                       placeholder="company phone number"
                       v-model="companyInfo.company_phone"
                       v-validate="'numeric'"
@@ -509,7 +511,7 @@ import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import Navbar from "@/components/navbar2.vue";
 export default {
-  //  middleware : ['auth'],
+  //  auth: false,
   components: {
     Navbar,
     "app-loader": newLoader,

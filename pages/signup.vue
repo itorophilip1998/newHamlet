@@ -25,7 +25,7 @@
                                     {{ errors.first("username")}}
                                     </small>
                                     <!-- validated backend error username -->
-                                     <small v-if="error.username"  class="text-danger" v-for="errors in error.username" :key="index"><span>{{errors}}</span><br></small>
+                                     <!-- <small v-if="error.username"  class="text-danger" v-for="errors in error.username" :key="index"><span>{{errors}}</span><br></small> -->
 
                                 </div>
                                 <div class="mt-4">
@@ -39,7 +39,7 @@
 
                                     </small>
                                      <!-- validated backend error email -->
-                                     <small v-if="error.email"  class="text-danger" v-for="errors in error.email" :key="index"><span>{{errors}}</span><br></small>
+                                     <!-- <small v-if="error.email"  class="text-danger" v-for="errors in error.email" :key="index"><span>{{errors}}</span><br></small> -->
 
                                 </div>
                                 <div class="mt-4">
@@ -56,7 +56,7 @@
                                     {{ errors.first("password")}}
                                     </small>
                                       <!-- validated backend error password -->
-                                      <small v-if="error.password"  class="text-danger" v-for="errors in error.password" :key="index"><span>{{errors}}</span><br></small>
+                                      <!-- <small v-if="error.password"  class="text-danger" v-for="errors in error.password" :key="index"><span>{{errors}}</span><br></small> -->
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
@@ -156,6 +156,7 @@
 import Navbar from "@/components/navbar2.vue"
 import newLoader from "~/components/loader-1.vue";
 export default {
+  auth: false,
   components : {
         Navbar,
         'app-loader' : newLoader
@@ -199,13 +200,11 @@ export default {
             this.$auth.$storage.setLocalStorage('jwt', token);
             console.log(response)
              await this.$auth.loginWith('local', {
-          data: {
-                email : this.signUp.email,
-                password : this.signUp.password
-          },
-        })
-
-
+                data: {
+                        email : this.signUp.email,
+                        password : this.signUp.password
+                },
+            })
           this.$message({
           message: "Account created successfully!",
           type: 'success'
@@ -218,7 +217,6 @@ export default {
          if (e.response.status === 422) {
         this.error = e.response.data.messages;
 
-          //
           // this.$message({
           //        message: `get`,
           //       type: "error"

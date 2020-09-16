@@ -45,9 +45,9 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast <b>8 characters</b> long)</small>
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
+                                     <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small> -->
                                       <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -61,7 +61,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                       <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
+                                       <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -73,8 +73,13 @@
                             <button type="submit" class="btn1 btn btn-primary">Create Account</button>
                     </form>
                     <div class="account">
-                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
+                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link> </span> Or
+                    
+
+
+                    
                     </div>
+                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>                     
                     </div>
                 </div>
                 <div class="wrapper">
@@ -82,7 +87,7 @@
                     </div>
 
                 </div>
-
+                    
 
             </div>
 
@@ -118,7 +123,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast 8 characters long)</small>
+                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
                                       <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -129,7 +134,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
+                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -140,10 +145,14 @@
                             </div>
                             <button type="submit" class="btn1 btn btn-primary">Create Account</button>
                     </form>
+                    
                         <div class="account">
-                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
-
+                        Already have an account? <span style="color : #0065FC"> <nuxt-link to="/signin">Log in</nuxt-link></span> 
                     </div>
+                    <div style="text-align:center; color:white">
+                        <p>Or</p>
+                    </div>
+                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>                     
                     </div>
                 </div>
                 <!-- Mobile View End -->
@@ -213,22 +222,11 @@ export default {
       }
 
       catch (e) {
-
-         if (e.response.status === 422) {
-        this.error = e.response.data.messages;
-
-          // this.$message({
-          //        message: `get`,
-          //       type: "error"
-          //      });
-          //      console.log(this.getError)for (const i in this.error)
-          // {
-          //   for (const j in this.error[i])
-          //     {
-          //       console.log(`${this.error[i][j]}`);
-          //       this.getError=this.error[i][j];
-          //     }
-          // }
+          if (e.response.status === 422) {
+          this.$message({
+            message: "Sorry, email already taken!",
+            type: "error",
+          });
         }
         this.loader = false
       }
@@ -254,12 +252,12 @@ export default {
     /* background-position: right; */
     /* background-size: center center/cover; */
     /* background-repeat: no-repeat; */
-    height: 100vh;
+    height: 120vh;
 }
 .bg-big{
     /* background-color:#F9F9F9; */
     background-color: rgb(192, 192, 192, 0.1);
-    margin-top: 4.3rem;
+    margin-top: 4rem;
 }
 .margin-form{
     margin-left: 8rem;
@@ -272,6 +270,18 @@ export default {
 .form-edit{
     padding: 1rem;
 }
+.btn8{
+  width:80%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
+.btn8 a{
+  color: #EB4335;
+}
 .first-form{
     margin-top: 6rem;
 }
@@ -279,7 +289,7 @@ export default {
     margin-top: 1rem;
 }
 input{
-    width : 70%;
+    width : 80%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     background-color: rgba(255,255,255,1) !important;
 }
@@ -289,20 +299,20 @@ input{
     outline: none;
 }
 textarea{
-    width: 70%;
+    width: 80%;
     height: 10vh;
     border: 1px solid rgb(192, 192, 192);
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     background-color: rgba(255,255,255,1) !important;
 }
 .btn1{
-    padding: 1rem 10.5rem;
+    padding: 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
-    width: 70%;
+    width: 80% !important;
 }
 .btn3{
     padding: 1rem 2rem;
@@ -359,10 +369,19 @@ h1{
     .wrapper{
     background: linear-gradient(to right, rgba(8, 29, 41, 0.7),
        rgba(8, 29, 41, 0.7)), url("/img/nesa.jpg") no-repeat center center/cover;
-    height: 100vh;
+    height: 140vh;
     padding-top: 1rem;
      padding-bottom: 0;
     }
+    .btn8{
+  width:100%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     label{
         color: #FFFFFF;
     }
@@ -386,12 +405,13 @@ h1{
         color: #FFFFFF !important;
     }
     .btn1{
-    padding: 1rem 5.5rem;
+
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 100% !important;
     }
     .first-form{
         margin-top: 3rem;
@@ -403,7 +423,7 @@ h1{
     }
 
 }
-@media only screen and (min-width: 360px) and (max-width: 578px) {
+@media only screen and (min-width: 351px) and (max-width: 578px) {
     h1{
         font-size: 2rem;
         color: #FFFFFF;
@@ -423,10 +443,19 @@ h1{
     /* background-position: right; */
     /* background-size: center center/cover; */
     /* background-repeat: no-repeat; */
-    height: 100vh;
+    height: 125vh;
     padding-top: 1rem;
      padding-bottom: 0;
     }
+    .btn8{
+  width:100%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     label{
         color: #FFFFFF;
     }
@@ -451,12 +480,12 @@ h1{
         color: #FFFFFF !important;
     }
     .btn1{
-    padding: 1rem 6.8rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 100% !important;
     }
     .first-form{
         margin-top: 3rem;
@@ -472,19 +501,33 @@ h1{
     .margin-form{
         margin-left: 2rem;
     }
+     h1{
+        font-size: 2rem;
+        color: #0065FC;
+    }
     .box-down{
     padding-left: 3rem;
     margin-top: 13rem;
     text-align: center;
     }
-     .btn1{
-    padding: 1rem 7rem;
+    .btn1{
+    padding: 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 100% !important;
     }
+    .btn8{
+  width:100%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     .account{
     padding: 1rem 2rem 2rem .5rem;
     font-size: 1rem;
@@ -492,10 +535,6 @@ h1{
     }
     input{
         width: 100%;
-    }
-    h1{
-        font-size: 2rem !important;
-        color: #FFFFFF;
     }
     .margin-form{
         margin-left: 1rem;
@@ -510,13 +549,23 @@ h1{
 }
 @media only screen and (min-width: 996px) and (max-width: 1024px) {
     .btn1{
-    padding: 1rem 9rem;
+    padding: 1rem 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 90% !important;
     }
+    .btn8{
+  width:90%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     .margin-form{
         margin-left: 2rem;
     }
@@ -527,20 +576,10 @@ h1{
         width: 90%;
     }
 }
-@media only screen and (min-width: 1025px) and (max-width: 1440px) {
-    .btn1{
-    padding: 1rem 1rem;
-    margin-top: 2rem;
-    color:  #FFFFFF;
-    background-color: #0065FC;
-    border: 1px solid #0065FC;
-    outline: none !important;
-    width: 70%;
-    }
-}
+
 @media only screen and (min-width: 2000px) and (max-width: 2560px) {
     .btn1{
-    padding: 1rem 21rem;
+    /* padding: 1rem 21rem; */
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;

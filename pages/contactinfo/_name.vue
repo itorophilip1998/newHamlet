@@ -14,9 +14,9 @@
                 <input
                   name="phone-number"
                   class="form-control"
-                  maxlength="10"
+                  maxlength="11"
                   v-model="contactInfo.phone"
-                  v-validate="'numeric|length:11'"
+                  v-validate="'required|numeric'"
                   :class="{ 'is-invalid': submitted && errors.has('phone-number') }"
                 />
                 <div></div>
@@ -46,9 +46,9 @@
                 <input
                   name="emergency-contact"
                   class="form-control"
-                  maxlength="10"
+                  maxlength="11"
                   v-model="contactInfo.emergency_contact"
-                  v-validate="'numeric|length:11'"
+                  v-validate="'required|numeric'"
                   :class="{ 'is-invalid': submitted && errors.has('emergency-contact') }"
                 />
                 <div></div>
@@ -207,7 +207,8 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+   /* background-color: rgb(192, 192, 192, 0.2) !important; */
+  background-color: #E6ECF2 !important;
   margin-top: 3.5rem;
   height: 130vh;
 }

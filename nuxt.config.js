@@ -40,10 +40,10 @@ export default {
       {
         href: "https://unpkg.com/element-ui/lib/theme-chalk/index.css",
         rel: "stylesheet"
-      }
+      },
       // {
       //   rel: "stylesheet",
-      //   href: "toastr.css"
+      //   href: "https://use.fontawesome.com/releases/v5.8.1/css/solid.css"
       // }
     ],
     script: [

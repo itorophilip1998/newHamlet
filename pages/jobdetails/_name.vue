@@ -137,13 +137,13 @@
                  v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('job-category') }"
                 ><option value selected disabled>Select Job Category</option>
-                  <option value="Male">Executive Officers and Managers</option>
-                  <option value="Female">Mid-Level Officers and Managers</option>
-                  <option value="Male">Professionals</option>
-                    <option value="Female">Technicians</option>
-                    <option value="Male">Sales Workers</option>
-                    <option value="Female">Craft Workers</option>
-                    <option value="Female">Service Workers</option>
+                  <option value="Executive Officers and Managers">Executive Officers and Managers</option>
+                  <option value="Mid-Level Officers and Managers">Mid-Level Officers and Managers</option>
+                  <option value="Professionals">Professionals</option>
+                    <option value="Technicians">Technicians</option>
+                    <option value="Sales Workers">Sales Workers</option>
+                    <option value="Craft Workers">Craft Workers</option>
+                    <option value="Service Workers">Service Workers</option>
                 </select>
                 <div></div>
                 <small
@@ -287,12 +287,13 @@
 
   }
   .one2{
-    box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.15); */
     width: 50%;
     border-radius: 5px;
     background: #FFFFFF;
     margin-top: 5rem;
-    height: 200vh;
+    height: auto;
+    padding-bottom: 2rem;
     margin-left: 25%;
   }
   .grid{
@@ -343,9 +344,10 @@
     margin-left: 20px;
   }
   .one5{
-    background: #F9F9F9;
+     /* background-color: rgb(192, 192, 192, 0.2) !important; */
+     background-color: #E6ECF2 !important;
     margin-top: 3.5rem;
-    height: 150vh;
+    height: auto;
   }
   select{
     width:100%;

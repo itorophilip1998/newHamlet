@@ -1,7 +1,7 @@
 <template>
     <div class="one">
         <div class="one1">
-            <img :src="this.profile.profile_pic" alt class="w-99" />
+            <img :src="this.profile.profile_pic" alt class="image-fluid rounded-circle" />
             <p :class="currentPage.includes('/profile/profile') ? activeClass : ''"><nuxt-link to="/profile/profile" style="text-decoration:none">Manager Profile</nuxt-link></p>
             <!-- <p :class="currentPage.includes('/company/taxinfo') ? activeClass : ''"><nuxt-link to="/company/taxinfo" style="text-decoration:none">Tax Info</nuxt-link></p>
             <p :class="currentPage.includes('/company/locations') ? activeClass : ''"><nuxt-link to="/company/locations" style="text-decoration:none">Locations</nuxt-link></p> -->
@@ -62,7 +62,7 @@ export default {
         left: 0;
         width: 25%;
         height: 100vh;
-        background: #F9F9F9;
+        /* background: #F9F9F9; */
         position: fixed;
     }
     .one1{

@@ -172,7 +172,7 @@ a {
   display: none;
 }
 .logo-ham {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #0065fc !important;
 }
 a {
@@ -219,7 +219,7 @@ a {
   font-size: 2rem !important;
 }
 .openNav {
-  font-size: 2rem !important;
+  font-size: 1.5rem !important;
   cursor: pointer;
 }
 .logo3V {

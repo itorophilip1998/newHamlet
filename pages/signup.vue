@@ -45,9 +45,9 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast <b>8 characters</b> long)</small>
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
+                                     <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small> -->
                                       <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -61,7 +61,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                       <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
+                                       <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -118,7 +118,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast 8 characters long)</small>
+                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
                                       <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -129,7 +129,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
+                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -213,22 +213,11 @@ export default {
       }
 
       catch (e) {
-
-         if (e.response.status === 422) {
-        this.error = e.response.data.messages;
-
-          // this.$message({
-          //        message: `get`,
-          //       type: "error"
-          //      });
-          //      console.log(this.getError)for (const i in this.error)
-          // {
-          //   for (const j in this.error[i])
-          //     {
-          //       console.log(`${this.error[i][j]}`);
-          //       this.getError=this.error[i][j];
-          //     }
-          // }
+          if (e.response.status === 422) {
+          this.$message({
+            message: "Sorry, email already taken!",
+            type: "error",
+          });
         }
         this.loader = false
       }
@@ -259,7 +248,7 @@ export default {
 .bg-big{
     /* background-color:#F9F9F9; */
     background-color: rgb(192, 192, 192, 0.1);
-    margin-top: 4.3rem;
+    margin-top: 4rem;
 }
 .margin-form{
     margin-left: 8rem;
@@ -296,7 +285,7 @@ textarea{
     background-color: rgba(255,255,255,1) !important;
 }
 .btn1{
-    padding: 1rem 10.5rem;
+    padding: 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
@@ -472,13 +461,17 @@ h1{
     .margin-form{
         margin-left: 2rem;
     }
+     h1{
+        font-size: 2rem;
+        color: #0065FC;
+    }
     .box-down{
     padding-left: 3rem;
     margin-top: 13rem;
     text-align: center;
     }
-     .btn1{
-    padding: 1rem 7rem;
+    .btn1{
+    padding: 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
@@ -492,10 +485,6 @@ h1{
     }
     input{
         width: 100%;
-    }
-    h1{
-        font-size: 2rem !important;
-        color: #FFFFFF;
     }
     .margin-form{
         margin-left: 1rem;
@@ -540,7 +529,7 @@ h1{
 }
 @media only screen and (min-width: 2000px) and (max-width: 2560px) {
     .btn1{
-    padding: 1rem 21rem;
+    /* padding: 1rem 21rem; */
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;

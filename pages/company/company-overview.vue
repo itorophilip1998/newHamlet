@@ -383,9 +383,11 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+  /* background-color: rgb(192, 192, 192, 0.2) !important; */
+   background-color: #E6ECF2 !important;
+  /* background: #f9f9f9; */
   margin-top: 3.5rem;
-  height: auto;
+  height: 100vh;
   padding-bottom: 2rem;
 }
 .one6 {
@@ -429,6 +431,7 @@ textarea {
 }
 #style-loader {
   margin-top: 30vh;
+  padding-bottom: 5rem;
   text-align: center;
 }
 

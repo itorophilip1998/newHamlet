@@ -54,9 +54,9 @@
             <p class="text-center">
               Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link>
             </p>
-            <p class="text-center">
+            <!-- <p class="text-center">
               <a href="https://hamlet.payfill.co/google" class="btn btn-danger "><i class="fa fa-google" aria-hidden="true"></i> Google</a>
-            </p>
+            </p> -->
           </div>
         </div>
         <div class="two"></div>
@@ -132,26 +132,27 @@ export default {
         });
         this.$router.push("/dashboard");
       } catch (e) {
+        this.loader = true;
         // console.log(e.response.status);
         // this.error = e.res;
         if (e.response.status === 401) {
           this.$message({
-            message: "Error, please sign up or check username and password!",
+            message: "Sorry,username or password those not match our record!",
             type: "error",
           });
         }
         if (e.response.status === 422) {
           this.$message({
-            message: "Error, check username or password!",
+            message: "Sorry, check username or password!",
             type: "error",
           });
         }
-        //  if (!e.response.status) {
-        //   this.$message({
-        //     message: "Error, please check your internet connection",
-        //     type: "error",
-        //   });
-        // }
+         if (!e.response.status) {
+          this.$message({
+            message: "Sorry, please check your internet connection",
+            type: "error",
+          });
+        }
         this.loader = true;
       }
         }
@@ -195,7 +196,7 @@ input {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 4.3rem;
+  margin-top: 4rem;
   height: 100vh;
 }
 .two1 h2 {

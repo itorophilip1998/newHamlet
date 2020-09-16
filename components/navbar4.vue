@@ -1,5 +1,5 @@
 <template>
-<div class="boxShadow shadow fixed-top">
+<div class="boxShadow fixed-top">
    <div class="one desktopView">
         <nav class="navbar navbar-expand-lg navbar-light ">
   <nuxt-link to="/dashboard"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
@@ -48,14 +48,21 @@
             </div>
 
            <div class="one1">
+             <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" style="margin-bottom:1rem" />
             <p><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
             <p><nuxt-link to="/department/add-department" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Department</h5></nuxt-link></p>
             <p><nuxt-link to="/all-employees" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Directory</h5></nuxt-link></p>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-       <!-- <li v-if="$auth.loggedIn">
-      {{auth.user.email}}
-      <span class="ml-3">Log out</span>
-    </li> -->
+           <li class="nav-item active">
+        <nuxt-link to="/profile/profile"><img
+                   v-if="this.profile_pic"   :src="this.profile_pic.profile_pic"
+                      alt
+                      class="rounded-circle"
+                      width="50px"
+                      height="50px"
+
+           /></nuxt-link>
+      </li>
       <li class="nav-item active">
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
@@ -140,7 +147,7 @@ export default {
       margin-left: 1.5rem;
     }
     .boxShadow{
-       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
         background-color: rgba(255,255,255,1) !important;
     }
     .one{

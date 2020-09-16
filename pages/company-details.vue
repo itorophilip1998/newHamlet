@@ -511,7 +511,7 @@ import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import Navbar from "@/components/navbar2.vue";
 export default {
-   auth: false,
+  //  auth: false,
   components: {
     Navbar,
     "app-loader": newLoader,

@@ -54,7 +54,8 @@ export default {
         left: 0;
         width: 25%;
         height: 100vh;
-        background: #F9F9F9;
+        /* background-color: rgb(192, 192, 192, 0.2) !important; */
+        /* background: #F9F9F9; */
         position: fixed;
     }
     .one1{

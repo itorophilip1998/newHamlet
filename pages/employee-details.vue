@@ -340,7 +340,8 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+  background-color: #E6ECF2 !important;
+   /* background-color: rgb(192, 192, 192, 0.2) !important; */
   margin-top: 3.5rem;
   height: auto;
 }

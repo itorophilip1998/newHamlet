@@ -13,7 +13,7 @@
               <!-- <app-sidebar /> -->
         <div class="one1">
             <div v-for="item in employee" :key="item.id">
-        <img class="w-99"  v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
+        <img class="img-fluid rounded-circle" v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
            </div>
              <p ><span style="cursor:pointer"   class="text-primary">Employee Details</span></p>           
             <!-- <p ><span style="cursor:pointer"  @click='Job()' class="text-primary">Job Details</span></p>
@@ -22,7 +22,13 @@
 
     </div> 
     </div> 
+
     <div  class="one2 ">
+      <div class="loader-edit" v-if="LoadingEm">
+        <app-loader1 />
+      </div>
+
+        <div v-else>
         <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
                     <button class="btn-arrow"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
@@ -38,10 +44,6 @@
       </div>
       
         </div>
-
-
-
-
         <!-- Personal Info Starts -->
        <div id="Personal">
          <div v-if="editEmployeeDetails">
@@ -431,13 +433,13 @@
                  v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('job-category') }"
                 ><option value selected disabled>Select Job Category</option>
-                  <option value="Male">Executive Officers and Managers</option>
-                  <option value="Female">Mid-Level Officers and Managers</option>
-                  <option value="Male">Professionals</option>
-                    <option value="Female">Technicians</option>
-                    <option value="Male">Sales Workers</option>
-                    <option value="Female">Craft Workers</option>
-                    <option value="Female">Service Workers</option>
+                   <option value="Executive Officers and Managers">Executive Officers and Managers</option>
+                  <option value="Mid-Level Officers and Managers">Mid-Level Officers and Managers</option>
+                  <option value="Professionals">Professionals</option>
+                    <option value="Technicians">Technicians</option>
+                    <option value="Sales Workers">Sales Workers</option>
+                    <option value="Craft Workers">Craft Workers</option>
+                    <option value="Service Workers">Service Workers</option>
                 </select>
                 <div></div>
                 <small
@@ -574,7 +576,7 @@
       </div>
     </div>
      </div>
-
+        </div>
  </div>
         </div>
 
@@ -588,6 +590,7 @@
 <script>
 import sidebar from '~/components/sidebar2.vue';
 import navbar from '~/components/navbar4.vue';
+import appLoader from "~/components/loader-1.vue";
 import newLoader from "~/components/loader.vue";
 import swal from "sweetalert";
 export default {
@@ -596,10 +599,13 @@ export default {
         'app-sidebar':sidebar,
         'app-navbar':navbar,
         "app-loader": newLoader,
+        "app-loader1": appLoader,
+        
     },
     data() {
       return {
-          radio1: true,
+        LoadingEm : true,
+        radio1: true,
         radio2: false,
         departments:{},
           jobDetails:{
@@ -651,7 +657,9 @@ export default {
       }
     },
     mounted(){
+    
       this.$axios.get(`https://hamlet.payfill.co/api/employees/${this.$route.params.name}`).then(res => {
+              this.LoadingEm = false
               this.employee=res.data.employee
               this.contact_info=res.data.employee[0].contact_info
               this.job_details=res.data.employee[0].job_details
@@ -870,8 +878,13 @@ getEmployee(data)
 *{
   font-family: "Overpass", sans-serif;
 }
+.loader-edit{
+  text-align: center !important;
+  margin-top: 15rem;
+}
 .one5{
-        background: #F9F9F9;
+        /* background-color: rgb(192, 192, 192, 0.2) !important; */
+        background-color: #E6ECF2 !important;
         margin-top: 3.5rem;
         height: auto !important;
         padding-bottom: 2rem;
@@ -943,7 +956,7 @@ getEmployee(data)
         left: 0;
         width: 25%;
         height: 350vh;
-        background: #F9F9F9;
+        /* background: #F9F9F9; */
         position: fixed;
     }
     .one2{
@@ -984,6 +997,9 @@ getEmployee(data)
         .one{
             display: none;
         }
+         .one7{
+    margin-left: 0 !important;
+  }
     }
     @media(min-width: 568px) and (max-width:768px) {
         .one1{
@@ -1064,12 +1080,12 @@ getEmployee(data)
         border: none;
         margin-left: 20px;
     }
-    .one5{
+    /* .one5{
         background: #F9F9F9;
         margin-top: 3.5rem;
         height: auto;
         padding-bottom: 2rem;
-    }
+    } */
     .one6{
         padding-left: 3rem;
         padding-right: 4rem;
@@ -1266,6 +1282,7 @@ position: absolute;
   .mobileViewV{
     display:block;
   }
+ 
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
   .desktopViewV{

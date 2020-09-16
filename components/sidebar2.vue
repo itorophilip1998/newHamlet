@@ -2,7 +2,8 @@
     <div class="one">
         <div class="one1">
             <div v-for="item in employee" :key="item.id">
-        <img class="w-99"  v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
+        <img class="img-fluid rounded-circle"
+          v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
            </div>
             <p :class="currentPage.includes('/employees/_name.vue') ? activeClass : ''"><nuxt-link to="/employees/_name.vue" style="text-decoration:none">Employee Details</nuxt-link></p>
             <!-- <p :class="currentPage.includes('/company/taxinfo') ? activeClass : ''"><nuxt-link to="/company/taxinfo" style="text-decoration:none">Tax Info</nuxt-link></p>
@@ -67,7 +68,7 @@ mounted(){
         left: 0;
         width: 25%;
         height: 100vh;
-        background: #F9F9F9;
+        /* background: #F9F9F9; */
         position: fixed;
     }
     .one1{

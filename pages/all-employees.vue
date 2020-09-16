@@ -20,7 +20,22 @@
               <input type="search" v-model="filterbyName" class="form-control" name id />
 
               <h5 class="mt-5">Type</h5>
-              <div class="d-flex mt-4">
+              <div class="input-group">
+                <label class="container">Temporary Staff
+                  <input type="radio" checked="checked" name="radio" value="Temporary Staff" v-model="jobDetails.employment_classification">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Hired Contractor
+                  <input type="radio" name="radio" value="Hired Contractor" v-model="jobDetails.employment_classification">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Volunteer
+                  <input type="radio" name="radio" value="Volunteer" v-model="jobDetails.employment_classification">
+                  <span class="checkmark"></span>
+                </label>
+
+              </div>
+              <!-- <div class="d-flex mt-4">
                 <div>
                   <input type="checkbox" name class id />
                 </div>
@@ -44,7 +59,7 @@
                   <label class="check-1">Intern</label>
                 </div>
               </div>
-<!--
+
               <h5 class="mt-5">Job Title</h5>
               <select class="custom-select increase_height" name>
                 <option value selected disabled>Select Role</option>

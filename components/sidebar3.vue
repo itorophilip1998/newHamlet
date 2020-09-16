@@ -1,8 +1,8 @@
 <template>
     <div class="one">
         <div class="one1">
-            <img :src="this.company.company_logo" alt class="w-99" />
-            <p :class="currentPage.includes('/company/companyoverview') ? activeClass : ''"><nuxt-link to="/company/companyoverview" style="text-decoration:none">Company Overview</nuxt-link></p>
+            <img :src="this.company.company_logo" alt class="w-99 rounded-lg shadow" />
+            <p style="text-decoration:none">{{this.company.company_name}}</p>
             <!-- <p :class="currentPage.includes('/company/taxinfo') ? activeClass : ''"><nuxt-link to="/company/taxinfo" style="text-decoration:none">Tax Info</nuxt-link></p>
             <p :class="currentPage.includes('/company/locations') ? activeClass : ''"><nuxt-link to="/company/locations" style="text-decoration:none">Locations</nuxt-link></p> -->
         </div>
@@ -54,7 +54,8 @@ export default {
         left: 0;
         width: 25%;
         height: 100vh;
-        background: #F9F9F9;
+        /* background-color: rgb(192, 192, 192, 0.2) !important; */
+        /* background: #F9F9F9; */
         position: fixed;
     }
     .one1{

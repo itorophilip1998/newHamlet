@@ -3,25 +3,32 @@
         <app-navbar/>
 
         <div class="row one5">
+          
                 <!-- <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
                     <button class="btn1">Back</button>
                   </nuxt-link>
                 </span> -->
             <div class="one">
-              
+              <!-- <app-sidebar /> -->
         <div class="one1">
             <div v-for="item in employee" :key="item.id">
-        <img class="w-99"  v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
+        <img class="img-fluid rounded-circle" v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
            </div>
-             <p ><span style="cursor:pointer" @click='Personal()'  class="text-primary">Personal Info</span></p>           
-            <p ><span style="cursor:pointer"  @click='Job()' class="text-primary">Job Details</span></p>
-            <p ><span style="cursor:pointer"  @click='Contact()' class="text-primary">Contact info</span></p>
-            <!-- <p ><button class="btn border-primary  text-primary">Homepage</button></p> -->
+             <p ><span style="cursor:pointer"   class="text-primary">Employee Details</span></p>           
+            <!-- <p ><span style="cursor:pointer"  @click='Job()' class="text-primary">Job Details</span></p>
+            <p ><span style="cursor:pointer"  @click='Contact()' class="text-primary">Contact info</span></p> -->
+            <!-- <p ><button class="btn border-primary  text-primary">Homepage</button></p>  -->
 
-    </div>
-    </div>
+    </div> 
+    </div> 
+
     <div  class="one2 ">
+      <div class="loader-edit" v-if="LoadingEm">
+        <app-loader1 />
+      </div>
+
+        <div v-else>
         <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
                     <button class="btn-arrow"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
@@ -37,12 +44,8 @@
       </div>
       
         </div>
-
-
-
-
         <!-- Personal Info Starts -->
-       <div id="Personal" style="display: block;" >
+       <div id="Personal">
          <div v-if="editEmployeeDetails">
            <div    class="one3" v-for="(data, index) in employee" :key="index" >
         <h3>Personal Info</h3>
@@ -254,7 +257,7 @@
 
     <!-- Job details starts -->
 
-       <div id="Job" style="display: none;"   >
+       <div id="Job">
       <div class="one3">
           <div v-if="editJobDetails">
               <h3>Job Details</h3>
@@ -430,13 +433,13 @@
                  v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('job-category') }"
                 ><option value selected disabled>Select Job Category</option>
-                  <option value="Male">Executive Officers and Managers</option>
-                  <option value="Female">Mid-Level Officers and Managers</option>
-                  <option value="Male">Professionals</option>
-                    <option value="Female">Technicians</option>
-                    <option value="Male">Sales Workers</option>
-                    <option value="Female">Craft Workers</option>
-                    <option value="Female">Service Workers</option>
+                   <option value="Executive Officers and Managers">Executive Officers and Managers</option>
+                  <option value="Mid-Level Officers and Managers">Mid-Level Officers and Managers</option>
+                  <option value="Professionals">Professionals</option>
+                    <option value="Technicians">Technicians</option>
+                    <option value="Sales Workers">Sales Workers</option>
+                    <option value="Craft Workers">Craft Workers</option>
+                    <option value="Service Workers">Service Workers</option>
                 </select>
                 <div></div>
                 <small
@@ -484,7 +487,7 @@
 
 
       <!-- Contact Info start -->
-       <div id="Contact"   style="display: none;"  >
+       <div id="Contact">
       <div class="one3">
           <div v-if="editContactInfo">
               <h3>Contact Info</h3>
@@ -573,7 +576,7 @@
       </div>
     </div>
      </div>
-
+        </div>
  </div>
         </div>
 
@@ -587,6 +590,7 @@
 <script>
 import sidebar from '~/components/sidebar2.vue';
 import navbar from '~/components/navbar4.vue';
+import appLoader from "~/components/loader-1.vue";
 import newLoader from "~/components/loader.vue";
 import swal from "sweetalert";
 export default {
@@ -595,11 +599,13 @@ export default {
         'app-sidebar':sidebar,
         'app-navbar':navbar,
         "app-loader": newLoader,
+        "app-loader1": appLoader,
+        
     },
-
     data() {
       return {
-          radio1: true,
+        LoadingEm : true,
+        radio1: true,
         radio2: false,
         departments:{},
           jobDetails:{
@@ -632,7 +638,6 @@ export default {
         emergency_contact: "",
         employee_id: this.$route.params.name,
           _method: "PUT"
-
       },
       editContactInfo: true,
       editEmployeeDetails:true,
@@ -652,7 +657,9 @@ export default {
       }
     },
     mounted(){
+    
       this.$axios.get(`https://hamlet.payfill.co/api/employees/${this.$route.params.name}`).then(res => {
+              this.LoadingEm = false
               this.employee=res.data.employee
               this.contact_info=res.data.employee[0].contact_info
               this.job_details=res.data.employee[0].job_details
@@ -664,7 +671,6 @@ export default {
 getEmployee(data)
 {
 // this.editedEmployee=data
-
 },
     showradio1(){
         this.radio2 = false;
@@ -687,9 +693,8 @@ getEmployee(data)
     },
     closeNav(){
       this.styleObject.width = '0px'
-    }
-,
-editContact(id) {
+    },
+    editContact(id) {
       this.editContactInfo = false;
       this.contactInfo = id;
     },
@@ -776,6 +781,9 @@ editContact(id) {
                 headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
             .then((res) => {
+              // this.mounted()
+              // this.editEmployeeDetails = true;
+              // this.employee=res.data.employee
               console.log(res.data);
               this.$message({
                 message: "You've updated your employee's personal details!",
@@ -844,28 +852,25 @@ editContact(id) {
           });
         });
     },
-Personal()
-      {
-
-      document.getElementById('Personal').style.display='block';
-      document.getElementById('Job').style.display='none';
-      document.getElementById('Job').style.display='none';
-      },
-      Job()
-      {
-        document.getElementById('Job').style.display='block';
-        document.getElementById('Personal').style.display='none';
-        document.getElementById('Contact').style.display='none';
-      },
-      Contact()
-      {
-        document.getElementById('Contact').style.display='block';
-        document.getElementById('Personal').style.display='none';
-        document.getElementById('Job').style.display='none';
-      }
+// Personal()
+//       {
+//       document.getElementById('Personal').style.display='block';
+//       document.getElementById('Job').style.display='none';
+//       document.getElementById('Job').style.display='none';
+//       },
+      // Job()
+      // {
+      //   document.getElementById('Job').style.display='block';
+      //   document.getElementById('Personal').style.display='none';
+      //   document.getElementById('Contact').style.display='none';
+      // },
+      // Contact()
+      // {
+      //   document.getElementById('Contact').style.display='block';
+      //   document.getElementById('Personal').style.display='none';
+      //   document.getElementById('Job').style.display='none';
+      // }
     },
-
-
 }
 </script>
 
@@ -873,6 +878,17 @@ Personal()
 *{
   font-family: "Overpass", sans-serif;
 }
+.loader-edit{
+  text-align: center !important;
+  margin-top: 15rem;
+}
+.one5{
+        /* background-color: rgb(192, 192, 192, 0.2) !important; */
+        background-color: #E6ECF2 !important;
+        margin-top: 3.5rem;
+        height: auto !important;
+        padding-bottom: 2rem;
+    }
  .nuxt-link-active{
         border-left: 3px solid #64a2ff !important ;
         padding-left: .5rem;
@@ -889,14 +905,12 @@ Personal()
     -ms-user-select: none;
     user-select: none;
   }
-
   /* Hide the browser's default radio button */
   .container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
   }
-
   /* Create a custom radio button */
   .checkmark {
     position: absolute;
@@ -907,25 +921,20 @@ Personal()
     background-color: #eee;
     border-radius: 50%;
   }
-
   /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
     background-color: #ccc;
   }
-
   /* When the radio button is checked, add a blue background */
   .container input:checked ~ .checkmark {
     background-color: #2196F3;
   }
-
   /* Create the indicator (the dot/circle - hidden when not checked) */
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
-
   }
-
   /* Show the indicator (dot/circle) when checked */
   .container input:checked ~ .checkmark:after {
     display: block;
@@ -933,7 +942,6 @@ Personal()
   .one7{
     margin-left: 1.5rem;
   }
-
   /* Style the indicator (dot/circle) */
   .container .checkmark:after {
     top: 6px;
@@ -947,12 +955,20 @@ Personal()
         top: 0;
         left: 0;
         width: 25%;
-        height: 200vh;
-        background: #F9F9F9;
+        height: 350vh;
+        /* background: #F9F9F9; */
         position: fixed;
     }
+    .one2{
+        width: 50%;
+        border-radius: 5px;
+        background: #FFFFFF;
+        margin-top: 5rem;
+        height: auto;
+        margin-left: 25%;
+    }
     .one1{
-        padding-left: 10px;
+        padding-left: 100px;
         margin-top: 10rem;
         padding-right: 10px;
     }
@@ -977,21 +993,20 @@ Personal()
     .one7 h4{
         color: #081D29;
     }
-
     @media (max-width:567px) {
         .one{
             display: none;
         }
+         .one7{
+    margin-left: 0 !important;
+  }
     }
-
-
     @media(min-width: 568px) and (max-width:768px) {
         .one1{
         padding-left: 10%;
         padding-right: 10%;
     }
     }
-
     @media(min-width: 769px) and (max-width:1200px) {
         .one1{
         padding-left: 40px;}
@@ -1000,15 +1015,14 @@ Personal()
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-
     }
     .one2{
         width: 50%;
         border-radius: 5px;
         background: #FFFFFF;
         margin-top: 5rem;
-        height:200vh;
-        margin-left: 10%;
+        height: auto;
+        margin-left: 25%;
     }
     .grid{
         display: grid;
@@ -1030,7 +1044,6 @@ Personal()
         padding-right: 70px;
         padding-top: 50px;
         padding-bottom: 20px;
-
     }
     hr{
         margin-bottom: 30px;
@@ -1067,11 +1080,12 @@ Personal()
         border: none;
         margin-left: 20px;
     }
-    .one5{
+    /* .one5{
         background: #F9F9F9;
         margin-top: 3.5rem;
         height: auto;
-    }
+        padding-bottom: 2rem;
+    } */
     .one6{
         padding-left: 3rem;
         padding-right: 4rem;
@@ -1088,13 +1102,10 @@ Personal()
         color: #0065FC;
          margin-bottom: 10px;
     }
-
-
     @media (max-width: 567px) {
         .one2{
         width: 100%;
         margin-left: 0px;
-
     }
         .grid{
         display: grid;
@@ -1106,7 +1117,6 @@ Personal()
         padding-right: 30px;
         padding-top: 50px;
         padding-bottom: 50px;
-
     }
         .one4{
             text-align: center;
@@ -1115,7 +1125,6 @@ Personal()
             width: 100%;
     }
         .btn2{
-
         margin-left: 0px;
     }
         .btn1{
@@ -1125,10 +1134,7 @@ Personal()
         padding-left: 30px;
         padding-right: 30px;
     }
-
     }
-
-
     @media(min-width: 568px) and (max-width:768px) {
         .one2{
         width: 75%;
@@ -1142,8 +1148,6 @@ Personal()
         padding-right: 30px;
     }
     }
-
-
     @media(min-width: 769px) and (max-width:1200px) {
          .grid{
              grid-gap: 2rem;
@@ -1159,17 +1163,12 @@ Personal()
         margin-left: 0px;
     }
      }
-
-
      *{
         font-family: 'Overpass', sans-serif;
-
     }
-
     .oneV{
         margin-left: 100px;
         margin-right: 100px;
-
     }
     a{
         color: #0065FC !important;
@@ -1188,7 +1187,6 @@ Personal()
         border-radius: 5px;
         padding: 5px 20px;
         border: 1px solid #0065FC;
-
     }
   .btn2V{
         background: #0065FC;
@@ -1283,11 +1281,9 @@ position: absolute;
   }
   .mobileViewV{
     display:block;
-
   }
-
+ 
 }
-
 @media only screen and (min-width: 360px) and (max-width: 578px) {
   .desktopViewV{
     display: none;
@@ -1324,6 +1320,4 @@ position: absolute;
       display: block;
     }
 } */
-
-
 </style>

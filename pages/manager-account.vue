@@ -157,7 +157,10 @@ export default {
     },
     mounted(){
         this.user= this.$auth.$storage.getLocalStorage('jwt')
-        console.log(this.user)
+          this.$axios.get('https://hamlet.payfill.co/api/auth/admin').then(res=>
+            {
+              this.id=res.data.user.profile.id
+            })
 
     },
     methods : {
@@ -180,14 +183,14 @@ export default {
                 // this.login = false
                 }
             });
-            console.log({headers : {'Authorization' : `Bearer ${this.user}`,'Content-Type':'multipart/form-data'}})
             const formData = new FormData()
             formData.append('first_name', this.managerInfo.first_name)
             formData.append('last_name', this.managerInfo.last_name)
             formData.append('address', this.managerInfo.address)
             formData.append('profile_pic', this.managerInfo.profile_pic)
-             axios.post('https://hamlet.payfill.co/api/profile', formData,
-             {headers : {'Authorization' : `Bearer ${this.user}`,'Content-Type':'multipart/form-data'}}).then((res)=> {
+            formData.append('_method', 'PUT')
+             axios.post(`https://hamlet.payfill.co/api/profile/${this.id}`, formData,
+              {headers : {'Authorization' : `Bearer ${this.user}`,'Content-Type':'multipart/form-data'}}).then((res)=> {
                 this.$message({
                 message: "Manager Successfully Added!",
                 type: 'success'

@@ -1,5 +1,5 @@
 <template>
-<div class="boxShadow shadow fixed-top">
+<div class="boxShadow fixed-top">
    <div class="one desktopView">
         <nav class="navbar navbar-expand-lg navbar-light ">
   <nuxt-link to="/dashboard"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
@@ -15,7 +15,7 @@
     </li> -->
      <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                v-if="this.profile_pic"    :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -27,16 +27,16 @@
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
       </li>
-      
+
     </ul>
-    
+
   </div>
 </nav>
     </div>
     <!-- desktop view end -->
 
-    
-    <!-- mobile-view -->  
+
+    <!-- mobile-view -->
     <div class="boxShadow">
     <div class="container mobileView">
       <div class="mobileView">
@@ -46,27 +46,35 @@
                <font-awesome-icon :icon="['fa', 'times']"/>
                </span>
             </div>
-        
+
            <div class="one1">
-            <p><nuxt-link to="/single-employee/personal-info" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Personal Info</h5> </nuxt-link></p>
-            <p><nuxt-link to="/single-employee/employmentdetails" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Employment Info and Compensation</h5></nuxt-link></p>
+             <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" style="margin-bottom:1rem" />
+            <p><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
+            <p><nuxt-link to="/department/add-department" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Department</h5></nuxt-link></p>
+            <p><nuxt-link to="/all-employees" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Directory</h5></nuxt-link></p>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-       <!-- <li v-if="$auth.loggedIn">
-      {{auth.user.email}}
-      <span class="ml-3">Log out</span>
-    </li> -->
+           <li class="nav-item active">
+        <nuxt-link to="/profile/profile"><img
+                   v-if="this.profile_pic"   :src="this.profile_pic.profile_pic"
+                      alt
+                      class="rounded-circle"
+                      width="50px"
+                      height="50px"
+
+           /></nuxt-link>
+      </li>
       <li class="nav-item active">
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
       </li>
-      
+
     </ul>
         </div>
-         
+
           </div>
         <div class="wrapper2">
           <div class="logo2">
-            Hamlet
+            <nuxt-link to="/dashboard"> Hamlet</nuxt-link>
           </div>
           <div>
               <span style="font-size:30px;cursor:pointer" class="openNav" @click="openNav">
@@ -79,7 +87,7 @@
     <!-- mobile-view end -->
 </div>
 </div>
-   
+
 </template>
 <script>
 import newLoader from "~/components/loader.vue";
@@ -93,7 +101,7 @@ export default {
      loader : true,
      styleObject : {
        width : '0px',
-       
+
      },
      loader : true,
     }
@@ -133,19 +141,19 @@ export default {
 <style scoped>
     *{
         font-family: 'Overpass', sans-serif;
-        
+
     }
      ul li{
       margin-left: 1.5rem;
     }
     .boxShadow{
-       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
         background-color: rgba(255,255,255,1) !important;
     }
     .one{
         margin-left: 100px;
         margin-right: 100px;
-       
+
     }
     .btn1{
         background: white;
@@ -161,7 +169,7 @@ export default {
         border-radius: 5px;
         padding: 5px 20px;
         border: 1px solid #0065FC;
-        
+
     }
     .btn2{
         background: #0065FC;
@@ -225,7 +233,7 @@ export default {
  position: absolute;
  top: 0;
  right: 40px;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  margin-left: 50px;
 }
 .openNav{
@@ -235,7 +243,7 @@ export default {
 position: absolute;
  top: 0;
  left: 0;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  /* margin-left: 50px; */
 }
 .wrapper2{
@@ -256,7 +264,7 @@ position: absolute;
  position: absolute;
  top: 1rem;
  right: 2rem;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  margin-left: 55px;
 }
 .desktopView{
@@ -278,7 +286,7 @@ position: absolute;
  position: absolute;
  top: 1rem;
  right: 2rem;
- font-size: 2rem !important; 
+ font-size: 2rem !important;
  margin-left: 55px;
 }
 }
@@ -294,5 +302,5 @@ position: absolute;
       display: block;
     } */
 }
-    
+
 </style>

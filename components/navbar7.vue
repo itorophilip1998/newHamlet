@@ -1,8 +1,8 @@
 <template>
-<div class="boxShadow fixed-top">
+<div class="boxShadow shadow fixed-top">
    <div class="one desktopView">
         <nav class="navbar navbar-expand-lg navbar-light ">
-  <nuxt-link to="/dashboard"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
+  <nuxt-link to="/"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,10 +13,10 @@
       {{auth.user.email}}
       <span class="ml-3">Log out</span>
     </li> -->
-     <li class="nav-item active">
-
-         <nuxt-link to="/profile/profile"><img
-                    v-if="this.profile_pic"  :src="this.profile_pic.profile_pic"
+    <li class="nav-item active">
+        <li class="nav-item active">
+        <nuxt-link to="/profile/profile"><img
+                v-if="this.profile_pic"  :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -24,6 +24,7 @@
 
            /></nuxt-link>
       </li>
+
       <li class="nav-item active mt-1">
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
@@ -49,19 +50,20 @@
             </div>
 
            <div class="one1">
-             <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" style="margin-bottom:1rem" />
-            <p class="mt-3"><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
-            <p><nuxt-link to="/department/add-department" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Department</h5></nuxt-link></p>
-            <p><nuxt-link to="/all-employees" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Directory</h5></nuxt-link></p>
 
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-       <!-- <li v-if="$auth.loggedIn">
-      {{auth.user.email}}
-      <span class="ml-3">Log out</span>
-    </li> -->
-    <li class="nav-item active">
+            <img  v-if="this.company" :src="this.company.company_logo" alt class="w-50" style="margin-bottom:1rem" />
+            <p><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
+            <p><nuxt-link to="/all-employees" style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"><h5 style="margin-bottom:1rem">Directory</h5> </nuxt-link></p>
+            <p><nuxt-link to="/department/add-department" style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"><h5 style="margin-bottom:1rem">Departments</h5> </nuxt-link></p>
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <!-- <li v-if="$auth.loggedIn">
+              {{auth.user.email}}
+              <span class="ml-3">Log out</span>
+            </li> -->
+            <li class="nav-item active">
+
         <nuxt-link to="/profile/profile"><img
-                   v-if="this.profile_pic"   :src="this.profile_pic.profile_pic"
+                      v-if="this.profile_pic" :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="50px"
@@ -69,18 +71,20 @@
 
            /></nuxt-link>
       </li>
-      <li class="nav-item active">
-        <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
-         <span v-else><app-loader /></span>
-      </li>
+              <li class="nav-item active">
+                <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
+                <span v-else><app-loader /></span>
+              </li>
 
-    </ul>
+            </ul>
+            <!-- <p><nuxt-link to="/company/taxinfo" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Tax Info</h5></nuxt-link></p>
+            <p><nuxt-link to="/company/locations" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Locations</h5></nuxt-link></p> -->
         </div>
 
           </div>
         <div class="wrapper2">
           <div class="logo2">
-           <nuxt-link to="/dashboard"> Hamlet</nuxt-link>
+            Hamlet
           </div>
           <div>
               <span style="font-size:30px;cursor:pointer" class="openNav" @click="openNav">
@@ -108,7 +112,7 @@ export default {
      company: {},
     }
   },
- mounted(){
+  mounted(){
       this.getProfile(),
       this.getCompany()
   },
@@ -117,6 +121,7 @@ export default {
          this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
         .then((res) => {
+          console.log(res.data.profile);
           this.profile_pic = res.data.user.profile;
         });
     },
@@ -153,12 +158,12 @@ export default {
         font-family: 'Overpass', sans-serif;
 
     }
-    .boxShadow{
-       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
-        background-color: rgba(255,255,255,1) !important;
-    }
     ul li{
       margin-left: 1.5rem;
+    }
+    .boxShadow{
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+        background-color: rgba(255,255,255,1) !important;
     }
     .one{
         margin-left: 100px;
@@ -215,7 +220,7 @@ export default {
  z-index: 1;
  top: 0;
  left: 0;
- background-color: rgb(0,101,252);
+ background-color: rgb(0,101,252, 0.7);
  /* background-image: linear-gradient(to right, #0288d1, #0288d1 ); */
 /* opacity: 0.7; */
  overflow-x: hidden;
@@ -296,11 +301,8 @@ position: absolute;
     display: block;
   }
   .closebtn {
- position: absolute;
  top: 1rem;
  right: 2rem;
- font-size: 2rem !important;
- margin-left: 55px;
 }
 .one1{
     text-align: center !important;

@@ -131,6 +131,7 @@
                       class="form-control"
                       id
                       placeholder="company phone number"
+                      maxlength="11"
                       v-model="companyInfo.company_phone"
                       v-validate="'numeric'"
                       :class="{ 'is-invalid': submitted && errors.has('phone') }"
@@ -225,7 +226,7 @@
                 </div>
               </button>
             </form>
-            <div class="mt-3">
+            <div class="mt-3 form-p">
               <button
                 class="btn1 btn"
                 @click="prevBtn"
@@ -377,6 +378,7 @@
                       name="phone"
                       class="form-control"
                       id
+                      maxlength="11"
                       placeholder="company phone number"
                       v-model="companyInfo.company_phone"
                       v-validate="'numeric'"
@@ -509,7 +511,7 @@ import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import Navbar from "@/components/navbar2.vue";
 export default {
-  //  middleware : ['auth'],
+  //  auth: false,
   components: {
     Navbar,
     "app-loader": newLoader,
@@ -540,10 +542,16 @@ export default {
       user: {},
       loader: true,
       submitted: false,
+      id:''
     };
   },
-  created() {
-    this.user = this.$auth.$storage.getLocalStorage("jwt");
+  mounted() {
+  this.user= this.$auth.$storage.getLocalStorage('jwt')
+          this.$axios.get('https://hamlet.payfill.co/api/auth/admin').then(res=>
+            {
+              this.id=res.data.user.profile.id
+            })
+
   },
   methods: {
     upload() {
@@ -645,8 +653,9 @@ export default {
       formData.append("services", this.companyInfo.services);
       formData.append("company_logo", this.companyInfo.profile_pic);
       formData.append("company_phone", this.companyInfo.company_phone);
+      formData.append("_method", 'PUT');
       axios
-        .post("https://hamlet.payfill.co/api/company", formData, {
+        .post(`https://hamlet.payfill.co/api/company/${this.id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${this.user}`,
@@ -828,12 +837,13 @@ textarea {
   border-radius: 50%;
 }
 .btn3 {
-  padding: 1rem 2rem;
+  padding: 1rem;
   color: #ffffff;
   /* background-color: #1DD200; */
   border: 1px solid #ffffff;
   /* margin-left: 2rem; */
   outline: none !important;
+  width: 70% !important;
 }
 .active {
   display: block !important;
@@ -919,6 +929,12 @@ p {
 .mobileShow {
   display: none;
 }
+  .form-p{
+  position: relative;
+  top: -1px;
+  left: 50%;
+  z-index: 1;
+}
 @media only screen and (min-width: 300px) and (max-width: 350px) {
   .mobileShow {
     display: block;
@@ -932,6 +948,7 @@ p {
   .form-p{
   position: relative;
   top: -20px;
+  left: 0;
   float: right;
   z-index: 1;
 }
@@ -945,7 +962,7 @@ p {
     /* background-position: right; */
     /* background-size: center center/cover; */
     /* background-repeat: no-repeat; */
-    height: auto;
+    height: fit-content;
     padding-top: 1rem;
     padding-bottom: 5rem;
   }
@@ -958,9 +975,10 @@ p {
   .btn2 {
     margin-left: 0.1rem;
   }
-  .btn3 {
+  /* .btn3 {
     margin-left: 0.1rem;
-  }
+    width: 100%;
+  } */
   form {
     padding-bottom: 1rem;
   }
@@ -985,12 +1003,13 @@ p {
     border-radius: 50%;
   }
   .btn3 {
-    padding: 1rem 1rem;
+    padding: 1rem;
     color: #ffffff;
     /* background-color: #1DD200; */
     border: 1px solid #ffffff;
     margin-left: 0.1rem;
     outline: none;
+    width: 100% !important;
   }
   h1 {
     font-size: 1.5rem;
@@ -1019,7 +1038,7 @@ p {
     /* background-position: right; */
     /* background-size: center center/cover; */
     /* background-repeat: no-repeat; */
-    height: auto;
+    height: fit-content;
     padding-top: 1rem;
     padding-bottom: 5rem;
   }
@@ -1034,6 +1053,8 @@ p {
   }
   .btn3 {
     margin-left: 0.1rem;
+    width: 100% !important;
+    outline: none !important;
   }
   form {
     padding-bottom: 1rem;
@@ -1044,6 +1065,7 @@ p {
 .form-p{
   position: relative;
   top: -20px;
+  left: 0;
   float: right;
   z-index: 1;
 }
@@ -1062,6 +1084,8 @@ p {
   }
   .btn3 {
     margin-left: 0.1rem;
+    outline: none !important;
+    width: 100% !important;
   }
   .stepwizard-row:before {
     top: 30px;
@@ -1082,5 +1106,12 @@ p {
   .margin-form {
     margin-left: 1rem;
   }
+  .form-p{
+  position: relative;
+  top: -2px;
+  left: 0;
+  float: right;
+  z-index: 1;
 }
-</style> 
+}
+</style>

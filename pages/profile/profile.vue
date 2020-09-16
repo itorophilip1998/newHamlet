@@ -273,9 +273,9 @@ export default {
 .one2 {
   width: 50%;
   border-radius: 5px;
-  background: #ffffff;
+  background: #ffffff !important;
   margin-top: 5rem;
-  height: auto;
+  height: fit-content;
   margin-left: 25%;
 }
 .grid {
@@ -326,7 +326,8 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+   background-color: #E6ECF2 !important;
+  /* background: #f9f9f9; */
   margin-top: 3.5rem;
   height: 130vh;
 }
@@ -371,6 +372,7 @@ textarea {
 }
 #style-loader {
   margin-top: 30vh;
+  margin-bottom: 30vh;
   text-align: center;
 }
 .file-border{

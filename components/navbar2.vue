@@ -22,10 +22,10 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <nuxt-link to ="/" class="nav-link">
                   Home
                   <span class="sr-only">(current)</span>
-                </a>
+                </nuxt-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link nav-new" href="#">Service</a>
@@ -172,7 +172,7 @@ a {
   display: none;
 }
 .logo-ham {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #0065fc !important;
 }
 a {
@@ -219,7 +219,7 @@ a {
   font-size: 2rem !important;
 }
 .openNav {
-  font-size: 2rem !important;
+  font-size: 1.5rem !important;
   cursor: pointer;
 }
 .logo3V {

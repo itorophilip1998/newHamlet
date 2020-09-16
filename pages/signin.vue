@@ -54,9 +54,9 @@
             <p class="text-center">
               Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link>
             </p>
-            <p class="text-center">
+            <!-- <p class="text-center">
               <a href="https://hamlet.payfill.co/google" class="btn btn-danger "><i class="fa fa-google" aria-hidden="true"></i> Google</a>
-            </p>
+            </p> -->
           </div>
         </div>
         <div class="two"></div>

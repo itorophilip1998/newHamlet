@@ -219,24 +219,24 @@
     <!-- testimonial -->
     <section>
       <div class="pt-5 testimonial-bg">
-        <div class="letter-under text-center pt-5 mt-5 mb-3 pb-1 btn-mobile-works">TESTIMONIALS</div>
+        <div class="letter-under text-center pt-2 mt-2 mb-2 pb-2 btn-mobile-works">TESTIMONIALS</div>
         <div class="gridsection">
           <div class="gridclass">
-            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
+            <p>"Hamlet made adding and managing employees easier. "</p>
             <div class="gridclass1">
               <img src="/img/luke.jpg" alt="" class="rounded-circle">
               <p><strong>Amity Emmanuel</strong> </p>
             </div>
           </div>
           <div class="gridclass">
-            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
+            <p>"We spent less time on managing employees after onboarding on Jiggle."</p>
             <div class="gridclass1">
               <img src="/img/zu.jpg" alt="" class="rounded-circle">
               <p><strong>Timothy Afolabi</strong> </p>
             </div>
           </div>
           <div class="gridclass">
-            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
+            <p>"Hamlet helps our HR manager in making everything concerning employee management easier."</p>
             <div class="gridclass1">
               <img src="/img/david.jpg" alt="" class="rounded-circle">
               <p><strong>Ime Akpan</strong> </p>

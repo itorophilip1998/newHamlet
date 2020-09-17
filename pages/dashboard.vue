@@ -4,7 +4,7 @@
       <app-navbar />
       <div class="container">
         <div class="row bg-color">
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <img v-if="this.company" :src="this.company.company_logo" alt class="w-100" />
             <span v-if="loader" class="text-center">
               <app-loader />
@@ -102,6 +102,13 @@
               </div>
             </div>
           </div>
+          <div class="col-sm-2 ml-5 quick-mobile">
+            <h5>Quick Links</h5> 
+            <p class="mt-4"><nuxt-link to="/all-employees">App Directory</nuxt-link></p>
+            <p><nuxt-link to="/company/company-overview">Company Details</nuxt-link></p>
+            <p><nuxt-link to="/profile/profile">Manager Profile</nuxt-link></p>
+            <p><nuxt-link to="/department/add-department">Departments</nuxt-link></p>
+          </div>
         </div>
       </div>
     </div>
@@ -163,6 +170,9 @@ export default {
 * {
   box-sizing: border-box;
   font-family: "Overpass", sans-serif;
+}
+p a{
+  color: #64a2ff !important;
 }
 .big-nav {
   /* background-color: rgb(192, 192, 192, 0.2) !important; */
@@ -243,20 +253,25 @@ a:hover {
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
-/* .bg-color {
-  padding: 10rem 1em 2rem 0;
-  height: auto;
-} */
+.quick-mobile{
+  margin-top: 2.5rem;
+}
 @media only screen and (min-width: 300px) and (max-width: 350px) {
   .bg-color {
     padding: 10rem 0.5rem 2rem 0.5rem;
     height: auto;
+  }
+  .quick-mobile{
+    display: none;
   }
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
   .bg-color {
     padding: 10rem 0.5rem 2rem 0.5rem;
     height: auto;
+  }
+   .quick-mobile{
+    display: none;
   }
 }
 </style>

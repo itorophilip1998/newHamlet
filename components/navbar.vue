@@ -1,6 +1,6 @@
 <template>
 <div class="boxShadow fixed-top">
-   <div class="one desktopView">
+   <div class="one container desktopView">
         <nav class="navbar navbar-expand-lg navbar-light ">
   <nuxt-link to="/dashboard"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -168,11 +168,10 @@ export default {
        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
         background-color: rgba(255,255,255,1) !important;
     }
-    .one{
-        margin-left: 100px;
-        margin-right: 100px;
-
-    }
+    /* .one{
+        margin-left: 0;
+        margin-right: 0;
+    } */
     .btn1{
         background: white;
         color:#0065FC ;
@@ -313,8 +312,8 @@ position: absolute;
 }
 @media only screen and (min-width: 710px) and (max-width: 768px){
     .one{
-        margin-left: 20px;
-        margin-right: 20px;
+        /* margin-left: 20px;
+        margin-right: 20px; */
     }
     .desktopView{
       display: block;

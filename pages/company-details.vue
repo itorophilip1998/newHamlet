@@ -549,7 +549,7 @@ export default {
   this.user= this.$auth.$storage.getLocalStorage('jwt')
           this.$axios.get('https://hamlet.payfill.co/api/auth/admin').then(res=>
             {
-              this.id=res.data.user.profile.id
+              this.id=res.data.user.company.id
             })
 
   },

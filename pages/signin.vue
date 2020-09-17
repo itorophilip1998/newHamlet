@@ -71,8 +71,6 @@ import newLoader from "~/components/loader.vue";
 import swal from "sweetalert";
 import { mapGetters } from "vuex";
 export default {
-  auth: false,
-
   components: {
     "app-navbar": Navbar,
     "app-loader": newLoader,

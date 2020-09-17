@@ -27,8 +27,8 @@
 <script>
 import Navbar from "~/components/navbar2.vue";
 import newLoader from "~/components/loader.vue";
-import swal from "sweetalert";
-import { mapGetters } from "vuex";
+// import swal from "sweetalert";
+// import { mapGetters } from "vuex";
 export default {
   auth: false,
 
@@ -50,9 +50,9 @@ export default {
       // tokenUser : {}
     };
   },
-  computed: {
-    ...mapGetters(["isAuthenticated", "loggedInUser"]),
-  },
+  // computed: {
+  //   ...mapGetters(["isAuthenticated", "loggedInUser"]),
+  // },
   mounted()
   {
         this.$auth.$storage.setLocalStorage("jwt", this.$route.params.token);

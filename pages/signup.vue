@@ -25,7 +25,8 @@
                                     {{ errors.first("username")}}
                                     </small>
                                     <!-- validated backend error username -->
-                                     <!-- <small v-if="error.username"  class="text-danger" v-for="errors in error.username" :key="index"><span>{{errors}}</span><br></small> -->
+                                     <small v-if="error.username"  class="text-danger error" > {{ error.username[0]}}
+                                     </small>
 
                                 </div>
                                 <div class="mt-4">
@@ -39,13 +40,13 @@
 
                                     </small>
                                      <!-- validated backend error email -->
-                                     <!-- <small v-if="error.email"  class="text-danger" v-for="errors in error.email" :key="index"><span>{{errors}}</span><br></small> -->
-
+                                     <small v-if="error.email"  class="text-danger error" > {{ error.email[0]}}
+                                     </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
+                                     <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small> -->
                                      <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
                                      <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small> -->
                                       <small
@@ -56,12 +57,12 @@
                                     {{ errors.first("password")}}
                                     </small>
                                       <!-- validated backend error password -->
-                                      <!-- <small v-if="error.password"  class="text-danger" v-for="errors in error.password" :key="index"><span>{{errors}}</span><br></small> -->
+                                        <small v-if="error.password"  class="text-danger error" > {{ error.password[0]}}
+                                     </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                       <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -74,12 +75,12 @@
                     </form>
                     <div class="account">
                         Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link> </span> Or
-                    
 
 
-                    
+
+
                     </div>
-                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>                     
+                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>
                     </div>
                 </div>
                 <div class="wrapper">
@@ -87,7 +88,7 @@
                     </div>
 
                 </div>
-                    
+
 
             </div>
 
@@ -109,6 +110,9 @@
                                     >
                                     {{ errors.first("username")}}
                                     </small>
+                                       <!-- validated backend error username -->
+                                      <small v-if="error.username"  class="text-danger error" > {{ error.username[0]}}
+                                     </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="email" name="email" class="form-control" id="" placeholder="Email" v-model="signUp.email" v-validate="'required|email'"
@@ -119,6 +123,9 @@
                                          >
                                     {{ errors.first("email")}}
                                     </small>
+                                       <!-- validated backend error email -->
+                                       <small v-if="error.email"  class="text-danger error" > {{ error.email[0]}}
+                                     </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
@@ -130,6 +137,9 @@
                                          >
                                     {{ errors.first("password")}}
                                     </small>
+                                     <!-- validated backend error password -->
+                                       <small v-if="error.password"  class="text-danger error" > {{ error.password[0]}}
+                                     </small>
                                 </div>
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
@@ -141,18 +151,19 @@
                                          >
                                     {{ errors.first("password")}}
                                     </small>
+
                                 </div>
                             </div>
                             <button type="submit" class="btn1 btn btn-primary">Create Account</button>
                     </form>
-                    
+
                         <div class="account">
-                        Already have an account? <span style="color : #0065FC"> <nuxt-link to="/signin">Log in</nuxt-link></span> 
+                        Already have an account? <span style="color : #0065FC"> <nuxt-link to="/signin">Log in</nuxt-link></span>
                     </div>
                     <div style="text-align:center; color:white">
                         <p>Or</p>
                     </div>
-                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>                     
+                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>
                     </div>
                 </div>
                 <!-- Mobile View End -->
@@ -182,7 +193,7 @@ export default {
             loader : false,
             submitted : false,
             getError:'',
-            error:'',
+            error:[],
         }
     },
     methods : {
@@ -223,14 +234,16 @@ export default {
 
       catch (e) {
           if (e.response.status === 422) {
+          this.error=e.response.data.messages;
+          console.log(this.error);
+        }else{
           this.$message({
-            message: "Sorry, email already taken!",
+            message: `An Error occured!,please try again later`,
             type: "error",
           });
         }
         this.loader = false
       }
-
                 }
                 else{
                     this.loader = false
@@ -243,6 +256,11 @@ export default {
 </script>>
 
 <style scoped>
+.error{
+  color: #EB4335 ;
+  font-size: 11px !important;
+}
+
 *{
     font-family: 'Overpass', sans-serif;
 }

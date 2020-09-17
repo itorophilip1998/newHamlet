@@ -247,7 +247,7 @@ input {
 }
 .btn3{
   width:100%;
-  border:1px solid #0065fc;
+  border:1px solid #EB4335;
   border-radius: 5px;
   padding: 0.5rem;
   background: transparent;

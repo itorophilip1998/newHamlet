@@ -219,8 +219,31 @@
     <!-- testimonial -->
     <section>
       <div class="pt-5 testimonial-bg">
-        <div class="letter-under text-center pt-5 mt-5 mb-5 pb-5 btn-mobile-works">TESTIMONIALS</div>
-        <div class="container shadow p-0 lady-bg" 
+        <div class="letter-under text-center pt-5 mt-5 mb-3 pb-1 btn-mobile-works">TESTIMONIALS</div>
+        <div class="gridsection">
+          <div class="gridclass">
+            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
+            <div class="gridclass1">
+              <img src="/img/luke.jpg" alt="" class="rounded-circle">
+              <p><strong>Amity Emmanuel</strong> </p>
+            </div>
+          </div>
+          <div class="gridclass">
+            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
+            <div class="gridclass1">
+              <img src="/img/zu.jpg" alt="" class="rounded-circle">
+              <p><strong>Timothy Afolabi</strong> </p>
+            </div>
+          </div>
+          <div class="gridclass">
+            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
+            <div class="gridclass1">
+              <img src="/img/david.jpg" alt="" class="rounded-circle">
+              <p><strong>Ime Akpan</strong> </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="container shadow p-0 lady-bg" 
               data-aos="zoom-in"
               data-aos-duration="1500"
              >
@@ -257,7 +280,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- testimonial end -->
@@ -280,6 +303,31 @@ export default {
 <style scoped>
 * {
   font-family: "Overpass", sans-serif;
+}
+.gridsection{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  grid-gap: 2rem;
+}
+.gridclass{
+  border: 1px solid #0065fc;
+  padding:20px 20px;
+  border-radius: 5px;
+}
+.gridclass img{
+  width:4rem;
+  height: 4rem;
+}
+.gridclass1{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 2rem;
+}
+.gridclass1 p{
+  margin-top: 1.5rem;
+  font-weight: 25px !important;
 }
 .bg-hero {
   background-image: linear-gradient(
@@ -630,11 +678,22 @@ text-align: center;
   text-align: justify;
   padding-bottom: 2rem;
 }
+.gridsection{
+  display: grid;
+  grid-template-columns: 1fr ;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  grid-gap: 1rem;
+}
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
-  .letter-under-1 {
-    width: 100%;
-  }
+  .gridsection{
+  display: grid;
+  grid-template-columns: 1fr ;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  grid-gap: 1rem;
+}
   .bg-hero {
   background-image: linear-gradient(
       to right,
@@ -855,6 +914,18 @@ text-align: center;
 .lady-bg {
   width: 100% !important;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
+.gridsection{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  grid-gap: 1rem;
+}
+.gridclass1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
 }
 }
 </style>

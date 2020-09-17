@@ -290,7 +290,7 @@ export default {
 }
 .btn8{
   width:80%;
-  border:1px solid #0065fc;
+  border:1px solid #EB4335;
   border-radius: 5px;
   padding: 0.5rem;
   background: transparent;
@@ -393,7 +393,7 @@ h1{
     }
     .btn8{
   width:100%;
-  border:1px solid #0065fc;
+  border:1px solid #EB4335;
   border-radius: 5px;
   padding: 0.5rem;
   background: transparent;
@@ -467,7 +467,7 @@ h1{
     }
     .btn8{
   width:100%;
-  border:1px solid #0065fc;
+  border:1px solid #EB4335;
   border-radius: 5px;
   padding: 0.5rem;
   background: transparent;
@@ -539,7 +539,7 @@ h1{
     }
     .btn8{
   width:100%;
-  border:1px solid #0065fc;
+  border:1px solid #EB4335;
   border-radius: 5px;
   padding: 0.5rem;
   background: transparent;
@@ -577,7 +577,7 @@ h1{
     }
     .btn8{
   width:90%;
-  border:1px solid #0065fc;
+  border:1px solid #EB4335;
   border-radius: 5px;
   padding: 0.5rem;
   background: transparent;

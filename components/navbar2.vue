@@ -253,10 +253,6 @@ a {
 
 }
 @media only screen and (min-width: 710px) and (max-width: 768px) {
-  .oneV {
-    /* margin-left: 20px;
-    margin-right: 20px; */
-  }
   .desktopViewV {
     display: none;
   }

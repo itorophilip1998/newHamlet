@@ -1,23 +1,22 @@
 <template>
-<div class="boxShadow fixed-top">
-   <div class="one container desktopView">
+<div class="boxShadow shadow fixed-top">
+   <div class="one desktopView">
         <nav class="navbar navbar-expand-lg navbar-light ">
-  <nuxt-link to="/dashboard"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
+  <nuxt-link to="/"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
        <!-- <li v-if="$auth.loggedIn">
       {{auth.user.email}}
       <span class="ml-3">Log out</span>
     </li> -->
-     <li class="nav-item active">
+    <li class="nav-item active">
+        <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                    v-if="this.profile_pic"  
-                    :src="this.profile_pic.profile_pic"
+                v-if="this.profile_pic"  :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -25,7 +24,8 @@
 
            /></nuxt-link>
       </li>
-      <li class="nav-item active">
+
+      <li class="nav-item active mt-1">
         <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
          <span v-else><app-loader /></span>
       </li>
@@ -50,18 +50,17 @@
             </div>
 
            <div class="one1">
-            <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" />
 
-            <!-- <h5 style="color:white; margin-top:2rem">HIRING CHECKLIST</h5> -->
-          <p class="mt-3"><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
-            <p><nuxt-link to="/department/add-department" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Deparment</h5></nuxt-link></p>
-            <p><nuxt-link to="/all-employees" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Directory</h5></nuxt-link></p>
+            <img  v-if="this.company" :src="this.company.company_logo" alt class="w-50" style="margin-bottom:1rem" />
+            <p><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
+            <p><nuxt-link to="/all-employees" style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"><h5 style="margin-bottom:1rem">Directory</h5> </nuxt-link></p>
+            <p><nuxt-link to="/department/add-department" style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"><h5 style="margin-bottom:1rem">Departments</h5> </nuxt-link></p>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-       <!-- <li v-if="$auth.loggedIn">
-      {{auth.user.email}}
-      <span class="ml-3">Log out</span>
-    </li> -->
-     <li class="nav-item active">
+              <!-- <li v-if="$auth.loggedIn">
+              {{auth.user.email}}
+              <span class="ml-3">Log out</span>
+            </li> -->
+            <li class="nav-item active">
 
         <nuxt-link to="/profile/profile"><img
                       v-if="this.profile_pic" :src="this.profile_pic.profile_pic"
@@ -72,12 +71,14 @@
 
            /></nuxt-link>
       </li>
-      <li class="nav-item active mt-1">
-        <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
-         <span v-else><app-loader /></span>
-      </li>
+              <li class="nav-item active">
+                <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
+                <span v-else><app-loader /></span>
+              </li>
 
-    </ul>
+            </ul>
+            <!-- <p><nuxt-link to="/company/taxinfo" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Tax Info</h5></nuxt-link></p>
+            <p><nuxt-link to="/company/locations" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Locations</h5></nuxt-link></p> -->
         </div>
 
           </div>
@@ -102,29 +103,25 @@
 import axios from 'axios'
 import newLoader from "~/components/loader.vue";
 export default {
-  components : {
-    'app-loader' : newLoader,
-  },
   data(){
     return{
       profile_pic : {},
      styleObject : {
        width : '0px'
-     },
-     loader : true,
+     },loader : true,
      company: {},
     }
   },
   mounted(){
-    this.getProfile(),
-    this.getCompany()
+      this.getProfile(),
+      this.getCompany()
   },
   methods : {
     getProfile(){
-      this.$axios
+         this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
         .then((res) => {
-          console.log(res.data.company);
+          console.log(res.data.profile);
           this.profile_pic = res.data.user.profile;
         });
     },
@@ -165,13 +162,14 @@ export default {
       margin-left: 1.5rem;
     }
     .boxShadow{
-       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
         background-color: rgba(255,255,255,1) !important;
     }
-    /* .one{
-        margin-left: 0;
-        margin-right: 0;
-    } */
+    .one{
+        margin-left: 100px;
+        margin-right: 100px;
+
+    }
     .btn1{
         background: white;
         color:#0065FC ;
@@ -222,7 +220,7 @@ export default {
  z-index: 1;
  top: 0;
  left: 0;
- background-color: rgb(0,101,252);
+ background-color: rgb(0,101,252, 0.7);
  /* background-image: linear-gradient(to right, #0288d1, #0288d1 ); */
 /* opacity: 0.7; */
  overflow-x: hidden;
@@ -311,7 +309,10 @@ position: absolute;
   }
 }
 @media only screen and (min-width: 710px) and (max-width: 768px){
-   
+    .one{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
     .desktopView{
       display: block;
     }

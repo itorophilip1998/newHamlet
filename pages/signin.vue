@@ -53,12 +53,11 @@
             <hr />
 
             <p class="text-center">
-              Not a user yet?
-              <nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link>
+              Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link> Or
             </p>
-            <!-- <p class="text-center">
-              <a href="https://hamlet.payfill.co/google" class="btn btn-danger "><i class="fa fa-google" aria-hidden="true"></i> Google</a>
-            </p>-->
+            <button class="btn3">
+              <img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Login with Google</a>
+              </button>
           </div>
         </div>
         <div class="two"></div>
@@ -246,7 +245,18 @@ input {
   color: #0065fc;
   /* border: 1px solid #0065fc; */
 }
-a {
+.btn3{
+  width:100%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  font-size: 20px !important;
+}
+.btn3 a{
+  color: #EB4335;
+}
+a{
   text-decoration: none !important;
 }
 

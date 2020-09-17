@@ -44,7 +44,7 @@
                                      </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
+                                     <input type="password"  @keydown.space.prevent name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
                                      <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small> -->
                                      <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
@@ -61,7 +61,7 @@
                                      </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
+                                     <input type="password" name="password" @keydown.space.prevent class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
                                         <small
                                         v-if="submitted && errors.has('password')"
@@ -128,7 +128,7 @@
                                      </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
+                                     <input type="password"  @keydown.space.prevent name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
                                      <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
                                       <small
@@ -142,7 +142,7 @@
                                      </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
+                                     <input type="password"  @keydown.space.prevent name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
                                        <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
                                         <small

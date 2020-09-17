@@ -162,8 +162,9 @@
               data-aos-duration="1000"
               >
           <div class="how-it-works pb-5 mt-5 pt-5">HOW IT WORKS</div>
-          <div class="row">
-            <div class="col-sm-4 col-lg-3">
+          <div class="container">
+             <div class="row">
+            <div class="col-sm-4 col-lg-4">
               <div class="text-center">
                 <img src="/img/handi.png" alt class="img-fluid" srcset />
                 <div class="letter-under">Signup</div>
@@ -175,7 +176,7 @@
                 invest in.
               </div>
             </div>
-            <div class="col-sm-4 offset-1 col-lg-3">
+            <div class="col-sm-4 col-lg-4">
               <div class="text-center">
                 <img src="/img/handi.png" alt class="img-fluid" srcset />
                 <div class="letter-under">Pricing</div>
@@ -186,7 +187,7 @@
                 invest in.
               </div>
             </div>
-            <div class="col-sm-4 offset-1 col-lg-3">
+            <div class="col-sm-4 col-lg-4">
               <div class="text-center">
                 <img src="/img/pencil1.png" alt class="img-fluid mt-4" srcset />
                 <div class="letter-under">Manage</div>
@@ -198,6 +199,8 @@
               </div>
             </div>
           </div>
+          </div>
+         
           <div class="text-center mt-5 pb-5">
             <nuxt-link to="/signup">
               <button class="btn2 mt-3 mb-5 btn-mobile-works">
@@ -481,6 +484,7 @@ export default {
 .letter-under-1 {
   font-style: normal;
   font-weight: normal;
+  width: 90%;
   font-size: 1.2rem;
   margin-top: 1rem !important;
   
@@ -531,6 +535,9 @@ export default {
   text-align: left;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
+  .letter-under-1 {
+    width: 100%;
+  }
   .bg-hero {
   background-image: linear-gradient(
       to right,

@@ -2,7 +2,7 @@
   <div>
     <div class="boxShadowV shadow fixed-top bg-white">
       <!-- desktop view -->
-      <div class="oneV container desktopViewV">
+      <div class="container desktopViewV">
         <nav class="navbar navbar-expand-lg navbar-light">
           <nuxt-link to="/" class="navbar-brand" href="#" style="color: #0065FC"
             >Hamlet</nuxt-link
@@ -253,10 +253,6 @@ a {
 
 }
 @media only screen and (min-width: 710px) and (max-width: 768px) {
-  .oneV {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
   .desktopViewV {
     display: none;
   }

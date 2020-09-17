@@ -29,6 +29,7 @@
                   type="password"
                   placeholder="Password"
                   name="password"
+                 @keydown.space.prevent
                   v-model="password"
                   append-icon="mdi-eye"
                   v-validate="{ required: true, min: 8 }"
@@ -97,6 +98,11 @@ export default {
   //       console.log(this.user)
   // },
   methods: {
+//     nospaces(t){
+//   if(t.value.match(/\s/g)){
+//     t.value=t.value.replace(/\s/g,'');
+//   }
+// },
     async loginUser(e) {
       if (this.email === "" || this.password === "") {
         this.loader = true;
@@ -106,58 +112,58 @@ export default {
       }
       // this.login = true
       this.submitted = true;
-      this.$validator.validateAll().then( async (valid) => {
+      this.$validator.validateAll().then(async (valid) => {
         if (valid) {
           console.log("Login");
-            try {
-        let response = await this.$auth.loginWith("local", {
-          data: {
-            email: this.email,
-            password: this.password,
-          },
-        });
-        let user = response.data.user;
-        this.$auth.$storage.setLocalStorage("user", user);
-        let token = response.data.token;
-        this.$auth.$storage.setLocalStorage("jwt", token);
-        // localStorage.setItem("jwt", token);
-        console.log(token);
-        this.loader = false;
+          try {
+            let response = await this.$auth.loginWith("local", {
+              data: {
+                email: this.email,
+                password: this.password,
+              },
+            });
+            let user = response.data.user;
+            this.$auth.$storage.setLocalStorage("user", user);
+            let token = response.data.token;
+            this.$auth.$storage.setLocalStorage("jwt", token);
+            // localStorage.setItem("jwt", token);
+            console.log(token);
+            this.loader = false;
 
-        console.log(response);
-        this.loader = false;
-        this.$message({
-          message: `Welcome ${user.username}`,
-          type: "success",
-        });
-        this.$router.push("/dashboard");
-      } catch (e) {
-        this.loader = true;
-        // console.log(e.response.status);
-        // this.error = e.res;
-        if (e.response.status === 401) {
-          this.$message({
-            message: "Sorry,username or password those not match our record!",
-            type: "error",
-          });
-        }
-        if (e.response.status === 422) {
-          this.$message({
-            message: "Sorry, check username or password!",
-            type: "error",
-          });
-        }
-         if (!e.response.status) {
-          this.$message({
-            message: "Sorry, please check your internet connection",
-            type: "error",
-          });
-        }
-        this.loader = true;
-      }
+            console.log(response);
+            this.loader = false;
+            this.$message({
+              message: `Welcome ${user.username}`,
+              type: "success",
+            });
+            this.$router.push("/dashboard");
+          } catch (e) {
+            this.loader = true;
+            // console.log(e.response.status);
+            // this.error = e.res;
+            if (e.response.status === 401) {
+              this.$message({
+                message:
+                  "Sorry,username or password those not match our record!",
+                type: "error",
+              });
+            }
+            if (e.response.status === 422) {
+              this.$message({
+                message: "Sorry, check username or password!",
+                type: "error",
+              });
+            }
+            if (!e.response.status) {
+              this.$message({
+                message: "Sorry, please check your internet connection",
+                type: "error",
+              });
+            }
+            this.loader = true;
+          }
         }
       });
-
     },
     getProfile() {
       this.$axios
@@ -179,8 +185,8 @@ export default {
 </script>
 
 <style scoped>
-*{
-  font-family: 'Overpass', sans-serif;
+* {
+  font-family: "Overpass", sans-serif;
 }
 .two {
   background: linear-gradient(
@@ -212,7 +218,7 @@ input {
 .two2 {
   padding: 17% 25%;
   background: #f9f9f9;
-  height:100vh;
+  height: 100vh;
 }
 .two2 input {
   width: 100%;
@@ -291,7 +297,7 @@ a{
   }
   hr {
     margin-top: 2rem;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
   }
 }
 

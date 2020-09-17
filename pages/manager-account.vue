@@ -65,45 +65,9 @@
                 </div>
                 <div class="wrapper">
                     <div class="box-down">
-                        <!-- <div class="d-flex">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div> -->
                     </div>
-
                 </div>
-
-
             </div>
-
                 </div>
 
                 <!-- Mobile View -->
@@ -123,7 +87,7 @@
                                     </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="text" name="lastName" class="form-control" id="" required placeholder="Last Name" v-model="managerInfo.last_name" v-validate="'required'"
+                                     <input type="text" name="lastName" class="form-control" id=""  placeholder="Last Name" v-model="managerInfo.last_name" v-validate="'required'"
                                      :class="{ 'is-invalid': submitted && errors.has('lastName') }">
                                      <small
                                         v-if="submitted && errors.has('lastName')"
@@ -154,7 +118,12 @@
                                     </small>
                                 </div>
                             </div>
-                             <button type="submit" class="btn1">Submit</button>
+                              <button type="submit" class="btn1">
+                                 <span v-if="loader">Submit</span>
+                                <div v-else>
+                                <app-loader />
+                                </div>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -188,7 +157,10 @@ export default {
     },
     mounted(){
         this.user= this.$auth.$storage.getLocalStorage('jwt')
-        console.log(this.user)
+          this.$axios.get('https://hamlet.payfill.co/api/auth/admin').then(res=>
+            {
+              this.id=res.data.user.profile.id
+            })
 
     },
     methods : {
@@ -211,14 +183,14 @@ export default {
                 // this.login = false
                 }
             });
-            console.log({headers : {'Authorization' : `Bearer ${this.user}`,'Content-Type':'multipart/form-data'}})
             const formData = new FormData()
             formData.append('first_name', this.managerInfo.first_name)
             formData.append('last_name', this.managerInfo.last_name)
             formData.append('address', this.managerInfo.address)
             formData.append('profile_pic', this.managerInfo.profile_pic)
-             axios.post('https://hamlet.payfill.co/api/profile', formData,
-             {headers : {'Authorization' : `Bearer ${this.user}`,'Content-Type':'multipart/form-data'}}).then((res)=> {
+            formData.append('_method', 'PUT')
+             axios.post(`https://hamlet.payfill.co/api/profile/${this.id}`, formData,
+              {headers : {'Authorization' : `Bearer ${this.user}`,'Content-Type':'multipart/form-data'}}).then((res)=> {
                 this.$message({
                 message: "Manager Successfully Added!",
                 type: 'success'
@@ -307,6 +279,7 @@ textarea{
     border: 1px solid #0065FC;
     outline: none !important;
     width: 70%;
+    border-radius: 5px;
 }
 .active {
     display: block !important;

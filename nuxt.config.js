@@ -40,10 +40,10 @@ export default {
       {
         href: "https://unpkg.com/element-ui/lib/theme-chalk/index.css",
         rel: "stylesheet"
-      }
+      },
       // {
       //   rel: "stylesheet",
-      //   href: "toastr.css"
+      //   href: "https://use.fontawesome.com/releases/v5.8.1/css/solid.css"
       // }
     ],
     script: [
@@ -144,6 +144,9 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
+  router: {
+    middleware: ['auth']
+  },
   auth: {
     redirect: {
       login: "/signin",

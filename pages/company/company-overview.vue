@@ -20,12 +20,12 @@
               <div class="one7">
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1">Back</button>
+                    <button class="btn1"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->
-                <h2>{{this.company.company_name}}</h2>
-                <p>Total Headcount: {{this.company.no_of_employees}} | Services: {{this.company.services}}</p>
+                <h2 v-if="this.company" >{{this.company.company_name}}</h2>
+                <p v-if="this.company">Total Headcount: {{this.company.no_of_employees}} | Services: {{this.company.services}}</p>
               </div>
             </div>
             <div>
@@ -33,36 +33,36 @@
                 <h3>General Information</h3>
                 <hr />
                 <div class="grid">
-                  <p>Company Name</p>
-                  <p>{{this.company.company_name}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">Company Name</h5>
+                  <p v-if="this.company">{{this.company.company_name}}</p>
                 </div>
                 <div class="grid">
-                  <p>Company Website</p>
-                  <p>{{this.company.company_website}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">Company Website</h5>
+                  <p v-if="this.company">{{this.company.company_website}}</p>
                 </div>
                 <div class="grid">
-                  <p>Email</p>
-                  <p>{{this.company.company_email}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">Email</h5>
+                  <p v-if="this.company">{{this.company.company_email}}</p>
                 </div>
                 <div class="grid">
-                  <p>Phone Number</p>
-                  <p>{{this.company.company_phone}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">Phone Number</h5>
+                  <p v-if="this.company">{{this.company.company_phone}}</p>
                 </div>
                 <div class="grid">
-                  <p>Address</p>
-                  <p>{{this.company.company_address}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">Address</h5>
+                  <p v-if="this.company">{{this.company.company_address}}</p>
                 </div>
                 <div class="grid">
-                  <p>City</p>
-                  <p>{{this.company.city}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">City</h5>
+                  <p v-if="this.company">{{this.company.city}}</p>
                 </div>
                 <div class="grid">
-                  <p>Zip Code</p>
-                  <p>{{this.company.zip_code}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">Zip Code</h5>
+                  <p v-if="this.company">{{this.company.zip_code}}</p>
                 </div>
                 <div class="grid">
-                  <p>State</p>
-                  <p>{{this.company.state}}</p>
+                  <h5 style="color:#0065fc;font-weight:400">State</h5>
+                  <p v-if="this.company">{{this.company.state}}</p>
                 </div>
 
                 <hr />
@@ -251,6 +251,8 @@ export default {
               })
               .then(
                 (res) => {
+                  this.getCompany()
+                  this.$router.push("/dashboard")
                   console.log(res);
                   this.$message({
                     message: "Company Details Updated Successfully!",
@@ -264,8 +266,8 @@ export default {
                 }
               );
             // this.reload();
-            this.getCompany()
-            this.$router.push("/dashboard")
+
+            // this.$router.push("/dashboard")
           } else {
             this.$message({
               message: "Company Details remains the same !",
@@ -335,6 +337,7 @@ export default {
 .grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-gap: 5rem;
   margin-bottom: 20px;
 }
 .grid p {
@@ -380,9 +383,12 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+  /* background-color: rgb(192, 192, 192, 0.2) !important; */
+   background-color: #E6ECF2 !important;
+  /* background: #f9f9f9; */
   margin-top: 3.5rem;
-  height: 130vh;
+  height: 100vh;
+  padding-bottom: 2rem;
 }
 .one6 {
   padding-left: 4rem;
@@ -425,6 +431,7 @@ textarea {
 }
 #style-loader {
   margin-top: 30vh;
+  padding-bottom: 5rem;
   text-align: center;
 }
 
@@ -434,10 +441,11 @@ textarea {
     margin-left: 0px;
   }
   .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-bottom: 40px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 20px;
+}
   .one3 {
     padding-left: 30px;
     padding-right: 30px;
@@ -452,9 +460,11 @@ textarea {
   }
   .btn2 {
     margin-left: 0px;
+    margin-top: .5rem;
   }
   .btn1 {
     margin-bottom: 30px;
+    
   }
   .one6 {
     padding-left: 30px;

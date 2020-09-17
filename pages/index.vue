@@ -84,7 +84,7 @@
               <div>
                 <img
                   src="/img/ibomair.png"
-                  class="img-fluid"
+                  class="img-fluid p-down"
                   width="90px"
                   height="150px"
                   alt
@@ -94,7 +94,7 @@
               <div>
                 <img
                   src="/img/cowrywise.png"
-                  class="img-fluid"
+                  class="img-fluid p-down"
                   width="150px"
                   alt
                   srcset
@@ -103,7 +103,7 @@
               <div>
                 <img
                   src="/img/hotels.png"
-                  class="img-fluid"
+                  class="img-fluid p-down"
                   width="100px"
                   alt
                   srcset
@@ -112,7 +112,7 @@
               <div>
                 <img
                   src="/img/barter.png"
-                  class="img-fluid"
+                  class="img-fluid p-down"
                   width="100px"
                   alt
                   srcset
@@ -131,17 +131,17 @@
           <div class="row">
             <div class="col-lg-6 system-bg-2" 
               data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-easing="ease-in-sine">
+              data-aos-duration="1000"
+              >
               <img src="/img/system.png" class="img-fluid" alt srcset />
             </div>
             <div class="col-lg-6  system-bg-1"
-            data-aos="fade-down"
-              data-aos-duration="600"
-              data-aos-easing="ease-in-sine">
+              data-aos="fade-down"
+              data-aos-duration="1000"
+              >
               <div class="border-blue mb-3"></div>
               <div class="border-text">
-                MANAGE YOUR EMPLOYEES WITHOUT HASSLE
+                MANAGE YOUR EMPLOYEES WITHOUT HASSLES
               </div>
               <div class="border-p">
                 Business productivity is of paramount importance to the
@@ -159,11 +159,11 @@
       <div class="pb-5 pt-5 bg-curve">
         <div class="container pb-5" 
               data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-easing="zoom-in-down">
+              data-aos-duration="1000"
+              >
           <div class="how-it-works pb-5 mt-5 pt-5">HOW IT WORKS</div>
           <div class="row">
-            <div class="col-sm-4 offset-1 col-lg-3">
+            <div class="col-sm-4 col-lg-3">
               <div class="text-center">
                 <img src="/img/handi.png" alt class="img-fluid" srcset />
                 <div class="letter-under">Signup</div>
@@ -198,11 +198,11 @@
               </div>
             </div>
           </div>
-          <div class="text-center mt-5">
+          <div class="text-center mt-5 pb-5">
             <nuxt-link to="/signup">
-              <button class="btn2 mt-5">
+              <button class="btn2 mt-3 mb-5 btn-mobile-works">
                 Get started
-                <span class="ml-2">
+                <span class="">
                   <font-awesome-icon :icon="['fa', 'angle-right']" />
                 </span>
               </button>
@@ -216,14 +216,14 @@
     <!-- testimonial -->
     <section>
       <div class="pt-5 testimonial-bg">
-        <div class="letter-under text-center pt-5 mt-5 pb-5">TESTIMONIALS</div>
+        <div class="letter-under text-center pt-5 mt-5 mb-5 pb-5 btn-mobile-works">TESTIMONIALS</div>
         <div class="container shadow p-0 lady-bg" 
-            data-aos="zoom-in"
-              data-aos-duration="600"
-              data-aos-easing="ease-in-sine">
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+             >
           <div class="row m-0 p-0" style="background-color : #FFFFFF">
-            <div class="col-sm-5 p-0 m-0">
-              <img src="/img/lady.png" alt srcset />
+            <div class="col-sm-5 pl-0 m-0 l-center">
+              <img src="/img/lady.png" class="img-fluid pr-0 mr-0" alt srcset />
             </div>
             <div class="col-sm-6">
               <div class="d-flex  flex-down">
@@ -266,6 +266,7 @@
 import Navbar from "~/components/navbar2.vue";
 import Footer from "~/components/footer.vue";
 export default {
+  auth: false,
   components: {
     "app-navbar": Navbar,
     Footer
@@ -434,7 +435,7 @@ export default {
   font-weight: normal;
   font-size: 1.2rem;
   margin-top: 1rem !important;
-  line-height: 42px;
+  
 
   /* width: 90%; */
   letter-spacing: 0.03em;
@@ -481,103 +482,369 @@ export default {
   color: #616161;
   text-align: left;
 }
-
-@media (max-width: 567px) {
-  .two {
-    background: linear-gradient(
-        to right,
-        rgba(8, 29, 41, 0.7),
-        rgba(8, 29, 41, 0.7)
-      ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
-    height: auto;
-  }
-  .grid {
-    padding: 8rem 20px;
-    grid-template-columns: 1fr;
-  }
-  .two1 h2 {
-    color: #ffffff;
-    font-size: 40px;
-    margin-bottom: 26px;
-  }
-  .two1 p {
-    color: #ffffff;
-    font-size: 20px;
-    margin-bottom: 26px;
-  }
-  .welcome-text {
-    font-size: 48px;
-    line-height: 59px;
-    text-align: center;
-    margin-top: 2rem;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  .welcome-p {
-    font-size: 24px;
-    text-align: center;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  /* .startbutton {
-    text-align: center;
-    margin-bottom: 2rem !important;
-  } */
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+  .bg-hero {
+  background-image: linear-gradient(
+      to right,
+      rgb(0, 0, 0, 0.7),
+      rgb(0, 0, 0, 0.7)
+    ),
+    url("/img/guys.jpg");
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: none;
+  /* object-fit: fill; */
+  margin-top: 4rem;
+  /* background-blend-mode: darken; */
+}
+.hero-text {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.2rem;
+  padding-top: 3rem;
+  padding-bottom: 0;
+  /* line-height: 59px; */
+  /* text-align: center; */
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+.hero-text-1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  /* line-height: 41px; */
+  /* text-align: center; */
+  letter-spacing: 0.03em;
+  color: #dae1eb;
+}
+.btn2 {
+  background: #0065fc;
+  border-radius: 5px;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  margin-bottom: 1rem;
+  outline: none !important;
+}
+.grid-style {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  flex-direction: column;
+  justify-content: none;
+  margin-top: 0;
+  padding: 3rem;
+  text-align: center;
+}
+.p-down{
+  margin-top: 2rem !important;
+}
+.system-bg {
+  background-image: url("/img/circle-1.png");
+  background-repeat: no-repeat;
+  background-size: 20% 10%;
+  background-position: top left;
+}
+.border-blue {
+  border: 3px solid #0065fc;
+  width: 25%;
+  margin-top: 3rem;
+}
+.border-text {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #002b6b;
+  text-align: left;
+}
+.border-p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  text-align:justify;
+  /* line-height: 42px; */
+  letter-spacing: 0.03em;
+  color: #002b6b;
+}
+.how-it-works {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #081d29;
+}
+.offset-1 {
+    margin-left: 0 !important;
+}
+.btn-mobile-works{
+  margin-top: 1rem !important;
+}
+.lady-bg {
+  width: 100% !important;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
+.l-center{
+text-align: center;
+}
+.p-0{
+  padding: none !important;
+}
+  .text-quote {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.4rem;
+  /* line-height: 38px; */
+  color: #000000;
+  margin-top: 8rem;
+}
+.text-quote-1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  /* line-hight: 38px; */
+  color: #000000;
+}
+.text-quote-2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 38px;
+  color: #000000;
+}
+.quote-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-top: 2rem;
+  line-height: 30px;
+  color: #616161;
+  text-align: justify;
+  padding-bottom: 2rem;
+}
+}
+@media only screen and (min-width: 360px) and (max-width: 578px) {
+  .bg-hero {
+  background-image: linear-gradient(
+      to right,
+      rgb(0, 0, 0, 0.7),
+      rgb(0, 0, 0, 0.7)
+    ),
+    url("/img/guys.jpg");
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: none;
+  /* object-fit: fill; */
+  margin-top: 4rem;
+  /* background-blend-mode: darken; */
+}
+.hero-text {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.2rem;
+  padding-top: 3rem;
+  padding-bottom: 0;
+  /* line-height: 59px; */
+  /* text-align: center; */
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+.hero-text-1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  /* line-height: 41px; */
+  /* text-align: center; */
+  letter-spacing: 0.03em;
+  color: #dae1eb;
+}
+.btn2 {
+  background: #0065fc;
+  border-radius: 5px;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  margin-bottom: 1rem;
+  outline: none !important;
+}
+.grid-style {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  flex-direction: column;
+  justify-content: none;
+  margin-top: 0;
+  padding: 3rem;
+  text-align: center;
+}
+.p-down{
+  margin-top: 2rem !important;
+}
+.system-bg {
+  background-image: url("/img/circle-1.png");
+  background-repeat: no-repeat;
+  background-size: 20% 10%;
+  background-position: top left;
+}
+.border-blue {
+  border: 3px solid #0065fc;
+  width: 25%;
+  margin-top: 3rem;
+}
+.border-text {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #002b6b;
+  text-align: left;
+}
+.border-p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  text-align:justify;
+  /* line-height: 42px; */
+  letter-spacing: 0.03em;
+  color: #002b6b;
+}
+.how-it-works {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #081d29;
+}
+.offset-1 {
+    margin-left: 0 !important;
+}
+.btn-mobile-works{
+  margin-top: 1rem !important;
+}
+.lady-bg {
+  width: 100% !important;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
+.l-center{
+text-align: center;
+}
+.p-0{
+  padding: none !important;
+}
+  .text-quote {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.4rem;
+  /* line-height: 38px; */
+  color: #000000;
+  margin-top: 8rem;
+}
+.text-quote-1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  /* line-hight: 38px; */
+  color: #000000;
+}
+.text-quote-2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 38px;
+  color: #000000;
+}
+.quote-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-top: 2rem;
+  line-height: 30px;
+  color: #616161;
+  text-align: justify;
+  padding-bottom: 2rem;
+}
 }
 
-@media (min-width: 568px) and (max-width: 768px) {
-  .two {
-    background: linear-gradient(
-        to right,
-        rgba(8, 29, 41, 0.7),
-        rgba(8, 29, 41, 0.7)
-      ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
-    height: auto;
-  }
-  .grid {
-    padding: 10rem 20px;
-    grid-template-columns: 1fr 1fr;
-    text-align: justify;
-  }
-  .two1 h2 {
-    color: #ffffff;
-    font-size: 40px;
-    margin-bottom: 26px;
-  }
-  .two1 p {
-    color: #ffffff;
-    font-size: 20px;
-    margin-bottom: 26px;
-  }
+@media only screen and  (min-width: 768px) and (max-width: 1020px) {
+ .bg-hero {
+  background-image: linear-gradient(
+      to right,
+      rgb(0, 0, 0, 0.7),
+      rgb(0, 0, 0, 0.7)
+    ),
+    url("/img/guys.jpg");
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: none;
+  /* object-fit: fill; */
+  margin-top: 4rem;
+  /* background-blend-mode: darken; */
 }
-
-@media (min-width: 769px) and (max-width: 1200px) {
-  .two {
-    background: linear-gradient(
-        to right,
-        rgba(8, 29, 41, 0.7),
-        rgba(8, 29, 41, 0.7)
-      ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
-    height: auto;
-  }
-  .grid {
-    padding: 10rem 20px;
-    grid-template-columns: 1fr 1fr;
-    text-align: justify;
-    margin-left: 80px;
-  }
-  .two1 h2 {
-    color: #ffffff;
-    font-size: 3rem;
-    margin-bottom: 30px;
-  }
-  .two1 p {
-    color: #ffffff;
-    font-size: 20px;
-    margin-bottom: 30px;
-  }
+.hero-text {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2rem;
+  padding-top: 13rem;
+  padding-bottom: 13rem;
+  /* line-height: 59px; */
+  /* text-align: center; */
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+.hero-text-1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  /* line-height: 41px; */
+  /* text-align: center; */
+  letter-spacing: 0.03em;
+  color: #dae1eb;
+}
+.btn2 {
+  background: #0065fc;
+  border-radius: 5px;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem;
+  outline: none !important;
+}
+.grid-style {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0;
+  padding: 3rem;
+}
+.system-bg {
+  background-image: url("/img/circle-1.png");
+  background-repeat: no-repeat;
+  background-size: 30% 20%;
+  background-position: top left;
+}
+.border-blue {
+  border: 3px solid #0065fc;
+  width: 15%;
+  margin-top: 0;
+}
+.border-text {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #002b6b;
+  text-align: justify;
+}
+.offset-1 {
+    margin-left: 0 !important;
+}
+.lady-bg {
+  width: 100% !important;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
 }
 </style>

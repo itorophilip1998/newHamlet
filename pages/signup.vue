@@ -1,12 +1,102 @@
 <template>
     <div>
         <Navbar />
+
         <!-- Desktop view -->
+
         <div class="bg-big">
                  <div class="grid desktopShow">
                      <div class="margin-form">
                 <div class="form-edit">
+
                     <form @submit.prevent="createAccount">
+                            <div class="active first-form" id="hide-form">
+
+                                <h1>Set Up An Account</h1>
+
+                                <span class="mt-4 text-center" v-if="loader"><app-loader /></span>
+                                <div class="mt-4">
+                                     <input type="text" class="form-control" id="" name="username" placeholder="Username" v-model="signUp.username"  v-validate="'required'"
+                                     :class="{ 'is-invalid': submitted && errors.has('username') }">
+                                     <small
+                                        v-if="submitted && errors.has('username')"
+                                        class="invalid-feedback"
+                                    >
+                                    {{ errors.first("username")}}
+                                    </small>
+                                    <!-- validated backend error username -->
+                                     <!-- <small v-if="error.username"  class="text-danger" v-for="errors in error.username" :key="index"><span>{{errors}}</span><br></small> -->
+
+                                </div>
+                                <div class="mt-4">
+                                     <input type="email" name="email" class="form-control" id="" placeholder="Email" v-model="signUp.email" v-validate="'required|email'"
+                                     :class="{ 'is-invalid': submitted && errors.has('email') }">
+                                       <small
+                                        v-if="submitted && errors.has('email')"
+                                        class="invalid-feedback"
+                                         >
+                                    {{ errors.first("email")}}
+
+                                    </small>
+                                     <!-- validated backend error email -->
+                                     <!-- <small v-if="error.email"  class="text-danger" v-for="errors in error.email" :key="index"><span>{{errors}}</span><br></small> -->
+
+                                </div>
+                                <div class="mt-4">
+                                     <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
+                                     :class="{ 'is-invalid': submitted && errors.has('password') }">
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
+                                     <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small> -->
+                                      <small
+                                        v-if="submitted && errors.has('password')"
+                                        class="invalid-feedback"
+                                         >
+
+                                    {{ errors.first("password")}}
+                                    </small>
+                                      <!-- validated backend error password -->
+                                      <!-- <small v-if="error.password"  class="text-danger" v-for="errors in error.password" :key="index"><span>{{errors}}</span><br></small> -->
+                                </div>
+                                <div class="mt-4">
+                                     <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
+                                     :class="{ 'is-invalid': submitted && errors.has('password') }">
+                                       <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
+                                        <small
+                                        v-if="submitted && errors.has('password')"
+                                        class="invalid-feedback"
+                                         >
+                                    {{ errors.first("password")}}
+                                    </small>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn1 btn btn-primary">Create Account</button>
+                    </form>
+                    <div class="account">
+                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link> </span> Or
+
+
+
+
+                    </div>
+                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="box-down">
+                    </div>
+
+                </div>
+
+
+            </div>
+
+                </div>
+
+                <!-- Mobile View -->
+                <div class="container wrapper mobileShow">
+                    <div class="mobile-form">
+                       <form @submit.prevent="createAccount">
                             <div class="active first-form" id="hide-form">
                                 <h1>Set Up An Account</h1>
                                 <span class="mt-4 text-center" v-if="loader"><app-loader /></span>
@@ -33,7 +123,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must be atleast 8 characters long)</small>
+                                     <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
                                       <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -44,7 +134,7 @@
                                 <div class="mt-4">
                                      <input type="password" name="password" class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Re-enter password)</small>
+                                       <small id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Re-enter password)</small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -53,89 +143,17 @@
                                     </small>
                                 </div>
                             </div>
-                            <button type="submit" class="btn1">Create Account</button>
+                            <button type="submit" class="btn1 btn btn-primary">Create Account</button>
                     </form>
-                    <div class="account">
-                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
-                    </div>
-                     <a href="http://localhost:9000/google"><i class="fa fa-google" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                <div class="wrapper">
-                    <div class="box-down">
-                        <!-- <div class="d-flex">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div>
-                        <div class="d-flex mt-3">
-                            <div>
-                                 <img src="/img/Rectangle 21.png" class="img-fluid" alt="" srcset="">
-                            </div>
-                            <div class="text-box">
-                                Best Pricing Plans
-                            </div>
-                        </div> -->
-                    </div>
 
-                </div>
-
-
-            </div>
-
-                </div>
-
-                <!-- Mobile View -->
-                <div class="container wrapper mobileShow">
-                    <div class="mobile-form">
-                        <form  @submit.prevent="createAccount">
-                            <div class="first-form">
-                                <h1 class="mobile-text">Set Up an Account</h1>
-                                <div class="mt-4">
-                                     <input type="text" name="" class="form-control" id="" required placeholder="Username" v-model="signUp.username">
-                                </div>
-                                <div class="mt-4">
-                                     <input type="email" name="" class="form-control" id="" required placeholder="Email" v-model="signUp.email">
-                                </div>
-                                <div class="mt-4">
-                                     <input type="password" name="" class="form-control" id="" required placeholder="Password" v-model="signUp.password">
-                                </div>
-                                <div class="mt-4">
-                                     <input type="password" name="" class="form-control" id="" required placeholder="Password Confirmation" v-model="signUp.password_confirmation">
-                                </div>
-                            </div>
-                             <button type="submit" class="btn1" style="color:white; ">Create Account</button>
-                        </form>
                         <div class="account">
-                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link></span>
+                        Already have an account? <span style="color : #0065FC"> <nuxt-link to="/signin">Log in</nuxt-link></span>
                     </div>
+                    <div style="text-align:center; color:white">
+                        <p>Or</p>
                     </div>
-
-                    <nav class="navbar navbar-expand navbar-light bg-light">
-                        <div class="nav navbar-nav">
-                            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="#">Home</a>
-                        </div>
-                    </nav>
+                      <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>
+                    </div>
                 </div>
                 <!-- Mobile View End -->
     </div>
@@ -147,6 +165,7 @@
 import Navbar from "@/components/navbar2.vue"
 import newLoader from "~/components/loader-1.vue";
 export default {
+  auth: false,
   components : {
         Navbar,
         'app-loader' : newLoader
@@ -158,9 +177,12 @@ export default {
                 email : '',
                 password: '',
                 password_confirmation: ''
+
             },
             loader : false,
             submitted : false,
+            getError:'',
+            error:'',
         }
     },
     methods : {
@@ -187,13 +209,11 @@ export default {
             this.$auth.$storage.setLocalStorage('jwt', token);
             console.log(response)
              await this.$auth.loginWith('local', {
-          data: {
-                email : this.signUp.email,
-                password : this.signUp.password
-          },
-        })
-
-
+                data: {
+                        email : this.signUp.email,
+                        password : this.signUp.password
+                },
+            })
           this.$message({
           message: "Account created successfully!",
           type: 'success'
@@ -202,13 +222,10 @@ export default {
       }
 
       catch (e) {
-        console.log(e);
-        this.error = e.res;
-
-         if (e.response.status === 422) {
+          if (e.response.status === 422) {
           this.$message({
-            message: "Sorry, Email has been taken",
-            type: "error"
+            message: "Sorry, email already taken!",
+            type: "error",
           });
         }
         this.loader = false
@@ -216,55 +233,11 @@ export default {
 
                 }
                 else{
-
+                    this.loader = false
                 }
             });
-    //          try {
-    //         let response = await this.$axios.post('https://hamlet.payfill.co/api/auth/signup',this.signUp)
-    //         let token = response.data.token
-    //         this.$auth.$storage.setLocalStorage('jwt', token);
-    //     // localStorage.setItem("jwt", token);
-    //         console.log(response)
-    //     //   this.$router.push("/managerAccount");
-    //          await this.$auth.loginWith('local', {
-    //       data: {
-    //             email : this.signUp.email,
-    //             password : this.signUp.password
-    //       },
-    //     })
-    //      let user = response.data.user
-    //      this.$auth.$storage.setLocalStorage('user', user);
-    //       this.$message({
-    //       message: "Account created successfully!",
-    //       type: 'success'
-    //     })
-    //      this.$router.push("/manager-account");
-    //   }
-
-    //   catch (e) {
-    //     console.log(e);
-    //     this.error = e.res;
-
-    //     //  if (e.response.status === 422) {
-    //     //   this.$message({
-    //     //     message: "Sorry, Email has been taken",
-    //     //     type: "error"
-    //     //   });
-    //     // }
-    //     this.loader = false
-    //   }
         },
-        // createAccount(){
-        //     axios.post('https://hamlet-hrm.herokuapp.com/api/auth/signup',this.signUp).then(res=>
-        //     {
-        //         this.$router.push('/managerAccount')
-        //         console.log(res.data)
-        //     })
-        //      .catch((error) => {
-        //   this.loader = false;
-        //   console.log(error);
-        // });
-        // }
+
     }
 }
 </script>>
@@ -279,12 +252,12 @@ export default {
     /* background-position: right; */
     /* background-size: center center/cover; */
     /* background-repeat: no-repeat; */
-    height: 100vh;
+    height: 120vh;
 }
 .bg-big{
     /* background-color:#F9F9F9; */
     background-color: rgb(192, 192, 192, 0.1);
-    margin-top: 4.3rem;
+    margin-top: 4rem;
 }
 .margin-form{
     margin-left: 8rem;
@@ -297,6 +270,18 @@ export default {
 .form-edit{
     padding: 1rem;
 }
+.btn8{
+  width:80%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
+.btn8 a{
+  color: #EB4335;
+}
 .first-form{
     margin-top: 6rem;
 }
@@ -304,7 +289,7 @@ export default {
     margin-top: 1rem;
 }
 input{
-    width : 70%;
+    width : 80%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     background-color: rgba(255,255,255,1) !important;
 }
@@ -314,20 +299,20 @@ input{
     outline: none;
 }
 textarea{
-    width: 70%;
+    width: 80%;
     height: 10vh;
     border: 1px solid rgb(192, 192, 192);
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     background-color: rgba(255,255,255,1) !important;
 }
 .btn1{
-    padding: 1rem 10.5rem;
+    padding: 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
-    width: 70%;
+    width: 80% !important;
 }
 .btn3{
     padding: 1rem 2rem;
@@ -368,6 +353,10 @@ h1{
     font-size: 1.1rem;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
+     h1{
+        font-size: 2rem;
+        color: #FFFFFF;
+    }
     .mobileShow{
         display: block;
     }
@@ -380,10 +369,19 @@ h1{
     .wrapper{
     background: linear-gradient(to right, rgba(8, 29, 41, 0.7),
        rgba(8, 29, 41, 0.7)), url("/img/nesa.jpg") no-repeat center center/cover;
-    height: 100vh;
+    height: 140vh;
     padding-top: 1rem;
      padding-bottom: 0;
     }
+    .btn8{
+  width:100%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     label{
         color: #FFFFFF;
     }
@@ -392,6 +390,7 @@ h1{
     }
     .btn1{
         width: 100%;
+        border-radius: 5px;
     }
     .btn2{
         margin-left: .1rem;
@@ -406,12 +405,13 @@ h1{
         color: #FFFFFF !important;
     }
     .btn1{
-    padding: 1rem 5.5rem;
+
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 100% !important;
     }
     .first-form{
         margin-top: 3rem;
@@ -423,7 +423,11 @@ h1{
     }
 
 }
-@media only screen and (min-width: 360px) and (max-width: 578px) {
+@media only screen and (min-width: 351px) and (max-width: 578px) {
+    h1{
+        font-size: 2rem;
+        color: #FFFFFF;
+    }
     .mobileShow{
         display: block;
     }
@@ -439,10 +443,19 @@ h1{
     /* background-position: right; */
     /* background-size: center center/cover; */
     /* background-repeat: no-repeat; */
-    height: 100vh;
+    height: 125vh;
     padding-top: 1rem;
      padding-bottom: 0;
     }
+    .btn8{
+  width:100%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     label{
         color: #FFFFFF;
     }
@@ -451,9 +464,11 @@ h1{
     }
     .btn1{
         width: 100%;
+        border-radius: 5px;
     }
     .btn2{
         margin-left: .1rem;
+
     }
     .btn3{
         margin-left: .1rem;
@@ -465,12 +480,12 @@ h1{
         color: #FFFFFF !important;
     }
     .btn1{
-    padding: 1rem 6.8rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 100% !important;
     }
     .first-form{
         margin-top: 3rem;
@@ -486,19 +501,33 @@ h1{
     .margin-form{
         margin-left: 2rem;
     }
+     h1{
+        font-size: 2rem;
+        color: #0065FC;
+    }
     .box-down{
     padding-left: 3rem;
     margin-top: 13rem;
     text-align: center;
     }
-     .btn1{
-    padding: 1rem 7rem;
+    .btn1{
+    padding: 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 100% !important;
     }
+    .btn8{
+  width:100%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     .account{
     padding: 1rem 2rem 2rem .5rem;
     font-size: 1rem;
@@ -506,9 +535,6 @@ h1{
     }
     input{
         width: 100%;
-    }
-    h1{
-        font-size: 2rem !important;
     }
     .margin-form{
         margin-left: 1rem;
@@ -523,13 +549,23 @@ h1{
 }
 @media only screen and (min-width: 996px) and (max-width: 1024px) {
     .btn1{
-    padding: 1rem 9rem;
+    padding: 1rem 1rem;
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;
     border: 1px solid #0065FC;
     outline: none !important;
+    width: 90% !important;
     }
+    .btn8{
+  width:90%;
+  border:1px solid #0065fc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: transparent;
+  color: #EB4335;
+  font-size: 20px !important;
+}
     .margin-form{
         margin-left: 2rem;
     }
@@ -540,20 +576,10 @@ h1{
         width: 90%;
     }
 }
-@media only screen and (min-width: 1025px) and (max-width: 1440px) {
-    .btn1{
-    padding: 1rem 1rem;
-    margin-top: 2rem;
-    color:  #FFFFFF;
-    background-color: #0065FC;
-    border: 1px solid #0065FC;
-    outline: none !important;
-    width: 70%;
-    }
-}
+
 @media only screen and (min-width: 2000px) and (max-width: 2560px) {
     .btn1{
-    padding: 1rem 21rem;
+    /* padding: 1rem 21rem; */
     margin-top: 2rem;
     color:  #FFFFFF;
     background-color: #0065FC;

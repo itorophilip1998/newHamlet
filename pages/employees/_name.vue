@@ -3,25 +3,37 @@
         <app-navbar/>
 
         <div class="row one5">
-                <span class="one9 float-right">
+          
+                <!-- <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
                     <button class="btn1">Back</button>
                   </nuxt-link>
-                </span>
+                </span> -->
             <div class="one">
-              
+              <!-- <app-sidebar /> -->
         <div class="one1">
             <div v-for="item in employee" :key="item.id">
-        <img class="w-99"  v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
+        <img class="img-fluid rounded-circle" v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
            </div>
-             <p ><span style="cursor:pointer" @click='Personal()'  class="text-primary">Personal Info</span></p>           
-            <p ><span style="cursor:pointer"  @click='Job()' class="text-primary">Job Details</span></p>
-            <p ><span style="cursor:pointer"  @click='Contact()' class="text-primary">Contact info</span></p>
-            <!-- <p ><button class="btn border-primary  text-primary">Homepage</button></p> -->
+             <p ><span style="cursor:pointer"   class="text-primary">Employee Details</span></p>           
+            <!-- <p ><span style="cursor:pointer"  @click='Job()' class="text-primary">Job Details</span></p>
+            <p ><span style="cursor:pointer"  @click='Contact()' class="text-primary">Contact info</span></p> -->
+            <!-- <p ><button class="btn border-primary  text-primary">Homepage</button></p>  -->
 
-    </div>
-    </div>
+    </div> 
+    </div> 
+
     <div  class="one2 ">
+      <div class="loader-edit" v-if="LoadingEm">
+        <app-loader1 />
+      </div>
+
+        <div v-else>
+        <span class="one9 float-right">
+                  <nuxt-link to="/dashboard">
+                    <button class="btn-arrow"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
+                  </nuxt-link>
+                </span>
       <div class="one6">
       <div class="one7 ">
           <div v-for="item in employee" :key="item.id"><h3>{{ item.first_name + " " + item.other_names }}</h3>
@@ -32,35 +44,31 @@
       </div>
       
         </div>
-
-
-
-
         <!-- Personal Info Starts -->
-       <div id="Personal" style="display: block;" >
+       <div id="Personal">
          <div v-if="editEmployeeDetails">
            <div    class="one3" v-for="(data, index) in employee" :key="index" >
         <h3>Personal Info</h3>
         <hr>
 
       <div class="grid">
-          <p> Gender</p>
+          <p style="color : #0065fc; font-weight : 400"> Gender</p>
           <p>{{data.gender}}</p>
       </div>
       <div class="grid">
-          <p>Date of Birth</p>
+          <p style="color : #0065fc; font-weight : 400">Date of Birth</p>
           <p>{{data.dob}}</p>
       </div>
       <div class="grid">
-          <p>Address</p>
+          <p style="color : #0065fc; font-weight : 400">Address</p>
           <p>{{data.address}}</p>
       </div>
       <div class="grid">
-          <p>Qualification</p>
+          <p style="color : #0065fc; font-weight : 400">Qualification</p>
           <p>{{data.qualification}}</p>
       </div>
       <div class="grid">
-          <p>City/Town</p>
+          <p style="color : #0065fc; font-weight : 400">City/Town</p>
           <p>{{data.city}}</p>
       </div>
       <hr>
@@ -69,7 +77,7 @@
   </div>
          </div>
          <!-- personl info  edit -->
-<div id="form" style="margin-left:3rem;margin-right:3rem; margin-top:3rem" v-else>
+<div id="form" style="margin-left:4rem;margin-right:3rem; margin-top:3rem" v-else>
     <h3 style="color:#0065FC">Edit Employee Information</h3>
                 <hr>
   <form @submit.prevent="updateEmployeeInfo(employeeDetails.id)">
@@ -112,7 +120,7 @@
                     class="custom-select one6 form-control"
                     name="gender"
                     id="inputGroupSelect04"
-                    aria-label="Example select with button addon"
+                   
                     v-model="employeeDetails.gender"
                     v-validate="'required'"
                     :class="{ 'is-invalid': submitted && errors.has('gender') }"
@@ -183,15 +191,13 @@
                   class="custom-select one6 form-control"
                   name="qualifications"
                   id="inputGroupSelect04"
-                  aria-label="Example select with button addon"
+                  
                   v-model="employeeDetails.qualification"
                   v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('qualifications') }"
                 >
-                  <option value selected disabled>Select Qualification</option>
-                  <option
-                    value="Primary School Leaving Certificate"
-                  >Primary School Leaving Certificate</option>
+                  <option value="" selected disabled>Select Qualification</option>
+                  <option value="Primary School Leaving Certificate">Primary School Leaving Certificate</option>
                   <option value="JSCE">JSCE</option>
                   <option value="NECO">NECO</option>
                   <option value="WAEC">WAEC</option>
@@ -251,45 +257,45 @@
 
     <!-- Job details starts -->
 
-       <div id="Job" style="display: none;"   >
+       <div id="Job">
       <div class="one3">
           <div v-if="editJobDetails">
               <h3>Job Details</h3>
         <hr>
       <div class="grid">
-          <p>Job Title</p>
+          <p style="color : #0065fc; font-weight : 400">Job Title</p>
           <p>{{job_details.job_title}}</p>
       </div>
       <div class="grid">
-          <p>Employment Type</p>
+          <p style="color : #0065fc; font-weight : 400">Employment Type</p>
           <p>{{job_details.employment_type}}</p>
       </div>
       <div class="grid">
-          <p>Salary</p>
+          <p style="color : #0065fc; font-weight : 400">Salary</p>
           <p>{{job_details.salary}}</p>
       </div>
       <div class="grid">
-          <p>Date hired</p>
+          <p style="color : #0065fc; font-weight : 400">Date hired</p>
           <p>{{job_details.date_hired}}</p>
       </div>
       <div class="grid">
-          <p>Description</p>
+          <p style="color : #0065fc; font-weight : 400">Description</p>
           <p>{{job_details.description}}</p>
       </div>
       <div class="grid">
-          <p>Department</p>
+          <p style="color : #0065fc; font-weight : 400">Department</p>
           <p>{{job_details.department}}</p>
       </div>
       <div class="grid">
-          <p>Employment Classification</p>
+          <p style="color : #0065fc; font-weight : 400">Employment Classification</p>
           <p>{{job_details.employment_classification}}</p>
       </div>
       <div class="grid">
-          <p> Job Category</p>
+          <p style="color : #0065fc; font-weight : 400"> Job Category</p>
           <p>{{job_details.job_category}}</p>
       </div>
       <div class="grid">
-          <p>Work Location</p>
+          <p style="color : #0065fc; font-weight : 400">Work Location</p>
           <p>{{job_details.work_location}}</p>
       </div>
       <hr>
@@ -427,13 +433,13 @@
                  v-validate="'required'"
                   :class="{ 'is-invalid': submitted && errors.has('job-category') }"
                 ><option value selected disabled>Select Job Category</option>
-                  <option value="Male">Executive Officers and Managers</option>
-                  <option value="Female">Mid-Level Officers and Managers</option>
-                  <option value="Male">Professionals</option>
-                    <option value="Female">Technicians</option>
-                    <option value="Male">Sales Workers</option>
-                    <option value="Female">Craft Workers</option>
-                    <option value="Female">Service Workers</option>
+                   <option value="Executive Officers and Managers">Executive Officers and Managers</option>
+                  <option value="Mid-Level Officers and Managers">Mid-Level Officers and Managers</option>
+                  <option value="Professionals">Professionals</option>
+                    <option value="Technicians">Technicians</option>
+                    <option value="Sales Workers">Sales Workers</option>
+                    <option value="Craft Workers">Craft Workers</option>
+                    <option value="Service Workers">Service Workers</option>
                 </select>
                 <div></div>
                 <small
@@ -481,21 +487,21 @@
 
 
       <!-- Contact Info start -->
-       <div id="Contact"   style="display: none;"  >
+       <div id="Contact">
       <div class="one3">
           <div v-if="editContactInfo">
               <h3>Contact Info</h3>
                 <hr>
                 <div class="grid">
-                    <p>Phone</p>
+                    <p style="color : #0065fc; font-weight : 400">Phone</p>
                     <p>{{contact_info.phone}}</p>
                 </div>
                 <div class="grid">
-                    <p>Email</p>
+                    <p style="color : #0065fc; font-weight : 400">Email</p>
                     <p>{{contact_info.email}}</p>
                 </div>
                 <div class="grid">
-                    <p>Emergency Contact</p>
+                    <p style="color : #0065fc; font-weight : 400">Emergency Contact</p>
                     <p>{{contact_info.emergency_contact}}</p>
                 </div>
                 <hr>
@@ -570,7 +576,7 @@
       </div>
     </div>
      </div>
-
+        </div>
  </div>
         </div>
 
@@ -584,6 +590,7 @@
 <script>
 import sidebar from '~/components/sidebar2.vue';
 import navbar from '~/components/navbar4.vue';
+import appLoader from "~/components/loader-1.vue";
 import newLoader from "~/components/loader.vue";
 import swal from "sweetalert";
 export default {
@@ -592,11 +599,13 @@ export default {
         'app-sidebar':sidebar,
         'app-navbar':navbar,
         "app-loader": newLoader,
+        "app-loader1": appLoader,
+        
     },
-
     data() {
       return {
-          radio1: true,
+        LoadingEm : true,
+        radio1: true,
         radio2: false,
         departments:{},
           jobDetails:{
@@ -629,7 +638,6 @@ export default {
         emergency_contact: "",
         employee_id: this.$route.params.name,
           _method: "PUT"
-
       },
       editContactInfo: true,
       editEmployeeDetails:true,
@@ -649,7 +657,9 @@ export default {
       }
     },
     mounted(){
+    
       this.$axios.get(`https://hamlet.payfill.co/api/employees/${this.$route.params.name}`).then(res => {
+              this.LoadingEm = false
               this.employee=res.data.employee
               this.contact_info=res.data.employee[0].contact_info
               this.job_details=res.data.employee[0].job_details
@@ -661,7 +671,6 @@ export default {
 getEmployee(data)
 {
 // this.editedEmployee=data
-
 },
     showradio1(){
         this.radio2 = false;
@@ -684,9 +693,8 @@ getEmployee(data)
     },
     closeNav(){
       this.styleObject.width = '0px'
-    }
-,
-editContact(id) {
+    },
+    editContact(id) {
       this.editContactInfo = false;
       this.contactInfo = id;
     },
@@ -773,6 +781,9 @@ editContact(id) {
                 headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
               })
             .then((res) => {
+              // this.mounted()
+              // this.editEmployeeDetails = true;
+              // this.employee=res.data.employee
               console.log(res.data);
               this.$message({
                 message: "You've updated your employee's personal details!",
@@ -841,32 +852,43 @@ editContact(id) {
           });
         });
     },
-Personal()
-      {
-
-      document.getElementById('Personal').style.display='block';
-      document.getElementById('Job').style.display='none';
-      document.getElementById('Job').style.display='none';
-      },
-      Job()
-      {
-        document.getElementById('Job').style.display='block';
-        document.getElementById('Personal').style.display='none';
-        document.getElementById('Contact').style.display='none';
-      },
-      Contact()
-      {
-        document.getElementById('Contact').style.display='block';
-        document.getElementById('Personal').style.display='none';
-        document.getElementById('Job').style.display='none';
-      }
+// Personal()
+//       {
+//       document.getElementById('Personal').style.display='block';
+//       document.getElementById('Job').style.display='none';
+//       document.getElementById('Job').style.display='none';
+//       },
+      // Job()
+      // {
+      //   document.getElementById('Job').style.display='block';
+      //   document.getElementById('Personal').style.display='none';
+      //   document.getElementById('Contact').style.display='none';
+      // },
+      // Contact()
+      // {
+      //   document.getElementById('Contact').style.display='block';
+      //   document.getElementById('Personal').style.display='none';
+      //   document.getElementById('Job').style.display='none';
+      // }
     },
-
-
 }
 </script>
 
 <style scoped>
+*{
+  font-family: "Overpass", sans-serif;
+}
+.loader-edit{
+  text-align: center !important;
+  margin-top: 15rem;
+}
+.one5{
+        /* background-color: rgb(192, 192, 192, 0.2) !important; */
+        background-color: #E6ECF2 !important;
+        margin-top: 3.5rem;
+        height: auto !important;
+        padding-bottom: 2rem;
+    }
  .nuxt-link-active{
         border-left: 3px solid #64a2ff !important ;
         padding-left: .5rem;
@@ -883,14 +905,12 @@ Personal()
     -ms-user-select: none;
     user-select: none;
   }
-
   /* Hide the browser's default radio button */
   .container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
   }
-
   /* Create a custom radio button */
   .checkmark {
     position: absolute;
@@ -901,25 +921,20 @@ Personal()
     background-color: #eee;
     border-radius: 50%;
   }
-
   /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
     background-color: #ccc;
   }
-
   /* When the radio button is checked, add a blue background */
   .container input:checked ~ .checkmark {
     background-color: #2196F3;
   }
-
   /* Create the indicator (the dot/circle - hidden when not checked) */
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
-
   }
-
   /* Show the indicator (dot/circle) when checked */
   .container input:checked ~ .checkmark:after {
     display: block;
@@ -927,7 +942,6 @@ Personal()
   .one7{
     margin-left: 1.5rem;
   }
-
   /* Style the indicator (dot/circle) */
   .container .checkmark:after {
     top: 6px;
@@ -941,9 +955,17 @@ Personal()
         top: 0;
         left: 0;
         width: 25%;
-        height: 200vh;
-        background: #F9F9F9;
+        height: 350vh;
+        /* background: #F9F9F9; */
         position: fixed;
+    }
+    .one2{
+        width: 50%;
+        border-radius: 5px;
+        background: #FFFFFF;
+        margin-top: 5rem;
+        height: auto;
+        margin-left: 25%;
     }
     .one1{
         padding-left: 100px;
@@ -971,21 +993,20 @@ Personal()
     .one7 h4{
         color: #081D29;
     }
-
     @media (max-width:567px) {
         .one{
             display: none;
         }
+         .one7{
+    margin-left: 0 !important;
+  }
     }
-
-
     @media(min-width: 568px) and (max-width:768px) {
         .one1{
         padding-left: 10%;
         padding-right: 10%;
     }
     }
-
     @media(min-width: 769px) and (max-width:1200px) {
         .one1{
         padding-left: 40px;}
@@ -994,14 +1015,13 @@ Personal()
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-
     }
     .one2{
         width: 50%;
         border-radius: 5px;
         background: #FFFFFF;
         margin-top: 5rem;
-        height:200vh;
+        height: auto;
         margin-left: 25%;
     }
     .grid{
@@ -1024,7 +1044,6 @@ Personal()
         padding-right: 70px;
         padding-top: 50px;
         padding-bottom: 20px;
-
     }
     hr{
         margin-bottom: 30px;
@@ -1044,6 +1063,15 @@ Personal()
         border: 1px solid #0065FC;
         border-radius: 5px;
     }
+     .btn-arrow{
+        color: #0065FC;
+        padding: 8px 20px;
+        background: #FFFFFF;
+        border: 1px solid #0065FC;
+        border-radius: 5px;
+        outline: none;
+        margin: 1rem 0 0 -5rem;
+    }
     .btn2{
         color: #FFFFFF;
         background: #0065FC;
@@ -1052,13 +1080,14 @@ Personal()
         border: none;
         margin-left: 20px;
     }
-    .one5{
+    /* .one5{
         background: #F9F9F9;
         margin-top: 3.5rem;
         height: auto;
-    }
+        padding-bottom: 2rem;
+    } */
     .one6{
-        padding-left: 4rem;
+        padding-left: 3rem;
         padding-right: 4rem;
         padding-top: 2rem;
         
@@ -1073,13 +1102,10 @@ Personal()
         color: #0065FC;
          margin-bottom: 10px;
     }
-
-
     @media (max-width: 567px) {
         .one2{
         width: 100%;
         margin-left: 0px;
-
     }
         .grid{
         display: grid;
@@ -1091,7 +1117,6 @@ Personal()
         padding-right: 30px;
         padding-top: 50px;
         padding-bottom: 50px;
-
     }
         .one4{
             text-align: center;
@@ -1100,7 +1125,6 @@ Personal()
             width: 100%;
     }
         .btn2{
-
         margin-left: 0px;
     }
         .btn1{
@@ -1110,10 +1134,7 @@ Personal()
         padding-left: 30px;
         padding-right: 30px;
     }
-
     }
-
-
     @media(min-width: 568px) and (max-width:768px) {
         .one2{
         width: 75%;
@@ -1127,8 +1148,6 @@ Personal()
         padding-right: 30px;
     }
     }
-
-
     @media(min-width: 769px) and (max-width:1200px) {
          .grid{
              grid-gap: 2rem;
@@ -1144,17 +1163,12 @@ Personal()
         margin-left: 0px;
     }
      }
-
-
      *{
         font-family: 'Overpass', sans-serif;
-
     }
-
     .oneV{
         margin-left: 100px;
         margin-right: 100px;
-
     }
     a{
         color: #0065FC !important;
@@ -1173,7 +1187,6 @@ Personal()
         border-radius: 5px;
         padding: 5px 20px;
         border: 1px solid #0065FC;
-
     }
   .btn2V{
         background: #0065FC;
@@ -1268,11 +1281,9 @@ position: absolute;
   }
   .mobileViewV{
     display:block;
-
   }
-
+ 
 }
-
 @media only screen and (min-width: 360px) and (max-width: 578px) {
   .desktopViewV{
     display: none;
@@ -1309,6 +1320,4 @@ position: absolute;
       display: block;
     }
 } */
-
-
 </style>

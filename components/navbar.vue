@@ -1,5 +1,5 @@
 <template>
-<div class="boxShadow shadow fixed-top">
+<div class="boxShadow fixed-top">
    <div class="one desktopView">
         <nav class="navbar navbar-expand-lg navbar-light ">
   <nuxt-link to="/dashboard"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
@@ -16,7 +16,8 @@
     </li> -->
      <li class="nav-item active">
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                    v-if="this.profile_pic"  
+                    :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="40px"
@@ -49,12 +50,12 @@
             </div>
 
            <div class="one1">
-            <img :src="this.company.company_logo" alt class="w-50" />
+            <img v-if="this.company" :src="this.company.company_logo" alt class="w-50" />
 
-            <h5 style="color:white; margin-top:2rem">HIRING CHECKLIST</h5>
-            <p><nuxt-link to="/contactinfo" style="text-decoration:none; color : #FFFFFF;">Employee Details</nuxt-link></p>
-            <p><nuxt-link to="/employmenttype" style="text-decoration:none;  color : #FFFFFF">Contact Information</nuxt-link></p>
-            <p><nuxt-link to="/jobdetails" style="text-decoration:none;  color : #FFFFFF">Job Details</nuxt-link></p>
+            <!-- <h5 style="color:white; margin-top:2rem">HIRING CHECKLIST</h5> -->
+          <p class="mt-3"><nuxt-link to="/company/company-overview" style="text-decoration:none; color : #FFFFFF"><h5 style="margin-bottom:1rem">Company Overview</h5> </nuxt-link></p>
+            <p><nuxt-link to="/department/add-department" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Deparment</h5></nuxt-link></p>
+            <p><nuxt-link to="/all-employees" style="text-decoration:none;  color : #FFFFFF"><h5 style="margin-bottom:1rem">Directory</h5></nuxt-link></p>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
        <!-- <li v-if="$auth.loggedIn">
       {{auth.user.email}}
@@ -63,7 +64,7 @@
      <li class="nav-item active">
 
         <nuxt-link to="/profile/profile"><img
-                      :src="this.profile_pic.profile_pic"
+                      v-if="this.profile_pic" :src="this.profile_pic.profile_pic"
                       alt
                       class="rounded-circle"
                       width="50px"
@@ -164,7 +165,7 @@ export default {
       margin-left: 1.5rem;
     }
     .boxShadow{
-       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
         background-color: rgba(255,255,255,1) !important;
     }
     .one{
@@ -222,7 +223,7 @@ export default {
  z-index: 1;
  top: 0;
  left: 0;
- background-color: rgb(0,101,252, 0.7);
+ background-color: rgb(0,101,252);
  /* background-image: linear-gradient(to right, #0288d1, #0288d1 ); */
 /* opacity: 0.7; */
  overflow-x: hidden;

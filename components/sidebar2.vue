@@ -1,11 +1,13 @@
 <template>
     <div class="one">
         <div class="one1">
-            <img src="~/assets/Group 58.png" alt="">
-            
-            <h5>Name: </h5>
-            <p :class="currentPage.includes('/singleemployee/paymentinfo') ? activeClass : ''"><nuxt-link to="/singleemployee/paymentinfo" style="text-decoration:none">Personal Info</nuxt-link></p>
-            <p :class="currentPage.includes('/single-employee/employmentdetails') ? activeClass : ''"><nuxt-link to="/singleemployee/employmentdetails" style="text-decoration:none">Employment Details and Compensation</nuxt-link></p>
+            <div v-for="item in employee" :key="item.id">
+        <img class="img-fluid rounded-circle"
+          v-if="item.profile_pic"  :src="`${item.profile_pic  || '~/assets/Group 58.png'}`" alt="">
+           </div>
+            <p :class="currentPage.includes('/employees/_name.vue') ? activeClass : ''"><nuxt-link to="/employees/_name.vue" style="text-decoration:none">Employee Details</nuxt-link></p>
+            <!-- <p :class="currentPage.includes('/company/taxinfo') ? activeClass : ''"><nuxt-link to="/company/taxinfo" style="text-decoration:none">Tax Info</nuxt-link></p>
+            <p :class="currentPage.includes('/company/locations') ? activeClass : ''"><nuxt-link to="/company/locations" style="text-decoration:none">Locations</nuxt-link></p> -->
         </div>
     </div>
 </template>
@@ -14,23 +16,48 @@
 export default {
     data(){
     return{
-      activeClass : 'active'
+      activeClass : 'active',
+      company: {},
+      employee:{},
+        contact_info:{},
+        job_details:{},
+        departments:{},
     }
 },
+mounted(){
+      this.$axios.get(`https://hamlet.payfill.co/api/employees/${this.$route.params.name}`).then(res => {
+              this.employee=res.data.employee
+              this.contact_info=res.data.employee[0].contact_info
+              this.job_details=res.data.employee[0].job_details
+        });
+        this.user = this.$auth.$storage.getLocalStorage("jwt");
+        this.getDepartment()
+    },
+    methods: {
+        getDepartment() {
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then(res => {
+          console.log(res.data);
+          this.departments = res.data.user.company.company_departments;this.show = true;
+        });
+    },
+    },
+    
  computed : {
     currentPage(){
       return this.$route.path
     }
   }
 }
-</script>>
+</script>
 <style scoped>
     *{
         box-sizing: border-box;
         margin: 0;
         padding: 0;
         font-family: 'Overpass', sans-serif;
-        
+
     }
     .nuxt-link-active{
         border-left: 3px solid #64a2ff !important ;
@@ -41,7 +68,7 @@ export default {
         left: 0;
         width: 25%;
         height: 100vh;
-        background: #F9F9F9;
+        /* background: #F9F9F9; */
         position: fixed;
     }
     .one1{
@@ -52,7 +79,6 @@ export default {
     .one1 img{
         width: 60%;
         vertical-align: middle;
-        border-radius: 50%;
         margin-bottom: 20px;
     }
     .one1 h5{
@@ -82,5 +108,5 @@ export default {
         .one1{
         padding-left: 40px;}
     }
-    
+
 </style>

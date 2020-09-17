@@ -5,58 +5,17 @@
       <div class="grid">
         <div class="two1">
           <div class="two2">
-            <h2 class="text-center">Welcome Back!</h2>
-            <!-- {{user}}{{ loggedInUser}} -->
+            <h3 class="text-center text-primary">Hamlet Authorization</h3>
+            <hr>
+            <div class="border rounded-lg shadow p-2">
+              <p >
+                Continue Authentication With Google via hamlet
+              </p>
+                <button @click="setup()" class="text-center btn btn-primary">Setup Profile</button>
+                <button @click="skip()" class="text-center btn text-primary border-primary">Skip</button>
 
-            <form @submit.prevent="loginUser">
-              <div>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  v-model="email"
-                  v-validate="'required|email'"
-                  :class="{ 'is-invalid': submitted && errors.has('email') }"
-                />
-                <small
-                  v-if="submitted && errors.has('email')"
-                  class="invalid-feedback"
-                >{{ errors.first("email") }}</small>
-                <br />
-              </div>
-              <div class="mt-4">
-                <input
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  v-model="password"
-                  append-icon="mdi-eye"
-                  v-validate="{ required: true, min: 8 }"
-                  :class="{ 'is-invalid': submitted && errors.has('password') }"
-                />
-                <small
-                  id="emailHelp"
-                  v-if="submitted && errors.has('password')"
-                  class="invalid-feedback"
-                >{{ errors.first("password") }}</small>
-              </div>
+            </div>
 
-              <br />
-              <button type="submit" :disabled="login" class="btn1">
-                <span v-if="loader">Login</span>
-                <div v-else>
-                  <app-loader />
-                </div>
-              </button>
-            </form>
-            <hr />
-
-            <p class="text-center">
-              Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link> Or
-            </p>
-            <button class="btn3">
-              <img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Login with Google</a>
-              </button>
           </div>
         </div>
         <div class="two"></div>
@@ -85,18 +44,47 @@ export default {
       login: false,
       isValid: false,
       profile: {},
+      user:{}
       // tokenUser : {}
     };
   },
   computed: {
     ...mapGetters(["isAuthenticated", "loggedInUser"]),
   },
-  // created()
-  // {
-  //   this.user=this.$auth.$state
-  //       console.log(this.user)
-  // },
+  mounted()
+  {
+        this.$auth.$storage.setLocalStorage("jwt", this.$route.params.token);
+
+  },
   methods: {
+    setup()
+    {
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.token}`}}).then((result) => {
+        this.$auth.$storage.setLocalStorage("user", result.data.user);
+        this.$router.push("/manager-account");
+       }).catch((err) => {
+          this.$message({
+            message: "An error Occured!, please try again later",
+            type: "error",
+          });
+       });
+
+    },
+    skip()
+    {
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.token}`}}).then((result) => {
+        this.$auth.$storage.setLocalStorage("user", result.data.user);
+         this.$router.push('/company-details')
+
+       }).catch((err) => {
+          this.$message({
+            message: "An error Occured!, please try again later",
+            type: "error",
+          });
+     });
+
+
+    },
     async loginUser(e) {
       if (this.email === "" || this.password === "") {
         this.loader = true;
@@ -112,7 +100,7 @@ export default {
             try {
         let response = await this.$auth.loginWith("local", {
           data: {
-            email: this.email,
+            email: this.email, 
             password: this.password,
           },
         });
@@ -132,27 +120,26 @@ export default {
         });
         this.$router.push("/dashboard");
       } catch (e) {
-        this.loader = true;
         // console.log(e.response.status);
         // this.error = e.res;
         if (e.response.status === 401) {
           this.$message({
-            message: "Sorry,username or password those not match our record!",
+            message: "Error, please sign up or check username and password!",
             type: "error",
           });
         }
         if (e.response.status === 422) {
           this.$message({
-            message: "Sorry, check username or password!",
+            message: "Error, check username or password!",
             type: "error",
           });
         }
-         if (!e.response.status) {
-          this.$message({
-            message: "Sorry, please check your internet connection",
-            type: "error",
-          });
-        }
+        //  if (!e.response.status) {
+        //   this.$message({
+        //     message: "Error, please check your internet connection",
+        //     type: "error",
+        //   });
+        // }
         this.loader = true;
       }
         }
@@ -196,7 +183,7 @@ input {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 4rem;
+  margin-top: 4.3rem;
   height: 100vh;
 }
 .two1 h2 {
@@ -238,17 +225,6 @@ input {
   padding: 0.5rem;
   color: #0065fc;
   /* border: 1px solid #0065fc; */
-}
-.btn3{
-  width:100%;
-  border:1px solid #0065fc;
-  border-radius: 5px;
-  padding: 0.5rem;
-  background: transparent;
-  font-size: 20px !important;
-}
-.btn3 a{
-  color: #EB4335;
 }
 a{
   text-decoration: none !important;

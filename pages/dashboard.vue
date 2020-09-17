@@ -5,19 +5,26 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-3">
-            <img v-if="this.company.company_logo != 'undefined'" :src="this.company.company_logo" alt class="w-100" />
+            <img v-if="this.company" :src="this.company.company_logo" alt class="w-100" />
             <span v-if="loader" class="text-center">
               <app-loader />
             </span>
-            <h4 v-else class="text-center mt-2">{{ this.company.company_name }}</h4>
+            <h4 v-else class="text-center mt-2">
+              <span v-if="this.company">{{ this.company.company_name }}</span>
+            </h4>
           </div>
           <div class="col-sm-7">
-            <h2>Hello {{ this.profile.first_name }}</h2>
-            <h6 class="mt-4">Welcome to Hamlet!</h6>
-            <p class="mt-4">Task!</p>
-            <div class="border-admin">Signing Up for the first time? Please add Department</div>
+            <h2 v-if="this.profile">Hello {{ this.profile.first_name }}</h2>
+            <h6 v-if="department =='' " class="mt-4">Welcome to Hamlet!</h6>
+            <div
+              v-if="department =='' "
+              class="border-admin"
+              style="cursor:pointer"
+              @click="departmentClick()"
+            >Please click here to add Department</div>
+            <hr />
             <!-- Add user / list of users -->
-            <div class>
+            <div>
               <!-- <div>
                 <nuxt-link to="/employee-details">
                   <div class="circle-name-1">
@@ -28,7 +35,7 @@
               <div class="row mt-5">
                 <nuxt-link to="/employee-details">
                   <div class="circle-name-1">
-                    <i class="fa fa-plus" style="font-weight : 300"></i>
+                    <font-awesome-icon :icon="['fa', 'plus']" />
                   </div>
                 </nuxt-link>
                 <div
@@ -37,20 +44,22 @@
                   :key="id"
                   style="text-align:center"
                 >
-                  <div>
-                   <nuxt-link :to="`/employees/${employee.id}`"> <img
-
-                      v-if="employee.profile_pic != 'undefined'"
-                      :src="employee.profile_pic"
-                      alt
-                      class="rounded-circle"
-                      width="80px"
-                      height="80px"
-                      style="margin-top:1rem; margin-left:.5rem"
-                    /></nuxt-link>
+                  <div class="">
+                    <nuxt-link :to="`/employees/${employee.id}`">
+                      <img
+                        v-if="employee"
+                        :src="employee.profile_pic"
+                        alt
+                        class="rounded-circle"
+                        width="80px"
+                        height="80px"
+                        style="margin-top:1rem; margin-left:.5rem"
+                      />
+                    </nuxt-link>
                     <div
                       class="text-center ml-2 mt-2"
                       style="font-size:1rem "
+                      v-if="employee"
                     >{{employee.first_name}}</div>
                   </div>
                 </div>
@@ -65,32 +74,31 @@
               <div class="row">
                 <div class="col-sm-4">
                   <nuxt-link to="/company/company-overview">
-                    <div class="box-icon">
-                      <i class="fa fa-users"></i>
+                    <div class="box-icon shadow rounded-lg">
+                      <!-- <i class="fa fa-users"></i> -->
+                      <font-awesome-icon :icon="['fa', 'users']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Company Profile</p>
                 </div>
                 <div class="col-sm-4">
                   <nuxt-link to="/all-employees">
-                    <div class="box-icon">
-                      <i class="fa fa-file"></i>
+                    <div class="box-icon shadow rounded-lg">
+                      <!-- <i class="fa fa-file"></i> -->
+                      <font-awesome-icon :icon="['fa', 'file']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Directory</p>
                 </div>
                 <div class="col-sm-4">
                   <nuxt-link to="/department/add-department">
-                    <div class="box-icon">
-                      <i class="fa fa-building"></i>
+                    <div class="box-icon shadow rounded-lg">
+                      <!-- <i class="fa fa-building"></i> -->
+                      <font-awesome-icon :icon="['fa', 'building']" />
                     </div>
                   </nuxt-link>
                   <p class="mt-2 text-center">Departments</p>
                 </div>
-                <!-- <div class="col-sm-4">
-                               <nuxt-link to=""><div class="box-icon"><i class="fa fa-times"></i></div></nuxt-link>
-                                <p class="mt-2 text-center"></p>
-                </div>-->
               </div>
             </div>
           </div>
@@ -102,7 +110,7 @@
 
 <script>
 import axios from "axios";
-import navbar from "~/components/navbar.vue";
+import navbar from "~/components/navbar7.vue";
 import newLoader from "~/components/loader.vue";
 // import { mapGetters } from "vuex";
 export default {
@@ -118,17 +126,17 @@ export default {
       profile: {},
       loader: true,
       employees: [],
+      department: [],
     };
   },
-  //   computed: {
-  //     ...mapGetters(["isAuthenticated", "loggedInUser"]),
-  //   },
   mounted() {
     this.user = this.$auth.$storage.getLocalStorage("user").username;
     this.getCompany();
-    // this.getEmployees()
   },
   methods: {
+    departmentClick() {
+      this.$router.push("/department/add-department");
+    },
     getCompany() {
       this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
@@ -140,18 +148,10 @@ export default {
           this.employees = newArray.splice(0, n);
           console.log(this.employees);
           this.profile = res.data.user.profile;
+          this.department = res.data.user.company.company_departments;
           this.loader = false;
         });
     },
-    // getEmployees() {
-    //   this.$axios
-    //     .get("https://hamlet.payfill.co/api/auth/admin")
-    //     .then(res => {
-    //       console.log(res.data.employees);
-    //       this.employees = res.data.employees;
-    //       this.loader = false
-    //     });
-    // },
   },
   created() {
     this.getCompany();
@@ -162,16 +162,16 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 .big-nav {
-  background-color: rgb(192, 192, 192, 0.2) !important;
+  /* background-color: rgb(192, 192, 192, 0.2) !important; */
+   background-color: #E6ECF2 !important;
   height: auto;
 }
 .bg-color {
   /* margin: 0 5rem 0 0 !important; */
-  padding: 10rem 2rem 2rem 5rem;
-
+  padding: 10rem 1em 2rem 0;
   height: auto;
 }
 .box-logo {
@@ -188,6 +188,16 @@ export default {
   background-color: rgb(255, 255, 255);
   text-align: center;
   font-size: 3rem;
+  transition: transform .2s;
+}
+.box-icon:hover{
+  transform: scale(1.1);
+}
+.define{
+   transition: transform .2s;
+}
+.define:hover{
+   transform: scale(1.1);
 }
 .border-admin {
   /* border: 1px solid #000000; */
@@ -232,5 +242,21 @@ a:hover {
 .boxes {
   margin-top: 5rem;
   margin-bottom: 5rem;
+}
+/* .bg-color {
+  padding: 10rem 1em 2rem 0;
+  height: auto;
+} */
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+  .bg-color {
+    padding: 10rem 0.5rem 2rem 0.5rem;
+    height: auto;
+  }
+}
+@media only screen and (min-width: 360px) and (max-width: 578px) {
+  .bg-color {
+    padding: 10rem 0.5rem 2rem 0.5rem;
+    height: auto;
+  }
 }
 </style>

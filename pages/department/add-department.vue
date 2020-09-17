@@ -21,7 +21,7 @@
               <div v-else>
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1">Back</button>
+                    <button class="btn1"> <font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
                   </nuxt-link>
                 </span>
                 <h2>{{this.company.company_name}}</h2>
@@ -51,13 +51,9 @@
                         name="Department-name"
                         class="form-control mt-3 mr-3 mb-3 pl-1"
                         v-model="departmentInfo.name"
-                        v-validate="'required'"
-                        :class="{ 'is-invalid': submitted && errors.has('Department-name') }"
+
                       />
-                      <small
-                        v-if="submitted && errors.has('Department-name')"
-                        class="invalid-feedback"
-                      >{{ errors.first("Department-name") }}</small>
+
                       <span class="one9">
                         <span>
                           <button type="submit" class="btn1">
@@ -86,13 +82,9 @@
                         name="Department"
                         class="form-control mt-3 mr-3 mb-3 pl-1"
                         v-model="departmentInfo.name"
-                        v-validate="'required'"
-                        :class="{ 'is-invalid': submitted && errors.has('Department') }"
+
                       />
-                      <small
-                        v-if="submitted && errors.has('Department')"
-                        class="invalid-feedback"
-                      >{{ errors.first("Department") }}</small>
+
                       <span class="one9">
                         <span>
                           <button type="submit" class="btn1">
@@ -123,17 +115,18 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Edit</th>
+                        <!-- <th scope="col" style="display : none">#</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th> -->
                       </tr>
                     </thead>
                     <tbody v-for="(department, index) in departments " :key="index">
                       <tr>
-                        <th scope="row">{{index + 1}}</th>
+                        <th scope="row" style="display : none">{{index + 1}}</th>
                         <td>{{department.name}}</td>
                         <td>
-                          <button class="btn text-primary fa fa-pencil" @click="edit(department)"></button>
+
+                          <button class="btn text-primary" @click="edit(department)"><font-awesome-icon :icon="['fa', 'pen']" /></button>
                         </td>
                       </tr>
                     </tbody>
@@ -208,38 +201,54 @@ export default {
         });
     },
     addDepartment() {
-      // this.isLoading = false;
-      this.submitted = true;
-      this.$validator.validateAll().then((valid) => {
-        if (valid) {
-          console.log("Login");
-          this.isLoading = false;
-          this.$axios
+      this.isLoading = false;
+      // this.submitted = true;
+      // this.$validator.validateAll().then((valid) => {
+      //   if (valid) {
+      //     this.isLoading = false;
+
+  this.$axios
             .post(
               "https://hamlet.payfill.co/api/department",
               this.departmentInfo, { header: { 'Authorization': `Bearer ${this.user}` } }
             )
             .then((res) => {
-              this.isLoading = false;
+              this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
               this.$message({
                 message: "Department Successfully Added!",
                 type: "success",
               });
               // this.reload();
-              this.getDepartment()
-              this.$router.push('/dashboard')
-              // this.departmentInfo.name = ""
+              // this.$router.push('/dashboard')
+              this.departmentInfo.name = ""
               this.isLoading = true;
             })
             .catch((error) => {
-              console.log(error);
-              // this.loader = true;
-              this.isLoading = true;
+               if(error.response.status==422) {
+               this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: error.response.data.errors.name[0],
+                type: "error",
+              });
+               }else{
+                     this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: "Cannot add Department now, try again later! ",
+                type: "warning",
+              });
+               }
             });
-        } else {
-          this.isLoading = true;
-        }
-      });
+      //   } else {
+      //     this.isLoading = true;
+      //   }
+
+      // });
     },
 
     getDepartment() {
@@ -267,7 +276,7 @@ export default {
           console.log("Update");
           swal({
             title: "Are you sure?",
-            text: "Once you Update, the update will take effect",
+            text: "",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -282,16 +291,39 @@ export default {
                     { header: { Authorization: `Bearer ${this.user}` } }
                   )
                   .then((res) => {
-                    console.log(res);
-                    this.$message({
-                      message: "Department Updated Successfully!",
-                      type: "success",
-                    });
+                   this.getDepartment()
+                  this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: "Department Successfully Updated!",
+                type: "success",
+              });
+              // this.reload();
+              // this.$router.push('/dashboard')
+              this.departmentInfo.name = ""
+              // this.isLoading = true;
                     this.isLoading_1 = true;
-                  });
-                // this.reload();
-              this.$router.push('/dashboard')
-                //  this.departmentInfo.name = ""
+                  }).catch((error) => {
+               if(error.response.status==422) {
+               this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: error.response.data.errors.name[0],
+                type: "error",
+              });
+               }else{
+                     this.getDepartment()
+              this.getCompany()
+              // this.isLoading = true;
+              this.$message({
+                message: "Cannot add Department now, try again later! ",
+                type: "warning",
+              });
+               }
+              this.isLoading_1 = false;
+            });
+                //
                 this.isLoading = true;
               } else {
                 this.$message({
@@ -299,19 +331,15 @@ export default {
                   type: "info",
                 });
                 this.isLoading_1 = true;
+
               }
             })
-            .catch((error) => {
-              this.$message({
-                message: "Error, Unable to update, Try again!",
-                type: "error",
-              });
-              this.isLoading_1 = false;
-            });
         } else {
           this.isLoading_1 = true;
         }
       });
+
+       this.editDepartment = false;
 
       // this.$axios
       //   .put(
@@ -417,9 +445,10 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+  /* background-color: rgb(192, 192, 192, 0.2) !important; */
+   background-color: #E6ECF2 !important;
   margin-top: 3.5rem;
-  height: 130vh;
+  height: auto;
 }
 .one6 {
   padding-left: 4rem;

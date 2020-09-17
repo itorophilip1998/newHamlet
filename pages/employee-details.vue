@@ -340,7 +340,8 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+  background-color: #E6ECF2 !important;
+   /* background-color: rgb(192, 192, 192, 0.2) !important; */
   margin-top: 3.5rem;
   height: auto;
 }
@@ -355,6 +356,7 @@ select {
   border: 0.5px solid #081d29 !important;
   outline: none !important;
   border-radius: 5px;
+  width:100% !important;
 }
 
 @media (max-width: 567px) {

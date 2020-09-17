@@ -100,7 +100,7 @@ export default {
             try {
         let response = await this.$auth.loginWith("local", {
           data: {
-            email: this.email,
+            email: this.email, 
             password: this.password,
           },
         });

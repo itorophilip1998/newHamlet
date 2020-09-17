@@ -1,7 +1,7 @@
 <template>
-<div class="boxShadow shadow fixed-top">
+<div class="boxShadow fixed-top">
    <div class="one desktopView">
-        <nav class="navbar navbar-expand-lg navbar-light ">
+  <nav class="navbar navbar-expand-lg navbar-light ">
   <nuxt-link to="/dashboard"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -81,7 +81,7 @@
           </div>
         <div class="wrapper2">
           <div class="logo2">
-            Hamlet
+           <nuxt-link to="/dashboard"> Hamlet </nuxt-link>
           </div>
           <div>
               <span style="font-size:30px;cursor:pointer" class="openNav" @click="openNav">
@@ -163,8 +163,9 @@ export default {
       margin-left: 1.5rem;
     }
     .boxShadow{
-       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-        background-color: rgba(255,255,255,1) !important;
+       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+      background-color: #FFFFFF !important;
+      /* border-bottom: 1px solid #E0E6ED; */
     }
     .one{
         margin-left: 100px;
@@ -315,11 +316,11 @@ position: absolute;
         margin-right: 20px;
     }
     .desktopView{
+      display: none;
+    }
+    .mobileView{
       display: block;
     }
-    /* .mobileView{
-      display: block;
-    } */
 }
 
 </style>

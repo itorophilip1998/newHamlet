@@ -132,13 +132,13 @@
             <div class="col-lg-6 system-bg-2" 
               data-aos="fade-right"
               data-aos-duration="1000"
-              data-aos-easing="ease-in-sine">
+              >
               <img src="/img/system.png" class="img-fluid" alt srcset />
             </div>
             <div class="col-lg-6  system-bg-1"
-            data-aos="fade-down"
-              data-aos-duration="600"
-              data-aos-easing="ease-in-sine">
+              data-aos="fade-down"
+              data-aos-duration="1000"
+              >
               <div class="border-blue mb-3"></div>
               <div class="border-text">
                 MANAGE YOUR EMPLOYEES WITHOUT HASSLES
@@ -160,10 +160,10 @@
         <div class="container pb-5" 
               data-aos="fade-right"
               data-aos-duration="1000"
-              data-aos-easing="zoom-in-down">
+              >
           <div class="how-it-works pb-5 mt-5 pt-5">HOW IT WORKS</div>
           <div class="row">
-            <div class="col-sm-4 offset-1 col-lg-3">
+            <div class="col-sm-4 col-lg-3">
               <div class="text-center">
                 <img src="/img/handi.png" alt class="img-fluid" srcset />
                 <div class="letter-under">Signup</div>
@@ -219,8 +219,8 @@
         <div class="letter-under text-center pt-5 mt-5 mb-5 pb-5 btn-mobile-works">TESTIMONIALS</div>
         <div class="container shadow p-0 lady-bg" 
               data-aos="zoom-in"
-              data-aos-duration="1000"
-              data-aos-easing="ease-in-sine">
+              data-aos-duration="1500"
+             >
           <div class="row m-0 p-0" style="background-color : #FFFFFF">
             <div class="col-sm-5 pl-0 m-0 l-center">
               <img src="/img/lady.png" class="img-fluid pr-0 mr-0" alt srcset />

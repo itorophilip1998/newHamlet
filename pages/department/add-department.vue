@@ -445,9 +445,10 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-  background: #f9f9f9;
+  /* background-color: rgb(192, 192, 192, 0.2) !important; */
+   background-color: #E6ECF2 !important;
   margin-top: 3.5rem;
-  height: 200vh;
+  height: auto;
 }
 .one6 {
   padding-left: 4rem;

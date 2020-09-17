@@ -162,8 +162,9 @@
               data-aos-duration="1000"
               >
           <div class="how-it-works pb-5 mt-5 pt-5">HOW IT WORKS</div>
-          <div class="row">
-            <div class="col-sm-4 col-lg-3">
+          <div class="container">
+             <div class="row">
+            <div class="col-sm-4 col-lg-4">
               <div class="text-center">
                 <img src="/img/handi.png" alt class="img-fluid" srcset />
                 <div class="letter-under">Signup</div>
@@ -175,7 +176,7 @@
                 invest in.
               </div>
             </div>
-            <div class="col-sm-4 offset-1 col-lg-3">
+            <div class="col-sm-4 col-lg-4">
               <div class="text-center">
                 <img src="/img/handi.png" alt class="img-fluid" srcset />
                 <div class="letter-under">Pricing</div>
@@ -186,7 +187,7 @@
                 invest in.
               </div>
             </div>
-            <div class="col-sm-4 offset-1 col-lg-3">
+            <div class="col-sm-4 col-lg-4">
               <div class="text-center">
                 <img src="/img/pencil1.png" alt class="img-fluid mt-4" srcset />
                 <div class="letter-under">Manage</div>
@@ -198,6 +199,8 @@
               </div>
             </div>
           </div>
+          </div>
+         
           <div class="text-center mt-5 pb-5">
             <nuxt-link to="/signup">
               <button class="btn2 mt-3 mb-5 btn-mobile-works">
@@ -216,8 +219,31 @@
     <!-- testimonial -->
     <section>
       <div class="pt-5 testimonial-bg">
-        <div class="letter-under text-center pt-5 mt-5 mb-5 pb-5 btn-mobile-works">TESTIMONIALS</div>
-        <div class="container shadow p-0 lady-bg" 
+        <div class="letter-under text-center pt-2 mt-2 mb-2 pb-2 btn-mobile-works">TESTIMONIALS</div>
+        <div class="gridsection">
+          <div class="gridclass">
+            <p>"Hamlet made adding and managing employees easier. "</p>
+            <div class="gridclass1">
+              <img src="/img/luke.jpg" alt="" class="rounded-circle">
+              <p><strong>Amity Emmanuel</strong> </p>
+            </div>
+          </div>
+          <div class="gridclass">
+            <p>"We spent less time on managing employees after onboarding on Jiggle."</p>
+            <div class="gridclass1">
+              <img src="/img/zu.jpg" alt="" class="rounded-circle">
+              <p><strong>Timothy Afolabi</strong> </p>
+            </div>
+          </div>
+          <div class="gridclass">
+            <p>"Hamlet helps our HR manager in making everything concerning employee management easier."</p>
+            <div class="gridclass1">
+              <img src="/img/david.jpg" alt="" class="rounded-circle">
+              <p><strong>Ime Akpan</strong> </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="container shadow p-0 lady-bg" 
               data-aos="zoom-in"
               data-aos-duration="1500"
              >
@@ -254,7 +280,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- testimonial end -->
@@ -277,6 +303,31 @@ export default {
 <style scoped>
 * {
   font-family: "Overpass", sans-serif;
+}
+.gridsection{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  grid-gap: 2rem;
+}
+.gridclass{
+  border: 1px solid #0065fc;
+  padding:20px 20px;
+  border-radius: 5px;
+}
+.gridclass img{
+  width:4rem;
+  height: 4rem;
+}
+.gridclass1{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 2rem;
+}
+.gridclass1 p{
+  margin-top: 1.5rem;
+  font-weight: 25px !important;
 }
 .bg-hero {
   background-image: linear-gradient(
@@ -433,6 +484,7 @@ export default {
 .letter-under-1 {
   font-style: normal;
   font-weight: normal;
+  width: 90%;
   font-size: 1.2rem;
   margin-top: 1rem !important;
   
@@ -483,6 +535,9 @@ export default {
   text-align: left;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
+  .letter-under-1 {
+    width: 100%;
+  }
   .bg-hero {
   background-image: linear-gradient(
       to right,
@@ -623,8 +678,22 @@ text-align: center;
   text-align: justify;
   padding-bottom: 2rem;
 }
+.gridsection{
+  display: grid;
+  grid-template-columns: 1fr ;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  grid-gap: 1rem;
+}
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
+  .gridsection{
+  display: grid;
+  grid-template-columns: 1fr ;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  grid-gap: 1rem;
+}
   .bg-hero {
   background-image: linear-gradient(
       to right,
@@ -845,6 +914,18 @@ text-align: center;
 .lady-bg {
   width: 100% !important;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
+.gridsection{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  grid-gap: 1rem;
+}
+.gridclass1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
 }
 }
 </style>

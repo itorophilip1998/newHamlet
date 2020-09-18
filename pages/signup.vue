@@ -46,7 +46,7 @@
                                 <div class="mt-4">
                                      <input type="password"  @keydown.space.prevent name="password" class="form-control" id="" placeholder="Password" v-model="signUp.password"  v-validate="{ required: true, min: 8 }"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
-                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC; font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
+                                     <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style=" font-size : 10px">(Password must be atleast <b>8 characters, must contain a number & capital letter</b>)</small>
                                      <!-- <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain a <b>Number</b> )</small>
                                      <small v-if="!error.password" id="emailHelp" class="form-text text-muted" style="color : #0065FC">(Password must contain <b>Capital/Small</b> letter)</small> -->
                                       <small

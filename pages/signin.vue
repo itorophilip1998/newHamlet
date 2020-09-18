@@ -53,8 +53,12 @@
             <hr />
 
             <p class="text-center">
-              Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link> Or
+              Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link> 
             </p>
+            <p class="line-a text-center">
+             Or
+            </p>
+            
             <button class="btn3">
               <img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Login with Google</a>
               </button>
@@ -261,6 +265,7 @@ a{
 }
 
 @media (max-width: 567px) {
+ 
   .grid {
     grid-template-columns: 1fr;
     height: 100vh;
@@ -270,22 +275,20 @@ a{
   }
   .two2 {
     padding: 105px 20px;
-    background: linear-gradient(
+    /* background: linear-gradient(
         to right,
         rgba(8, 29, 41, 0.7),
         rgba(8, 29, 41, 0.7)
       ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
+      url("/img/nesa.jpg") no-repeat center center/cover; */
     text-align: center;
     background-size: cover;
   }
 
   .two1 h2 {
-    color: white;
+    color: #0065fc;
   }
-  .two1 p {
-    color: white;
-  }
+ 
   .btn1 {
     background: #0065fc;
     border-radius: 5px;
@@ -344,6 +347,9 @@ a{
     padding: 106.8px 30px;
     background: #f9f9f9;
     text-align: center;
+  }
+    .two1 h2 {
+    color: #0065fc;
   }
 }
 </style>

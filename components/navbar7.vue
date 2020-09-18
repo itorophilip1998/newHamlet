@@ -1,5 +1,5 @@
 <template>
-<div class="boxShadow shadow fixed-top">
+<div class="boxShadow fixed-top">
    <div class="one desktopView">
         <nav class="navbar navbar-expand-lg navbar-light ">
   <nuxt-link to="/"><a class="navbar-brand" href="#" style="color: #0065FC">Hamlet</a></nuxt-link>
@@ -162,7 +162,7 @@ export default {
       margin-left: 1.5rem;
     }
     .boxShadow{
-       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
         background-color: rgba(255,255,255,1) !important;
     }
     .one{

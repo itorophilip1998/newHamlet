@@ -6,13 +6,14 @@
 
       <div class="one2">
         <div v-if="loader" id="style-loader">
-          <span disabled>
+          <load />
+          <!-- <span disabled>
             <span
               class="spinner-border text-primary spinner-border-sm"
               role="status"
               aria-hidden="true"
             ></span>
-          </span>
+          </span>-->
         </div>
         <div v-else>
           <div v-if="edit">
@@ -20,12 +21,16 @@
               <div class="one7">
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
+                    <button class="btn1">
+                      <font-awesome-icon :icon="['fa', 'arrow-left']" />
+                    </button>
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->
-                <h2 v-if="this.company" >{{this.company.company_name}}</h2>
-                <p v-if="this.company">Total Headcount: {{this.company.no_of_employees}} | Services: {{this.company.services}}</p>
+                <h2 v-if="this.company">{{this.company.company_name}}</h2>
+                <p
+                  v-if="this.company"
+                >Total Headcount: {{employees.length}} | Services: {{this.company.services}}</p>
               </div>
             </div>
             <div>
@@ -77,65 +82,186 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>Company Name</label>
-                  <input type="text" class="form-control" v-model="companyInfo.company_name" />
+                  <input
+                    type="text"
+                    name="company-name"
+                    class="form-control"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('company-name') }"
+                    v-model="companyInfo.company_name"
+                  />
+                  <small
+                    v-if="submitted && errors.has('company-name')"
+                    class="invalid-feedback"
+                  >{{ errors.first("company-name") }}</small>
                 </div>
                 <div class="form-group col-md-6">
                   <label>Company Website</label>
-                  <input type="text" class="form-control" v-model="companyInfo.company_website" />
+                  <input
+                    type="text"
+                    name="website"
+                    v-validate="{url: {require_protocol: true }}"
+                    :class="{ 'is-invalid': submitted && errors.has('website') }"
+                    class="form-control"
+                    v-model="companyInfo.company_website"
+                  />
+                  <small
+                    v-if="submitted && errors.has('website')"
+                    class="invalid-feedback"
+                  >{{ errors.first("website")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>Email</label>
-                  <input type="email" class="form-control" v-model="companyInfo.company_email" />
+                  <input
+                    type="email"
+                    name="email"
+                    v-validate="'required|email'"
+                    :class="{ 'is-invalid': submitted && errors.has('email') }"
+                    class="form-control"
+                    v-model="companyInfo.company_email"
+                  />
+                  <small
+                    v-if="submitted && errors.has('email')"
+                    class="invalid-feedback"
+                  >{{ errors.first("email")}}</small>
                 </div>
                 <div class="form-group col-md-6">
                   <label>Phone Number</label>
-                  <input type="number" class="form-control" v-model="companyInfo.company_phone" />
+                  <input
+                    type
+                    name="phone"
+                    maxlength="11"
+                    v-validate="'numeric'"
+                    :class="{ 'is-invalid': submitted && errors.has('phone') }"
+                    class="form-control"
+                    v-model="companyInfo.company_phone"
+                  />
+                  <small
+                    v-if="submitted && errors.has('phone')"
+                    class="invalid-feedback"
+                  >{{ errors.first("phone")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>Address</label>
-                  <input type="text" class="form-control" v-model="companyInfo.company_address" />
+                  <input
+                    type="text"
+                    name="company-address"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('company-address') }"
+                    class="form-control"
+                    v-model="companyInfo.company_address"
+                  />
+                  <small
+                    v-if="submitted && errors.has('company-address')"
+                    class="invalid-feedback"
+                  >{{ errors.first("company-address")}}</small>
                 </div>
                 <div class="form-group col-md-6">
                   <label>City</label>
-                  <input type="text" class="form-control" v-model="companyInfo.city" />
+                  <input
+                    type="text"
+                    name="city"
+                    class="form-control"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('city') }"
+                    v-model="companyInfo.city"
+                  />
+                  <small
+                    v-if="submitted && errors.has('city')"
+                    class="invalid-feedback"
+                  >{{ errors.first("city")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>State</label>
-                  <input type="text" class="form-control" v-model="companyInfo.state" />
+                  <input
+                    type="text"
+                    name="state"
+                    class="form-control"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('state') }"
+                    v-model="companyInfo.state"
+                  />
+                  <small
+                    v-if="submitted && errors.has('state')"
+                    class="invalid-feedback"
+                  >{{ errors.first("state")}}</small>
                 </div>
                 <div class="form-group col-md-6">
                   <label>Zip Code</label>
-                  <input type="number" class="form-control" v-model="companyInfo.zip_code" />
+                  <input
+                    type
+                    name="zip-code"
+                    v-validate="'numeric'"
+                    :class="{ 'is-invalid': submitted && errors.has('zip-code') }"
+                    class="form-control"
+                    v-model="companyInfo.zip_code"
+                  />
+                  <small
+                    v-if="submitted && errors.has('zip-code')"
+                    class="invalid-feedback"
+                  >{{ errors.first("zip-code")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>Number of Employees</label>
-                  <input type="number" class="form-control" v-model="companyInfo.no_of_employees" />
+                  <input
+                    type
+                    name="no-of-employees"
+                    v-validate="'numeric'"
+                    :class="{ 'is-invalid': submitted && errors.has('no-of-employees') }"
+                    class="form-control"
+                    v-model="companyInfo.no_of_employees"
+                  />
+                  <small
+                    v-if="submitted && errors.has('no-of-employees')"
+                    class="invalid-feedback"
+                  >{{ errors.first("no-of-employees")}}</small>
                 </div>
                 <div class="form-group col-md-6">
-                  <label>Profile Picture</label>
+                  <label>Company Logo</label>
                   <input
                     type="file"
-                    name
+                    name="company-logo"
                     class="file-border img-fluid"
                     required
                     id
+                    v-validate="'required|ext:jpeg,jpg,svg,png'"
+                    :class="{ 'is-invalid': submitted && errors.has('company-logo')}"
                     placeholder
                     @change="upload()"
                   />
+                  <small
+                    id="emailHelp"
+                    class="form-text text-muted"
+                  >(Picture must be of .jpeg, .png, .svg, .jpg format)</small>
+                  <small
+                    v-if="submitted && errors.has('company-logo')"
+                    class="invalid-feedback"
+                  >{{ errors.first("company-logo")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for>Services</label>
-                  <textarea name id class="form-control" v-model="companyInfo.services"></textarea>
+                  <textarea
+                    name="about-us"
+                    id
+                    class="form-control"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('about-us') }"
+                    v-model="companyInfo.services"
+                  ></textarea>
+                  <small
+                    v-if="submitted && errors.has('about-us')"
+                    class="invalid-feedback"
+                  >{{ errors.first("about-us")}}</small>
                 </div>
               </div>
 
@@ -163,15 +289,17 @@
 <script>
 import sidebar from "~/components/sidebar3.vue";
 import VueJwtDecode from "vue-jwt-decode";
-import navbar from "~/components/navbar3.vue";
+import navbar from "~/components/navbar7.vue";
 import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
+import load from "~/components/loader-1.vue";
 export default {
   //  middleware : ['auth'],
   components: {
     "app-sidebar": sidebar,
     "app-navbar": navbar,
     "app-loader": newLoader,
+    load
   },
   data() {
     return {
@@ -181,6 +309,8 @@ export default {
       isloading: true,
       isloading_1: true,
       edit: true,
+      submitted: false,
+      employees: [],
       companyInfo: {
         company_name: "",
         company_address: "",
@@ -192,9 +322,9 @@ export default {
         zip_code: "",
         company_website: "",
         services: "",
-        company_logo: {},
+        company_logo: {}
         // _method: "PUT",
-      },
+      }
     };
   },
   mounted() {
@@ -213,89 +343,110 @@ export default {
       }
     },
     updateCompany(i) {
-      swal({
-        title: "Are you sure?",
-        text: "Once you Update, previous company information will be lost",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-        .then((willDelete) => {
-          if (willDelete) {
-            this.isloading_1 = false;
-            const formData = new FormData();
-            formData.append("company_name", this.companyInfo.company_name);
-            formData.append(
-              "company_address",
-              this.companyInfo.company_address
-            );
-            formData.append("company_email", this.companyInfo.company_email);
-            formData.append(
-              "company_website",
-              this.companyInfo.company_website
-            );
-            formData.append(
-              "no_of_employees",
-              this.companyInfo.no_of_employees
-            );
-            formData.append("city", this.companyInfo.city);
-            formData.append("state", this.companyInfo.state);
-            formData.append("zip_code", this.companyInfo.zip_code);
-            formData.append("services", this.companyInfo.services);
-            formData.append("company_logo", this.companyInfo.company_logo);
-            formData.append("company_phone", this.companyInfo.company_phone);
-            formData.append("_method", 'PUT');
-            this.$axios
-              .post(`https://hamlet.payfill.co/api/company/${i}`, formData, {
-                headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
-              })
-              .then(
-                (res) => {
-                  this.getCompany()
-                  this.$router.push("/dashboard")
-                  console.log(res);
-                  this.$message({
-                    message: "Company Details Updated Successfully!",
-                    type: "success",
+      this.submitted = true;
+      this.$validator.validateAll().then(valid => {
+        if (valid) {
+          console.log("Login");
+          swal({
+            title: "Are you sure?",
+            text: "Once you Update, previous company information will be lost",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+          })
+            .then(willDelete => {
+              if (willDelete) {
+                this.isloading_1 = false;
+                const formData = new FormData();
+                formData.append("company_name", this.companyInfo.company_name);
+                formData.append(
+                  "company_address",
+                  this.companyInfo.company_address
+                );
+                formData.append(
+                  "company_email",
+                  this.companyInfo.company_email
+                );
+                formData.append(
+                  "company_website",
+                  this.companyInfo.company_website
+                );
+                formData.append(
+                  "no_of_employees",
+                  this.companyInfo.no_of_employees
+                );
+                formData.append("city", this.companyInfo.city);
+                formData.append("state", this.companyInfo.state);
+                formData.append("zip_code", this.companyInfo.zip_code);
+                formData.append("services", this.companyInfo.services);
+                formData.append("company_logo", this.companyInfo.company_logo);
+                formData.append(
+                  "company_phone",
+                  this.companyInfo.company_phone
+                );
+                formData.append("_method", "PUT");
+                this.$axios
+                  .post(
+                    `https://hamlet.payfill.co/api/company/${i}`,
+                    formData,
+                    {
+                      headers: {
+                        Authorization: `Bearer ${this.user}`,
+                        "Content-Type": "multipart/form-data"
+                      }
+                    }
+                  )
+                  .then(res => {
+                    this.getCompany();
+                    this.$router.push("/dashboard");
+                    console.log(res);
+                    this.$message({
+                      message: "Company Details Updated Successfully!",
+                      type: "success"
+                    });
+                    this.isloading_1 = true;
+                    // this.getallBlogs()
+                  })
+                  .catch(error => {
+                    console.log(error);
+                    this.loader_1 = true;
                   });
-                  this.isloading_1 = true;
-                  // this.getallBlogs()
-                },
-                function (error) {
-                  console.log(error);
-                }
-              );
-            // this.reload();
+                // this.reload();
 
-            // this.$router.push("/dashboard")
-          } else {
-            this.$message({
-              message: "Company Details remains the same !",
-              type: "info",
+                // this.$router.push("/dashboard")
+              } else {
+                this.$message({
+                  message: "Company Details remains the same !",
+                  type: "info"
+                });
+              }
+            })
+            .catch(error => {
+              this.isloading_1 = true;
+              this.$message({
+                message: "Error, Unable to update, Try again!",
+                type: "error"
+              });
             });
-          }
-        })
-        .catch((error) => {
-          this.$message({
-            message: "Error, Unable to update, Try again!",
-            type: "error",
-          });
-        });
+        } else {
+          this.isloading_1 = true;
+        }
+      });
     },
     getCompany() {
-      this.$axios
-        .get("https://hamlet.payfill.co/api/auth/admin")
-        .then((res) => {
-          console.log(res.data.company);
-          this.company = res.data.user.company;
-          //   for (let key in data) {
-          //     const details = data[key];
-          //     details.company.id = key;
-          //     this.company.unshift(details);
-          //   }
-          //   this.company = res.data.company;
-          this.loader = false;
-        });
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
+        console.log(res.data.company);
+        this.company = res.data.user.company;
+        this.employees = res.data.user.employees;
+        console.log(this.employees.length);
+        //   for (let key in data) {
+        //     const details = data[key];
+        //     details.company.id = key;
+        //     this.company.unshift(details);
+        //   }
+        //   this.company = res.data.company;
+        this.loader = false;
+      });
     },
     edititems(id) {
       this.edit = false;
@@ -308,11 +459,11 @@ export default {
       var input = event.target;
       this.companyInfo.company_logo = input.files[0];
       console.log(this.companyInfo.company_logo);
-    },
+    }
   },
   created() {
     // this.getCompany();
-  },
+  }
 };
 </script>
 
@@ -321,7 +472,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 .form-row {
   margin-bottom: 2rem !important;
@@ -384,7 +535,7 @@ hr {
 }
 .one5 {
   /* background-color: rgb(192, 192, 192, 0.2) !important; */
-   background-color: #E6ECF2 !important;
+  background-color: #e6ecf2 !important;
   /* background: #f9f9f9; */
   margin-top: 3.5rem;
   height: 100vh;
@@ -441,11 +592,11 @@ textarea {
     margin-left: 0px;
   }
   .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-  margin-bottom: 20px;
-}
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    margin-bottom: 20px;
+  }
   .one3 {
     padding-left: 30px;
     padding-right: 30px;
@@ -460,11 +611,10 @@ textarea {
   }
   .btn2 {
     margin-left: 0px;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
   .btn1 {
     margin-bottom: 30px;
-    
   }
   .one6 {
     padding-left: 30px;

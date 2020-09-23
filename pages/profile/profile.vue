@@ -6,13 +6,14 @@
 
       <div class="one2">
         <div v-if="loader" id="style-loader">
-          <span disabled>
+          <load />
+          <!-- <span disabled>
             <span
               class="spinner-border text-primary spinner-border-sm"
               role="status"
               aria-hidden="true"
             ></span>
-          </span>
+          </span>-->
         </div>
         <div v-else>
           <div v-if="edit">
@@ -20,12 +21,17 @@
               <div class="one7">
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1"><font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
+                    <button class="btn1">
+                      <font-awesome-icon :icon="['fa', 'arrow-left']" />
+                    </button>
                   </nuxt-link>
                 </span>
                 <!-- {{ user }} -->
-                <h2>{{this.company.company_name}}</h2>
-                <p>Total Headcount: {{this.company.no_of_employees}} | Services: {{this.company.services}}</p>
+                <h2>{{ this.company.company_name }}</h2>
+                <p>
+                  Total Headcount: {{ this.company.no_of_employees }} |
+                  Services: {{ this.company.services }}
+                </p>
               </div>
             </div>
             <div>
@@ -34,15 +40,23 @@
                 <hr />
                 <div class="grid">
                   <p style="color : #0065fc; font-weight : 400">First Name</p>
-                  <p>{{this.profile.first_name}}</p>
+                  <p>{{ this.profile.first_name }}</p>
                 </div>
                 <div class="grid">
                   <p style="color : #0065fc; font-weight : 400">Last Name</p>
-                  <p>{{this.profile.last_name}}</p>
+                  <p>{{ this.profile.last_name }}</p>
                 </div>
                 <div class="grid">
                   <p style="color : #0065fc; font-weight : 400">Address</p>
-                  <p>{{this.profile.address}}</p>
+                  <p>{{ this.profile.address }}</p>
+                </div>
+                <div class="grid">
+                  <p style="color : #0065fc; font-weight : 400">Phone Number</p>
+                  <p>{{ this.profile.phone }}</p>
+                </div>
+                <div class="grid">
+                  <p style="color : #0065fc; font-weight : 400">Email</p>
+                  <p>{{ this.managerEmail }}</p>
                 </div>
                 <hr />
                 <span class="one9">
@@ -56,33 +70,95 @@
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label>First Name</label>
-                  <input type="text" class="form-control" v-model="profileInfo.first_name" />
+                  <input
+                    type="text"
+                    name="first-name"
+                    class="form-control"
+                    v-model="profileInfo.first_name"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('first-name') }"
+                  />
+                  <small
+                    v-if="submitted && errors.has('first-name')"
+                    class="invalid-feedback"
+                  >{{ errors.first("first-name")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label>Last Name</label>
-                  <input type="text" class="form-control" v-model="profileInfo.last_name" />
+                  <input
+                    type="text"
+                    name="last-name"
+                    class="form-control"
+                    v-model="profileInfo.last_name"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('last-name')}"
+                  />
+                  <small
+                    v-if="submitted && errors.has('last-name')"
+                    class="invalid-feedback"
+                  >{{ errors.first("last-name")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label>Address</label>
-                  <input type="text" class="form-control" v-model="profileInfo.address" />
+                  <input
+                    type="text"
+                    name="address"
+                    class="form-control"
+                    v-model="profileInfo.address"
+                    v-validate="'required'"
+                    :class="{ 'is-invalid': submitted && errors.has('address') }"
+                  />
+                  <small
+                    v-if="submitted && errors.has('address')"
+                    class="invalid-feedback"
+                  >{{ errors.first("address")}}</small>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label>Profile Picture</label> <br />
+                  <label>Phone umber</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    maxlength="11"
+                    class="form-control"
+                    v-model="profileInfo.phone"
+                    v-validate="'numeric'"
+                    :class="{ 'is-invalid': submitted && errors.has('phone') }"
+                  />
+                  <small
+                    v-if="submitted && errors.has('phone')"
+                    class="invalid-feedback"
+                  >{{ errors.first("phone")}}</small>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label>Profile Picture</label>
+                  <br />
                   <input
                     type="file"
-                    name
+                    name="profile-picture"
                     class="file-border img-fluid"
                     required
                     id
                     placeholder
                     @change="upload()"
+                    v-validate="'required|ext:jpeg,jpg,svg,png'"
+                    :class="{ 'is-invalid': submitted && errors.has('profile-picture') }"
                   />
+                  <small
+                    id="emailHelp"
+                    class="form-text text-muted"
+                  >(Picture must be of .jpeg, .png, .svg, .jpg format)</small>
+                  <small
+                    v-if="submitted && errors.has('profile-picture')"
+                    class="invalid-feedback"
+                  >{{ errors.first("profile-picture")}}</small>
                 </div>
               </div>
               <div style="text-align:center">
@@ -112,29 +188,34 @@ import VueJwtDecode from "vue-jwt-decode";
 import navbar from "~/components/navbar5.vue";
 import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
+import load from "~/components/loader-1.vue";
 export default {
   //  middleware : ['auth'],
   components: {
     "app-sidebar": sidebar,
     "app-navbar": navbar,
     "app-loader": newLoader,
+    load
   },
   data() {
     return {
       company: {},
       profile: {},
       loader: true,
+      managerEmail: "",
       user: {},
       isloading: true,
       isloading_1: true,
       edit: true,
+      submitted: false,
       profileInfo: {
         first_name: "",
         last_name: "",
         address: "",
-        profile_pic: {},
+        phone: "",
+        profile_pic: {}
         // _method: "PUT",
-      },
+      }
     };
   },
   mounted() {
@@ -154,91 +235,104 @@ export default {
       }
     },
     getCompany() {
-      this.$axios
-        .get("https://hamlet.payfill.co/api/auth/admin")
-        .then((res) => {
-          console.log(res.data.user.company);
-          this.company = res.data.user.company;
-          //   for (let key in data) {
-          //     const details = data[key];
-          //     details.company.id = key;
-          //     this.company.unshift(details);
-          //   }
-          //   this.company = res.data.company;
-          this.loader = false;
-        });
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
+        console.log(res.data.user.company);
+        this.company = res.data.user.company;
+        this.managerEmail = res.data.user.email;
+        //   for (let key in data) {
+        //     const details = data[key];
+        //     details.company.id = key;
+        //     this.company.unshift(details);
+        //   }
+        //   this.company = res.data.company;
+        this.loader = false;
+      });
     },
     updateProfile(i) {
-      swal({
-        title: "Are you sure?",
-        text: "Once you Update, previous manager information will be lost",
-        icon: "warning", 
-        buttons: true,
-        dangerMode: true,
-      })
-        .then((willDelete) => {
-          if (willDelete) {
-            this.isloading_1 = false;
-            const formData = new FormData();
-            formData.append("first_name", this.profileInfo.first_name);
-            formData.append(
-              "last_name",
-              this.profileInfo.last_name
-            );
-            formData.append("address", this.profileInfo.address);
-            formData.append("profile_pic", this.profileInfo.profile_pic);
-            formData.append("_method", 'PUT');
-            this.$axios
-              .post(`https://hamlet.payfill.co/api/profile/${i}`, formData, {
-                headers: { Authorization: `Bearer ${this.user}`, 'Content-Type': 'multipart/form-data' },
-              })
-              .then(
-                (res) => {
-                  // this.getProfile();
-                  // this.getCompany();
-                  console.log(res);
-                  this.$message({
-                    message: "Manager Profile Updated Successfully!",
-                    type: "success",
-                  });
-                  this.isloading_1 = true;
-                  this.$router.push("/dashboard")
-                  // this.getallBlogs()
-                },
-                function (error) {
-                  console.log(error);
-                }
-              );
-            // this.reload();
-          } else {
-            this.$message({
-              message: "Manager Profile remains the same !",
-              type: "info",
+      this.submitted = true;
+      this.$validator.validateAll().then(valid => {
+        if (valid) {
+          console.log("Login");
+          swal({
+            title: "Are you sure?",
+            text: "Once you Update, previous manager information will be lost",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+          })
+            .then(willDelete => {
+              if (willDelete) {
+                this.isloading_1 = false;
+                const formData = new FormData();
+                formData.append("first_name", this.profileInfo.first_name);
+                formData.append("last_name", this.profileInfo.last_name);
+                formData.append("address", this.profileInfo.address);
+                formData.append("phone", this.profileInfo.phone);
+                formData.append("profile_pic", this.profileInfo.profile_pic);
+                formData.append("_method", "PUT");
+                this.$axios
+                  .post(
+                    `https://hamlet.payfill.co/api/profile/${i}`,
+                    formData,
+                    {
+                      headers: {
+                        Authorization: `Bearer ${this.user}`,
+                        "Content-Type": "multipart/form-data"
+                      }
+                    }
+                  )
+                  .then(
+                    res => {
+                      // this.getProfile();
+                      // this.getCompany();
+                      console.log(res);
+                      this.$message({
+                        message: "Manager Profile Updated Successfully!",
+                        type: "success"
+                      });
+                      this.isloading_1 = true;
+                      this.$router.push("/dashboard");
+                      // this.getallBlogs()
+                    },
+                    function(error) {
+                      console.log(error);
+                    }
+                  );
+                // this.reload();
+              } else {
+                this.$message({
+                  message: "Manager Profile remains the same !",
+                  type: "info"
+                });
+              }
+            })
+            .catch(error => {
+              this.$message({
+                message: "Error, Unable to update, Try again!",
+                type: "error"
+              });
             });
-          }
-        })
-        .catch((error) => {
+          this.isloading = true;
+        } else {
           this.$message({
-            message: "Error, Unable to update, Try again!",
-            type: "error",
+            message: "Error, field cannot be empty!",
+            type: "error"
           });
-        });
-        this.isloading = true
+        }
+      });
     },
     getProfile() {
-      this.$axios
-        .get("https://hamlet.payfill.co/api/auth/admin")
-        .then((res) => {
-          console.log(res.data.user.profile);
-          this.profile = res.data.user.profile;
-          //   for (let key in data) {
-          //     const details = data[key];
-          //     details.company.id = key;
-          //     this.company.unshift(details);
-          //   }
-          //   this.company = res.data.company;
-          this.loader = false;
-        });
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
+        console.log(res.data.user.profile);
+        this.profile = res.data.user.profile;
+        //   for (let key in data) {
+        //     const details = data[key];
+        //     details.company.id = key;
+        //     this.company.unshift(details);
+        //   }
+        //   this.company = res.data.company;
+        this.loader = false;
+      });
     },
     edititems(id) {
       this.edit = false;
@@ -251,12 +345,11 @@ export default {
       var input = event.target;
       this.profileInfo.profile_pic = input.files[0];
       console.log(this.profileInfo.profile_pic);
-    },
-   
+    }
   },
   created() {
     // this.getCompany();
-  },
+  }
 };
 </script>
 
@@ -265,7 +358,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 .form-row {
   margin-bottom: 2rem !important;
@@ -326,7 +419,7 @@ hr {
   margin-left: 20px;
 }
 .one5 {
-   background-color: #E6ECF2 !important;
+  background-color: #e6ecf2 !important;
   /* background: #f9f9f9; */
   margin-top: 3.5rem;
   height: 130vh;
@@ -375,7 +468,7 @@ textarea {
   margin-bottom: 30vh;
   text-align: center;
 }
-.file-border{
+.file-border {
   width: 100%;
 }
 

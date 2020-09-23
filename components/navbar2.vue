@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="boxShadowV shadow fixed-top bg-white">
+    <div class="boxShadowV fixed-top bg-white">
       <!-- desktop view -->
       <div class="container desktopViewV">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -252,7 +252,7 @@ a {
   }
 
 }
-@media only screen and (min-width: 710px) and (max-width: 768px) {
+@media only screen and (min-width: 579px) and (max-width: 996px) {
   .desktopViewV {
     display: none;
   }

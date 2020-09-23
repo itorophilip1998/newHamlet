@@ -30,6 +30,16 @@
                                     </small>
                                 </div>
                                 <div class="mt-4">
+                                     <input type maxlength="11" name="phone" class="form-control" id=""  placeholder="Telephone" v-model="managerInfo.phone" v-validate="'numeric'"
+                                     :class="{ 'is-invalid': submitted && errors.has('phone') }">
+                                     <small
+                                        v-if="submitted && errors.has('phone')"
+                                        class="invalid-feedback"
+                                    >
+                                    {{ errors.first("phone")}}
+                                    </small>
+                                </div>
+                                <div class="mt-4">
                                      <input type="text" name="address" class="form-control" id=""  placeholder="Address" v-model="managerInfo.address" v-validate="'required'"
                                      :class="{ 'is-invalid': submitted && errors.has('address') }">
                                      <small
@@ -78,7 +88,7 @@ import swal from 'sweetalert'
 import newLoader from "~/components/loader.vue";
 import Navbar from "@/components/navbar2.vue"
 export default {
-  auth: false,
+//   auth: false,
   components : {
         Navbar,
          "app-loader": newLoader,
@@ -89,6 +99,7 @@ export default {
                 first_name : '',
                 last_name : '',
                 address : '',
+                phone : '',
                 profile_pic : {}
             },
              user : {},
@@ -111,7 +122,7 @@ export default {
             console.log(this.managerInfo.profile_pic);
         },
         addManger(){
-            if(this.managerInfo.first_name === "" || this.managerInfo.last_name === "" || this.managerInfo.address === "" || this.managerInfo.profile_pic === ""){
+            if(this.managerInfo.first_name === "" || this.managerInfo.last_name === "" || this.managerInfo.address === "" || this.managerInfo.profile_pic === "" || this.managerInfo.phone === ""){
                 this.loader = true
             }
             else{
@@ -128,6 +139,7 @@ export default {
             formData.append('first_name', this.managerInfo.first_name)
             formData.append('last_name', this.managerInfo.last_name)
             formData.append('address', this.managerInfo.address)
+            formData.append('phone', this.managerInfo.phone)
             formData.append('profile_pic', this.managerInfo.profile_pic)
             formData.append('_method', 'PUT')
              axios.post(`https://hamlet.payfill.co/api/profile/${this.id}`, formData,

@@ -5,7 +5,7 @@
       <div class="grid">
         <div class="two1">
           <div class="two2">
-            <h2 class="text-center">Welcome Back!</h2>
+            <h2 class="text-center welcome-text">Welcome Back!</h2>
             <!-- {{user}}{{ loggedInUser}} -->
 
             <form @submit.prevent="loginUser">
@@ -43,8 +43,8 @@
               </div>
 
               <br />
-              <button type="submit" :disabled="login" class="btn1">
-                <span v-if="loader">Login</span>
+              <button type="submit" :disabled="(!password || !email) || loader" class="btn1" :class="{'disabled':(!password && !email )|| loader}">
+                <span v-if="!loader">Login</span>
                 <div v-else>
                   <app-loader />
                 </div>
@@ -85,7 +85,7 @@ export default {
       user: {},
       email: "",
       password: "",
-      loader: true,
+      loader: false,
       submitted: false,
       login: false,
       isValid: false,
@@ -94,30 +94,15 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["isAuthenticated", "loggedInUser"]),
+    
   },
-  // created()
-  // {
-  //   this.user=this.$auth.$state
-  //       console.log(this.user)
-  // },
+ 
   methods: {
-//     nospaces(t){
-//   if(t.value.match(/\s/g)){
-//     t.value=t.value.replace(/\s/g,'');
-//   }
-// },
     async loginUser(e) {
-      if (this.email === "" || this.password === "") {
-        this.loader = true;
-      } else {
-        this.loader = false;
-        this.login = false;
-      }
-      // this.login = true
       this.submitted = true;
       this.$validator.validateAll().then(async (valid) => {
         if (valid) {
+           this.loader = true;
           console.log("Login");
           try {
             let response = await this.$auth.loginWith("local", {
@@ -142,7 +127,7 @@ export default {
             });
             this.$router.push("/dashboard");
           } catch (e) {
-            this.loader = true;
+            this.loader = false;
             // console.log(e.response.status);
             // this.error = e.res;
             if (e.response.status === 401) {
@@ -164,7 +149,7 @@ export default {
                 type: "error",
               });
             }
-            this.loader = true;
+            this.loader = false;
           }
         }
       });
@@ -206,7 +191,7 @@ input {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   height: 100vh;
 }
 .two1 h2 {
@@ -230,6 +215,10 @@ input {
   border-radius: 5px;
   border: none;
   box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.15);
+}
+.disabled{
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 .btn1 {
   background: #0065fc;

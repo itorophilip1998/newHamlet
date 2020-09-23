@@ -71,7 +71,7 @@
                                     </small>
                                 </div>
                             </div>
-                            <button type="submit" class="btn1 btn btn-primary">Create Account</button>
+                            <button type="submit" class="btn1 btn btn-primary" :disabled="(!signUp.username || !signUp.email || !signUp.password || !signUp.password_confirmation) || loader" :class="{'disabled':(!signUp.username || !signUp.email || !signUp.password || !signUp.password_confirmation)|| loader}">Create Account</button>
                     </form>
                     <div class="account">
                         Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link> </span> 
@@ -296,11 +296,18 @@ h1{
     padding: 1rem 2rem 2rem 4rem;
     font-size: 1.1rem;
 }
+.disabled{
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 @media only screen and (min-width: 300px) and (max-width: 350px) {
      h1{
         font-size: 2rem;
         color: #0065FC;
     }
+    .form-edit{
+    padding: 1rem;
+}
     .margin-form{
         margin-left: 0;
     }
@@ -382,12 +389,9 @@ h1{
     .grid{
         grid-template-columns: 1fr;
     }
-    /* .mobileShow{
-        display: block;
-    }
-    .desktopShow{
-        display: none;
-    } */
+   .form-edit{
+    padding: 1rem;
+}
     input{
         width: 100%;
     }

@@ -95,7 +95,7 @@ export default {
     {
       src: "./plugins/aos.js",
       ssr: false
-    }
+    },
   ],
   /*
    ** Auto import components

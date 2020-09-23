@@ -7,7 +7,13 @@
           <div class="col-sm-2">
             <img v-if="this.company" :src="this.company.company_logo" alt class="w-100" />
             <span v-if="loader" class="text-center">
-              <app-loader />
+              <span disabled>
+                <span
+                  class="spinner-border text-primary spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+              </span>
             </span>
             <h4 v-else class="text-center mt-2">
               <span v-if="this.company">{{ this.company.company_name }}</span>
@@ -15,9 +21,9 @@
           </div>
           <div class="col-sm-7">
             <h2 v-if="this.profile">Hello {{ this.profile.first_name }}</h2>
-            <h6 v-if="department =='' " class="mt-4">Welcome to Hamlet!</h6>
+            <h6 v-if="department == ''" class="mt-4">Welcome to Hamlet!</h6>
             <div
-              v-if="department =='' "
+              v-if="department == ''"
               class="border-admin"
               style="cursor:pointer"
               @click="departmentClick()"
@@ -32,7 +38,7 @@
                   </div>
                 </nuxt-link>
               </div>-->
-              <div class="row mt-5">
+              <div class="row mt-5 p-4">
                 <nuxt-link to="/employee-details">
                   <div class="circle-name-1">
                     <font-awesome-icon :icon="['fa', 'plus']" />
@@ -44,7 +50,7 @@
                   :key="id"
                   style="text-align:center"
                 >
-                  <div class="">
+                  <div class>
                     <nuxt-link :to="`/employees/${employee.id}`">
                       <img
                         v-if="employee"
@@ -60,10 +66,10 @@
                       class="text-center ml-2 mt-2"
                       style="font-size:1rem "
                       v-if="employee"
-                    >{{employee.first_name}}</div>
+                    >{{ employee.first_name }}</div>
                   </div>
                 </div>
-                <nuxt-link to="/all-employees">
+                <nuxt-link to="/directory">
                   <div class="circle-name-1">...</div>
                 </nuxt-link>
               </div>
@@ -82,7 +88,7 @@
                   <p class="mt-2 text-center">Company Profile</p>
                 </div>
                 <div class="col-sm-4">
-                  <nuxt-link to="/all-employees">
+                  <nuxt-link to="/directory">
                     <div class="box-icon shadow rounded-lg">
                       <!-- <i class="fa fa-file"></i> -->
                       <font-awesome-icon :icon="['fa', 'file']" />
@@ -103,11 +109,19 @@
             </div>
           </div>
           <div class="col-sm-2 ml-5 quick-mobile">
-            <h5>Quick Links</h5> 
-            <p class="mt-4"><nuxt-link to="/all-employees">App Directory</nuxt-link></p>
-            <p><nuxt-link to="/company/company-overview">Company Details</nuxt-link></p>
-            <p><nuxt-link to="/profile/profile">Manager Profile</nuxt-link></p>
-            <p><nuxt-link to="/department/add-department">Departments</nuxt-link></p>
+            <h5>Quick Links</h5>
+            <p class="mt-4">
+              <nuxt-link to="/directory">App Directory</nuxt-link>
+            </p>
+            <p>
+              <nuxt-link to="/company/company-overview">Company Details</nuxt-link>
+            </p>
+            <p>
+              <nuxt-link to="/profile/profile">Manager Profile</nuxt-link>
+            </p>
+            <p>
+              <nuxt-link to="/department/add-department">Departments</nuxt-link>
+            </p>
           </div>
         </div>
       </div>
@@ -124,7 +138,7 @@ export default {
   //   middleware: ["authenticated"],
   components: {
     "app-navbar": navbar,
-    "app-loader": newLoader,
+    "app-loader": newLoader
   },
   data() {
     return {
@@ -133,7 +147,7 @@ export default {
       profile: {},
       loader: true,
       employees: [],
-      department: [],
+      department: []
     };
   },
   mounted() {
@@ -145,24 +159,22 @@ export default {
       this.$router.push("/department/add-department");
     },
     getCompany() {
-      this.$axios
-        .get("https://hamlet.payfill.co/api/auth/admin")
-        .then((res) => {
-          console.log(res.data.company);
-          this.company = res.data.user.company;
-          let newArray = res.data.user.employees;
-          let n = 10;
-          this.employees = newArray.splice(0, n);
-          console.log(this.employees);
-          this.profile = res.data.user.profile;
-          this.department = res.data.user.company.company_departments;
-          this.loader = false;
-        });
-    },
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
+        console.log(res.data.company);
+        this.company = res.data.user.company;
+        let newArray = res.data.user.employees;
+        let n = 10;
+        this.employees = newArray.splice(0, n);
+        console.log(this.employees);
+        this.profile = res.data.user.profile;
+        this.department = res.data.user.company.company_departments;
+        this.loader = false;
+      });
+    }
   },
   created() {
     this.getCompany();
-  },
+  }
 };
 </script>
 
@@ -171,12 +183,12 @@ export default {
   box-sizing: border-box;
   font-family: "Overpass", sans-serif;
 }
-p a{
+p a {
   color: #64a2ff !important;
 }
 .big-nav {
   /* background-color: rgb(192, 192, 192, 0.2) !important; */
-   background-color: #E6ECF2 !important;
+  background-color: #e6ecf2 !important;
   height: auto;
 }
 .bg-color {
@@ -198,16 +210,16 @@ p a{
   background-color: rgb(255, 255, 255);
   text-align: center;
   font-size: 3rem;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
-.box-icon:hover{
+.box-icon:hover {
   transform: scale(1.1);
 }
-.define{
-   transition: transform .2s;
+.define {
+  transition: transform 0.2s;
 }
-.define:hover{
-   transform: scale(1.1);
+.define:hover {
+  transform: scale(1.1);
 }
 .border-admin {
   /* border: 1px solid #000000; */
@@ -253,7 +265,7 @@ a:hover {
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
-.quick-mobile{
+.quick-mobile {
   margin-top: 2.5rem;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
@@ -261,7 +273,7 @@ a:hover {
     padding: 10rem 0.5rem 2rem 0.5rem;
     height: auto;
   }
-  .quick-mobile{
+  .quick-mobile {
     display: none;
   }
 }
@@ -270,7 +282,7 @@ a:hover {
     padding: 10rem 0.5rem 2rem 0.5rem;
     height: auto;
   }
-   .quick-mobile{
+  .quick-mobile {
     display: none;
   }
 }

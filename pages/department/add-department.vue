@@ -8,7 +8,6 @@
         <div>
           <div class="one6">
             <div class="one7">
-
               <div v-if="loader" class="text-center" style="display : none">
                 <span disabled>
                   <span
@@ -21,23 +20,26 @@
               <div v-else>
                 <span class="one9 float-right">
                   <nuxt-link to="/dashboard">
-                    <button class="btn1"> <font-awesome-icon :icon="['fa', 'arrow-left']" /></button>
+                    <button class="btn1">
+                      <font-awesome-icon :icon="['fa', 'arrow-left']" />
+                    </button>
                   </nuxt-link>
                 </span>
                 <h2>{{this.company.company_name}}</h2>
-                <p>Total Headcount: {{this.company.no_of_employees}} | Services: {{this.company.services}}</p>
+                <p>Total Headcount: {{employees.length}} | Services: {{this.company.services}}</p>
               </div>
             </div>
           </div>
 
           <div v-if="loader2" id="style-loader">
-            <span disabled>
+            <load />
+            <!-- <span disabled>
               <span
                 class="spinner-border text-primary spinner-border-sm"
                 role="status"
                 aria-hidden="true"
               ></span>
-            </span>
+            </span>-->
           </div>
           <div v-else>
             <div v-if="editDepartment">
@@ -48,12 +50,16 @@
                       <p style="color :#0065fc">Update Department</p>
                       <input
                         type="text"
-                        name="Department-name"
+                        name="Department"
                         class="form-control mt-3 mr-3 mb-3 pl-1"
+                        v-validate="'required'"
+                        :class="{ 'is-invalid': submitted && errors.has('Department') }"
                         v-model="departmentInfo.name"
-
                       />
-
+                      <small
+                        v-if="submitted && errors.has('Department')"
+                        class="invalid-feedback"
+                      >{{ errors.first("Department")}}</small>
                       <span class="one9">
                         <span>
                           <button type="submit" class="btn1">
@@ -81,10 +87,14 @@
                         type="text"
                         name="Department"
                         class="form-control mt-3 mr-3 mb-3 pl-1"
+                        v-validate="'required'"
+                        :class="{ 'is-invalid': submitted && errors.has('Department') }"
                         v-model="departmentInfo.name"
-
                       />
-
+                      <small
+                        v-if="submitted && errors.has('Department')"
+                        class="invalid-feedback"
+                      >{{ errors.first("Department")}}</small>
                       <span class="one9">
                         <span>
                           <button type="submit" class="btn1">
@@ -108,7 +118,7 @@
             </span>
             </div>-->
 
-            <div class="one3"  v-if="departments">
+            <div class="one3" v-if="departments">
               <h3>Departments</h3>
               <div>
                 <div class="table-responsive">
@@ -117,7 +127,7 @@
                       <tr>
                         <!-- <th scope="col" style="display : none">#</th>
                         <th scope="col"></th>
-                        <th scope="col"></th> -->
+                        <th scope="col"></th>-->
                       </tr>
                     </thead>
                     <tbody v-for="(department, index) in departments " :key="index">
@@ -125,8 +135,15 @@
                         <th scope="row" style="display : none">{{index + 1}}</th>
                         <td>{{department.name}}</td>
                         <td>
-
-                          <button class="btn text-primary" @click="edit(department)"><font-awesome-icon :icon="['fa', 'pen']" /></button>
+                          <button
+                            class="btn text-primary"
+                            @click="edit(department)"
+                            data-toggle="tooltip"
+                            data-placement="left"
+                            title="Edit Department"
+                          >
+                            <font-awesome-icon :icon="['fa', 'pen']" />
+                          </button>
                         </td>
                       </tr>
                     </tbody>
@@ -146,34 +163,37 @@ import sidebar from "~/components/sidebar4.vue";
 import navbar from "~/components/navbar5.vue";
 import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
+import Loader from "~/components/loader-1.vue";
 export default {
   //  middleware : ['auth'],
   components: {
     "app-sidebar": sidebar,
     "app-navbar": navbar,
     "app-loader": newLoader,
+    load: Loader
   },
   data() {
     return {
       company: {},
       user: {},
-      dept : {},
+      dept: {},
       loader: true,
       loader2: true,
       isLoading: true,
+      employees: [],
       isLoading_1: true,
       show: true,
       editDepartment: false,
       departments: {},
       departmentInfo: {
-        name: " ",
+        name: " "
       },
-      submitted: true,
+      submitted: false
     };
   },
   mounted() {
     this.user = this.$auth.$storage.getLocalStorage("jwt");
-     this.getCompany();
+    this.getCompany();
     this.getDepartment();
   },
   methods: {
@@ -187,80 +207,81 @@ export default {
     getCompany() {
       this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
-        .then((res) => {
-
+        .then(res => {
           this.company = res.data.user.company;
-           console.log(this.company);
+          console.log(this.company);
+          this.employees = res.data.user.employees;
+
           // this.dept = res.data.company.id
           // console.log(this.dept)
           this.loader = false;
         })
-        .catch(() => {
+        .catch(error => {
           console.log(error);
           this.loader = false;
         });
     },
     addDepartment() {
-      this.isLoading = false;
-      // this.submitted = true;
-      // this.$validator.validateAll().then((valid) => {
-      //   if (valid) {
-      //     this.isLoading = false;
-
-  this.$axios
+      // this.isLoading = false;
+      this.submitted = true;
+      this.$validator.validateAll().then(valid => {
+        if (valid) {
+          this.isLoading = false;
+          this.$axios
             .post(
               "https://hamlet.payfill.co/api/department",
-              this.departmentInfo, { header: { 'Authorization': `Bearer ${this.user}` } }
+              this.departmentInfo,
+              { header: { Authorization: `Bearer ${this.user}` } }
             )
-            .then((res) => {
-              this.getDepartment()
-              this.getCompany()
+            .then(res => {
+              this.getDepartment();
+              this.getCompany();
               // this.isLoading = true;
               this.$message({
                 message: "Department Successfully Added!",
-                type: "success",
+                type: "success"
               });
               // this.reload();
               // this.$router.push('/dashboard')
-              this.departmentInfo.name = ""
+              this.departmentInfo.name = "";
               this.isLoading = true;
             })
-            .catch((error) => {
-               if(error.response.status==422) {
-               this.getDepartment()
-              this.getCompany()
-              // this.isLoading = true;
-              this.$message({
-                message: error.response.data.errors.name[0],
-                type: "error",
-              });
-               }else{
-                     this.getDepartment()
-              this.getCompany()
-              // this.isLoading = true;
-              this.$message({
-                message: "Cannot add Department now, try again later! ",
-                type: "warning",
-              });
-               }
+            .catch(error => {
+              this.isLoading = false;
+              if (error.response.status == 422) {
+                this.getDepartment();
+                this.getCompany();
+                // this.isLoading = true;
+                this.$message({
+                  message: error.response.data.errors.name[0],
+                  type: "error"
+                });
+              } else {
+                this.getDepartment();
+                this.getCompany();
+                // this.isLoading = true;
+                this.$message({
+                  message: "Cannot add Department now, try again later! ",
+                  type: "warning"
+                });
+              }
             });
-      //   } else {
-      //     this.isLoading = true;
-      //   }
-
-      // });
+        } else {
+          this.isLoading = true;
+        }
+      });
     },
 
     getDepartment() {
       this.$axios
         .get("https://hamlet.payfill.co/api/auth/admin")
-        .then((res) => {
+        .then(res => {
           console.log(res.data.user.company.company_departments);
           this.loader2 = false;
           this.departments = res.data.user.company.company_departments;
-          this.departments.unshift()
+          this.departments.unshift();
         })
-        .catch((error) => {
+        .catch(error => {
           console.error(error);
           this.loader2 = true;
         });
@@ -271,7 +292,7 @@ export default {
     },
     updateDepartment(i) {
       this.submitted = true;
-      this.$validator.validateAll().then((valid) => {
+      this.$validator.validateAll().then(valid => {
         if (valid) {
           console.log("Update");
           swal({
@@ -279,67 +300,67 @@ export default {
             text: "",
             icon: "warning",
             buttons: true,
-            dangerMode: true,
-          })
-            .then((willDelete) => {
-              if (willDelete) {
-                this.isLoading_1 = false;
-                this.$axios
-                  .put(
-                    `https://hamlet.payfill.co/api/department/${i}`,
-                    this.departmentInfo,
-                    { header: { Authorization: `Bearer ${this.user}` } }
-                  )
-                  .then((res) => {
-                   this.getDepartment()
-                  this.getCompany()
-              // this.isLoading = true;
-              this.$message({
-                message: "Department Successfully Updated!",
-                type: "success",
-              });
-              // this.reload();
-              // this.$router.push('/dashboard')
-              this.departmentInfo.name = ""
-              // this.isLoading = true;
-                    this.isLoading_1 = true;
-                  }).catch((error) => {
-               if(error.response.status==422) {
-               this.getDepartment()
-              this.getCompany()
-              // this.isLoading = true;
-              this.$message({
-                message: error.response.data.errors.name[0],
-                type: "error",
-              });
-               }else{
-                     this.getDepartment()
-              this.getCompany()
-              // this.isLoading = true;
-              this.$message({
-                message: "Cannot add Department now, try again later! ",
-                type: "warning",
-              });
-               }
+            dangerMode: true
+          }).then(willDelete => {
+            if (willDelete) {
               this.isLoading_1 = false;
-            });
-                //
-                this.isLoading = true;
-              } else {
-                this.$message({
-                  message: "Department remains Unchanged!",
-                  type: "info",
+              this.$axios
+                .put(
+                  `https://hamlet.payfill.co/api/department/${i}`,
+                  this.departmentInfo,
+                  { header: { Authorization: `Bearer ${this.user}` } }
+                )
+                .then(res => {
+                  this.getDepartment();
+                  this.getCompany();
+                  // this.isLoading = true;
+                  this.$message({
+                    message: "Department Successfully Updated!",
+                    type: "success"
+                  });
+                  // this.reload();
+                  // this.$router.push('/dashboard')
+                  this.departmentInfo.name = "";
+                  // this.isLoading = true;
+                  this.isLoading_1 = true;
+                })
+                .catch(error => {
+                  if (error.response.status == 422) {
+                    this.getDepartment();
+                    this.getCompany();
+                    // this.isLoading = true;
+                    this.$message({
+                      message: error.response.data.errors.name[0],
+                      type: "error"
+                    });
+                  } else {
+                    this.getDepartment();
+                    this.getCompany();
+                    // this.isLoading = true;
+                    this.$message({
+                      message: "Cannot add Department now, try again later! ",
+                      type: "warning"
+                    });
+                  }
+                  this.isLoading_1 = false;
                 });
-                this.isLoading_1 = true;
-
-              }
-            })
+              //
+              this.isLoading = true;
+            } else {
+              this.$message({
+                message: "Department remains Unchanged!",
+                type: "info"
+              });
+              this.isLoading_1 = true;
+            }
+          });
         } else {
           this.isLoading_1 = true;
+          this.editDepartment = true;
         }
       });
 
-       this.editDepartment = false;
+      this.editDepartment = false;
 
       // this.$axios
       //   .put(
@@ -361,8 +382,8 @@ export default {
       //     console.log(error);
       //     this.loader = false;
       //   });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -371,7 +392,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 #style-loader {
   width: 100%;
@@ -417,7 +438,6 @@ hr {
   padding-right: 70px;
   padding-bottom: 20px;
   padding-top: 20px;
-
 }
 
 .one3 h3 {
@@ -446,7 +466,7 @@ hr {
 }
 .one5 {
   /* background-color: rgb(192, 192, 192, 0.2) !important; */
-   background-color: #E6ECF2 !important;
+  background-color: #e6ecf2 !important;
   margin-top: 3.5rem;
   height: auto;
 }

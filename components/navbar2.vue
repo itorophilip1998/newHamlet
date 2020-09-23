@@ -4,9 +4,7 @@
       <!-- desktop view -->
       <div class="container desktopViewV">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <nuxt-link to="/" class="navbar-brand" href="#" style="color: #0065FC"
-            >Hamlet</nuxt-link
-          >
+          <nuxt-link to="/" class="navbar-brand" href="#" style="color: #0065FC">Hamlet</nuxt-link>
           <button
             class="navbar-toggler"
             type="button"
@@ -22,19 +20,19 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <li class="nav-item active">
-                <nuxt-link to ="/" class="nav-link">
+                <nuxt-link to="/" class="nav-link">
                   Home
                   <span class="sr-only">(current)</span>
                 </nuxt-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#">Service</a>
+                <a class="nav-link nav-new" href="#service">Service</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#">Faq</a>
+                <a class="nav-link nav-new" href="#works">How it Works</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#">Teams</a>
+                <a class="nav-link nav-new" href="#testimonail">Testimonials</a>
               </li>
             </ul>
             <form class="form-inline ml-auto my-2 my-lg-0">
@@ -56,7 +54,7 @@
       <div class="container mobileViewV bg-white">
         <div class="mobileViewV">
           <div id="mySidenavV" :style="styleObject" class="sidenavV">
-            <div class="">
+            <div class>
               <span class="closebtn" style="color : #FFFFFF" @click="closeNav">
                 <font-awesome-icon :icon="['fa', 'times']" />
               </span>
@@ -70,13 +68,13 @@
                 </nuxt-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#">Service</a>
+                <a class="nav-link nav-new" href="#service">Service</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#">Faq</a>
+                <a class="nav-link nav-new" href="#works">How it Works</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#">Teams</a>
+                <a class="nav-link nav-new" href="#testimonial">Testimonials</a>
               </li>
               <li class="nav-item active">
                 <nuxt-link to="/signin" class="nav-link">
@@ -158,7 +156,7 @@ a {
   color: white;
   border-radius: 5px;
   padding: 5px 20px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   outline: none !important;
 }
 .btn2V:hover {
@@ -250,7 +248,6 @@ a {
   .mobileViewV {
     display: block;
   }
-
 }
 @media only screen and (min-width: 579px) and (max-width: 996px) {
   .desktopViewV {

@@ -12,9 +12,9 @@
             <div class="col-sm-6">
               <div class="hero-text">
                 Do more than what is expected of you with
-                <span style="color : #0065fc; font-weight: bolder;"
-                  >HAMLET</span
-                >
+                <span
+                  style="color : #0065fc; font-weight: bolder;"
+                >HAMLET</span>
               </div>
               <div class="hero-text-1">
                 Great leaders know their strengths, but they know their
@@ -64,25 +64,17 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>-->
 
     <!-- global brand start style="background-color : rgba(220, 234, 255, 0.5)-->
     <section>
       <div class="brand-color pb-5 pt-5">
         <div>
-          <div class="brand-text text-center">
-            TRUSTED BY GLOBAL BRANDS
-          </div>
+          <div class="brand-text text-center">TRUSTED BY GLOBAL BRANDS</div>
           <div class="container">
             <div class="grid-style">
               <div>
-                <img
-                  src="/img/access.png"
-                  class="img-fluid"
-                  width="150px"
-                  alt
-                  srcset
-                />
+                <img src="/img/access.png" class="img-fluid" width="150px" alt srcset />
               </div>
               <div>
                 <img
@@ -95,31 +87,13 @@
                 />
               </div>
               <div>
-                <img
-                  src="/img/cowrywise.png"
-                  class="img-fluid p-down"
-                  width="150px"
-                  alt
-                  srcset
-                />
+                <img src="/img/cowrywise.png" class="img-fluid p-down" width="150px" alt srcset />
               </div>
               <div>
-                <img
-                  src="/img/hotels.png"
-                  class="img-fluid p-down"
-                  width="100px"
-                  alt
-                  srcset
-                />
+                <img src="/img/hotels.png" class="img-fluid p-down" width="100px" alt srcset />
               </div>
               <div>
-                <img
-                  src="/img/barter.png"
-                  class="img-fluid p-down"
-                  width="100px"
-                  alt
-                  srcset
-                />
+                <img src="/img/barter.png" class="img-fluid p-down" width="100px" alt srcset />
               </div>
             </div>
           </div>
@@ -128,7 +102,7 @@
     </section>
     <!-- global brand start -->
     <!-- manage your employee -->
-    <section>
+    <section id="service">
       <div class="system-bg">
         <div class="container pb-5 pt-5">
           <div class="row">
@@ -141,15 +115,13 @@
               <img src="/img/system.png" class="img-fluid" alt srcset />
             </div>
             <div
-              class="col-lg-6  system-bg-1"
+              class="col-lg-6 system-bg-1"
               data-aos="fade-down"
               data-aos-duration="1000"
               data-aos-delay="300"
             >
               <div class="border-blue mb-3"></div>
-              <div class="border-text">
-                MANAGE YOUR EMPLOYEES WITHOUT HASSLES
-              </div>
+              <div class="border-text">MANAGE YOUR EMPLOYEES WITHOUT HASSLES</div>
               <div class="border-p">
                 Business productivity is of paramount importance to the
                 employers and poor performance of an employee can badly affect
@@ -162,16 +134,18 @@
     </section>
     <!-- manage end -->
     <!-- how it works -->
-    <section>
+    <section id="works">
       <div class="pt-5 bg-curve">
         <div class="container pb-5">
           <div class="how-it-works pb-5 mt-5 pt-5">HOW IT WORKS</div>
           <div class="container">
             <div class="row">
-              <div class="col-sm-6"
-               data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="100">
+              <div
+                class="col-sm-6"
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
                 <div class="letter-under text-margin">Signup</div>
                 <div class="letter-under-1">
                   Explore from hundreds of NG and US stocks. we’ve made it fast
@@ -179,23 +153,26 @@
                   to invest in.
                 </div>
               </div>
-              <div class="col-sm-6" data-aos="fade-up"
-              data-aos-duration="800"
-              data-aos-delay="100">
+              <div class="col-sm-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 <img src="/img/illustrato-2.png" alt class="img-fluid" srcset />
               </div>
             </div>
             <div class="row mt-5">
-              <div class="col-sm-5"  
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="100">
+              <div
+                class="col-sm-5"
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
                 <img src="/img/illustrator.png" alt class="img-fluid" srcset />
               </div>
-              <div class="col-sm-6 offset-1"  data-aos="fade-down"
-              data-aos-duration="800"
-              data-aos-delay="100">
-                <div class="">
+              <div
+                class="col-sm-6 offset-1"
+                data-aos="fade-down"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <div class>
                   <div class="letter-under text-margin-1">Pricing</div>
                   <div class="letter-under-1">
                     Of course, business productivity is ofparamount importance
@@ -206,10 +183,12 @@
               </div>
             </div>
             <div class="row mt-5">
-              <div class="col-sm-6"  
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="100">
+              <div
+                class="col-sm-6"
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
                 <div class="letter-under text-margin-2">Manage</div>
                 <div class="letter-under-1">
                   Explore from hundreds of NG and US stocks. we’ve made it fast
@@ -217,24 +196,21 @@
                   invest in.
                 </div>
               </div>
-              <div class="col-sm-6"  
-              data-aos="fade-down"
-              data-aos-duration="800"
-              data-aos-delay="100">
-                <img
-                  src="/img/illustrator-e.png"
-                  alt
-                  class="img-fluid"
-                  srcset
-                />
+              <div
+                class="col-sm-6"
+                data-aos="fade-down"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <img src="/img/illustrator-e.png" alt class="img-fluid" srcset />
               </div>
             </div>
           </div>
           <div class="text-center mt-2">
             <nuxt-link to="/signup">
-              <button class="btn2  btn-mobile-works">
+              <button class="btn2 btn-mobile-works">
                 Get started
-                <span class="">
+                <span class>
                   <font-awesome-icon :icon="['fa', 'angle-right']" />
                 </span>
               </button>
@@ -246,12 +222,10 @@
     <!-- how it works end -->
 
     <!-- testimonial -->
-    <section>
-      <div class="pt-5 pb-5">
+    <section id="testimonail">
+      <div class="pt-5 pb-5 mt-5">
         <div class="container testimonial-bg">
-          <div class="text-client text-center testy btn-mobile-works">
-            CLIENT'S REVIEW
-          </div>
+          <div class="text-client text-center testy btn-mobile-works">CLIENT'S REVIEW</div>
           <div class="text-client-1">
             Ask first. Before jumping into designing I always make sure that
             we’re asking the right questions and trying to accomplish the right
@@ -262,21 +236,17 @@
           <div class="row justify-content-center">
             <div class="d-flex text-center">
               <div>
-                <img src="/img/lady-1.png" alt="" srcset="" />
+                <img src="/img/lady-1.png" alt srcset />
               </div>
               <div>
                 <div
                   class="mt-4"
                   style="color: #081D29; font-weight: bold; font-style: normal;"
-                >
-                  Evia Omari
-                </div>
+                >Evia Omari</div>
                 <div
                   class="ml-3"
                   style="color: #081D29;font-weight: normal;font-style: normal;"
-                >
-                  Front-end developer
-                </div>
+                >Front-end developer</div>
               </div>
             </div>
           </div>

@@ -29,8 +29,7 @@ import Navbar from "~/components/navbar2.vue";
 import newLoader from "~/components/loader.vue";
 // import swal from "sweetalert";
 // import { mapGetters } from "vuex";
-export default {
-  auth: false,
+export default { 
 
   components: {
     "app-navbar": Navbar,

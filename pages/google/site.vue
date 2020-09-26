@@ -59,11 +59,13 @@ export default {
     {
         var x = location.hash;
         this.tokenUser= x.slice(1)
-        this.$auth.$storage.setLocalStorage("jwt", this.tokenUser);
+         this.$auth.$storage.setLocalStorage("jwt", this.tokenUser);
+        this.$auth.$storage.setLocalStorage("auth._token.local", this.tokenUser);
 
     },
     setup()
     {
+
       this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.tokenUser}`}}).then((result) => {
         this.$auth.$storage.setLocalStorage("user", result.data.user);
         this.$router.push("/dashboard");

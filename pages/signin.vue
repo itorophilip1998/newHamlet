@@ -154,6 +154,13 @@ export default {
                 type: "error",
               });
             }
+            if (e.response.status === 451) {
+              this.$message({
+                message:
+                  "Sorry,username or password those not match our record!",
+                type: "error",
+              });
+            }
             if (e.response.status === 422) {
               this.$message({
                 message: "Sorry, check username or password!",

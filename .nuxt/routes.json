@@ -84,6 +84,12 @@
     "chunkName": "pages/employees/employmentdetails"
   },
   {
+    "name": "google-site",
+    "path": "/google/site",
+    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\google\\\\site.vue",
+    "chunkName": "pages/google/site"
+  },
+  {
     "name": "profile-profile",
     "path": "/profile/profile",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\profile\\\\profile.vue",
@@ -106,12 +112,6 @@
     "path": "/employees/:name?",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employees\\\\_name.vue",
     "chunkName": "pages/employees/_name"
-  },
-  {
-    "name": "google-name",
-    "path": "/google/:name?",
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\google\\\\_name.vue",
-    "chunkName": "pages/google/_name"
   },
   {
     "name": "jobdetails-name",

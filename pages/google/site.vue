@@ -7,13 +7,11 @@
           <div class="two2">
             <h3 class="text-center text-primary">Hamlet Authorization</h3>
             <hr>
-            <div class="border rounded-lg shadow p-2">
-              <p >
+            <div class="border rounded-lg shadow p-2 text-center">
+              <p class="text-left">
                 Continue Authentication With Google via hamlet
               </p>
-                <button @click="setup()" class="text-center btn btn-primary">Setup Profile</button>
-                <button @click="skip()" class="text-center btn text-primary border-primary">Skip</button>
-
+                <button @click="setup()" class="text-center w-50 btn btn-primary">Done</button>
             </div>
 
           </div>
@@ -45,8 +43,8 @@ export default {
       login: false,
       isValid: false,
       profile: {},
-      user:{}
-      // tokenUser : {}
+      user:{},
+      tokenUser : ''
     };
   },
   computed: {
@@ -54,15 +52,21 @@ export default {
   },
   mounted()
   {
-        this.$auth.$storage.setLocalStorage("jwt", this.$route.params.name);
-
+        this.tokenUserPort()
   },
   methods: {
+    tokenUserPort()
+    {
+        var x = location.hash;
+        this.tokenUser= x.slice(1)
+        this.$auth.$storage.setLocalStorage("jwt", this.tokenUser);
+
+    },
     setup()
     {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.name}`}}).then((result) => {
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.tokenUser}`}}).then((result) => {
         this.$auth.$storage.setLocalStorage("user", result.data.user);
-        this.$router.push("/manager-account");
+        this.$router.push("/dashboard");
        }).catch((err) => {
           this.$message({
             message: "An error Occured!, please try again later",
@@ -73,7 +77,7 @@ export default {
     },
     skip()
     {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.name}`}}).then((result) => {
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.tokenUser}`}}).then((result) => {
         this.$auth.$storage.setLocalStorage("user", result.data.user);
          this.$router.push('/company-details')
 

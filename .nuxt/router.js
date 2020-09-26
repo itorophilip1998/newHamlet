@@ -17,11 +17,11 @@ const _1f81b144 = () => interopDefault(import('..\\pages\\company\\locations.vue
 const _1259b6bf = () => interopDefault(import('..\\pages\\company\\taxinfo.vue' /* webpackChunkName: "pages/company/taxinfo" */))
 const _bab50b5a = () => interopDefault(import('..\\pages\\department\\add-department.vue' /* webpackChunkName: "pages/department/add-department" */))
 const _01e85c18 = () => interopDefault(import('..\\pages\\employees\\employmentdetails.vue' /* webpackChunkName: "pages/employees/employmentdetails" */))
+const _7d8b2103 = () => interopDefault(import('..\\pages\\google\\site.vue' /* webpackChunkName: "pages/google/site" */))
 const _65ed083a = () => interopDefault(import('..\\pages\\profile\\profile.vue' /* webpackChunkName: "pages/profile/profile" */))
 const _5858e7df = () => interopDefault(import('..\\pages\\contactinfo\\_name.vue' /* webpackChunkName: "pages/contactinfo/_name" */))
 const _324e751f = () => interopDefault(import('..\\pages\\editEmployee\\_name.vue' /* webpackChunkName: "pages/editEmployee/_name" */))
 const _1f86e788 = () => interopDefault(import('..\\pages\\employees\\_name.vue' /* webpackChunkName: "pages/employees/_name" */))
-const _6d462a44 = () => interopDefault(import('..\\pages\\google\\_name.vue' /* webpackChunkName: "pages/google/_name" */))
 const _f011e99c = () => interopDefault(import('..\\pages\\jobdetails\\_name.vue' /* webpackChunkName: "pages/jobdetails/_name" */))
 const _2ca3589f = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -98,6 +98,10 @@ export const routerOptions = {
     component: _01e85c18,
     name: "employees-employmentdetails"
   }, {
+    path: "/google/site",
+    component: _7d8b2103,
+    name: "google-site"
+  }, {
     path: "/profile/profile",
     component: _65ed083a,
     name: "profile-profile"
@@ -113,10 +117,6 @@ export const routerOptions = {
     path: "/employees/:name?",
     component: _1f86e788,
     name: "employees-name"
-  }, {
-    path: "/google/:name?",
-    component: _6d462a44,
-    name: "google-name"
   }, {
     path: "/jobdetails/:name?",
     component: _f011e99c,

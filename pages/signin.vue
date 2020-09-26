@@ -157,7 +157,7 @@ export default {
             if (e.response.status === 451) {
               this.$message({
                 message:
-                  "Sorry,username or password those not match our record!",
+                  "This account has been banned,please contact administrator for verification!",
                 type: "error",
               });
             }

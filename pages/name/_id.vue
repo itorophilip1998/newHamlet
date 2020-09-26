@@ -54,13 +54,13 @@ export default {
   },
   mounted()
   {
-        this.$auth.$storage.setLocalStorage("jwt", this.$route.params.name);
+        this.$auth.$storage.setLocalStorage("jwt", this.$route.params.id);
 
   },
   methods: {
     setup()
     {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.name}`}}).then((result) => {
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.id}`}}).then((result) => {
         this.$auth.$storage.setLocalStorage("user", result.data.user);
         this.$router.push("/manager-account");
        }).catch((err) => {
@@ -73,7 +73,7 @@ export default {
     },
     skip()
     {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.name}`}}).then((result) => {
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.id}`}}).then((result) => {
         this.$auth.$storage.setLocalStorage("user", result.data.user);
          this.$router.push('/company-details')
 

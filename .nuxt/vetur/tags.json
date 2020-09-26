@@ -1,0 +1,104 @@
+{
+  "Footer": {
+    "description": "Auto imported from components/footer.vue"
+  },
+  "LazyFooter": {
+    "description": "Auto imported from components/footer.vue"
+  },
+  "Loader1": {
+    "description": "Auto imported from components/loader-1.vue"
+  },
+  "LazyLoader1": {
+    "description": "Auto imported from components/loader-1.vue"
+  },
+  "Loader": {
+    "description": "Auto imported from components/loader.vue"
+  },
+  "LazyLoader": {
+    "description": "Auto imported from components/loader.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LazyLogo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "Navbar": {
+    "description": "Auto imported from components/navbar.vue"
+  },
+  "LazyNavbar": {
+    "description": "Auto imported from components/navbar.vue"
+  },
+  "Navbar2": {
+    "description": "Auto imported from components/navbar2.vue"
+  },
+  "LazyNavbar2": {
+    "description": "Auto imported from components/navbar2.vue"
+  },
+  "Navbar3": {
+    "description": "Auto imported from components/navbar3.vue"
+  },
+  "LazyNavbar3": {
+    "description": "Auto imported from components/navbar3.vue"
+  },
+  "Navbar4": {
+    "description": "Auto imported from components/navbar4.vue"
+  },
+  "LazyNavbar4": {
+    "description": "Auto imported from components/navbar4.vue"
+  },
+  "Navbar5": {
+    "description": "Auto imported from components/navbar5.vue"
+  },
+  "LazyNavbar5": {
+    "description": "Auto imported from components/navbar5.vue"
+  },
+  "Navbar6": {
+    "description": "Auto imported from components/navbar6.vue"
+  },
+  "LazyNavbar6": {
+    "description": "Auto imported from components/navbar6.vue"
+  },
+  "Navbar7": {
+    "description": "Auto imported from components/navbar7.vue"
+  },
+  "LazyNavbar7": {
+    "description": "Auto imported from components/navbar7.vue"
+  },
+  "Sidebar": {
+    "description": "Auto imported from components/sidebar.vue"
+  },
+  "LazySidebar": {
+    "description": "Auto imported from components/sidebar.vue"
+  },
+  "Sidebar2": {
+    "description": "Auto imported from components/sidebar2.vue"
+  },
+  "LazySidebar2": {
+    "description": "Auto imported from components/sidebar2.vue"
+  },
+  "Sidebar3": {
+    "description": "Auto imported from components/sidebar3.vue"
+  },
+  "LazySidebar3": {
+    "description": "Auto imported from components/sidebar3.vue"
+  },
+  "Sidebar4": {
+    "description": "Auto imported from components/sidebar4.vue"
+  },
+  "LazySidebar4": {
+    "description": "Auto imported from components/sidebar4.vue"
+  },
+  "Sidebar5": {
+    "description": "Auto imported from components/sidebar5.vue"
+  },
+  "LazySidebar5": {
+    "description": "Auto imported from components/sidebar5.vue"
+  },
+  "WizardForm": {
+    "description": "Auto imported from components/wizardForm.vue"
+  },
+  "LazyWizardForm": {
+    "description": "Auto imported from components/wizardForm.vue"
+  }
+}

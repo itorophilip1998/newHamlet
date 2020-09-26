@@ -53,6 +53,15 @@
     "path": "/signin",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\signin.vue",
     "chunkName": "pages/signin",
+    "children": [
+      {
+        "name": "signin-name",
+        "path": ":name?",
+        "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\signin\\\\_name.vue",
+        "chunkName": "pages/signin/_name",
+        "_name": "_1fd30dd5"
+      }
+    ],
     "_name": "_0ad811a5"
   },
   {
@@ -98,13 +107,6 @@
     "_name": "_01e85c18"
   },
   {
-    "name": "google-name",
-    "path": "/google/name",
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\google\\\\name.vue",
-    "chunkName": "pages/google/name",
-    "_name": "_79fd0b72"
-  },
-  {
     "name": "profile-profile",
     "path": "/profile/profile",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\profile\\\\profile.vue",
@@ -145,12 +147,5 @@
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
     "_name": "_2ca3589f"
-  },
-  {
-    "name": "name-name",
-    "path": "/:name/name",
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\_name\\\\name.vue",
-    "chunkName": "pages/_name/name",
-    "_name": "_994626fc"
   }
 ]

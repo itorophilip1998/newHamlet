@@ -11,20 +11,19 @@ const _1cf8b3f1 = () => interopDefault(import('..\\pages\\employee.vue' /* webpa
 const _67c34434 = () => interopDefault(import('..\\pages\\employee-details.vue' /* webpackChunkName: "pages/employee-details" */))
 const _10631c1a = () => interopDefault(import('..\\pages\\manager-account.vue' /* webpackChunkName: "pages/manager-account" */))
 const _0ad811a5 = () => interopDefault(import('..\\pages\\signin.vue' /* webpackChunkName: "pages/signin" */))
+const _1fd30dd5 = () => interopDefault(import('..\\pages\\signin\\_name.vue' /* webpackChunkName: "pages/signin/_name" */))
 const _1f6e681b = () => interopDefault(import('..\\pages\\signup.vue' /* webpackChunkName: "pages/signup" */))
 const _f379065a = () => interopDefault(import('..\\pages\\company\\company-overview.vue' /* webpackChunkName: "pages/company/company-overview" */))
 const _1f81b144 = () => interopDefault(import('..\\pages\\company\\locations.vue' /* webpackChunkName: "pages/company/locations" */))
 const _1259b6bf = () => interopDefault(import('..\\pages\\company\\taxinfo.vue' /* webpackChunkName: "pages/company/taxinfo" */))
 const _bab50b5a = () => interopDefault(import('..\\pages\\department\\add-department.vue' /* webpackChunkName: "pages/department/add-department" */))
 const _01e85c18 = () => interopDefault(import('..\\pages\\employees\\employmentdetails.vue' /* webpackChunkName: "pages/employees/employmentdetails" */))
-const _79fd0b72 = () => interopDefault(import('..\\pages\\google\\name.vue' /* webpackChunkName: "pages/google/name" */))
 const _65ed083a = () => interopDefault(import('..\\pages\\profile\\profile.vue' /* webpackChunkName: "pages/profile/profile" */))
 const _5858e7df = () => interopDefault(import('..\\pages\\contactinfo\\_name.vue' /* webpackChunkName: "pages/contactinfo/_name" */))
 const _324e751f = () => interopDefault(import('..\\pages\\editEmployee\\_name.vue' /* webpackChunkName: "pages/editEmployee/_name" */))
 const _1f86e788 = () => interopDefault(import('..\\pages\\employees\\_name.vue' /* webpackChunkName: "pages/employees/_name" */))
 const _f011e99c = () => interopDefault(import('..\\pages\\jobdetails\\_name.vue' /* webpackChunkName: "pages/jobdetails/_name" */))
 const _2ca3589f = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
-const _994626fc = () => interopDefault(import('..\\pages\\_name\\name.vue' /* webpackChunkName: "pages/_name/name" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -73,7 +72,12 @@ export const routerOptions = {
   }, {
     path: "/signin",
     component: _0ad811a5,
-    name: "signin"
+    name: "signin",
+    children: [{
+      path: ":name?",
+      component: _1fd30dd5,
+      name: "signin-name"
+    }]
   }, {
     path: "/signup",
     component: _1f6e681b,
@@ -99,10 +103,6 @@ export const routerOptions = {
     component: _01e85c18,
     name: "employees-employmentdetails"
   }, {
-    path: "/google/name",
-    component: _79fd0b72,
-    name: "google-name"
-  }, {
     path: "/profile/profile",
     component: _65ed083a,
     name: "profile-profile"
@@ -126,10 +126,6 @@ export const routerOptions = {
     path: "/",
     component: _2ca3589f,
     name: "index"
-  }, {
-    path: "/:name/name",
-    component: _994626fc,
-    name: "name-name"
   }],
 
   fallback: false

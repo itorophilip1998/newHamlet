@@ -3,149 +3,126 @@
     "name": "all-employees",
     "path": "/all-employees",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\all-employees.vue",
-    "chunkName": "pages/all-employees",
-    "_name": "_26f285a6"
+    "chunkName": "pages/all-employees"
   },
   {
     "name": "company-details",
     "path": "/company-details",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company-details.vue",
-    "chunkName": "pages/company-details",
-    "_name": "_5d0de67f"
+    "chunkName": "pages/company-details"
   },
   {
     "name": "dashboard",
     "path": "/dashboard",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\dashboard.vue",
-    "chunkName": "pages/dashboard",
-    "_name": "_580f723e"
+    "chunkName": "pages/dashboard"
   },
   {
     "name": "directory",
     "path": "/directory",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\directory.vue",
-    "chunkName": "pages/directory",
-    "_name": "_212de63a"
+    "chunkName": "pages/directory"
   },
   {
     "name": "employee",
     "path": "/employee",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employee.vue",
-    "chunkName": "pages/employee",
-    "_name": "_1cf8b3f1"
+    "chunkName": "pages/employee"
   },
   {
     "name": "employee-details",
     "path": "/employee-details",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employee-details.vue",
-    "chunkName": "pages/employee-details",
-    "_name": "_67c34434"
+    "chunkName": "pages/employee-details"
   },
   {
     "name": "manager-account",
     "path": "/manager-account",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\manager-account.vue",
-    "chunkName": "pages/manager-account",
-    "_name": "_10631c1a"
+    "chunkName": "pages/manager-account"
   },
   {
     "name": "signin",
     "path": "/signin",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\signin.vue",
-    "chunkName": "pages/signin",
-    "children": [
-      {
-        "name": "signin-name",
-        "path": ":name?",
-        "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\signin\\\\_name.vue",
-        "chunkName": "pages/signin/_name",
-        "_name": "_1fd30dd5"
-      }
-    ],
-    "_name": "_0ad811a5"
+    "chunkName": "pages/signin"
   },
   {
     "name": "signup",
     "path": "/signup",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\signup.vue",
-    "chunkName": "pages/signup",
-    "_name": "_1f6e681b"
+    "chunkName": "pages/signup"
   },
   {
     "name": "company-company-overview",
     "path": "/company/company-overview",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company\\\\company-overview.vue",
-    "chunkName": "pages/company/company-overview",
-    "_name": "_f379065a"
+    "chunkName": "pages/company/company-overview"
   },
   {
     "name": "company-locations",
     "path": "/company/locations",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company\\\\locations.vue",
-    "chunkName": "pages/company/locations",
-    "_name": "_1f81b144"
+    "chunkName": "pages/company/locations"
   },
   {
     "name": "company-taxinfo",
     "path": "/company/taxinfo",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company\\\\taxinfo.vue",
-    "chunkName": "pages/company/taxinfo",
-    "_name": "_1259b6bf"
+    "chunkName": "pages/company/taxinfo"
   },
   {
     "name": "department-add-department",
     "path": "/department/add-department",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\department\\\\add-department.vue",
-    "chunkName": "pages/department/add-department",
-    "_name": "_bab50b5a"
+    "chunkName": "pages/department/add-department"
   },
   {
     "name": "employees-employmentdetails",
     "path": "/employees/employmentdetails",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employees\\\\employmentdetails.vue",
-    "chunkName": "pages/employees/employmentdetails",
-    "_name": "_01e85c18"
+    "chunkName": "pages/employees/employmentdetails"
   },
   {
     "name": "profile-profile",
     "path": "/profile/profile",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\profile\\\\profile.vue",
-    "chunkName": "pages/profile/profile",
-    "_name": "_65ed083a"
+    "chunkName": "pages/profile/profile"
   },
   {
     "name": "contactinfo-name",
     "path": "/contactinfo/:name?",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\contactinfo\\\\_name.vue",
-    "chunkName": "pages/contactinfo/_name",
-    "_name": "_5858e7df"
+    "chunkName": "pages/contactinfo/_name"
   },
   {
     "name": "editEmployee-name",
     "path": "/editEmployee/:name?",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\editEmployee\\\\_name.vue",
-    "chunkName": "pages/editEmployee/_name",
-    "_name": "_324e751f"
+    "chunkName": "pages/editEmployee/_name"
   },
   {
     "name": "employees-name",
     "path": "/employees/:name?",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employees\\\\_name.vue",
-    "chunkName": "pages/employees/_name",
-    "_name": "_1f86e788"
+    "chunkName": "pages/employees/_name"
+  },
+  {
+    "name": "google-name",
+    "path": "/google/:name?",
+    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\google\\\\_name.vue",
+    "chunkName": "pages/google/_name"
   },
   {
     "name": "jobdetails-name",
     "path": "/jobdetails/:name?",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\jobdetails\\\\_name.vue",
-    "chunkName": "pages/jobdetails/_name",
-    "_name": "_f011e99c"
+    "chunkName": "pages/jobdetails/_name"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_2ca3589f"
+    "chunkName": "pages/index"
   }
 ]

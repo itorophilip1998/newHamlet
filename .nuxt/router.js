@@ -11,7 +11,6 @@ const _1cf8b3f1 = () => interopDefault(import('..\\pages\\employee.vue' /* webpa
 const _67c34434 = () => interopDefault(import('..\\pages\\employee-details.vue' /* webpackChunkName: "pages/employee-details" */))
 const _10631c1a = () => interopDefault(import('..\\pages\\manager-account.vue' /* webpackChunkName: "pages/manager-account" */))
 const _0ad811a5 = () => interopDefault(import('..\\pages\\signin.vue' /* webpackChunkName: "pages/signin" */))
-const _1fd30dd5 = () => interopDefault(import('..\\pages\\signin\\_name.vue' /* webpackChunkName: "pages/signin/_name" */))
 const _1f6e681b = () => interopDefault(import('..\\pages\\signup.vue' /* webpackChunkName: "pages/signup" */))
 const _f379065a = () => interopDefault(import('..\\pages\\company\\company-overview.vue' /* webpackChunkName: "pages/company/company-overview" */))
 const _1f81b144 = () => interopDefault(import('..\\pages\\company\\locations.vue' /* webpackChunkName: "pages/company/locations" */))
@@ -22,6 +21,7 @@ const _65ed083a = () => interopDefault(import('..\\pages\\profile\\profile.vue' 
 const _5858e7df = () => interopDefault(import('..\\pages\\contactinfo\\_name.vue' /* webpackChunkName: "pages/contactinfo/_name" */))
 const _324e751f = () => interopDefault(import('..\\pages\\editEmployee\\_name.vue' /* webpackChunkName: "pages/editEmployee/_name" */))
 const _1f86e788 = () => interopDefault(import('..\\pages\\employees\\_name.vue' /* webpackChunkName: "pages/employees/_name" */))
+const _6d462a44 = () => interopDefault(import('..\\pages\\google\\_name.vue' /* webpackChunkName: "pages/google/_name" */))
 const _f011e99c = () => interopDefault(import('..\\pages\\jobdetails\\_name.vue' /* webpackChunkName: "pages/jobdetails/_name" */))
 const _2ca3589f = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -72,12 +72,7 @@ export const routerOptions = {
   }, {
     path: "/signin",
     component: _0ad811a5,
-    name: "signin",
-    children: [{
-      path: ":name?",
-      component: _1fd30dd5,
-      name: "signin-name"
-    }]
+    name: "signin"
   }, {
     path: "/signup",
     component: _1f6e681b,
@@ -118,6 +113,10 @@ export const routerOptions = {
     path: "/employees/:name?",
     component: _1f86e788,
     name: "employees-name"
+  }, {
+    path: "/google/:name?",
+    component: _6d462a44,
+    name: "google-name"
   }, {
     path: "/jobdetails/:name?",
     component: _f011e99c,

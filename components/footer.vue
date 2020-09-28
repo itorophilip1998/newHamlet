@@ -38,7 +38,7 @@
                   <span>
                         <img src="/img/fb.png" alt="" srcset="">
                   </span>
-                   <span class="ml-5">
+                   <span class="ml-3">
                         <img src="/img/twitter.png" alt="" srcset="">
                   </span>
               </p>
@@ -112,5 +112,11 @@ p {
     background-image: url("/img/map-new.png");
     background-repeat: no-repeat;
     background-position: right;
+}
+.circle-msg{
+  color: red !important;
+  display: flex;
+  position: fixed;
+  justify-content: flex-end;
 }
 </style>

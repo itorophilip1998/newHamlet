@@ -3,7 +3,7 @@
     <div class="boxShadowV fixed-top bg-white">
       <!-- desktop view -->
       <div class="container desktopViewV">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbar-example2">
           <nuxt-link to="/" class="navbar-brand" href="#" style="color: #0065FC">Hamlet</nuxt-link>
           <button
             class="navbar-toggler"
@@ -19,7 +19,7 @@
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <nuxt-link to="/" class="nav-link">
                   Home
                   <span class="sr-only">(current)</span>
@@ -32,7 +32,7 @@
                 <a class="nav-link nav-new" href="#works">How it Works</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-new" href="#testimonail">Testimonials</a>
+                <a class="nav-link nav-new" href="#testimonial">Testimonials</a>
               </li>
             </ul>
             <form class="form-inline ml-auto my-2 my-lg-0">

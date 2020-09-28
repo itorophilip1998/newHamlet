@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
     <div>
       <app-navbar />
     </div>
@@ -222,7 +222,7 @@
     <!-- how it works end -->
 
     <!-- testimonial -->
-    <section id="testimonail">
+    <section id="testimonial">
       <div class="pt-5 pb-5 mt-5">
         <div class="container testimonial-bg">
           <div class="text-client text-center testy btn-mobile-works">CLIENT'S REVIEW</div>
@@ -266,7 +266,25 @@ export default {
   components: {
     "app-navbar": Navbar,
     Footer
-  }
+  },
+  data(){
+    return{
+
+    }
+  },
+//   mounted(){
+//     $(document).ready(function(){
+// 		$('a[href^="#"]').on('click',function (e) {e.preventDefault();
+// 	    var target = this.hash,
+// 	    $target = $(target);
+// 	    $('html, body').stop().animate({
+// 	        'scrollTop': $target.offset().top
+// 	    }, 900, 'swing', function () {
+// 	        window.location.hash = target;
+// 	    });
+// 	});
+// });
+//   }
 };
 </script>
 

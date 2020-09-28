@@ -32,7 +32,7 @@
               class="form-control mt-4 pl-1"
               name
               id
-              placeholder="Search by name"
+              placeholder="Search"
             />
             <ul>
               <nuxt-link to="/dashboard">
@@ -84,14 +84,15 @@
             </ul>
 
             <h6 class="mt-5">Department</h6>
-            <select class="custom-select increase_height mt-1 p-1">
-              <option value selected>Select Department</option>
-              <option
-                v-for="(item, index) in filterbyDepartment"
-                :key="index"
-                :value="item.name"
-              >{{item.name}}</option>
-            </select>
+
+                  <select style="cursor:pointer" id="department" @input="filterDepartments=getDepartment()"     class="custom-select increase_height">
+                  <option value selected>Select Department</option>
+                  <option
+                    v-for="(item, index) in filterbyDepartment"
+                    :key="index"
+                    :value="item.name"
+             >{{item.name}}</option>
+                </select>
           </div>
         </div>
         <!-- side-bar end -->
@@ -264,23 +265,68 @@ export default {
   },
   computed: {
     filterAll() {
-      return this.employees.filter(post => {
+      try {
+          return this.employees.filter((post) => {
         return (
           post.first_name
             .toLowerCase()
             .match(
               this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
-            ) ||
-          post.other_names
+            ))
+            ||
+            (
+          post.city.toLowerCase().match(
+              this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
+            ))
+            ||
+            (
+          post.job_details.job_title.toLowerCase().match(
+              this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
+            ))
+            ||
+            (
+          post.job_details.employment_type.toLowerCase().match(
+              this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
+            ))
+            ||
+            (
+          post.job_details.department.toLowerCase().match(
+              this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
+            ))
+            ||
+            (
+          post.job_details.description.toLowerCase().match(
+              this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
+            ))
+            ||
+          (post.other_names
             .toLowerCase()
             .match(
               this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
+
+            )
+        )
+            ||
+          (post.job_details.date_hired
+            .toLowerCase()
+            .match(
+              this.filterbyName.toLowerCase() || this.filterbyName.toUpperCase()
+
             )
         );
       });
-    }
-  },
+
+      } catch (error) {
+          console.log(error)
+      }
+     },
+ },
   methods: {
+     getDepartment()
+    {
+      let department=document.getElementById('department').value;
+      this.filterbyName=department;
+    },
     linksingleEmployee(employee) {
       this.$router.push(`/employees/${employee}`);
     },

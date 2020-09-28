@@ -7,13 +7,11 @@
           <div class="two2">
             <h3 class="text-center text-primary">Hamlet Authorization</h3>
             <hr>
-            <div class="border rounded-lg shadow p-2">
-              <p >
+            <div class="border rounded-lg shadow p-2 text-center">
+              <p class="text-left">
                 Continue Authentication With Google via hamlet
               </p>
-                <button @click="setup()" class="text-center btn btn-primary">Setup Profile</button>
-                <button @click="skip()" class="text-center btn text-primary border-primary">Skip</button>
-
+                <button @click="setup()" class="text-center w-50 btn btn-primary">Done</button>
             </div>
 
           </div>
@@ -30,8 +28,7 @@ import newLoader from "~/components/loader.vue";
 // import swal from "sweetalert";
 // import { mapGetters } from "vuex";
 export default {
-  auth: false,
-
+ auth: false,
   components: {
     "app-navbar": Navbar,
     "app-loader": newLoader,
@@ -39,131 +36,118 @@ export default {
   data() {
     return {
       user: {},
-      email: "",
-      password: "",
+      email: "khikh",
+      password: "jjhjh",
       loader: true,
       submitted: false,
       login: false,
       isValid: false,
       profile: {},
-      user:{}
-      // tokenUser : {}
+      user:{},
+      tokenUser : ''
     };
   },
-  // computed: {
-  //   ...mapGetters(["isAuthenticated", "loggedInUser"]),
-  // },
+  computed: {
+    // ...mapGetters(["isAuthenticated", "loggedInUser"]),
+  },
   mounted()
   {
-        this.$auth.$storage.setLocalStorage("jwt", this.$route.params.token);
-
+        this.tokenUserPort()
   },
+
   methods: {
+    tokenUserPort()
+    {
+        var x = location.hash;
+        this.tokenUser= x.slice(1)
+          this.$auth.$storage.setLocalStorage("jwt", this.tokenUser);
+       localStorage.setItem("auth._token.local", 'bearer '+this.tokenUser);
+     // cookies
+        var d = new Date();
+        d.setTime(d.getTime() + (2*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = "auth._token.local" + "=" + 'bearer '+this.tokenUser + ";" + expires + ";path=/"; 
+
+    },
     setup()
     {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.token}`}}).then((result) => {
+      this.tokenUserPort()
+      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.tokenUser}`}}).then((result) => {
         this.$auth.$storage.setLocalStorage("user", result.data.user);
-        this.$router.push("/manager-account");
+        location.href='/dashboard'
+        // this.$router.push("/dashboard");
        }).catch((err) => {
           this.$message({
             message: "An error Occured!, please try again later",
             type: "error",
           });
        });
-
     },
-    skip()
-    {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin",{headers:{"Authorization":`Bearer ${this.$route.params.token}`}}).then((result) => {
-        this.$auth.$storage.setLocalStorage("user", result.data.user);
-         this.$router.push('/company-details')
-
-       }).catch((err) => {
-          this.$message({
-            message: "An error Occured!, please try again later",
-            type: "error",
-          });
-     });
-
-
-    },
-    async loginUser(e) {
-      if (this.email === "" || this.password === "") {
-        this.loader = true;
-      } else {
-        this.loader = false;
-        this.login = false;
-      }
-      // this.login = true
+     async loginUser(e) {
       this.submitted = true;
-      this.$validator.validateAll().then( async (valid) => {
+      this.$validator.validateAll().then(async (valid) => {
         if (valid) {
+           this.loader = true;
           console.log("Login");
-            try {
-        let response = await this.$auth.loginWith("local", {
-          data: {
-            email: this.email,
-            password: this.password,
-          },
-        });
-        let user = response.data.user;
-        this.$auth.$storage.setLocalStorage("user", user);
-        let token = response.data.token;
-        this.$auth.$storage.setLocalStorage("jwt", token);
-        // localStorage.setItem("jwt", token);
-        console.log(token);
-        this.loader = false;
+          try {
+            let response = await this.$auth.loginWith("local", {
+              data: {
+                email: this.email,
+                password: this.password,
+              },
+            });
+            let user = response.data.user;
+            this.$auth.$storage.setLocalStorage("user", user);
+            let token = response.data.token;
+            this.$auth.$storage.setLocalStorage("jwt", token);
+            // localStorage.setItem("jwt", token);
+            console.log(token);
+            this.loader = false;
 
-        console.log(response);
-        this.loader = false;
-        this.$message({
-          message: `Welcome ${user.username}`,
-          type: "success",
-        });
-        this.$router.push("/dashboard");
-      } catch (e) {
-        // console.log(e.response.status);
-        // this.error = e.res;
-        if (e.response.status === 401) {
-          this.$message({
-            message: "Error, please sign up or check username and password!",
-            type: "error",
-          });
-        }
-        if (e.response.status === 422) {
-          this.$message({
-            message: "Error, check username or password!",
-            type: "error",
-          });
-        }
-        //  if (!e.response.status) {
-        //   this.$message({
-        //     message: "Error, please check your internet connection",
-        //     type: "error",
-        //   });
-        // }
-        this.loader = true;
-      }
+            console.log(response);
+            this.loader = false;
+            this.$message({
+              message: `Welcome ${user.username}`,
+              type: "success",
+            });
+            this.$router.push("/dashboard");
+          } catch (e) {
+            this.loader = false;
+            // console.log(e.response.status);
+            // this.error = e.res;
+            if (e.response.status === 401) {
+              this.$message({
+                message:
+                  "Sorry,username or password those not match our record!",
+                type: "error",
+              });
+            }
+            if (e.response.status === 451) {
+              this.$message({
+                message:
+                  "This account has been banned,please contact administrator for verification!",
+                type: "error",
+              });
+            }
+            if (e.response.status === 422) {
+              this.$message({
+                message: "Sorry, check username or password!",
+                type: "error",
+              });
+            }
+            if (!e.response.status) {
+              this.$message({
+                message: "Sorry, please check your internet connection",
+                type: "error",
+              });
+            }
+            this.loader = false;
+          }
         }
       });
+    },
 
-    },
-    getProfile() {
-      this.$axios
-        .get("https://hamlet.payfill.co/api/auth/admin")
-        .then((res) => {
-          console.log(res.data.user.profile);
-          this.profile = res.data.user.profile;
-          //   for (let key in data) {
-          //     const details = data[key];
-          //     details.company.id = key;
-          //     this.company.unshift(details);
-          //   }
-          //   this.company = res.data.company;
-          this.loader = false;
-        });
-    },
-  },
+  }
 };
 </script>
 

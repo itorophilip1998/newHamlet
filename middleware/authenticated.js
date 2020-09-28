@@ -10,3 +10,11 @@
 //   //     return redirect("/signin");
 //   //   }
 // }
+// export default function ({ store,redirect }) {
+//   let token=localStorage.getItem('auth._token.local')
+//    if(!token)
+//    {
+//       // console.log('Test Middleware') 
+//       return redirect("/signin");      
+//    }
+// }

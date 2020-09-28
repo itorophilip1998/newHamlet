@@ -135,7 +135,7 @@ import navbar from "~/components/navbar7.vue";
 import newLoader from "~/components/loader.vue";
 // import { mapGetters } from "vuex";
 export default {
-  //   middleware: ["authenticated"],
+    // middleware: "authenticated",
   components: {
     "app-navbar": navbar,
     "app-loader": newLoader

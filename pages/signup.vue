@@ -61,8 +61,12 @@
                                      </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="password" name="password" @keydown.space.prevent class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
+                                     <input @input="password=true" @mouseout="password=false" type="password" name="password" @keydown.space.prevent class="form-control" id="" placeholder="Password Confirmation" v-model="signUp.password_confirmation"
                                      :class="{ 'is-invalid': submitted && errors.has('password') }">
+                                     <!-- password Confirmation validation -->
+
+                                     <small  v-if="signUp.password_confirmation==signUp.password && password"><i class="fa   text-success" aria-hidden="true"> <font-awesome-icon :icon="['fa', 'check']" /> Confirmed </i></small>
+                                     <small v-if="signUp.password_confirmation!=signUp.password && password"><i class="fa  text-danger" aria-hidden="true"><font-awesome-icon :icon="['fa', 'key']" /> Password Confirmation Not matched</i></small>
                                         <small
                                         v-if="submitted && errors.has('password')"
                                         class="invalid-feedback"
@@ -74,7 +78,7 @@
                             <button type="submit" class="btn1 btn btn-primary" :disabled="(!signUp.username || !signUp.email || !signUp.password || !signUp.password_confirmation) || loader" :class="{'disabled':(!signUp.username || !signUp.email || !signUp.password || !signUp.password_confirmation)|| loader}">Create Account</button>
                     </form>
                     <div class="account">
-                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link> </span> 
+                        Already have an account?<span style="color : #0065FC"><nuxt-link to="/signin"> Log in</nuxt-link> </span>
                    </div>
                       <button class="btn8"><img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Sign up with Google</a></button>
                     </div>
@@ -91,7 +95,7 @@
                 </div>
 
                 <!-- Mobile View -->
-               
+
                 <!-- Mobile View End -->
     </div>
 </template>
@@ -120,6 +124,7 @@ export default {
             submitted : false,
             getError:'',
             error:[],
+            password:false,
         }
     },
     methods : {
@@ -458,7 +463,7 @@ h1{
     .margin-form{
         margin-left: 2rem;
     }
-    
+
      h1{
         font-size: 2rem;
         color: #0065FC;

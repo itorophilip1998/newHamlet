@@ -4,7 +4,7 @@
       <app-navbar />
     </div>
 
-    <!-- her-start -->
+    <!-- hero-start -->
     <section>
       <div class="bg-down">
         <div class="container bg-hero">
@@ -12,9 +12,7 @@
             <div class="col-sm-6">
               <div class="hero-text">
                 Do more than what is expected of you with
-                <span
-                  style="color : #0065fc; font-weight: bolder;"
-                >HAMLET</span>
+                <span style="color: #0065fc; font-weight: bolder">HAMLET</span>
               </div>
               <div class="hero-text-1">
                 Great leaders know their strengths, but they know their
@@ -74,7 +72,13 @@
           <div class="container">
             <div class="grid-style">
               <div>
-                <img src="/img/access.png" class="img-fluid" width="150px" alt srcset />
+                <img
+                  src="/img/access.png"
+                  class="img-fluid"
+                  width="150px"
+                  alt
+                  srcset
+                />
               </div>
               <div>
                 <img
@@ -87,13 +91,31 @@
                 />
               </div>
               <div>
-                <img src="/img/cowrywise.png" class="img-fluid p-down" width="150px" alt srcset />
+                <img
+                  src="/img/cowrywise.png"
+                  class="img-fluid p-down"
+                  width="150px"
+                  alt
+                  srcset
+                />
               </div>
               <div>
-                <img src="/img/hotels.png" class="img-fluid p-down" width="100px" alt srcset />
+                <img
+                  src="/img/hotels.png"
+                  class="img-fluid p-down"
+                  width="100px"
+                  alt
+                  srcset
+                />
               </div>
               <div>
-                <img src="/img/barter.png" class="img-fluid p-down" width="100px" alt srcset />
+                <img
+                  src="/img/barter.png"
+                  class="img-fluid p-down"
+                  width="100px"
+                  alt
+                  srcset
+                />
               </div>
             </div>
           </div>
@@ -121,7 +143,9 @@
               data-aos-delay="300"
             >
               <div class="border-blue mb-3"></div>
-              <div class="border-text">MANAGE YOUR EMPLOYEES WITHOUT HASSLES</div>
+              <div class="border-text">
+                MANAGE YOUR EMPLOYEES WITHOUT HASSLES
+              </div>
               <div class="border-p">
                 Business productivity is of paramount importance to the
                 employers and poor performance of an employee can badly affect
@@ -141,7 +165,7 @@
           <div class="container">
             <div class="row">
               <div
-                class="col-sm-6"
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
                 data-aos="fade-right"
                 data-aos-duration="800"
                 data-aos-delay="100"
@@ -153,13 +177,18 @@
                   to invest in.
                 </div>
               </div>
-              <div class="col-sm-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
                 <img src="/img/illustrato-2.png" alt class="img-fluid" srcset />
               </div>
             </div>
             <div class="row mt-5">
               <div
-                class="col-sm-5"
+                class="col-12 col-sm-12 col-md-12 col-lg-5"
                 data-aos="fade-right"
                 data-aos-duration="800"
                 data-aos-delay="100"
@@ -167,7 +196,7 @@
                 <img src="/img/illustrator.png" alt class="img-fluid" srcset />
               </div>
               <div
-                class="col-sm-6 offset-1"
+                class="col-12 col-sm-12 col-md-12 col-lg-6 offset-1"
                 data-aos="fade-down"
                 data-aos-duration="800"
                 data-aos-delay="100"
@@ -184,7 +213,7 @@
             </div>
             <div class="row mt-5">
               <div
-                class="col-sm-6"
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
                 data-aos="fade-right"
                 data-aos-duration="800"
                 data-aos-delay="100"
@@ -197,12 +226,17 @@
                 </div>
               </div>
               <div
-                class="col-sm-6"
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
                 data-aos="fade-down"
                 data-aos-duration="800"
                 data-aos-delay="100"
               >
-                <img src="/img/illustrator-e.png" alt class="img-fluid" srcset />
+                <img
+                  src="/img/illustrator-e.png"
+                  alt
+                  class="img-fluid"
+                  srcset
+                />
               </div>
             </div>
           </div>
@@ -225,7 +259,9 @@
     <section id="testimonial">
       <div class="pt-5 pb-5 mt-5">
         <div class="container testimonial-bg">
-          <div class="text-client text-center testy btn-mobile-works">CLIENT'S REVIEW</div>
+          <div class="text-client text-center testy btn-mobile-works">
+            CLIENT'S REVIEW
+          </div>
           <div class="text-client-1">
             Ask first. Before jumping into designing I always make sure that
             we’re asking the right questions and trying to accomplish the right
@@ -241,17 +277,31 @@
               <div>
                 <div
                   class="mt-4"
-                  style="color: #081D29; font-weight: bold; font-style: normal;"
-                >Evia Omari</div>
+                  style="color: #081d29; font-weight: bold; font-style: normal"
+                >
+                  Evia Omari
+                </div>
                 <div
                   class="ml-3"
-                  style="color: #081D29;font-weight: normal;font-style: normal;"
-                >Front-end developer</div>
+                  style="
+                    color: #081d29;
+                    font-weight: normal;
+                    font-style: normal;
+                  "
+                >
+                  Front-end developer
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- <div>
+        <form @submit.prevent="getDetails">
+          <input type="text" v-model="name">
+          <input type="button" value="submit">
+        </form>
+      </div> -->
     </section>
     <!-- testimonial end -->
     <Footer />
@@ -265,26 +315,41 @@ export default {
   auth: false,
   components: {
     "app-navbar": Navbar,
-    Footer
+    Footer,
   },
-  data(){
-    return{
-
-    }
+  data() {
+    return {
+      user: {},
+      name: "",
+    };
   },
-//   mounted(){
-//     $(document).ready(function(){
-// 		$('a[href^="#"]').on('click',function (e) {e.preventDefault();
-// 	    var target = this.hash,
-// 	    $target = $(target);
-// 	    $('html, body').stop().animate({
-// 	        'scrollTop': $target.offset().top
-// 	    }, 900, 'swing', function () {
-// 	        window.location.hash = target;
-// 	    });
-// 	});
-// });
-//   }
+  methods: {
+    // getDetails(){
+    //   this.$axios.get
+    //   (`https://api.fcmb.com/fcmb/test/v1/customers/details/name?accountid=${this.name}`,
+    //   {headers : {
+    //      "Content-Type" : "application/json",
+    //     "X-IBM-Client-Id": "fc14374a-51ec-46ad-b844-62099c359bd0",
+    //   }})
+    //   .then(res =>{
+    //     console.log(res.data)
+    //   })
+    // }
+  },
+  mounted() {
+    //  this.getDetails()
+  },
+  //     $(document).ready(function(){
+  // 		$('a[href^="#"]').on('click',function (e) {e.preventDefault();
+  // 	    var target = this.hash,
+  // 	    $target = $(target);
+  // 	    $('html, body').stop().animate({
+  // 	        'scrollTop': $target.offset().top
+  // 	    }, 900, 'swing', function () {
+  // 	        window.location.hash = target;
+  // 	    });
+  // 	});
+  // });
 };
 </script>
 
@@ -363,6 +428,11 @@ export default {
   padding: 1rem 3rem;
   border: none;
   outline: none !important;
+}
+.btn2:hover {
+  background: #ffffff;
+  color: #0065fc;
+  border: 1px solid #0065fc;
 }
 .btn1 {
   background: white;

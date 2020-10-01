@@ -27,7 +27,7 @@
               </div>
               <div class="mt-4">
                 <input
-                id="password"
+                  id="password"
                   type="password"
                   placeholder="Password"
                   name="password"
@@ -37,8 +37,28 @@
                   v-validate="{ required: true, min: 8 }"
                   :class="{ 'is-invalid': submitted && errors.has('password') }"
                 />
-              <font-awesome-icon v-if="!check" @click="unCheckPassword ()" :icon="['fa', 'eye']"  class="text-primary" style="position: absolute;margin:15px 0 0 -25px;cursor: pointer;"/>
-              <font-awesome-icon v-if="check"  @click="checkPassword()"  :icon="['fa', 'eye-slash']" class="text-danger"  style="position: absolute;margin:15px 0 0 -25px;cursor: pointer;"/>
+                <font-awesome-icon
+                  v-if="!check"
+                  @click="unCheckPassword()"
+                  :icon="['fa', 'eye']"
+                  class="text-primary"
+                  style="
+                    position: absolute;
+                    margin: 15px 0 0 -25px;
+                    cursor: pointer;
+                  "
+                />
+                <font-awesome-icon
+                  v-if="check"
+                  @click="checkPassword()"
+                  :icon="['fa', 'eye-slash']"
+                  class="text-danger"
+                  style="
+                    position: absolute;
+                    margin: 15px 0 0 -25px;
+                    cursor: pointer;
+                  "
+                />
 
                 <small
                   id="emailHelp"
@@ -51,9 +71,9 @@
               <br />
               <button
                 type="submit"
-                :disabled="(!password || !email) || loader"
+                :disabled="!password || !email || loader"
                 class="btn1"
-                :class="{ 'disabled': (!password || !email) || loader }"
+                :class="{ disabled: !password || !email || loader }"
               >
                 <span v-if="!loader">Login</span>
                 <div v-else>
@@ -64,11 +84,11 @@
             <hr />
 
             <p class="text-center">
-              Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link>
+              Not a user yet?<nuxt-link to="/signup" class="btn2"
+                >Sign Up</nuxt-link
+              >
             </p>
-            <p class="line-a text-center">
-             Or
-            </p>
+            <p class="line-a text-center">Or</p>
 
             <button class="btn3">
               <img src="/img/group.png" alt="" width="15rem" class="mr-3" />
@@ -88,7 +108,7 @@ import newLoader from "~/components/loader.vue";
 import swal from "sweetalert";
 import { mapGetters } from "vuex";
 export default {
-  auth: false, 
+  auth: false,
   components: {
     "app-navbar": Navbar,
     "app-loader": newLoader,
@@ -107,22 +127,16 @@ export default {
       // tokenUser : {}
     };
   },
-  computed: {
-
-  },
+  computed: {},
 
   methods: {
-    unCheckPassword()
-    {
-     document.getElementById('password').type='text'
-      this.check=!this.check
-
+    unCheckPassword() {
+      document.getElementById("password").type = "text";
+      this.check = !this.check;
     },
-    checkPassword()
-    {
-    document.getElementById('password').type='password'
-      this.check=!this.check
-
+    checkPassword() {
+      document.getElementById("password").type = "password";
+      this.check = !this.check;
     },
     async loginUser(e) {
       this.submitted = true;

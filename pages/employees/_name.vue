@@ -15,12 +15,14 @@
             <img
               class="img-fluid rounded-circle"
               v-if="item.profile_pic"
-              :src="`${item.profile_pic  || '~/assets/Group 58.png'}`"
+              :src="`${item.profile_pic || '~/assets/Group 58.png'}`"
               alt
             />
           </div>
           <p>
-            <span style="cursor:pointer" class="text-primary">Employee Details</span>
+            <span style="cursor: pointer" class="text-primary"
+              >Employee Details</span
+            >
           </p>
           <!-- <p ><span style="cursor:pointer"  @click='Job()' class="text-primary">Job Details</span></p>
           <p ><span style="cursor:pointer"  @click='Contact()' class="text-primary">Contact info</span></p>-->
@@ -46,7 +48,10 @@
               <div v-for="item in employee" :key="item.id">
                 <h3>{{ item.first_name + " " + item.other_names }}</h3>
 
-                <h5>Job Title: {{item.job_details.job_title}} || Date Hired: {{item.job_details.date_hired}}</h5>
+                <h5>
+                  Job Title: {{ item.job_details.job_title }} || Date Hired:
+                  {{ item.job_details.date_hired }}
+                </h5>
               </div>
             </div>
           </div>
@@ -58,38 +63,39 @@
                 <hr />
 
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Gender</p>
-                  <p>{{data.gender}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Gender</p>
+                  <p>{{ data.gender }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Date of Birth</p>
-                  <p>{{data.dob}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Date of Birth</p>
+                  <p>{{ data.dob }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Address</p>
-                  <p>{{data.address}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Address</p>
+                  <p>{{ data.address }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Qualification</p>
-                  <p>{{data.qualification}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Qualification</p>
+                  <p>{{ data.qualification }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">City/Town</p>
-                  <p>{{data.city}}</p>
+                  <p style="color: #0065fc; font-weight: 400">City/Town</p>
+                  <p>{{ data.city }}</p>
                 </div>
                 <hr />
-                <button
-                  class="btn2"
-                  @click="editEmployee(data)"
-                  data-toggle="modal"
-                  data-target="#exampleModalCenter"
-                >Edit Employee Info</button>
+                <button class="btn2" @click="editEmployee(data)">
+                  Edit Employee Info
+                </button>
                 <!-- <button class="btn-primary fa fa-pencil" @click='personalInfo(data)'>Edit Personal Info</button> -->
               </div>
             </div>
             <!-- personl info  edit -->
-            <div id="form" style="margin-left:4rem;margin-right:3rem; margin-top:3rem" v-else>
-              <h3 style="color:#0065FC">Edit Employee Information</h3>
+            <div
+              id="form"
+              style="margin-left: 4rem; margin-right: 3rem; margin-top: 3rem"
+              v-else
+            >
+              <h3 style="color: #0065fc">Edit Employee Information</h3>
               <hr />
               <form @submit.prevent="updateEmployeeInfo(employeeDetails.id)">
                 <div class="grid">
@@ -100,13 +106,16 @@
                     class="one6 form-control"
                     v-model="employeeDetails.first_name"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('first-name') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('first-name'),
+                    }"
                   />
                   <div></div>
                   <small
                     v-if="submitted && errors.has('first-name')"
                     class="invalid-feedback"
-                  >{{ errors.first("first-name") }}</small>
+                    >{{ errors.first("first-name") }}</small
+                  >
                 </div>
                 <div class="grid">
                   <p>Other Names</p>
@@ -116,13 +125,16 @@
                     name="other-names"
                     v-model="employeeDetails.other_names"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('other-names') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('other-names'),
+                    }"
                   />
                   <div></div>
                   <small
                     v-if="submitted && errors.has('other-names')"
                     class="invalid-feedback"
-                  >{{ errors.first("other-names") }}</small>
+                    >{{ errors.first("other-names") }}</small
+                  >
                 </div>
                 <div class="grid">
                   <p>Gender</p>
@@ -132,7 +144,9 @@
                       name="gender"
                       v-model="employeeDetails.gender"
                       v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('gender') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('gender'),
+                      }"
                     >
                       <option value selected disabled>Select Gender</option>
                       <option value="Male">Male</option>
@@ -142,7 +156,8 @@
                     <small
                       v-if="submitted && errors.has('gender')"
                       class="invalid-feedback"
-                    >{{ errors.first("gender") }}</small>
+                      >{{ errors.first("gender") }}</small
+                    >
                   </div>
                 </div>
                 <div class="grid">
@@ -154,13 +169,16 @@
                     class="one6 form-control"
                     v-model="employeeDetails.dob"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('date_of_birth') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('date_of_birth'),
+                    }"
                   />
                   <div></div>
                   <small
                     v-if="submitted && errors.has('date_of_birth')"
                     class="invalid-feedback"
-                  >{{ errors.first("date_of_birth") }}</small>
+                    >{{ errors.first("date_of_birth") }}</small
+                  >
                 </div>
                 <div class="grid">
                   <p>Address</p>
@@ -170,13 +188,16 @@
                     name="address"
                     v-model="employeeDetails.address"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('address') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('address'),
+                    }"
                   />
                   <div></div>
                   <small
                     v-if="submitted && errors.has('address')"
                     class="invalid-feedback"
-                  >{{ errors.first("address") }}</small>
+                    >{{ errors.first("address") }}</small
+                  >
                 </div>
                 <div class="grid">
                   <p>City</p>
@@ -192,7 +213,8 @@
                   <small
                     v-if="submitted && errors.has('city')"
                     class="invalid-feedback"
-                  >{{ errors.first("city") }}</small>
+                    >{{ errors.first("city") }}</small
+                  >
                 </div>
                 <div class="grid">
                   <p>Qualifications</p>
@@ -202,12 +224,16 @@
                     id="inputGroupSelect04"
                     v-model="employeeDetails.qualification"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('qualifications') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('qualifications'),
+                    }"
                   >
-                    <option value selected disabled>Select Qualification</option>
-                    <option
-                      value="Primary School Leaving Certificate"
-                    >Primary School Leaving Certificate</option>
+                    <option value selected disabled>
+                      Select Qualification
+                    </option>
+                    <option value="Primary School Leaving Certificate">
+                      Primary School Leaving Certificate
+                    </option>
                     <option value="JSCE">JSCE</option>
                     <option value="NECO">NECO</option>
                     <option value="WAEC">WAEC</option>
@@ -221,7 +247,8 @@
                   <small
                     v-if="submitted && errors.has('qualifications')"
                     class="invalid-feedback"
-                  >{{ errors.first("qualifications") }}</small>
+                    >{{ errors.first("qualifications") }}</small
+                  >
                 </div>
                 <div class="grid">
                   <p>Profile Picture</p>
@@ -233,18 +260,20 @@
                     placeholder
                     @change="upload()"
                     v-validate="'required|ext:jpeg,jpg,svg,png'"
-                    :class="{ 'is-invalid': submitted && errors.has('profile-picture') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('profile-picture'),
+                    }"
                   />
                   <div></div>
-                  <small
-                    id
-                    class="form-text text-muted"
-                  >(Picture must be of .jpeg, .png, .svg, .jpg format)</small>
+                  <small id class="form-text text-muted"
+                    >(Picture must be of .jpeg, .png, .svg, .jpg format)</small
+                  >
                   <div></div>
                   <small
                     v-if="submitted && errors.has('profile-picture')"
                     class="invalid-feedback"
-                  >{{ errors.first("profile-picture")}}</small>
+                    >{{ errors.first("profile-picture") }}</small
+                  >
                 </div>
                 <hr />
                 <div class="one4">
@@ -266,50 +295,58 @@
                 <h3>Job Details</h3>
                 <hr />
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Job Title</p>
-                  <p>{{job_details.job_title}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Job Title</p>
+                  <p>{{ job_details.job_title }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Employment Type</p>
-                  <p>{{job_details.employment_type}}</p>
+                  <p style="color: #0065fc; font-weight: 400">
+                    Employment Type
+                  </p>
+                  <p>{{ job_details.employment_type }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Salary</p>
-                  <p>{{job_details.salary}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Salary</p>
+                  <p>{{ job_details.salary }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Date hired</p>
-                  <p>{{job_details.date_hired}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Date hired</p>
+                  <p>{{ job_details.date_hired }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Description</p>
-                  <p>{{job_details.description}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Description</p>
+                  <p>{{ job_details.description }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Department</p>
-                  <p>{{job_details.department}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Department</p>
+                  <p>{{ job_details.department }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Employment Classification</p>
-                  <p>{{job_details.employment_classification}}</p>
+                  <p style="color: #0065fc; font-weight: 400">
+                    Employment Classification
+                  </p>
+                  <p>{{ job_details.employment_classification }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Job Category</p>
-                  <p>{{job_details.job_category}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Job Category</p>
+                  <p>{{ job_details.job_category }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Work Location</p>
-                  <p>{{job_details.work_location}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Work Location</p>
+                  <p>{{ job_details.work_location }}</p>
                 </div>
                 <hr />
-                <button class="btn2" @click="editJob(job_details)">Edit Job Details</button>
+                <button class="btn2" @click="editJob(job_details)">
+                  Edit Job Details
+                </button>
               </div>
 
               <!-- Edit Job Details -->
               <div id="form" v-else>
                 <h3>Edit Job Details</h3>
                 <hr />
-                <form @submit.prevent="updateJobDetails(jobDetails.employee_id)">
+                <form
+                  @submit.prevent="updateJobDetails(jobDetails.employee_id)"
+                >
                   <div class="grid">
                     <p>Job Title</p>
                     <input
@@ -318,19 +355,25 @@
                       class="one6 form-control"
                       v-model="jobDetails.job_title"
                       v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('job-title') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('job-title'),
+                      }"
                     />
                     <div></div>
                     <small
                       v-if="submitted && errors.has('job-title')"
                       class="invalid-feedback"
-                    >{{ errors.first("job-title") }}</small>
+                      >{{ errors.first("job-title") }}</small
+                    >
                   </div>
 
                   <div class="grid">
                     <p>Employment Type</p>
                     <div class="one7">
-                      <div class="custom-control custom-radio" @click="showradio1">
+                      <div
+                        class="custom-control custom-radio"
+                        @click="showradio1"
+                      >
                         <input
                           type="radio"
                           id="customRadio1"
@@ -339,9 +382,14 @@
                           value="Full Time"
                           v-model="jobDetails.employment_type"
                         />
-                        <label class="custom-control-label" for="customRadio1">Employee</label>
+                        <label class="custom-control-label" for="customRadio1"
+                          >Employee</label
+                        >
                       </div>
-                      <div class="custom-control custom-radio" @click="showradio2">
+                      <div
+                        class="custom-control custom-radio"
+                        @click="showradio2"
+                      >
                         <input
                           type="radio"
                           id="customRadio2"
@@ -350,7 +398,9 @@
                           value="Contingent Worker"
                           v-model="jobDetails.employment_type"
                         />
-                        <label class="custom-control-label" for="customRadio2">Contingent Worker</label>
+                        <label class="custom-control-label" for="customRadio2"
+                          >Contingent Worker</label
+                        >
                       </div>
                     </div>
                   </div>
@@ -432,13 +482,16 @@
                       class="one6 form-control"
                       v-model="jobDetails.date_hired"
                       v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('date-hired') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('date-hired'),
+                      }"
                     />
                     <div></div>
                     <small
                       v-if="submitted && errors.has('date-hired')"
                       class="invalid-feedback"
-                    >{{ errors.first("date-hired") }}</small>
+                      >{{ errors.first("date-hired") }}</small
+                    >
                   </div>
                   <div class="grid">
                     <p>Work Location</p>
@@ -448,13 +501,16 @@
                       class="one6 form-control"
                       v-model="jobDetails.work_location"
                       v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('work-location') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('work-location'),
+                      }"
                     />
                     <div></div>
                     <small
                       v-if="submitted && errors.has('work-location')"
                       class="invalid-feedback"
-                    >{{ errors.first("work-location") }}</small>
+                      >{{ errors.first("work-location") }}</small
+                    >
                   </div>
                   <div class="grid">
                     <p>Salary (In Naira)</p>
@@ -463,13 +519,16 @@
                       name="salary"
                       v-model="jobDetails.salary"
                       v-validate="'required|numeric'"
-                      :class="{ 'is-invalid': submitted && errors.has('salary') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('salary'),
+                      }"
                     />
                     <div></div>
                     <small
                       v-if="submitted && errors.has('salary')"
                       class="invalid-feedback"
-                    >{{ errors.first("salary") }}</small>
+                      >{{ errors.first("salary") }}</small
+                    >
                   </div>
                   <div class="grid">
                     <p>Job Description</p>
@@ -481,13 +540,16 @@
                       rows="5"
                       v-model="jobDetails.description"
                       v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('description') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('description'),
+                      }"
                     ></textarea>
                     <div></div>
                     <small
                       v-if="submitted && errors.has('description')"
                       class="invalid-feedback"
-                    >{{ errors.first("description") }}</small>
+                      >{{ errors.first("description") }}</small
+                    >
                   </div>
                   <div class="grid">
                     <p>Job Category</p>
@@ -499,15 +561,19 @@
                         aria-label="Example select with button addon"
                         v-model="jobDetails.job_category"
                         v-validate="'required'"
-                        :class="{ 'is-invalid': submitted && errors.has('job-category') }"
+                        :class="{
+                          'is-invalid': submitted && errors.has('job-category'),
+                        }"
                       >
-                        <option value selected disabled>Select Job Category</option>
-                        <option
-                          value="Executive Officers and Managers"
-                        >Executive Officers and Managers</option>
-                        <option
-                          value="Mid-Level Officers and Managers"
-                        >Mid-Level Officers and Managers</option>
+                        <option value selected disabled>
+                          Select Job Category
+                        </option>
+                        <option value="Executive Officers and Managers">
+                          Executive Officers and Managers
+                        </option>
+                        <option value="Mid-Level Officers and Managers">
+                          Mid-Level Officers and Managers
+                        </option>
                         <option value="Professionals">Professionals</option>
                         <option value="Technicians">Technicians</option>
                         <option value="Sales Workers">Sales Workers</option>
@@ -518,7 +584,8 @@
                       <small
                         v-if="submitted && errors.has('job-category')"
                         class="invalid-feedback"
-                      >{{ errors.first("job-category") }}</small>
+                        >{{ errors.first("job-category") }}</small
+                      >
                     </div>
                   </div>
                   <div class="grid">
@@ -531,19 +598,26 @@
                         aria-label="Example select with button addon"
                         v-model="jobDetails.department"
                         v-validate="'required'"
-                        :class="{ 'is-invalid': submitted && errors.has('department') }"
+                        :class="{
+                          'is-invalid': submitted && errors.has('department'),
+                        }"
                       >
-                        <option value selected disabled>Select Department</option>
+                        <option value selected disabled>
+                          Select Department
+                        </option>
                         <option
                           v-for="(department, index) in departments"
                           :key="index"
-                        >{{department.name}}</option>
+                        >
+                          {{ department.name }}
+                        </option>
                       </select>
                       <div></div>
                       <small
                         v-if="submitted && errors.has('department')"
                         class="invalid-feedback"
-                      >{{ errors.first("department") }}</small>
+                        >{{ errors.first("department") }}</small
+                      >
                     </div>
                   </div>
 
@@ -567,19 +641,23 @@
                 <h3>Contact Info</h3>
                 <hr />
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Phone</p>
-                  <p>{{contact_info.phone}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Phone</p>
+                  <p>{{ contact_info.phone }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Email</p>
-                  <p>{{contact_info.email}}</p>
+                  <p style="color: #0065fc; font-weight: 400">Email</p>
+                  <p>{{ contact_info.email }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Emergency Contact</p>
-                  <p>{{contact_info.emergency_contact}}</p>
+                  <p style="color: #0065fc; font-weight: 400">
+                    Emergency Contact
+                  </p>
+                  <p>{{ contact_info.emergency_contact }}</p>
                 </div>
                 <hr />
-                <button class="btn2" @click="editContact(contact_info)">Edit Contact Info</button>
+                <button class="btn2" @click="editContact(contact_info)">
+                  Edit Contact Info
+                </button>
               </div>
 
               <!-- Edit Contact Info -->
@@ -587,7 +665,9 @@
               <div id="form" v-else>
                 <h3>Edit Contact Info</h3>
                 <hr />
-                <form @submit.prevent="updateContactInfo(contactInfo.employee_id)">
+                <form
+                  @submit.prevent="updateContactInfo(contactInfo.employee_id)"
+                >
                   <div class="grid">
                     <p>Phone Number</p>
                     <input
@@ -595,13 +675,16 @@
                       class="form-control"
                       v-model="contactInfo.phone"
                       v-validate="'numeric|length:11'"
-                      :class="{ 'is-invalid': submitted && errors.has('phone-number') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('phone-number'),
+                      }"
                     />
                     <div></div>
                     <small
                       v-if="submitted && errors.has('phone-number')"
                       class="invalid-feedback"
-                    >{{ errors.first("phone-number") }}</small>
+                      >{{ errors.first("phone-number") }}</small
+                    >
                   </div>
                   <div class="grid">
                     <p>Email</p>
@@ -611,13 +694,16 @@
                       class="form-control"
                       v-model="contactInfo.email"
                       v-validate="'required|email'"
-                      :class="{ 'is-invalid': submitted && errors.has('contact-email') }"
+                      :class="{
+                        'is-invalid': submitted && errors.has('contact-email'),
+                      }"
                     />
                     <div></div>
                     <small
                       v-if="submitted && errors.has('contact-email')"
                       class="invalid-feedback"
-                    >{{ errors.first("contact-email")}}</small>
+                      >{{ errors.first("contact-email") }}</small
+                    >
                   </div>
                   <div class="grid">
                     <p>Emergency Contact</p>
@@ -626,18 +712,24 @@
                       class="form-control"
                       v-model="contactInfo.emergency_contact"
                       v-validate="'numeric|length:11'"
-                      :class="{ 'is-invalid': submitted && errors.has('emergency-contact') }"
+                      :class="{
+                        'is-invalid':
+                          submitted && errors.has('emergency-contact'),
+                      }"
                     />
                     <div></div>
                     <small
                       v-if="submitted && errors.has('emergency-contact')"
                       class="invalid-feedback"
-                    >{{ errors.first("emergency-contact") }}</small>
+                      >{{ errors.first("emergency-contact") }}</small
+                    >
                   </div>
 
                   <hr />
                   <div class="one4">
-                    <button class="btn1" @click="cancelEditContactInfo">Back</button>
+                    <button class="btn1" @click="cancelEditContactInfo">
+                      Back
+                    </button>
                     <button type="submit" class="btn2">
                       <span v-if="isLoading">Submit</span>
                       <app-loader v-else />
@@ -667,7 +759,7 @@ export default {
     "app-sidebar": sidebar,
     "app-navbar": navbar,
     "app-loader": newLoader,
-    "app-loader1": appLoader
+    "app-loader1": appLoader,
   },
   data() {
     return {
@@ -686,7 +778,7 @@ export default {
         work_location: "",
         employment_classification: "",
         _method: "PUT",
-        employee_id: this.$route.params.name
+        employee_id: this.$route.params.name,
       },
       employeeDetails: {
         first_name: "",
@@ -697,14 +789,14 @@ export default {
         city: "",
         age: "",
         qualification: "",
-        profile_pic: {}
+        profile_pic: {},
       },
       contactInfo: {
         phone: "",
         email: "",
         emergency_contact: "",
         employee_id: this.$route.params.name,
-        _method: "PUT"
+        _method: "PUT",
       },
       editContactInfo: true,
       editEmployeeDetails: true,
@@ -716,14 +808,14 @@ export default {
       editedEmployee: {},
       job_details: {},
       styleObject: {
-        width: "0px"
-      }
+        width: "0px",
+      },
     };
   },
   mounted() {
     this.$axios
       .get(`https://hamlet.payfill.co/api/employees/${this.$route.params.name}`)
-      .then(res => {
+      .then((res) => {
         this.LoadingEm = false;
         this.employee = res.data.employee;
         this.contact_info = res.data.employee[0].contact_info;
@@ -745,11 +837,13 @@ export default {
       this.radio2 = true;
     },
     getDepartment() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data);
-        this.departments = res.data.user.company.company_departments;
-        this.show = true;
-      });
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data);
+          this.departments = res.data.user.company.company_departments;
+          this.show = true;
+        });
     },
     openNav() {
       this.styleObject.width = "100%";
@@ -770,9 +864,9 @@ export default {
         text: "Once you Update, previous Contact Information will be lost",
         icon: "warning",
         buttons: true,
-        dangerMode: true
+        dangerMode: true,
       })
-        .then(willDelete => {
+        .then((willDelete) => {
           if (willDelete) {
             this.isloading = false;
             this.$axios
@@ -780,22 +874,22 @@ export default {
                 `https://hamlet.payfill.co/api/contact-info/${this.employee[0].contact_info.id}`,
                 this.contactInfo,
                 {
-                  headers: { Authorization: `Bearer ${this.user}` }
+                  headers: { Authorization: `Bearer ${this.user}` },
                 }
               )
               .then(
-                res => {
+                (res) => {
                   console.log(res);
                   this.$message({
                     message:
                       "Your Employee's Contact Information has been updated successfully!",
-                    type: "success"
+                    type: "success",
                   });
                   this.isloading = true;
                   this.$router.push("/dashboard");
                   // this.getallBlogs()
                 },
-                function(error) {
+                function (error) {
                   console.log(error);
                 }
               );
@@ -803,14 +897,14 @@ export default {
           } else {
             this.$message({
               message: "Employee Contact information remains the same !",
-              type: "info"
+              type: "info",
             });
           }
         })
-        .catch(error => {
+        .catch((error) => {
           this.$message({
             message: "Error, Unable to update, Try again!",
-            type: "error"
+            type: "error",
           });
         });
     },
@@ -829,7 +923,7 @@ export default {
     updateEmployeeInfo(i) {
       console.log("clicked");
       this.submitted = true;
-      this.$validator.validateAll().then(valid => {
+      this.$validator.validateAll().then((valid) => {
         if (valid) {
           console.log("Login");
           this.isLoading = false;
@@ -848,22 +942,22 @@ export default {
             .post(`https://hamlet.payfill.co/api/employee/${i}`, formData, {
               headers: {
                 Authorization: `Bearer ${this.user}`,
-                "Content-Type": "multipart/form-data"
-              }
+                "Content-Type": "multipart/form-data",
+              },
             })
-            .then(res => {
+            .then((res) => {
               // this.mounted()
               // this.editEmployeeDetails = true;
               // this.employee=res.data.employee
               console.log(res.data);
               this.$message({
                 message: "You've updated your employee's personal details!",
-                type: "success"
+                type: "success",
               });
               this.$router.push("/dashboard");
               this.isLoading = true;
             })
-            .catch(e => {
+            .catch((e) => {
               this.isLoading = true;
             });
         } else {
@@ -884,9 +978,9 @@ export default {
         text: "Once you Update, previous Contact Information will be lost",
         icon: "warning",
         buttons: true,
-        dangerMode: true
+        dangerMode: true,
       })
-        .then(willDelete => {
+        .then((willDelete) => {
           if (willDelete) {
             this.isloading = false;
             this.$axios
@@ -894,22 +988,22 @@ export default {
                 `https://hamlet.payfill.co/api/job-details/${this.employee[0].job_details.id}`,
                 this.jobDetails,
                 {
-                  headers: { Authorization: `Bearer ${this.user}` }
+                  headers: { Authorization: `Bearer ${this.user}` },
                 }
               )
               .then(
-                res => {
+                (res) => {
                   console.log(res);
                   this.$message({
                     message:
                       "Your Employee's Job Details has been updated successfully!",
-                    type: "success"
+                    type: "success",
                   });
                   this.isloading = true;
                   this.$router.push("/dashboard");
                   // this.getallBlogs()
                 },
-                function(error) {
+                function (error) {
                   console.log(error);
                 }
               );
@@ -917,17 +1011,17 @@ export default {
           } else {
             this.$message({
               message: "Employee Job Details remains the same !",
-              type: "info"
+              type: "info",
             });
           }
         })
-        .catch(error => {
+        .catch((error) => {
           this.$message({
             message: "Error, Unable to update, Try again!",
-            type: "error"
+            type: "error",
           });
         });
-    }
+    },
     // Personal()
     //       {
     //       document.getElementById('Personal').style.display='block';
@@ -946,7 +1040,7 @@ export default {
     //   document.getElementById('Personal').style.display='none';
     //   document.getElementById('Job').style.display='none';
     // }
-  }
+  },
 };
 </script>
 

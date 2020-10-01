@@ -10,7 +10,10 @@
                             <div class="first-form">
                                 <h1>Manager Information</h1>
                                 <div class="mt-4">
-                                     <input type="text" name="firstName" class="form-control" id="" placeholder="First Name" v-model="managerInfo.first_name" v-validate="'required'"
+                                     <input type="text" name="firstName"
+                                      class="form-control" id="" placeholder="First Name"
+                                       v-model="managerInfo.first_name"
+                                        v-validate="'required'"
                                      :class="{ 'is-invalid': submitted && errors.has('firstName') }">
                                      <small
                                         v-if="submitted && errors.has('firstName')"
@@ -20,7 +23,9 @@
                                     </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="text" name="lastName" class="form-control" id="" placeholder="Last Name" v-model="managerInfo.last_name" v-validate="'required'"
+                                     <input type="text" name="lastName" class="form-control" id="" 
+                                     placeholder="Last Name" v-model="managerInfo.last_name" 
+                                     v-validate="'required'"
                                      :class="{ 'is-invalid': submitted && errors.has('lastName') }">
                                      <small
                                         v-if="submitted && errors.has('lastName')"
@@ -30,7 +35,9 @@
                                     </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type maxlength="11" name="phone" class="form-control" id=""  placeholder="Telephone" v-model="managerInfo.phone" v-validate="'numeric'"
+                                     <input type maxlength="11" name="phone" class="form-control" id="" 
+                                      placeholder="Telephone" v-model="managerInfo.phone" 
+                                      v-validate="'numeric'"
                                      :class="{ 'is-invalid': submitted && errors.has('phone') }">
                                      <small
                                         v-if="submitted && errors.has('phone')"
@@ -40,7 +47,9 @@
                                     </small>
                                 </div>
                                 <div class="mt-4">
-                                     <input type="text" name="address" class="form-control" id=""  placeholder="Address" v-model="managerInfo.address" v-validate="'required'"
+                                     <input type="text" name="address" class="form-control" id="" 
+                                      placeholder="Address" v-model="managerInfo.address"
+                                       v-validate="'required'"
                                      :class="{ 'is-invalid': submitted && errors.has('address') }">
                                      <small
                                         v-if="submitted && errors.has('address')"
@@ -51,7 +60,9 @@
                                 </div>
                                  <div class="mt-4">
                                      <label for="">Upload Profile Picture</label> <br>
-                                     <input type="file" name="profile-picture" class="file-border" id="" placeholder="" @change="upload()" v-validate="'required|ext:jpeg,jpg,svg,png'"
+                                     <input type="file" name="profile-picture" class="file-border" id=""
+                                      placeholder="" @change="upload()"
+                                       v-validate="'required|ext:jpeg,jpg,svg,png'"
                                      :class="{ 'is-invalid': submitted && errors.has('profile-picture') }">
                                      <small id="emailHelp" class="form-text text-muted">(Picture must be of .jpeg, .png, .svg, .jpg format)</small>
                                      <small

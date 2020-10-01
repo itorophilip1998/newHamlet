@@ -318,7 +318,6 @@ ul li {
     text-align: center !important;
   }
 }
-
 @media only screen and (min-width: 360px) and (max-width: 578px) {
   .desktopView {
     display: none;

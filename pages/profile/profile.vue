@@ -29,7 +29,7 @@
                 <!-- {{ user }} -->
                 <h2>{{ this.company.company_name }}</h2>
                 <p>
-                  Total Headcount: {{ this.company.no_of_employees }} |
+                  Total Headcount: {{ employees.length}} |
                   Services: {{ this.company.services }}
                 </p>
               </div>
@@ -208,6 +208,7 @@ export default {
       isloading_1: true,
       edit: true,
       submitted: false,
+      employees : [],
       profileInfo: {
         first_name: "",
         last_name: "",
@@ -239,6 +240,7 @@ export default {
         console.log(res.data.user.company);
         this.company = res.data.user.company;
         this.managerEmail = res.data.user.email;
+        this.employees = res.data.user.employees
         //   for (let key in data) {
         //     const details = data[key];
         //     details.company.id = key;

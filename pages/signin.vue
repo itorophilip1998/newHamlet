@@ -5,7 +5,7 @@
       <div class="grid">
         <div class="two1">
           <div class="two2">
-            <h2 class="text-center">Welcome Back!</h2>
+            <h2 class="text-center welcome-text">Welcome Back!</h2>
             <!-- {{user}}{{ loggedInUser}} -->
 
             <form @submit.prevent="loginUser">
@@ -21,29 +21,61 @@
                 <small
                   v-if="submitted && errors.has('email')"
                   class="invalid-feedback"
-                >{{ errors.first("email") }}</small>
+                  >{{ errors.first("email") }}</small
+                >
                 <br />
               </div>
               <div class="mt-4">
                 <input
+                  id="password"
                   type="password"
                   placeholder="Password"
                   name="password"
+                  @keydown.space.prevent
                   v-model="password"
                   append-icon="mdi-eye"
                   v-validate="{ required: true, min: 8 }"
                   :class="{ 'is-invalid': submitted && errors.has('password') }"
                 />
+                <font-awesome-icon
+                  v-if="!check"
+                  @click="unCheckPassword()"
+                  :icon="['fa', 'eye']"
+                  class="text-primary"
+                  style="
+                    position: absolute;
+                    margin: 15px 0 0 -25px;
+                    cursor: pointer;
+                  "
+                />
+                <font-awesome-icon
+                  v-if="check"
+                  @click="checkPassword()"
+                  :icon="['fa', 'eye-slash']"
+                  class="text-danger"
+                  style="
+                    position: absolute;
+                    margin: 15px 0 0 -25px;
+                    cursor: pointer;
+                  "
+                />
+
                 <small
                   id="emailHelp"
                   v-if="submitted && errors.has('password')"
                   class="invalid-feedback"
-                >{{ errors.first("password") }}</small>
+                  >{{ errors.first("password") }}</small
+                >
               </div>
 
               <br />
-              <button type="submit" :disabled="login" class="btn1">
-                <span v-if="loader">Login</span>
+              <button
+                type="submit"
+                :disabled="!password || !email || loader"
+                class="btn1"
+                :class="{ disabled: !password || !email || loader }"
+              >
+                <span v-if="!loader">Login</span>
                 <div v-else>
                   <app-loader />
                 </div>
@@ -52,11 +84,16 @@
             <hr />
 
             <p class="text-center">
-              Not a user yet?<nuxt-link to="/signup" class="btn2">Sign Up</nuxt-link> Or
+              Not a user yet?<nuxt-link to="/signup" class="btn2"
+                >Sign Up</nuxt-link
+              >
             </p>
+            <p class="line-a text-center">Or</p>
+
             <button class="btn3">
-              <img src="/img/group.png" alt="" width="15rem" class="mr-3"> <a href="https://hamlet.payfill.co/google">Login with Google</a>
-              </button>
+              <img src="/img/group.png" alt="" width="15rem" class="mr-3" />
+              <a href="https://hamlet.payfill.co/google">Login with Google</a>
+            </button>
           </div>
         </div>
         <div class="two"></div>
@@ -71,6 +108,7 @@ import newLoader from "~/components/loader.vue";
 import swal from "sweetalert";
 import { mapGetters } from "vuex";
 export default {
+  auth: false,
   components: {
     "app-navbar": Navbar,
     "app-loader": newLoader,
@@ -80,84 +118,88 @@ export default {
       user: {},
       email: "",
       password: "",
-      loader: true,
+      loader: false,
       submitted: false,
       login: false,
       isValid: false,
+      check: false,
       profile: {},
       // tokenUser : {}
     };
   },
-  computed: {
-    ...mapGetters(["isAuthenticated", "loggedInUser"]),
-  },
-  // created()
-  // {
-  //   this.user=this.$auth.$state
-  //       console.log(this.user)
-  // },
-  methods: {
-    async loginUser(e) {
-      if (this.email === "" || this.password === "") {
-        this.loader = true;
-      } else {
-        this.loader = false;
-        this.login = false;
-      }
-      // this.login = true
-      this.submitted = true;
-      this.$validator.validateAll().then( async (valid) => {
-        if (valid) {
-          console.log("Login");
-            try {
-        let response = await this.$auth.loginWith("local", {
-          data: {
-            email: this.email,
-            password: this.password,
-          },
-        });
-        let user = response.data.user;
-        this.$auth.$storage.setLocalStorage("user", user);
-        let token = response.data.token;
-        this.$auth.$storage.setLocalStorage("jwt", token);
-        // localStorage.setItem("jwt", token);
-        console.log(token);
-        this.loader = false;
+  computed: {},
 
-        console.log(response);
-        this.loader = false;
-        this.$message({
-          message: `Welcome ${user.username}`,
-          type: "success",
-        });
-        this.$router.push("/dashboard");
-      } catch (e) {
-        this.loader = true;
-        // console.log(e.response.status);
-        // this.error = e.res;
-        if (e.response.status === 401) {
-          this.$message({
-            message: "Sorry,username or password those not match our record!",
-            type: "error",
-          });
-        }
-        if (e.response.status === 422) {
-          this.$message({
-            message: "Sorry, check username or password!",
-            type: "error",
-          });
-        }
-         if (!e.response.status) {
-          this.$message({
-            message: "Sorry, please check your internet connection",
-            type: "error",
-          });
-        }
-        this.loader = true;
-      }
+  methods: {
+    unCheckPassword() {
+      document.getElementById("password").type = "text";
+      this.check = !this.check;
+    },
+    checkPassword() {
+      document.getElementById("password").type = "password";
+      this.check = !this.check;
+    },
+    async loginUser(e) {
+      this.submitted = true;
+      this.$validator.validateAll().then(async (valid) => {
+        if (valid) {
+          this.loader = true;
+          console.log("Login");
+          try {
+            let response = await this.$auth.loginWith("local", {
+              data: {
+                email: this.email,
+                password: this.password,
+              },
+            });
+            let user = response.data.user;
+            this.$auth.$storage.setLocalStorage("user", user);
+            let token = response.data.token;
+            this.$auth.$storage.setLocalStorage("jwt", token);
+            // localStorage.setItem("jwt", token);
+            console.log(token);
+            this.loader = false;
+
+            console.log(response);
+            this.loader = false;
+            this.$message({
+              message: `Welcome ${user.username}`,
+              type: "success",
+            });
+            this.$router.push("/dashboard");
+          } catch (e) {
+            this.loader = false;
+            // console.log(e.response.status);
+            // this.error = e.res;
+            if (e.response.status === 401) {
+              this.$message({
+                message:
+                  "Sorry,username or password those not match our record!",
+                type: "error",
+              });
+            }
+            if (e.response.status === 451) {
+              this.$message({
+                message:
+                  "This account has been banned,please contact administrator for verification!",
+                type: "error",
+              });
+            }
+            if (e.response.status === 422) {
+              this.$message({
+                message: "Sorry, check username or password!",
+                type: "error",
+              });
+            }
+            if (!e.response.status) {
+              this.$message({
+                message: "Sorry, please check your internet connection",
+                type: "error",
+              });
+            }
+            this.loader = false;
+          }
         }
       });
-
     },
     getProfile() {
       this.$axios
@@ -179,8 +221,8 @@ export default {
 </script>
 
 <style scoped>
-*{
-  font-family: 'Overpass', sans-serif;
+* {
+  font-family: "Overpass", sans-serif;
 }
 .two {
   background: linear-gradient(
@@ -196,7 +238,7 @@ input {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   height: 100vh;
 }
 .two1 h2 {
@@ -212,7 +254,7 @@ input {
 .two2 {
   padding: 17% 25%;
   background: #f9f9f9;
-  height:100vh;
+  height: 100vh;
 }
 .two2 input {
   width: 100%;
@@ -220,6 +262,10 @@ input {
   border-radius: 5px;
   border: none;
   box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.15);
+}
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 .btn1 {
   background: #0065fc;
@@ -239,18 +285,18 @@ input {
   color: #0065fc;
   /* border: 1px solid #0065fc; */
 }
-.btn3{
-  width:100%;
-  border:1px solid #EB4335;
+.btn3 {
+  width: 100%;
+  border: 1px solid #eb4335;
   border-radius: 5px;
   padding: 0.5rem;
   background: transparent;
   font-size: 20px !important;
 }
-.btn3 a{
-  color: #EB4335;
+.btn3 a {
+  color: #eb4335;
 }
-a{
+a {
   text-decoration: none !important;
 }
 
@@ -264,22 +310,20 @@ a{
   }
   .two2 {
     padding: 105px 20px;
-    background: linear-gradient(
+    /* background: linear-gradient(
         to right,
         rgba(8, 29, 41, 0.7),
         rgba(8, 29, 41, 0.7)
       ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
+      url("/img/nesa.jpg") no-repeat center center/cover; */
     text-align: center;
     background-size: cover;
   }
 
   .two1 h2 {
-    color: white;
+    color: #0065fc;
   }
-  .two1 p {
-    color: white;
-  }
+
   .btn1 {
     background: #0065fc;
     border-radius: 5px;
@@ -291,7 +335,7 @@ a{
   }
   hr {
     margin-top: 2rem;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
   }
 }
 
@@ -338,6 +382,9 @@ a{
     padding: 106.8px 30px;
     background: #f9f9f9;
     text-align: center;
+  }
+  .two1 h2 {
+    color: #0065fc;
   }
 }
 </style>

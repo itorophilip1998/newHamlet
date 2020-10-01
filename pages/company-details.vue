@@ -184,7 +184,7 @@
                       placeholder
                       @change="upload()"
                       v-validate="'required|ext:jpeg,jpg,svg,png'"
-                      :class="{ 'is-invalid': submitted && errors.has('company-logo') }"
+                      :class="{ 'is-invalid': submitted && errors.has('company-logo')}"
                     />
                     <small
                       id="emailHelp"
@@ -257,250 +257,13 @@
               </button>-->
             </div>
           </div>
-
         </div>
-         <div class="wrapper">
-                    <div class="box-down">
-                    </div>
-                </div>
+        <div class="wrapper">
+          <div class="box-down"></div>
+        </div>
       </div>
     </div>
     <!-- Desktop View End -->
-    <!-- Mobile View -->
-    <div class="container wrapper mobileShow">
-      <div class="mobile-form">
-        <form @submit.prevent="submitBtn">
-          <div class="form-all" ref="formMobile">
-            <div class="second-form active" id="hide-form">
-              <h1>Company's Information</h1>
-          <div class="mt-4">
-                    <input
-                      type="text"
-                      name="company-name"
-                      class="form-control"
-                      id
-                      placeholder="company name"
-                      v-model="companyInfo.company_name"
-                      v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('company-name') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('company-name')"
-                      class="invalid-feedback"
-                    >{{ errors.first("company-name")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <input
-                      type="text"
-                      name="company-address"
-                      class="form-control"
-                      id
-                      placeholder="company address"
-                      v-model="companyInfo.company_address"
-                      v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('company-address') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('company-address')"
-                      class="invalid-feedback"
-                    >{{ errors.first("company-address")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <input
-                      type="text"
-                      name="city"
-                      class="form-control"
-                      id
-                      placeholder="city"
-                      v-model="companyInfo.city"
-                      v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('city') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('city')"
-                      class="invalid-feedback"
-                    >{{ errors.first("city")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <input
-                      type
-                      name="zip-code"
-                      class="form-control"
-                      id
-                      placeholder="zip-code"
-                      v-model="companyInfo.zip_code"
-                      v-validate="'numeric'"
-                      :class="{ 'is-invalid': submitted && errors.has('zip-code') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('zip-code')"
-                      class="invalid-feedback"
-                    >{{ errors.first("zip-code")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <input
-                      type="text"
-                      name="state"
-                      class="form-control"
-                      id
-                      placeholder="state"
-                      v-model="companyInfo.state"
-                      v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('state') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('state')"
-                      class="invalid-feedback"
-                    >{{ errors.first("state")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <input
-                      type="email"
-                      name="email"
-                      class="form-control"
-                      id
-                      placeholder="company email"
-                      v-model="companyInfo.company_email"
-                      v-validate="'required|email'"
-                      :class="{ 'is-invalid': submitted && errors.has('email') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('email')"
-                      class="invalid-feedback"
-                    >{{ errors.first("email")}}</small>
-                  </div>
-            </div>
-            <div class="first-form" id="hide-form">
-              <h1>Company's Information continue...</h1>
-              <div class="mt-4">
-                    <input
-                      type
-                      name="phone"
-                      class="form-control"
-                      id
-                      maxlength="11"
-                      placeholder="company phone number"
-                      v-model="companyInfo.company_phone"
-                      v-validate="'numeric'"
-                      :class="{ 'is-invalid': submitted && errors.has('phone') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('phone')"
-                      class="invalid-feedback"
-                    >{{ errors.first("phone")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <input
-                      type="text"
-                      name="website"
-                      class="form-control"
-                      id
-                      placeholder="company website"
-                      v-model="companyInfo.company_website"
-                      v-validate="{url: {require_protocol: true }}"
-                      :class="{ 'is-invalid': submitted && errors.has('website') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('website')"
-                      class="invalid-feedback"
-                    >{{ errors.first("website")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <input
-                      type
-                      name="no-of-employees"
-                      class="form-control"
-                      id
-                      placeholder="number of employees"
-                      v-model="companyInfo.no_of_employees"
-                      v-validate="'numeric'"
-                      :class="{ 'is-invalid': submitted && errors.has('no-of-employees') }"
-                    />
-                    <small
-                      v-if="submitted && errors.has('no-of-employees')"
-                      class="invalid-feedback"
-                    >{{ errors.first("no-of-employees")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <label for>Upload Company Logo</label>
-                    <br />
-                    <input
-                      type="file"
-                      name="company-logo"
-                      class="file-border img-fluid"
-                      id
-                      placeholder
-                      @change="upload()"
-                      v-validate="'required|ext:jpeg,jpg,svg,png'"
-                      :class="{ 'is-invalid': submitted && errors.has('company-logo') }"
-                    />
-                    <small
-                      id="emailHelp"
-                      class="form-text text-muted"
-                    >(Picture must be of .jpeg, .png, .svg, .jpg format)</small>
-                    <small
-                      v-if="submitted && errors.has('company-logo')"
-                      class="invalid-feedback"
-                    >{{ errors.first("company-logo")}}</small>
-                  </div>
-                  <div class="mt-4">
-                    <label for>Tell us about your company</label>
-                    <textarea
-                      type="text"
-                      name="about-us"
-                      class="form-control"
-                      id
-                      v-model="companyInfo.services"
-                      placeholder
-                      v-validate="'required'"
-                      :class="{ 'is-invalid': submitted && errors.has('about-us') }"
-                    ></textarea>
-                    <small
-                      v-if="submitted && errors.has('about-us')"
-                      class="invalid-feedback"
-                    >{{ errors.first("about-us")}}</small>
-                  </div>
-            </div>
-          </div>
-           <button
-                type="submit"
-                class="btn3 btn btn-primary mt-3"
-                v-if="showS"
-                style="outline: none !important"
-              >
-                <span v-if="loader">Submit</span>
-                <div v-else>
-                  <app-loader />
-                </div>
-              </button>
-        </form>
-        <div class="mt-3 form-p">
-          <button
-            class="btn1 btn"
-            @click="prev"
-            :disabled="prevDisabled1"
-            style="outline: none !important"
-          >
-            <font-awesome-icon :icon="['fa', 'arrow-left']" />
-          </button>
-          <button
-            class="btn2 btn"
-            @click="next"
-            :disabled="isDisabled1"
-            style="outline: none !important"
-          >
-            <font-awesome-icon :icon="['fa', 'arrow-right']" />
-          </button>
-          <!-- <button
-            class="btn3 btn btn-success"
-            @click="submitB"
-            v-if="showS"
-            style="outline: none !important"
-          >Submit</button> -->
-        </div>
-      </div>
-    </div>
-    <!-- Mobile View End -->
   </div>
 </template>
 
@@ -511,7 +274,7 @@ import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import Navbar from "@/components/navbar2.vue";
 export default {
-  //  auth: false,
+  // auth: false,
   components: {
     Navbar,
     "app-loader": newLoader,
@@ -542,16 +305,14 @@ export default {
       user: {},
       loader: true,
       submitted: false,
-      id:''
+      id: "",
     };
   },
   mounted() {
-  this.user= this.$auth.$storage.getLocalStorage('jwt')
-          this.$axios.get('https://hamlet.payfill.co/api/auth/admin').then(res=>
-            {
-              this.id=res.data.user.company.id
-            })
-
+    this.user = this.$auth.$storage.getLocalStorage("jwt");
+    this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then((res) => {
+      this.id = res.data.user.company.id;
+    });
   },
   methods: {
     upload() {
@@ -640,7 +401,9 @@ export default {
       } else {
         this.loader = false;
       }
-
+     this.$validator.validateAll().then((valid) => {
+        if (valid) {
+          console.log("Login");
       const formData = new FormData();
       formData.append("company_name", this.companyInfo.company_name);
       formData.append("company_address", this.companyInfo.company_address);
@@ -653,7 +416,7 @@ export default {
       formData.append("services", this.companyInfo.services);
       formData.append("company_logo", this.companyInfo.profile_pic);
       formData.append("company_phone", this.companyInfo.company_phone);
-      formData.append("_method", 'PUT');
+      formData.append("_method", "PUT");
       axios
         .post(`https://hamlet.payfill.co/api/company/${this.id}`, formData, {
           headers: {
@@ -676,66 +439,68 @@ export default {
           this.loader = true;
         });
       console.log(this.companyInfo);
-    },
-    next() {
-       this.submitted = true;
-      this.$validator.validateAll().then((valid) => {
-        if (valid) {
-          console.log("Login");
-          //    this.showS = true
         } else {
-          // this.showS = false
+          // this.$message({
+          //   message:
+          //     "sorry, try again!",
+          //     type: "error",
+          // });
         }
       });
-      if (
-        this.companyInfo.company_name === "" ||
-        this.companyInfo.company_address === "" ||
-        this.companyInfo.company_email === "" ||
-        this.companyInfo.city === "" ||
-        this.companyInfo.state === "" ||
-        this.companyInfo.zip_code === ""
-      ) {
-        swal({
-          title: "Oops!",
-          text: "fields cannot be empty!",
-          icon: "error",
-          button: false,
-          timer: 1000,
-        });
-      }
-      this.prevDisabled1 = false;
-      this.$refs.formMobile.children[this.counter].classList.remove("active");
-      this.counter++;
-      this.$refs.formMobile.children[this.counter].classList.add("active");
-      if (this.counter + 1 === this.$refs.formMobile.children.length) {
-        this.isDisabled1 = true;
-        this.showS = true;
-      }
-      // for (let i = 0; i <= this.$refs.edu.children.length; i++) {
-      //   if ((this.$refs.edu[i] = this.$refs.formMobile.children)) {
-      //     this.$refs.edu.children[
-      //       this.counter
-      //     ].childNodes[0].style.backgroundColor = "#0065fc";
-      //   }
-      // }
+ 
     },
-    prev() {
-      if (this.counter === 0) {
-        this.prevDisabled1 = true;
-      } else {
-        this.isDisabled1 = false;
-        this.$refs.formMobile.children[this.counter].classList.remove("active");
-        this.counter--;
-        this.$refs.formMobile.children[this.counter].classList.add("active");
-        // for (let i = 0; i <= this.$refs.edu.children.length; i++) {
-        //   if ((this.$refs.edu[i] = this.$refs.formMobile.children)) {
-        //     this.$refs.edu.children[
-        //       this.counter + 1
-        //     ].childNodes[0].style.backgroundColor = "#bbb";
-        //   }
-        // }
-      }
-    },
+    // next() {
+    //   this.submitted = true;
+    //   this.$validator.validateAll().then((valid) => {
+    //     if (valid) {
+    //       console.log("Login");
+    //       //    this.showS = true
+    //     } else {
+    //       // this.showS = false
+    //     }
+    //   });
+    //   if (
+    //     this.companyInfo.company_name === "" ||
+    //     this.companyInfo.company_address === "" ||
+    //     this.companyInfo.company_email === "" ||
+    //     this.companyInfo.city === "" ||
+    //     this.companyInfo.state === "" ||
+    //     this.companyInfo.zip_code === ""
+    //   ) {
+    //     swal({
+    //       title: "Oops!",
+    //       text: "fields cannot be empty!",
+    //       icon: "error",
+    //       button: false,
+    //       timer: 1000,
+    //     });
+    //   }
+    //   this.prevDisabled1 = false;
+    //   this.$refs.formMobile.children[this.counter].classList.remove("active");
+    //   this.counter++;
+    //   this.$refs.formMobile.children[this.counter].classList.add("active");
+    //   if (this.counter + 1 === this.$refs.formMobile.children.length) {
+    //     this.isDisabled1 = true;
+    //     this.showS = true;
+    //   }
+    // },
+    // prev() {
+    //   if (this.counter === 0) {
+    //     this.prevDisabled1 = true;
+    //   } else {
+    //     this.isDisabled1 = false;
+    //     this.$refs.formMobile.children[this.counter].classList.remove("active");
+    //     this.counter--;
+    //     this.$refs.formMobile.children[this.counter].classList.add("active");
+    //     // for (let i = 0; i <= this.$refs.edu.children.length; i++) {
+    //     //   if ((this.$refs.edu[i] = this.$refs.formMobile.children)) {
+    //     //     this.$refs.edu.children[
+    //     //       this.counter + 1
+    //     //     ].childNodes[0].style.backgroundColor = "#bbb";
+    //     //   }
+    //     // }
+    //   }
+    // },
     submitB() {
       console.log("clicked");
     },
@@ -744,8 +509,8 @@ export default {
 </script>
 
 <style scoped>
-*{
-  font-family: 'Overpass', sans-serif;
+* {
+  font-family: "Overpass", sans-serif;
 }
 .wrapper {
   background: linear-gradient(
@@ -757,13 +522,13 @@ export default {
   /* background-position: right; */
   /* background-size: center center/cover; */
   /* background-repeat: no-repeat; */
-  height: 100vh;
+  min-height: 100vh;
   margin-top: 1.5px !important;
 }
 .bg-big {
   /* background-color:#F9F9F9; */
   background-color: rgb(192, 192, 192, 0.1);
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
 }
 .margin-form {
   margin-left: 8rem;
@@ -774,7 +539,7 @@ export default {
   grid-template-columns: 1fr 1fr;
 }
 .form-edit {
-  padding: 1rem;
+  padding: 3rem;
 }
 .first-form {
   margin-top: 1rem;
@@ -929,46 +694,36 @@ p {
 .mobileShow {
   display: none;
 }
-  .form-p{
+.form-p {
   position: relative;
   top: -1px;
   left: 50%;
   z-index: 1;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
-  .mobileShow {
+  /* .mobileShow {
     display: block;
   }
   .desktopShow {
     display: none;
+  } */
+  .grid {
+    grid-template-columns: 1fr;
   }
   input {
     width: 100%;
   }
-  .form-p{
-  position: relative;
-  top: -20px;
-  left: 0;
-  float: right;
-  z-index: 1;
-}
+  .form-p {
+    position: relative;
+    top: -20px;
+    left: 0;
+    float: right;
+    z-index: 1;
+  }
   .wrapper {
-    background: linear-gradient(
-        to right,
-        rgba(8, 29, 41, 0.7),
-        rgba(8, 29, 41, 0.7)
-      ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
-    /* background-position: right; */
-    /* background-size: center center/cover; */
-    /* background-repeat: no-repeat; */
-    height: fit-content;
-    padding-top: 1rem;
-    padding-bottom: 5rem;
+    display: none !important;
   }
-  label {
-    color: #ffffff;
-  }
+
   textarea {
     width: 100%;
   }
@@ -1014,27 +769,44 @@ p {
   h1 {
     font-size: 1.5rem;
   }
+  .margin-form {
+    margin-left: 0;
+    /* margin-top: 1rem; */
+  }
+  .form-edit {
+  padding: 2rem;
+}
+.stepwizard-row:before {
+  top: 30px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  z-index: 0;
+}
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
-  .mobileShow {
-    display: block;
-  }
-    h1 {
+ .margin-form{
+   margin-left: 0;
+ }
+ .form-edit {
+  padding: 2rem;
+}
+  h1 {
     font-size: 1.5rem;
   }
-  .desktopShow {
-    display: none;
-  }
+  
   input {
     width: 100%;
   }
+  .grid{
+    grid-template-columns: 1fr;
+  }
   .wrapper {
-    background: linear-gradient(
-        to right,
-        rgba(8, 29, 41, 0.7),
-        rgba(8, 29, 41, 0.7)
-      ),
-      url("/img/nesa.jpg") no-repeat center center/cover;
+    display: none;
+    background: #f9f9f9;
     /* background-position: right; */
     /* background-size: center center/cover; */
     /* background-repeat: no-repeat; */
@@ -1042,9 +814,7 @@ p {
     padding-top: 1rem;
     padding-bottom: 5rem;
   }
-  label {
-    color: #ffffff;
-  }
+ 
   textarea {
     width: 100%;
   }
@@ -1062,13 +832,23 @@ p {
   input[type="button"]span {
     color: #ffffff !important;
   }
-.form-p{
-  position: relative;
-  top: -20px;
-  left: 0;
-  float: right;
-  z-index: 1;
-}
+  .form-p {
+    position: relative;
+    top: -20px;
+    left: 0;
+    float: right;
+    z-index: 1;
+  }
+  .stepwizard-row:before {
+  top: 30px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  z-index: 0;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .margin-form {
@@ -1092,7 +872,7 @@ p {
     bottom: 0;
     position: absolute;
     content: " ";
-    width: 90%;
+    width: 100%;
     height: 1px;
     background-color: #ccc;
     z-index: 0;
@@ -1106,12 +886,12 @@ p {
   .margin-form {
     margin-left: 1rem;
   }
-  .form-p{
-  position: relative;
-  top: -2px;
-  left: 0;
-  float: right;
-  z-index: 1;
-}
+  .form-p {
+    position: relative;
+    top: -2px;
+    left: 0;
+    float: right;
+    z-index: 1;
+  }
 }
 </style>

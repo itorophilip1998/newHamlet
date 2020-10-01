@@ -1,0 +1,156 @@
+[
+  {
+    "name": "all-employees",
+    "path": "/all-employees",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\all-employees.vue",
+    "chunkName": "pages/all-employees",
+    "_name": "_e2399584"
+  },
+  {
+    "name": "company-details",
+    "path": "/company-details",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company-details.vue",
+    "chunkName": "pages/company-details",
+    "_name": "_e8dddfd2"
+  },
+  {
+    "name": "contact-us",
+    "path": "/contact-us",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\contact-us.vue",
+    "chunkName": "pages/contact-us",
+    "_name": "_66543ed6"
+  },
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\dashboard.vue",
+    "chunkName": "pages/dashboard",
+    "_name": "_48208279"
+  },
+  {
+    "name": "directory",
+    "path": "/directory",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\directory.vue",
+    "chunkName": "pages/directory",
+    "_name": "_d553bc5c"
+  },
+  {
+    "name": "employee",
+    "path": "/employee",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employee.vue",
+    "chunkName": "pages/employee",
+    "_name": "_7b8ea559"
+  },
+  {
+    "name": "employee-details",
+    "path": "/employee-details",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employee-details.vue",
+    "chunkName": "pages/employee-details",
+    "_name": "_6e00674e"
+  },
+  {
+    "name": "manager-account",
+    "path": "/manager-account",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\manager-account.vue",
+    "chunkName": "pages/manager-account",
+    "_name": "_3ee645b2"
+  },
+  {
+    "name": "signin",
+    "path": "/signin",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\signin.vue",
+    "chunkName": "pages/signin",
+    "_name": "_498b3d0d"
+  },
+  {
+    "name": "signup",
+    "path": "/signup",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\signup.vue",
+    "chunkName": "pages/signup",
+    "_name": "_5e219383"
+  },
+  {
+    "name": "company-company-overview",
+    "path": "/company/company-overview",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\company-overview.vue",
+    "chunkName": "pages/company/company-overview",
+    "_name": "_951cef2a"
+  },
+  {
+    "name": "company-locations",
+    "path": "/company/locations",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\locations.vue",
+    "chunkName": "pages/company/locations",
+    "_name": "_5df1fea8"
+  },
+  {
+    "name": "company-taxinfo",
+    "path": "/company/taxinfo",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\taxinfo.vue",
+    "chunkName": "pages/company/taxinfo",
+    "_name": "_97887fb2"
+  },
+  {
+    "name": "department-add-department",
+    "path": "/department/add-department",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\department\\\\add-department.vue",
+    "chunkName": "pages/department/add-department",
+    "_name": "_5938e1bb"
+  },
+  {
+    "name": "employees-employmentdetails",
+    "path": "/employees/employmentdetails",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employees\\\\employmentdetails.vue",
+    "chunkName": "pages/employees/employmentdetails",
+    "_name": "_5e62ff5c"
+  },
+  {
+    "name": "google-site",
+    "path": "/google/site",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\google\\\\site.vue",
+    "chunkName": "pages/google/site",
+    "_name": "_590bc32a"
+  },
+  {
+    "name": "profile-profile",
+    "path": "/profile/profile",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\profile\\\\profile.vue",
+    "chunkName": "pages/profile/profile",
+    "_name": "_6eeb854b"
+  },
+  {
+    "name": "contactinfo-name",
+    "path": "/contactinfo/:name?",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\contactinfo\\\\_name.vue",
+    "chunkName": "pages/contactinfo/_name",
+    "_name": "_09de3747"
+  },
+  {
+    "name": "editEmployee-name",
+    "path": "/editEmployee/:name?",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\editEmployee\\\\_name.vue",
+    "chunkName": "pages/editEmployee/_name",
+    "_name": "_9d19da92"
+  },
+  {
+    "name": "employees-name",
+    "path": "/employees/:name?",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employees\\\\_name.vue",
+    "chunkName": "pages/employees/_name",
+    "_name": "_7d2e1e20"
+  },
+  {
+    "name": "jobdetails-name",
+    "path": "/jobdetails/:name?",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\jobdetails\\\\_name.vue",
+    "chunkName": "pages/jobdetails/_name",
+    "_name": "_22562eca"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_2ea92037"
+  }
+]

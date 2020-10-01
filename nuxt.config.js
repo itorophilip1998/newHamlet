@@ -95,7 +95,7 @@ export default {
     {
       src: "./plugins/aos.js",
       ssr: false
-    }
+    },
   ],
   /*
    ** Auto import components
@@ -144,6 +144,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
+
   router: {
     middleware: ['auth']
   },

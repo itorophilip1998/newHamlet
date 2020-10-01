@@ -1,13 +1,47 @@
 <template>
-  <div>
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
     <div>
       <app-navbar />
     </div>
 
-    <!-- hero page -->
+    <!-- hero-start -->
     <section>
+      <div class="bg-down">
+        <div class="container bg-hero">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="hero-text">
+                Do more than what is expected of you with
+                <span style="color: #0065fc; font-weight: bolder">HAMLET</span>
+              </div>
+              <div class="hero-text-1">
+                Great leaders know their strengths, but they know their
+                weaknesses even better.
+              </div>
+              <div class="mt-3 m-align">
+                <nuxt-link to="/signup">
+                  <button class="btn2 mt-3 btn-sm">
+                    Get started
+                    <span class="ml-2">
+                      <font-awesome-icon :icon="['fa', 'angle-right']" />
+                    </span>
+                  </button>
+                </nuxt-link>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <!-- hello -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- hero end -->
+    <!-- hero page -->
+    <!-- <section>
       <div class="bg-hero">
-        <div class="container text-center">
+        <div class="container">
           <div class="hero-text">
             Do more than what is expected of you with
             <span style="color : #0065fc; font-weight: bolder;">HAMLET</span>
@@ -28,48 +62,13 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- hero end -->
-    <!-- welcome page -->
-    <!-- <section>
-      <div class="container welcome-down pb-5 pt-5">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="welcome-text">
-              Do more than what is expected of you with
-              <span style="color : #0065fc">HAMLET.</span>
-
-            </div>
-            <div class="welcome-p mt-2">
-              Great leaders know their strengths, but they know their weaknesses even better.
-              Knowing when to act and when to step back is one of the skills a leader must master
-            </div>
-            <div class="startbutton">
-              <nuxt-link to="/signup">
-                <button class="btn2 mt-3">
-                  Get started
-                  <span class="ml-2">
-                    <font-awesome-icon :icon="['fa', 'angle-right']" />
-                  </span>
-                </button>
-              </nuxt-link>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <img src="/img/logo.png" alt class="img-fluid" />
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- welcome page end -->
+    </section>-->
 
     <!-- global brand start style="background-color : rgba(220, 234, 255, 0.5)-->
     <section>
-      <div class="pb-5">
-        <div class>
-          <div class="brand-text pt-5 mt-2 text-center">
-            TRUSTED BY GLOBAL BRANDS
-          </div>
+      <div class="brand-color pb-5 pt-5">
+        <div>
+          <div class="brand-text text-center">TRUSTED BY GLOBAL BRANDS</div>
           <div class="container">
             <div class="grid-style">
               <div>
@@ -125,20 +124,24 @@
     </section>
     <!-- global brand start -->
     <!-- manage your employee -->
-    <section>
+    <section id="service">
       <div class="system-bg">
         <div class="container pb-5 pt-5">
           <div class="row">
-            <div class="col-lg-6 system-bg-2" 
+            <div
+              class="col-lg-6 system-bg-2"
               data-aos="fade-right"
               data-aos-duration="1000"
-              >
+              data-aos-delay="300"
+            >
               <img src="/img/system.png" class="img-fluid" alt srcset />
             </div>
-            <div class="col-lg-6  system-bg-1"
+            <div
+              class="col-lg-6 system-bg-1"
               data-aos="fade-down"
               data-aos-duration="1000"
-              >
+              data-aos-delay="300"
+            >
               <div class="border-blue mb-3"></div>
               <div class="border-text">
                 MANAGE YOUR EMPLOYEES WITHOUT HASSLES
@@ -155,54 +158,93 @@
     </section>
     <!-- manage end -->
     <!-- how it works -->
-    <section>
-      <div class="pb-5 pt-5 bg-curve">
-        <div class="container pb-5" 
-              data-aos="fade-right"
-              data-aos-duration="1000"
-              >
+    <section id="works">
+      <div class="pt-5 bg-curve">
+        <div class="container pb-5">
           <div class="how-it-works pb-5 mt-5 pt-5">HOW IT WORKS</div>
-          <div class="row">
-            <div class="col-sm-4 col-lg-3">
-              <div class="text-center">
-                <img src="/img/handi.png" alt class="img-fluid" srcset />
-                <div class="letter-under">Signup</div>
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <div class="letter-under text-margin">Signup</div>
+                <div class="letter-under-1">
+                  Explore from hundreds of NG and US stocks. we’ve made it fast
+                  and seamless to discover the best local and global companies
+                  to invest in.
+                </div>
               </div>
-
-              <div class="letter-under-1">
-                Explore from hundreds of NG and US stocks. we’ve made it fast
-                and seamless to discover the best local and global companies to
-                invest in.
+              <div
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <img src="/img/illustrato-2.png" alt class="img-fluid" srcset />
               </div>
             </div>
-            <div class="col-sm-4 offset-1 col-lg-3">
-              <div class="text-center">
-                <img src="/img/handi.png" alt class="img-fluid" srcset />
-                <div class="letter-under">Pricing</div>
+            <div class="row mt-5">
+              <div
+                class="col-12 col-sm-12 col-md-12 col-lg-5"
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <img src="/img/illustrator.png" alt class="img-fluid" srcset />
               </div>
-              <div class="letter-under-1">
-                Explore from hundreds of NG and US stocks. we’ve made it fast
-                and seamless to discover the best local and global companies to
-                invest in.
+              <div
+                class="col-12 col-sm-12 col-md-12 col-lg-6 offset-1"
+                data-aos="fade-down"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <div class>
+                  <div class="letter-under text-margin-1">Pricing</div>
+                  <div class="letter-under-1">
+                    Of course, business productivity is ofparamount importance
+                    to the employers and poor performance of an employee
+                    canbadly affect the overall efficiency.
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-sm-4 offset-1 col-lg-3">
-              <div class="text-center">
-                <img src="/img/pencil1.png" alt class="img-fluid mt-4" srcset />
-                <div class="letter-under">Manage</div>
+            <div class="row mt-5">
+              <div
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <div class="letter-under text-margin-2">Manage</div>
+                <div class="letter-under-1">
+                  Explore from hundreds of NG and US stocks. we’ve made it fast
+                  and seamless to discover the best localand global companies to
+                  invest in.
+                </div>
               </div>
-              <div class="letter-under-1">
-                Explore from hundreds of NG and US stocks. we’ve made it fast
-                and seamless to discover the best local and global companies to
-                invest in.
+              <div
+                class="col-12 col-sm-12 col-md-12 col-lg-6"
+                data-aos="fade-down"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <img
+                  src="/img/illustrator-e.png"
+                  alt
+                  class="img-fluid"
+                  srcset
+                />
               </div>
             </div>
           </div>
-          <div class="text-center mt-5 pb-5">
+          <div class="text-center mt-2">
             <nuxt-link to="/signup">
-              <button class="btn2 mt-3 mb-5 btn-mobile-works">
+              <button class="btn2 btn-mobile-works">
                 Get started
-                <span class="">
+                <span class>
                   <font-awesome-icon :icon="['fa', 'angle-right']" />
                 </span>
               </button>
@@ -214,71 +256,52 @@
     <!-- how it works end -->
 
     <!-- testimonial -->
-    <section>
-      <div class="pt-5 testimonial-bg">
-        <div class="letter-under text-center pt-5 mt-5 mb-3 pb-1 btn-mobile-works">TESTIMONIALS</div>
-        <div class="gridsection">
-          <div class="gridclass">
-            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
-            <div class="gridclass1">
-              <img src="/img/luke.jpg" alt="" class="rounded-circle">
-              <p><strong>Amity Emmanuel</strong> </p>
-            </div>
+    <section id="testimonial">
+      <div class="pt-5 pb-5 mt-5">
+        <div class="container testimonial-bg">
+          <div class="text-client text-center testy btn-mobile-works">
+            CLIENT'S REVIEW
           </div>
-          <div class="gridclass">
-            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
-            <div class="gridclass1">
-              <img src="/img/zu.jpg" alt="" class="rounded-circle">
-              <p><strong>Timothy Afolabi</strong> </p>
-            </div>
+          <div class="text-client-1">
+            Ask first. Before jumping into designing I always make sure that
+            we’re asking the right questions and trying to accomplish the right
+            challenges. This stage includes market research, competitive
+            consulting and exploring possible solutions.
           </div>
-          <div class="gridclass">
-            <p>"Jiggle is an app I use to make easy push payments anywhere and anytime, so I don’t have to worry about cash when paying for my lunch."</p>
-            <div class="gridclass1">
-              <img src="/img/david.jpg" alt="" class="rounded-circle">
-              <p><strong>Ime Akpan</strong> </p>
+
+          <div class="row justify-content-center">
+            <div class="d-flex text-center">
+              <div>
+                <img src="/img/lady-1.png" alt srcset />
+              </div>
+              <div>
+                <div
+                  class="mt-4"
+                  style="color: #081d29; font-weight: bold; font-style: normal"
+                >
+                  Evia Omari
+                </div>
+                <div
+                  class="ml-3"
+                  style="
+                    color: #081d29;
+                    font-weight: normal;
+                    font-style: normal;
+                  "
+                >
+                  Front-end developer
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <!-- <div class="container shadow p-0 lady-bg" 
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-             >
-          <div class="row m-0 p-0" style="background-color : #FFFFFF">
-            <div class="col-sm-5 pl-0 m-0 l-center">
-              <img src="/img/lady.png" class="img-fluid pr-0 mr-0" alt srcset />
-            </div>
-            <div class="col-sm-6">
-              <div class="d-flex  flex-down">
-                <div>
-                  <div class="text-quote">
-                    Grace Nyong
-                  </div>
-                  <div class="text-quote-1">
-                    Start Innovation Hub
-                  </div>
-                  <div class="text-quote-2">
-                    HR
-                  </div>
-                </div>
-                <div class="">
-                  <img
-                    src="/img/quotation.png"
-                    alt=""
-                    class="img-fluid"
-                    srcset=""
-                  />
-                </div>
-              </div>
-              <div class="quote-text">
-                The quote testimonial is the grand daddy of all testimonials,
-                and likely the first example you thought of. It’s been used for
-                as long as testimonials have been alive.
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
+      <!-- <div>
+        <form @submit.prevent="getDetails">
+          <input type="text" v-model="name">
+          <input type="button" value="submit">
+        </form>
+      </div> -->
     </section>
     <!-- testimonial end -->
     <Footer />
@@ -292,8 +315,41 @@ export default {
   auth: false,
   components: {
     "app-navbar": Navbar,
-    Footer
-  }
+    Footer,
+  },
+  data() {
+    return {
+      user: {},
+      name: "",
+    };
+  },
+  methods: {
+    // getDetails(){
+    //   this.$axios.get
+    //   (`https://api.fcmb.com/fcmb/test/v1/customers/details/name?accountid=${this.name}`,
+    //   {headers : {
+    //      "Content-Type" : "application/json",
+    //     "X-IBM-Client-Id": "fc14374a-51ec-46ad-b844-62099c359bd0",
+    //   }})
+    //   .then(res =>{
+    //     console.log(res.data)
+    //   })
+    // }
+  },
+  mounted() {
+    //  this.getDetails()
+  },
+  //     $(document).ready(function(){
+  // 		$('a[href^="#"]').on('click',function (e) {e.preventDefault();
+  // 	    var target = this.hash,
+  // 	    $target = $(target);
+  // 	    $('html, body').stop().animate({
+  // 	        'scrollTop': $target.offset().top
+  // 	    }, 900, 'swing', function () {
+  // 	        window.location.hash = target;
+  // 	    });
+  // 	});
+  // });
 };
 </script>
 
@@ -301,72 +357,69 @@ export default {
 * {
   font-family: "Overpass", sans-serif;
 }
-.gridsection{
+.bg-down {
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+}
+.gridsection {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: 8rem;
   margin-right: 8rem;
   grid-gap: 2rem;
 }
-.gridclass{
+.gridclass {
   border: 1px solid #0065fc;
-  padding:20px 20px;
+  padding: 20px 20px;
   border-radius: 5px;
 }
-.gridclass img{
-  width:4rem;
+.gridclass img {
+  width: 4rem;
   height: 4rem;
 }
-.gridclass1{
+.gridclass1 {
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin-top: 2rem;
 }
-.gridclass1 p{
+.gridclass1 p {
   margin-top: 1.5rem;
   font-weight: 25px !important;
 }
 .bg-hero {
-  background-image: linear-gradient(
-      to right,
-      rgb(0, 0, 0, 0.7),
-      rgb(0, 0, 0, 0.7)
-    ),
-    url("/img/guys.jpg");
-  height: auto;
+  background-image: url("/img/bg-map.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  margin-top: 4rem;
-  background-blend-mode: darken;
+  background-size: contain;
+  background-position: right;
+}
+.brand-color {
+  background: #f3f8ff;
+  margin-bottom: 5rem;
 }
 .hero-text {
   font-style: normal;
   font-weight: 800;
-  font-size: 3.6rem;
-  padding-top: 23rem;
-  padding-bottom: 23rem;
-  /* line-height: 59px; */
-  /* text-align: center; */
+  font-size: 2.2rem;
+  margin-top: 8rem;
   letter-spacing: 0.02em;
-  color: #ffffff;
+  color: #002459;
 }
 .hero-text-1 {
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  margin-top: 2rem;
-  /* line-height: 41px; */
-  /* text-align: center; */
+  font-size: 1.5rem;
+  line-height: 41px;
+  margin-top: 1rem;
   letter-spacing: 0.03em;
-  color: #dae1eb;
+  color: #35454e;
 }
 .grid-style {
   display: flex;
   /* grid-template-columns: 1fr 1fr; */
   flex-direction: row;
   justify-content: space-between;
-  /* margin-top: 2rem !important; */
-  padding: 3rem;
+  margin-top: 3rem !important;
+  /* padding: 3rem; */
 }
 .btn2 {
   background: #0065fc;
@@ -375,6 +428,11 @@ export default {
   padding: 1rem 3rem;
   border: none;
   outline: none !important;
+}
+.btn2:hover {
+  background: #ffffff;
+  color: #0065fc;
+  border: 1px solid #0065fc;
 }
 .btn1 {
   background: white;
@@ -385,20 +443,20 @@ export default {
   margin-right: 30px;
   outline: none !important;
 }
-.welcome-text {
+/* .welcome-text {
   font-size: 48px;
   line-height: 59px;
   text-align: left;
   margin-top: 10rem;
-}
-.welcome-p {
+} */
+/* .welcome-p {
   font-size: 24px;
   text-align: left;
   padding-right: 20px;
 }
 .welcome-down {
   margin-top: 5rem;
-}
+} */
 .brand-text {
   font-weight: bold;
   font-size: 24px;
@@ -443,7 +501,7 @@ export default {
   background-position: top right;
 }
 .bg-curve {
-  background-image: url("/img/curve-1.png");
+  background-image: url("/img/curve-new.png");
   background-repeat: no-repeat;
   /* background-size: 100% 100%; */
   background-size: cover;
@@ -458,15 +516,11 @@ export default {
   color: #081d29;
 }
 .testimonial-bg {
-  background-image: linear-gradient(
-      to right,
-      rgb(255, 255, 255, 0.1),
-      rgb(255, 255, 255, 0.1)
-    ),
-    url("/img/map.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #edf4ff;
+  background-image: url("/img/q1.png"), url("/img/q2.png");
+  /* background-size: 100% 100%; */
+  background-position: top left, bottom right;
+  background-repeat: no-repeat, no-repeat;
+  /* background-color: #edf4ff; */
   padding-bottom: 7rem !important;
   /* z-index: -1; */
 }
@@ -474,21 +528,50 @@ export default {
   font-style: normal;
   font-weight: bold;
   font-size: 1.5rem;
-  /* line-height: 32px; */
+  line-height: 32px;
   letter-spacing: 0.03em;
   color: #002459;
+}
+.text-client {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 42px;
+  letter-spacing: 0.1em;
+  color: #0065fc;
+}
+.text-client-1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 38px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #081d29;
+  margin: 2rem 0 2rem 0;
+}
+.text-margin {
+  margin-top: 10rem;
+}
+.text-margin-1 {
+  margin-top: 5rem;
+}
+.text-margin-2 {
+  margin-top: 13rem;
 }
 .letter-under-1 {
   font-style: normal;
   font-weight: normal;
+  width: 100%;
+  line-height: 32px;
   font-size: 1.2rem;
   margin-top: 1rem !important;
-  
-
-  /* width: 90%; */
   letter-spacing: 0.03em;
   color: #002459;
-  text-align: justify;
+  /* text-align: left; */
+}
+.l-left {
+  margin-left: 5rem;
 }
 .lady-bg {
   width: 60% !important;
@@ -530,395 +613,433 @@ export default {
   color: #616161;
   text-align: left;
 }
+.testy {
+  padding: 7rem 0 0 0;
+}
 @media only screen and (min-width: 300px) and (max-width: 350px) {
+  .letter-under-1 {
+    width: 100%;
+  }
+  .bg-down {
+    margin-top: 5rem;
+    margin-bottom: 0;
+  }
+  .l-left {
+    margin-left: 0;
+  }
+  .text-margin {
+    margin-top: 0;
+  }
+  .text-margin-2 {
+    margin-top: 2rem;
+  }
   .bg-hero {
-  background-image: linear-gradient(
-      to right,
-      rgb(0, 0, 0, 0.7),
-      rgb(0, 0, 0, 0.7)
-    ),
-    url("/img/guys.jpg");
-  height: auto;
-  background-repeat: no-repeat;
-  background-size: none;
-  /* object-fit: fill; */
-  margin-top: 4rem;
-  /* background-blend-mode: darken; */
-}
-.hero-text {
-  font-style: normal;
-  font-weight: 800;
-  font-size: 1.2rem;
-  padding-top: 3rem;
-  padding-bottom: 0;
-  /* line-height: 59px; */
-  /* text-align: center; */
-  letter-spacing: 0.02em;
-  color: #ffffff;
-}
-.hero-text-1 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  /* line-height: 41px; */
-  /* text-align: center; */
-  letter-spacing: 0.03em;
-  color: #dae1eb;
-}
-.btn2 {
-  background: #0065fc;
-  border-radius: 5px;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  margin-bottom: 1rem;
-  outline: none !important;
-}
-.grid-style {
-  display: flex;
-  /* grid-template-columns: 1fr 1fr; */
-  flex-direction: column;
-  justify-content: none;
-  margin-top: 0;
-  padding: 3rem;
-  text-align: center;
-}
-.p-down{
-  margin-top: 2rem !important;
-}
-.system-bg {
-  background-image: url("/img/circle-1.png");
-  background-repeat: no-repeat;
-  background-size: 20% 10%;
-  background-position: top left;
-}
-.border-blue {
-  border: 3px solid #0065fc;
-  width: 25%;
-  margin-top: 3rem;
-}
-.border-text {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #002b6b;
-  text-align: left;
-}
-.border-p {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1rem;
-  text-align:justify;
-  /* line-height: 42px; */
-  letter-spacing: 0.03em;
-  color: #002b6b;
-}
-.how-it-works {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.5rem;
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: #081d29;
-}
-.offset-1 {
+    background-image: none;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: none;
+    /* object-fit: fill; */
+    margin-top: 4rem;
+    /* background-blend-mode: darken; */
+  }
+  .hero-text {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #002459;
+  }
+  .m-align {
+    text-align: center !important;
+  }
+  .hero-text-1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    /* line-height: 41px; */
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #35454e;
+  }
+  .btn2 {
+    background: #0065fc;
+    border-radius: 5px;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    margin-bottom: 1rem;
+    outline: none !important;
+  }
+  .grid-style {
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    flex-direction: column;
+    justify-content: none;
+    margin-top: 0;
+    padding: 3rem;
+    text-align: center;
+  }
+  .p-down {
+    margin-top: 2rem !important;
+  }
+  .system-bg {
+    background-image: url("/img/circle-1.png");
+    background-repeat: no-repeat;
+    background-size: 20% 10%;
+    background-position: top left;
+  }
+  .border-blue {
+    border: 3px solid #0065fc;
+    width: 25%;
+    margin-top: 3rem;
+  }
+  .border-text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #002b6b;
+    text-align: left;
+  }
+  .border-p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: justify;
+    /* line-height: 42px; */
+    letter-spacing: 0.03em;
+    color: #002b6b;
+  }
+  .how-it-works {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #081d29;
+  }
+  .offset-1 {
     margin-left: 0 !important;
-}
-.btn-mobile-works{
-  margin-top: 1rem !important;
-}
-.lady-bg {
-  width: 100% !important;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
-}
-.l-center{
-text-align: center;
-}
-.p-0{
-  padding: none !important;
-}
+  }
+  .testy {
+    margin: 15rem 0 5rem 0;
+  }
+  .btn-mobile-works {
+    margin-top: 1rem !important;
+  }
+  .lady-bg {
+    width: 100% !important;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+  }
+  .l-center {
+    text-align: center;
+  }
+  .p-0 {
+    padding: none !important;
+  }
   .text-quote {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.4rem;
-  /* line-height: 38px; */
-  color: #000000;
-  margin-top: 8rem;
-}
-.text-quote-1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1rem;
-  /* line-hight: 38px; */
-  color: #000000;
-}
-.text-quote-2 {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 38px;
-  color: #000000;
-}
-.quote-text {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.2rem;
-  width: 100%;
-  margin-top: 2rem;
-  line-height: 30px;
-  color: #616161;
-  text-align: justify;
-  padding-bottom: 2rem;
-}
-.gridsection{
-  display: grid;
-  grid-template-columns: 1fr ;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  grid-gap: 1rem;
-}
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4rem;
+    /* line-height: 38px; */
+    color: #000000;
+    margin-top: 8rem;
+  }
+  .text-quote-1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    /* line-hight: 38px; */
+    color: #000000;
+  }
+  .text-quote-2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 38px;
+    color: #000000;
+  }
+  .quote-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    width: 100%;
+    margin-top: 2rem;
+    line-height: 30px;
+    color: #616161;
+    text-align: justify;
+    padding-bottom: 2rem;
+  }
+  .gridsection {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-gap: 1rem;
+  }
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
-  .gridsection{
-  display: grid;
-  grid-template-columns: 1fr ;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  grid-gap: 1rem;
-}
+  .gridsection {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-gap: 1rem;
+  }
+  .letter-under-1 {
+    width: 100%;
+  }
+  .bg-down {
+    margin-top: 5rem;
+    margin-bottom: 0;
+  }
+  .l-left {
+    margin-left: 0;
+  }
+  .text-margin {
+    margin-top: 0;
+  }
+  .text-margin-2 {
+    margin-top: 2rem;
+  }
   .bg-hero {
-  background-image: linear-gradient(
-      to right,
-      rgb(0, 0, 0, 0.7),
-      rgb(0, 0, 0, 0.7)
-    ),
-    url("/img/guys.jpg");
-  height: auto;
-  background-repeat: no-repeat;
-  background-size: none;
-  /* object-fit: fill; */
-  margin-top: 4rem;
-  /* background-blend-mode: darken; */
-}
-.hero-text {
-  font-style: normal;
-  font-weight: 800;
-  font-size: 1.2rem;
-  padding-top: 3rem;
-  padding-bottom: 0;
-  /* line-height: 59px; */
-  /* text-align: center; */
-  letter-spacing: 0.02em;
-  color: #ffffff;
-}
-.hero-text-1 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  /* line-height: 41px; */
-  /* text-align: center; */
-  letter-spacing: 0.03em;
-  color: #dae1eb;
-}
-.btn2 {
-  background: #0065fc;
-  border-radius: 5px;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  margin-bottom: 1rem;
-  outline: none !important;
-}
-.grid-style {
-  display: flex;
-  /* grid-template-columns: 1fr 1fr; */
-  flex-direction: column;
-  justify-content: none;
-  margin-top: 0;
-  padding: 3rem;
-  text-align: center;
-}
-.p-down{
-  margin-top: 2rem !important;
-}
-.system-bg {
-  background-image: url("/img/circle-1.png");
-  background-repeat: no-repeat;
-  background-size: 20% 10%;
-  background-position: top left;
-}
-.border-blue {
-  border: 3px solid #0065fc;
-  width: 25%;
-  margin-top: 3rem;
-}
-.border-text {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #002b6b;
-  text-align: left;
-}
-.border-p {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1rem;
-  text-align:justify;
-  /* line-height: 42px; */
-  letter-spacing: 0.03em;
-  color: #002b6b;
-}
-.how-it-works {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.5rem;
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: #081d29;
-}
-.offset-1 {
+    background-image: none;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: none;
+    /* object-fit: fill; */
+    margin-top: 4rem;
+    /* background-blend-mode: darken; */
+  }
+  .hero-text {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #002459;
+  }
+  .m-align {
+    text-align: center !important;
+  }
+  .hero-text-1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    /* line-height: 41px; */
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #35454e;
+  }
+  .btn2 {
+    background: #0065fc;
+    border-radius: 5px;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    margin-bottom: 1rem;
+    outline: none !important;
+  }
+  .grid-style {
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    flex-direction: column;
+    justify-content: none;
+    margin-top: 0;
+    padding: 3rem;
+    text-align: center;
+  }
+  .p-down {
+    margin-top: 2rem !important;
+  }
+  .system-bg {
+    background-image: url("/img/circle-1.png");
+    background-repeat: no-repeat;
+    background-size: 20% 10%;
+    background-position: top left;
+  }
+  .border-blue {
+    border: 3px solid #0065fc;
+    width: 25%;
+    margin-top: 3rem;
+  }
+  .border-text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #002b6b;
+    text-align: left;
+  }
+  .border-p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: justify;
+    /* line-height: 42px; */
+    letter-spacing: 0.03em;
+    color: #002b6b;
+  }
+  .how-it-works {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #081d29;
+  }
+  .offset-1 {
     margin-left: 0 !important;
-}
-.btn-mobile-works{
-  margin-top: 1rem !important;
-}
-.lady-bg {
-  width: 100% !important;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
-}
-.l-center{
-text-align: center;
-}
-.p-0{
-  padding: none !important;
-}
+  }
+  .btn-mobile-works {
+    margin-top: 1rem !important;
+  }
+  .lady-bg {
+    width: 100% !important;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+  }
+  .l-center {
+    text-align: center;
+  }
+  .p-0 {
+    padding: none !important;
+  }
   .text-quote {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.4rem;
-  /* line-height: 38px; */
-  color: #000000;
-  margin-top: 8rem;
-}
-.text-quote-1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1rem;
-  /* line-hight: 38px; */
-  color: #000000;
-}
-.text-quote-2 {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 38px;
-  color: #000000;
-}
-.quote-text {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.2rem;
-  width: 100%;
-  margin-top: 2rem;
-  line-height: 30px;
-  color: #616161;
-  text-align: justify;
-  padding-bottom: 2rem;
-}
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4rem;
+    /* line-height: 38px; */
+    color: #000000;
+    margin-top: 8rem;
+  }
+  .text-quote-1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    /* line-hight: 38px; */
+    color: #000000;
+  }
+  .text-quote-2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 38px;
+    color: #000000;
+  }
+  .quote-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    width: 100%;
+    margin-top: 2rem;
+    line-height: 30px;
+    color: #616161;
+    text-align: justify;
+    padding-bottom: 2rem;
+  }
 }
 
-@media only screen and  (min-width: 768px) and (max-width: 1020px) {
- .bg-hero {
-  background-image: linear-gradient(
-      to right,
-      rgb(0, 0, 0, 0.7),
-      rgb(0, 0, 0, 0.7)
-    ),
-    url("/img/guys.jpg");
-  height: auto;
-  background-repeat: no-repeat;
-  background-size: none;
-  /* object-fit: fill; */
-  margin-top: 4rem;
-  /* background-blend-mode: darken; */
-}
-.hero-text {
-  font-style: normal;
-  font-weight: 800;
-  font-size: 2rem;
-  padding-top: 13rem;
-  padding-bottom: 13rem;
-  /* line-height: 59px; */
-  /* text-align: center; */
-  letter-spacing: 0.02em;
-  color: #ffffff;
-}
-.hero-text-1 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  /* line-height: 41px; */
-  /* text-align: center; */
-  letter-spacing: 0.03em;
-  color: #dae1eb;
-}
-.btn2 {
-  background: #0065fc;
-  border-radius: 5px;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  margin-top: 2rem !important;
-  margin-bottom: 1rem;
-  outline: none !important;
-}
-.grid-style {
-  display: flex;
-  /* grid-template-columns: 1fr 1fr; */
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 0;
-  padding: 3rem;
-}
-.system-bg {
-  background-image: url("/img/circle-1.png");
-  background-repeat: no-repeat;
-  background-size: 30% 20%;
-  background-position: top left;
-}
-.border-blue {
-  border: 3px solid #0065fc;
-  width: 15%;
-  margin-top: 0;
-}
-.border-text {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #002b6b;
-  text-align: justify;
-}
-.offset-1 {
+@media only screen and (min-width: 768px) and (max-width: 1020px) {
+  .bg-hero {
+    background-image: url("/img/bg-map.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+  }
+  .text-margin {
+    margin-top: 0;
+  }
+  .text-margin-1 {
+    margin-top: 0;
+  }
+  .text-margin-2 {
+    margin-top: 0;
+  }
+  .l-left {
+    margin-left: 0;
+  }
+  .hero-text {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    /* text-align: center; */
+    letter-spacing: 0.02em;
+    color: #002459;
+  }
+  .hero-text-1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    /* line-height: 41px; */
+    /* text-align: center; */
+    letter-spacing: 0.03em;
+    color: #35454e;
+  }
+  .btn2 {
+    background: #0065fc;
+    border-radius: 5px;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem;
+    outline: none !important;
+  }
+  .grid-style {
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0;
+    padding: 3rem;
+  }
+  .system-bg {
+    background-image: url("/img/circle-1.png");
+    background-repeat: no-repeat;
+    background-size: 30% 20%;
+    background-position: top left;
+  }
+  .border-blue {
+    border: 3px solid #0065fc;
+    width: 15%;
+    margin-top: 0;
+  }
+  .border-text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #002b6b;
+    text-align: justify;
+  }
+  .offset-1 {
     margin-left: 0 !important;
-}
-.lady-bg {
-  width: 100% !important;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
-}
-.gridsection{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  grid-gap: 1rem;
-}
-.gridclass1{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 2rem;
-}
+  }
+  .lady-bg {
+    width: 100% !important;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+  }
+  .gridsection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    grid-gap: 1rem;
+  }
+  .gridclass1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2rem;
+  }
 }
 </style>

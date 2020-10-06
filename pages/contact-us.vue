@@ -241,6 +241,7 @@ export default {
                 email: "",
                 message: "",
               };
+              this.submitted = false;
             })
             .catch((error) => {
               this.loader = true;

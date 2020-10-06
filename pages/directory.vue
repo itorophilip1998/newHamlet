@@ -325,7 +325,7 @@ export default {
      getDepartment()
     {
       let department=document.getElementById('department').value;
-      this.filterbyName=department;
+    this.filterbyName=department;
     },
     linksingleEmployee(employee) {
       this.$router.push(`/employees/${employee}`);

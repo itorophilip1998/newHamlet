@@ -1,4 +1,11 @@
 export default {
+  loading: {
+    color: 'blue',
+    height: '2px',
+    failedColor: 'red',
+    throttle: 200,
+    duration: 500,
+  },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -25,7 +32,7 @@ export default {
       }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "" },
       {
         rel: "stylesheet",
         href:

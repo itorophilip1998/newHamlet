@@ -119,7 +119,10 @@
                     </div>
                     <button type="submit" class="btn btn-primary mt-5 btn-edit">
                       <span v-if="loader"
-                        >SEND MESSAGE <font-awesome-icon :icon="['fa', 'kits']"
+                        >SEND MESSAGE
+                        <font-awesome-icon
+                          class="ml-1"
+                          :icon="['fa', 'paper-plane']"
                       /></span>
                       <span v-else>
                         <app-loader />
@@ -193,6 +196,7 @@ export default {
   data() {
     return {
       submitted: false,
+      // navigation: true,
       loader: true,
       contact: {
         firstName: "",
@@ -203,7 +207,17 @@ export default {
     };
   },
   methods: {
+    status() {
+      if (!navigator.online) {
+        this.loader = true;
+        this.$message({
+          message: "Please check internet connection!",
+          type: "error",
+        });
+      }
+    },
     sendMessage() {
+      // this.status();
       this.submitted = true;
       this.$validator.validateAll().then(async (valid) => {
         if (valid) {
@@ -230,6 +244,12 @@ export default {
             })
             .catch((error) => {
               this.loader = true;
+              // if (!error.response.status) {
+              //   this.$message({
+              //     message: "Please check internet connection!",
+              //     type: "error",
+              //   });
+              // }
             });
         } else {
           this.loader = true;
@@ -274,15 +294,23 @@ export default {
   white-space: pre;
 }
 .bg-color {
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
   background: #f4f8ff;
   padding: 5rem 0 5rem 0;
+  z-index: 99 !important;
 }
+
 .box-style {
   background: #ffffff !important;
-  box-shadow: 17px 3px 26px rgba(239, 239, 239, 0.25),
-    -17px -3px 26px -1px rgba(239, 239, 239, 0.6) !important;
+  /* box-shadow: 17px 3px 26px rgba(239, 239, 239, 0.25),
+    -17px -3px 26px -1px rgba(239, 239, 239, 0.6) !important; */
   border-radius: 10px 10px 0px 0px !important;
   padding: 3rem;
+  /* position: relative !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 1; */
 }
 .h-box {
   height: 10vh !important;
@@ -299,6 +327,7 @@ export default {
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
+  margin-top: 4rem;
   /* line-height: 74px; */
   text-align: center;
   color: #0065fc;

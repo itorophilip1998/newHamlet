@@ -7,29 +7,33 @@
     <!-- hero-start -->
     <section class="desktop-display">
       <div class="bg-down">
-        <div class="bg-hero">
-          <div class="grid-hero">
-            <div class="grid-left">
-              <div class="hero-text">
-                Do more than what is expected of you with
-                <span style="color: #0065fc; font-weight: bolder">HAMLET</span>
-              </div>
-              <div class="hero-text-1">
-                Great leaders know their strengths, but they know their
-                weaknesses even better.
-              </div>
-              <div class="mt-3 m-align">
-                <nuxt-link to="/signup">
-                  <button class="btn2 mt-3 btn-sm">
-                    Get started
-                    <span class="ml-2">
-                      <font-awesome-icon :icon="['fa', 'angle-right']" />
-                    </span>
-                  </button>
-                </nuxt-link>
+        <div class="bg-hero container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="grid-left">
+                <div class="hero-text">
+                  Do more than what is expected of you with
+                  <span style="color: #0065fc; font-weight: bolder"
+                    >HAMLET</span
+                  >
+                </div>
+                <div class="hero-text-1">
+                  Great leaders know their strengths, but they know their
+                  weaknesses even better.
+                </div>
+                <div class="mt-3 m-align">
+                  <nuxt-link to="/signup">
+                    <button class="btn2 mt-3 btn-sm">
+                      Get started
+                      <span class="ml-2">
+                        <font-awesome-icon :icon="['fa', 'angle-right']" />
+                      </span>
+                    </button>
+                  </nuxt-link>
+                </div>
               </div>
             </div>
-            <div class="">
+            <div class="col-lg-6">
               <div class="tooltip-container">
                 <div class="tooltip-wrapper">
                   <div>

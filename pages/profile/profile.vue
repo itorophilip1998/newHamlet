@@ -29,8 +29,8 @@
                 <!-- {{ user }} -->
                 <h2>{{ this.company.company_name }}</h2>
                 <p>
-                  Total Headcount: {{ employees.length}} |
-                  Services: {{ this.company.services }}
+                  Total Headcount: {{ employees.length }} | Services:
+                  {{ this.company.services }}
                 </p>
               </div>
             </div>
@@ -39,23 +39,23 @@
                 <h3>Manager's Information</h3>
                 <hr />
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">First Name</p>
+                  <p style="color: #0065fc; font-weight: 400">First Name</p>
                   <p>{{ this.profile.first_name }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Last Name</p>
+                  <p style="color: #0065fc; font-weight: 400">Last Name</p>
                   <p>{{ this.profile.last_name }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Address</p>
+                  <p style="color: #0065fc; font-weight: 400">Address</p>
                   <p>{{ this.profile.address }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Phone Number</p>
+                  <p style="color: #0065fc; font-weight: 400">Phone Number</p>
                   <p>{{ this.profile.phone }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Email</p>
+                  <p style="color: #0065fc; font-weight: 400">Email</p>
                   <p>{{ this.managerEmail }}</p>
                 </div>
                 <hr />
@@ -76,12 +76,15 @@
                     class="form-control"
                     v-model="profileInfo.first_name"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('first-name') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('first-name'),
+                    }"
                   />
                   <small
                     v-if="submitted && errors.has('first-name')"
                     class="invalid-feedback"
-                  >{{ errors.first("first-name")}}</small>
+                    >{{ errors.first("first-name") }}</small
+                  >
                 </div>
               </div>
               <div class="form-row">
@@ -93,12 +96,15 @@
                     class="form-control"
                     v-model="profileInfo.last_name"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('last-name')}"
+                    :class="{
+                      'is-invalid': submitted && errors.has('last-name'),
+                    }"
                   />
                   <small
                     v-if="submitted && errors.has('last-name')"
                     class="invalid-feedback"
-                  >{{ errors.first("last-name")}}</small>
+                    >{{ errors.first("last-name") }}</small
+                  >
                 </div>
               </div>
               <div class="form-row">
@@ -110,12 +116,15 @@
                     class="form-control"
                     v-model="profileInfo.address"
                     v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('address') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('address'),
+                    }"
                   />
                   <small
                     v-if="submitted && errors.has('address')"
                     class="invalid-feedback"
-                  >{{ errors.first("address")}}</small>
+                    >{{ errors.first("address") }}</small
+                  >
                 </div>
               </div>
               <div class="form-row">
@@ -133,7 +142,8 @@
                   <small
                     v-if="submitted && errors.has('phone')"
                     class="invalid-feedback"
-                  >{{ errors.first("phone")}}</small>
+                    >{{ errors.first("phone") }}</small
+                  >
                 </div>
               </div>
               <div class="form-row">
@@ -149,20 +159,24 @@
                     placeholder
                     @change="upload()"
                     v-validate="'required|ext:jpeg,jpg,svg,png'"
-                    :class="{ 'is-invalid': submitted && errors.has('profile-picture') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('profile-picture'),
+                    }"
                   />
-                  <small
-                    id="emailHelp"
-                    class="form-text text-muted"
-                  >(Picture must be of .jpeg, .png, .svg, .jpg format)</small>
+                  <small id="emailHelp" class="form-text text-muted"
+                    >(Picture must be of .jpeg, .png, .svg, .jpg format)</small
+                  >
                   <small
                     v-if="submitted && errors.has('profile-picture')"
                     class="invalid-feedback"
-                  >{{ errors.first("profile-picture")}}</small>
+                    >{{ errors.first("profile-picture") }}</small
+                  >
                 </div>
               </div>
-              <div style="text-align:center">
-                <button type="submit" class="btn btn2" @click="canceledit">Cancel</button>
+              <div style="text-align: center">
+                <button type="submit" class="btn btn2" @click="canceledit">
+                  Cancel
+                </button>
                 <button
                   type="submit"
                   class="btn btn2"
@@ -195,7 +209,7 @@ export default {
     "app-sidebar": sidebar,
     "app-navbar": navbar,
     "app-loader": newLoader,
-    load
+    load,
   },
   data() {
     return {
@@ -208,15 +222,15 @@ export default {
       isloading_1: true,
       edit: true,
       submitted: false,
-      employees : [],
+      employees: [],
       profileInfo: {
         first_name: "",
         last_name: "",
         address: "",
         phone: "",
-        profile_pic: {}
+        profile_pic: {},
         // _method: "PUT",
-      }
+      },
     };
   },
   mounted() {
@@ -236,23 +250,25 @@ export default {
       }
     },
     getCompany() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data.user.company);
-        this.company = res.data.user.company;
-        this.managerEmail = res.data.user.email;
-        this.employees = res.data.user.employees
-        //   for (let key in data) {
-        //     const details = data[key];
-        //     details.company.id = key;
-        //     this.company.unshift(details);
-        //   }
-        //   this.company = res.data.company;
-        this.loader = false;
-      });
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.user.company);
+          this.company = res.data.user.company;
+          this.managerEmail = res.data.user.email;
+          this.employees = res.data.user.employees;
+          //   for (let key in data) {
+          //     const details = data[key];
+          //     details.company.id = key;
+          //     this.company.unshift(details);
+          //   }
+          //   this.company = res.data.company;
+          this.loader = false;
+        });
     },
     updateProfile(i) {
       this.submitted = true;
-      this.$validator.validateAll().then(valid => {
+      this.$validator.validateAll().then((valid) => {
         if (valid) {
           console.log("Login");
           swal({
@@ -260,9 +276,9 @@ export default {
             text: "Once you Update, previous manager information will be lost",
             icon: "warning",
             buttons: true,
-            dangerMode: true
+            dangerMode: true,
           })
-            .then(willDelete => {
+            .then((willDelete) => {
               if (willDelete) {
                 this.isloading_1 = false;
                 const formData = new FormData();
@@ -279,24 +295,24 @@ export default {
                     {
                       headers: {
                         Authorization: `Bearer ${this.user}`,
-                        "Content-Type": "multipart/form-data"
-                      }
+                        "Content-Type": "multipart/form-data",
+                      },
                     }
                   )
                   .then(
-                    res => {
+                    (res) => {
                       // this.getProfile();
                       // this.getCompany();
                       console.log(res);
                       this.$message({
                         message: "Manager Profile Updated Successfully!",
-                        type: "success"
+                        type: "success",
                       });
                       this.isloading_1 = true;
                       this.$router.push("/dashboard");
                       // this.getallBlogs()
                     },
-                    function(error) {
+                    function (error) {
                       console.log(error);
                     }
                   );
@@ -304,37 +320,39 @@ export default {
               } else {
                 this.$message({
                   message: "Manager Profile remains the same !",
-                  type: "info"
+                  type: "info",
                 });
               }
             })
-            .catch(error => {
+            .catch((error) => {
               this.$message({
                 message: "Error, Unable to update, Try again!",
-                type: "error"
+                type: "error",
               });
             });
           this.isloading = true;
         } else {
           this.$message({
             message: "Error, field cannot be empty!",
-            type: "error"
+            type: "error",
           });
         }
       });
     },
     getProfile() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data.user.profile);
-        this.profile = res.data.user.profile;
-        //   for (let key in data) {
-        //     const details = data[key];
-        //     details.company.id = key;
-        //     this.company.unshift(details);
-        //   }
-        //   this.company = res.data.company;
-        this.loader = false;
-      });
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.user.profile);
+          this.profile = res.data.user.profile;
+          //   for (let key in data) {
+          //     const details = data[key];
+          //     details.company.id = key;
+          //     this.company.unshift(details);
+          //   }
+          //   this.company = res.data.company;
+          this.loader = false;
+        });
     },
     edititems(id) {
       this.edit = false;
@@ -347,11 +365,11 @@ export default {
       var input = event.target;
       this.profileInfo.profile_pic = input.files[0];
       console.log(this.profileInfo.profile_pic);
-    }
+    },
   },
   created() {
     // this.getCompany();
-  }
+  },
 };
 </script>
 

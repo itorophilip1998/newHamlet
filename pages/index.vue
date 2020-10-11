@@ -5,11 +5,11 @@
     </div>
 
     <!-- hero-start -->
-    <section>
+    <section class="desktop-display">
       <div class="bg-down">
-        <div class="container bg-hero">
-          <div class="row">
-            <div class="col-sm-6">
+        <div class="bg-hero">
+          <div class="grid-hero">
+            <div class="grid-left">
               <div class="hero-text">
                 Do more than what is expected of you with
                 <span style="color: #0065fc; font-weight: bolder">HAMLET</span>
@@ -29,8 +29,85 @@
                 </nuxt-link>
               </div>
             </div>
-            <div class="col-sm-6">
-              <!-- hello -->
+            <div class="">
+              <div class="tooltip-container">
+                <div class="tooltip-wrapper">
+                  <div>
+                    <img
+                      src="/img/profilePic.jpg"
+                      class="dp"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      <p class="name ml-2">
+                        Afolabi Timothy <br />
+                        <span class="role">Front-End Developer</span>
+                      </p>
+                    </li>
+                  </div>
+
+                  <!-- <div class="tooltip"></div> -->
+                </div>
+                <span class="tip"></span>
+                <span class="circle-o"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mobile-display">
+      <div class="bg-down">
+        <div class="bg-hero container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 t-center">
+              <div class="hero-text">
+                Do more than what is expected of you with
+                <span style="color: #0065fc; font-weight: bolder">HAMLET</span>
+              </div>
+              <div class="hero-text-1">
+                Great leaders know their strengths, but they know their
+                weaknesses even better.
+              </div>
+              <div class="mt-3 m-align">
+                <nuxt-link to="/signup">
+                  <button class="btn2 mt-3 btn-sm">
+                    Get started
+                    <span class="ml-2">
+                      <font-awesome-icon :icon="['fa', 'angle-right']" />
+                    </span>
+                  </button>
+                </nuxt-link>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 tooltip-off">
+              <div class="tooltip-container">
+                <div class="tooltip-wrapper">
+                  <div>
+                    <img
+                      src="/img/profilePic.jpg"
+                      class="dp"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      <p class="name ml-2">
+                        Afolabi Timothy <br />
+                        <span class="role">Front-End Developer</span>
+                      </p>
+                    </li>
+                  </div>
+
+                  <!-- <div class="tooltip"></div> -->
+                </div>
+                <span class="tip"></span>
+                <span class="circle-o"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -357,6 +434,108 @@ export default {
 * {
   font-family: "Overpass", sans-serif;
 }
+.grid-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-gap : ; */
+}
+.grid-left {
+  margin-left: 15rem;
+}
+.mobile-display {
+  display: none;
+}
+.tooltip-container {
+  width: 25%;
+  height: 20px;
+  /* border-radius: 8px; */
+  margin-top: 5rem;
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes example {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 500px;
+    top: -50px;
+  }
+  50% {
+    left: 500px;
+    top: 200px;
+  }
+  75% {
+    left: 100px;
+    top: 300px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+.tooltip-wrapper {
+  display: flex;
+  padding: 0.8rem 0 0 0.5rem;
+  flex-direction: row;
+  background: #ffffff;
+  box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+  border-radius: 8px;
+}
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  background: red;
+  padding: 10px;
+  /* box-shadow: 0 0 10px 8px #0000000f; */
+  border-radius: 8px;
+}
+.dp {
+  height: 35px;
+  width: 35px;
+  border-radius: 100vh;
+}
+.tooltip-wrapper li {
+  list-style-type: none;
+}
+.tooltip-wrapper p {
+  /* font-size: .8rem; */
+  line-height: 1;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.name {
+  color: #0065fc;
+  font-size: 1rem;
+}
+.role {
+  color: #35454e;
+  font-size: 0.8rem;
+}
+.tip {
+  height: 12px;
+  width: 20px;
+  background: #ffffff;
+  display: block;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+  margin: -2px 0px 5px 90px;
+}
+.circle-o::after {
+  content: "";
+  width: 10%;
+  height: 100%;
+  margin-left: 90px;
+  display: block;
+  background: #0065fc;
+  border-radius: 100vh;
+  box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+}
 .bg-down {
   margin-top: 5rem;
   margin-bottom: 10rem;
@@ -617,6 +796,12 @@ export default {
   padding: 7rem 0 0 0;
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
+  .mobile-display {
+    display: block;
+  }
+  .desktop-display {
+    display: none;
+  }
   .letter-under-1 {
     width: 100%;
   }
@@ -781,8 +966,20 @@ export default {
     margin-right: 1rem;
     grid-gap: 1rem;
   }
+  .tooltip-off {
+    display: none;
+  }
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
+  .mobile-display {
+    display: block;
+  }
+  .desktop-display {
+    display: none;
+  }
+  .tooltip-off {
+    display: none;
+  }
   .gridsection {
     display: grid;
     grid-template-columns: 1fr;
@@ -946,7 +1143,23 @@ export default {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1020px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .t-center {
+    text-align: center !important;
+    margin-top: 5rem;
+  }
+  .bg-down {
+    margin-bottom: 5rem;
+  }
+  .mobile-display {
+    display: block;
+  }
+  .desktop-display {
+    display: none;
+  }
+  .tooltip-off {
+    display: none;
+  }
   .bg-hero {
     background-image: url("/img/bg-map.png");
     background-repeat: no-repeat;

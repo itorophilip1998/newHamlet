@@ -5,7 +5,12 @@
       <div class="container">
         <div class="row bg-color">
           <div class="col-sm-2">
-            <img v-if="this.company" :src="this.company.company_logo" alt class="w-100" />
+            <img
+              v-if="this.company"
+              :src="this.company.company_logo"
+              alt
+              class="w-100"
+            />
             <span v-if="loader" class="text-center">
               <span disabled>
                 <span
@@ -25,9 +30,11 @@
             <div
               v-if="department == ''"
               class="border-admin"
-              style="cursor:pointer"
+              style="cursor: pointer"
               @click="departmentClick()"
-            >Please click here to add Department</div>
+            >
+              Please click here to add Department
+            </div>
             <hr />
             <!-- Add user / list of users -->
             <div>
@@ -48,7 +55,7 @@
                   v-for="(employee, id) in employees"
                   class="define"
                   :key="id"
-                  style="text-align:center"
+                  style="text-align: center"
                 >
                   <div class>
                     <nuxt-link :to="`/employees/${employee.id}`">
@@ -59,14 +66,16 @@
                         class="rounded-circle"
                         width="80px"
                         height="80px"
-                        style="margin-top:1rem; margin-left:.5rem"
+                        style="margin-top: 1rem; margin-left: 0.5rem"
                       />
                     </nuxt-link>
                     <div
                       class="text-center ml-2 mt-2"
-                      style="font-size:1rem "
+                      style="font-size: 1rem"
                       v-if="employee"
-                    >{{ employee.first_name }}</div>
+                    >
+                      {{ employee.first_name }}
+                    </div>
                   </div>
                 </div>
                 <nuxt-link to="/directory">
@@ -114,7 +123,9 @@
               <nuxt-link to="/directory">App Directory</nuxt-link>
             </p>
             <p>
-              <nuxt-link to="/company/company-overview">Company Details</nuxt-link>
+              <nuxt-link to="/company/company-overview"
+                >Company Details</nuxt-link
+              >
             </p>
             <p>
               <nuxt-link to="/profile/profile">Manager Profile</nuxt-link>
@@ -125,20 +136,25 @@
           </div>
         </div>
       </div>
+      <div>
+        <chat />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import chat from "~/components/chat";
 import navbar from "~/components/navbar7.vue";
 import newLoader from "~/components/loader.vue";
 // import { mapGetters } from "vuex";
 export default {
-    // middleware: "authenticated",
+  // middleware: "authenticated",
   components: {
     "app-navbar": navbar,
-    "app-loader": newLoader
+    "app-loader": newLoader,
+    chat,
   },
   data() {
     return {
@@ -147,7 +163,7 @@ export default {
       profile: {},
       loader: true,
       employees: [],
-      department: []
+      department: [],
     };
   },
   mounted() {
@@ -159,22 +175,24 @@ export default {
       this.$router.push("/department/add-department");
     },
     getCompany() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data.company);
-        this.company = res.data.user.company;
-        let newArray = res.data.user.employees;
-        let n = 10;
-        this.employees = newArray.splice(0, n);
-        console.log(this.employees);
-        this.profile = res.data.user.profile;
-        this.department = res.data.user.company.company_departments;
-        this.loader = false;
-      });
-    }
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.company);
+          this.company = res.data.user.company;
+          let newArray = res.data.user.employees;
+          let n = 10;
+          this.employees = newArray.splice(0, n);
+          console.log(this.employees);
+          this.profile = res.data.user.profile;
+          this.department = res.data.user.company.company_departments;
+          this.loader = false;
+        });
+    },
   },
   created() {
     this.getCompany();
-  }
+  },
 };
 </script>
 

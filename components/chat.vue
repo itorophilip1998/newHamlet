@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="chat">
     <button class="open-button" @click="openForm">
       <i class="fa fa-commenting"></i>
     </button>
@@ -20,53 +20,30 @@
               >{{ this.profile.first_name }} {{ this.profile.last_name }}</span
             >
           </div>
-          <button type="button" class="btn cancel" @click="closeForm">
+          <button type="button" class="btn cancel" @click="closeForm
+          ">
             <i class="fa fa-angle-double-down"></i>
           </button>
         </div>
       </div>
 
-      <form @submit.prevent="sendMessage" class="form-container">
+      <form @submit.prevent="sendMessage" class="form-container  bg-white ">
         <div class="chat-down">
-          <div>
-            <img
-              v-if="this.profile"
-              :src="this.profile.profile_pic"
-              alt
-              class="rounded-circle"
-              width="40px"
-              height="40px"
-            />
-          </div>
-          <div
-            class="pl-2 user-text br/"
+          <ul class="pl-md-2">
+          <li
+            class="pl-2 user-text clearfix "
             v-for="(chat, index) in chats"
             :key="index"
           >
-            <p class="" style="margin-top: 1rem; margin-left: 0.5rem">
+            <div :class="`${(chat.user.id == profile.id) ? 'myChat bg-primary float-right text-white ' : 'adminChat text-dark '} message p-2  border rounded-lg shadow`">
               {{ chat.message }}
-            </p>
-          </div>
+            </div>
+          </li>
+        </ul>
         </div>
 
-        <!-- <div class="d-flex mt-4">
-          <div>
-            <img
-              v-if="this.profile_pic"
-              src="/img/averter.jpg"
-              alt
-              class="rounded-circle"
-              width="40px"
-              height="40px"
-            />
-          </div>
-          <div class="pl-2 admin-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
-            culpa?
-          </div>
-        </div> -->
 
-        <div class="form-down">
+        <div class="form-down bg-white ">
           <div class="d-flex">
             <div class="">
               <input
@@ -154,6 +131,8 @@ export default {
           console.log(error);
           this.loader = true;
         });
+        this.viewMessage();
+        this.message=""
     },
     viewMessage() {
       this.$axios
@@ -172,7 +151,24 @@ export default {
 </script>
 
 <style scoped>
+  .message{
+  max-width: 90%;
+  border-radius: 20px;
+                margin-bottom: 10px ;
+                position: relative;
+                display:inline-block;
+  }
+.adminChat{
+  background:whitesmoke
+}
+li {
+            list-style-type: none;
+        }
+#chat{
+  z-index: 3 !important;
+}
 .open-button {
+
   /* padding: 16px 20px; */
   border: none;
   border-radius: 50%;
@@ -201,7 +197,7 @@ export default {
   display: none;
   position: fixed;
   bottom: 0;
-  height: 710px;
+  height: 600px;
   right: 15px;
   border: 1px solid #ffffff;
   z-index: 9;

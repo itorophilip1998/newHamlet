@@ -3,28 +3,28 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _26f285a6 = () => interopDefault(import('..\\pages\\all-employees.vue' /* webpackChunkName: "pages/all-employees" */))
-const _5d0de67f = () => interopDefault(import('..\\pages\\company-details.vue' /* webpackChunkName: "pages/company-details" */))
-const _5575076e = () => interopDefault(import('..\\pages\\contact-us.vue' /* webpackChunkName: "pages/contact-us" */))
-const _580f723e = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages/dashboard" */))
-const _212de63a = () => interopDefault(import('..\\pages\\directory.vue' /* webpackChunkName: "pages/directory" */))
-const _1cf8b3f1 = () => interopDefault(import('..\\pages\\employee.vue' /* webpackChunkName: "pages/employee" */))
-const _67c34434 = () => interopDefault(import('..\\pages\\employee-details.vue' /* webpackChunkName: "pages/employee-details" */))
-const _10631c1a = () => interopDefault(import('..\\pages\\manager-account.vue' /* webpackChunkName: "pages/manager-account" */))
-const _0ad811a5 = () => interopDefault(import('..\\pages\\signin.vue' /* webpackChunkName: "pages/signin" */))
-const _1f6e681b = () => interopDefault(import('..\\pages\\signup.vue' /* webpackChunkName: "pages/signup" */))
-const _f379065a = () => interopDefault(import('..\\pages\\company\\company-overview.vue' /* webpackChunkName: "pages/company/company-overview" */))
-const _1f81b144 = () => interopDefault(import('..\\pages\\company\\locations.vue' /* webpackChunkName: "pages/company/locations" */))
-const _1259b6bf = () => interopDefault(import('..\\pages\\company\\taxinfo.vue' /* webpackChunkName: "pages/company/taxinfo" */))
-const _bab50b5a = () => interopDefault(import('..\\pages\\department\\add-department.vue' /* webpackChunkName: "pages/department/add-department" */))
-const _01e85c18 = () => interopDefault(import('..\\pages\\employees\\employmentdetails.vue' /* webpackChunkName: "pages/employees/employmentdetails" */))
-const _7d8b2103 = () => interopDefault(import('..\\pages\\google\\site.vue' /* webpackChunkName: "pages/google/site" */))
-const _65ed083a = () => interopDefault(import('..\\pages\\profile\\profile.vue' /* webpackChunkName: "pages/profile/profile" */))
-const _5858e7df = () => interopDefault(import('..\\pages\\contactinfo\\_name.vue' /* webpackChunkName: "pages/contactinfo/_name" */))
-const _324e751f = () => interopDefault(import('..\\pages\\editEmployee\\_name.vue' /* webpackChunkName: "pages/editEmployee/_name" */))
-const _1f86e788 = () => interopDefault(import('..\\pages\\employees\\_name.vue' /* webpackChunkName: "pages/employees/_name" */))
-const _f011e99c = () => interopDefault(import('..\\pages\\jobdetails\\_name.vue' /* webpackChunkName: "pages/jobdetails/_name" */))
-const _2ca3589f = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _e2399584 = () => interopDefault(import('..\\pages\\all-employees.vue' /* webpackChunkName: "pages/all-employees" */))
+const _e8dddfd2 = () => interopDefault(import('..\\pages\\company-details.vue' /* webpackChunkName: "pages/company-details" */))
+const _66543ed6 = () => interopDefault(import('..\\pages\\contact-us.vue' /* webpackChunkName: "pages/contact-us" */))
+const _48208279 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages/dashboard" */))
+const _d553bc5c = () => interopDefault(import('..\\pages\\directory.vue' /* webpackChunkName: "pages/directory" */))
+const _7b8ea559 = () => interopDefault(import('..\\pages\\employee.vue' /* webpackChunkName: "pages/employee" */))
+const _6e00674e = () => interopDefault(import('..\\pages\\employee-details.vue' /* webpackChunkName: "pages/employee-details" */))
+const _3ee645b2 = () => interopDefault(import('..\\pages\\manager-account.vue' /* webpackChunkName: "pages/manager-account" */))
+const _498b3d0d = () => interopDefault(import('..\\pages\\signin.vue' /* webpackChunkName: "pages/signin" */))
+const _5e219383 = () => interopDefault(import('..\\pages\\signup.vue' /* webpackChunkName: "pages/signup" */))
+const _951cef2a = () => interopDefault(import('..\\pages\\company\\company-overview.vue' /* webpackChunkName: "pages/company/company-overview" */))
+const _5df1fea8 = () => interopDefault(import('..\\pages\\company\\locations.vue' /* webpackChunkName: "pages/company/locations" */))
+const _97887fb2 = () => interopDefault(import('..\\pages\\company\\taxinfo.vue' /* webpackChunkName: "pages/company/taxinfo" */))
+const _5938e1bb = () => interopDefault(import('..\\pages\\department\\add-department.vue' /* webpackChunkName: "pages/department/add-department" */))
+const _5e62ff5c = () => interopDefault(import('..\\pages\\employees\\employmentdetails.vue' /* webpackChunkName: "pages/employees/employmentdetails" */))
+const _590bc32a = () => interopDefault(import('..\\pages\\google\\site.vue' /* webpackChunkName: "pages/google/site" */))
+const _6eeb854b = () => interopDefault(import('..\\pages\\profile\\profile.vue' /* webpackChunkName: "pages/profile/profile" */))
+const _09de3747 = () => interopDefault(import('..\\pages\\contactinfo\\_name.vue' /* webpackChunkName: "pages/contactinfo/_name" */))
+const _9d19da92 = () => interopDefault(import('..\\pages\\editEmployee\\_name.vue' /* webpackChunkName: "pages/editEmployee/_name" */))
+const _7d2e1e20 = () => interopDefault(import('..\\pages\\employees\\_name.vue' /* webpackChunkName: "pages/employees/_name" */))
+const _22562eca = () => interopDefault(import('..\\pages\\jobdetails\\_name.vue' /* webpackChunkName: "pages/jobdetails/_name" */))
+const _2ea92037 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -44,91 +44,91 @@ export const routerOptions = {
 
   routes: [{
     path: "/all-employees",
-    component: _26f285a6,
+    component: _e2399584,
     name: "all-employees"
   }, {
     path: "/company-details",
-    component: _5d0de67f,
+    component: _e8dddfd2,
     name: "company-details"
   }, {
     path: "/contact-us",
-    component: _5575076e,
+    component: _66543ed6,
     name: "contact-us"
   }, {
     path: "/dashboard",
-    component: _580f723e,
+    component: _48208279,
     name: "dashboard"
   }, {
     path: "/directory",
-    component: _212de63a,
+    component: _d553bc5c,
     name: "directory"
   }, {
     path: "/employee",
-    component: _1cf8b3f1,
+    component: _7b8ea559,
     name: "employee"
   }, {
     path: "/employee-details",
-    component: _67c34434,
+    component: _6e00674e,
     name: "employee-details"
   }, {
     path: "/manager-account",
-    component: _10631c1a,
+    component: _3ee645b2,
     name: "manager-account"
   }, {
     path: "/signin",
-    component: _0ad811a5,
+    component: _498b3d0d,
     name: "signin"
   }, {
     path: "/signup",
-    component: _1f6e681b,
+    component: _5e219383,
     name: "signup"
   }, {
     path: "/company/company-overview",
-    component: _f379065a,
+    component: _951cef2a,
     name: "company-company-overview"
   }, {
     path: "/company/locations",
-    component: _1f81b144,
+    component: _5df1fea8,
     name: "company-locations"
   }, {
     path: "/company/taxinfo",
-    component: _1259b6bf,
+    component: _97887fb2,
     name: "company-taxinfo"
   }, {
     path: "/department/add-department",
-    component: _bab50b5a,
+    component: _5938e1bb,
     name: "department-add-department"
   }, {
     path: "/employees/employmentdetails",
-    component: _01e85c18,
+    component: _5e62ff5c,
     name: "employees-employmentdetails"
   }, {
     path: "/google/site",
-    component: _7d8b2103,
+    component: _590bc32a,
     name: "google-site"
   }, {
     path: "/profile/profile",
-    component: _65ed083a,
+    component: _6eeb854b,
     name: "profile-profile"
   }, {
     path: "/contactinfo/:name?",
-    component: _5858e7df,
+    component: _09de3747,
     name: "contactinfo-name"
   }, {
     path: "/editEmployee/:name?",
-    component: _324e751f,
+    component: _9d19da92,
     name: "editEmployee-name"
   }, {
     path: "/employees/:name?",
-    component: _1f86e788,
+    component: _7d2e1e20,
     name: "employees-name"
   }, {
     path: "/jobdetails/:name?",
-    component: _f011e99c,
+    component: _22562eca,
     name: "jobdetails-name"
   }, {
     path: "/",
-    component: _2ca3589f,
+    component: _2ea92037,
     name: "index"
   }],
 

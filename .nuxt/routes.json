@@ -2,265 +2,155 @@
   {
     "name": "all-employees",
     "path": "/all-employees",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\all-employees.vue",
-    "chunkName": "pages/all-employees"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\all-employees.vue",
     "chunkName": "pages/all-employees",
-    "_name": "_26f285a6"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_e2399584"
   },
   {
     "name": "company-details",
     "path": "/company-details",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company-details.vue",
-    "chunkName": "pages/company-details"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company-details.vue",
     "chunkName": "pages/company-details",
-    "_name": "_5d0de67f"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_e8dddfd2"
   },
   {
     "name": "contact-us",
     "path": "/contact-us",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\contact-us.vue",
-    "chunkName": "pages/contact-us"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\contact-us.vue",
     "chunkName": "pages/contact-us",
-    "_name": "_5575076e"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_66543ed6"
   },
   {
     "name": "dashboard",
     "path": "/dashboard",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\dashboard.vue",
-    "chunkName": "pages/dashboard"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\dashboard.vue",
     "chunkName": "pages/dashboard",
-    "_name": "_580f723e"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_48208279"
   },
   {
     "name": "directory",
     "path": "/directory",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\directory.vue",
-    "chunkName": "pages/directory"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\directory.vue",
     "chunkName": "pages/directory",
-    "_name": "_212de63a"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_d553bc5c"
   },
   {
     "name": "employee",
     "path": "/employee",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employee.vue",
-    "chunkName": "pages/employee"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employee.vue",
     "chunkName": "pages/employee",
-    "_name": "_1cf8b3f1"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_7b8ea559"
   },
   {
     "name": "employee-details",
     "path": "/employee-details",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employee-details.vue",
-    "chunkName": "pages/employee-details"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employee-details.vue",
     "chunkName": "pages/employee-details",
-    "_name": "_67c34434"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_6e00674e"
   },
   {
     "name": "manager-account",
     "path": "/manager-account",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\manager-account.vue",
-    "chunkName": "pages/manager-account"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\manager-account.vue",
     "chunkName": "pages/manager-account",
-    "_name": "_10631c1a"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_3ee645b2"
   },
   {
     "name": "signin",
     "path": "/signin",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\signin.vue",
-    "chunkName": "pages/signin"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\signin.vue",
     "chunkName": "pages/signin",
-    "_name": "_0ad811a5"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_498b3d0d"
   },
   {
     "name": "signup",
     "path": "/signup",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\signup.vue",
-    "chunkName": "pages/signup"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\signup.vue",
     "chunkName": "pages/signup",
-    "_name": "_1f6e681b"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_5e219383"
   },
   {
     "name": "company-company-overview",
     "path": "/company/company-overview",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\company-overview.vue",
-    "chunkName": "pages/company/company-overview"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company\\\\company-overview.vue",
     "chunkName": "pages/company/company-overview",
-    "_name": "_f379065a"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_951cef2a"
   },
   {
     "name": "company-locations",
     "path": "/company/locations",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\locations.vue",
-    "chunkName": "pages/company/locations"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company\\\\locations.vue",
     "chunkName": "pages/company/locations",
-    "_name": "_1f81b144"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_5df1fea8"
   },
   {
     "name": "company-taxinfo",
     "path": "/company/taxinfo",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\taxinfo.vue",
-    "chunkName": "pages/company/taxinfo"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\company\\\\taxinfo.vue",
     "chunkName": "pages/company/taxinfo",
-    "_name": "_1259b6bf"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_97887fb2"
   },
   {
     "name": "department-add-department",
     "path": "/department/add-department",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\department\\\\add-department.vue",
-    "chunkName": "pages/department/add-department"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\department\\\\add-department.vue",
     "chunkName": "pages/department/add-department",
-    "_name": "_bab50b5a"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_5938e1bb"
   },
   {
     "name": "employees-employmentdetails",
     "path": "/employees/employmentdetails",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employees\\\\employmentdetails.vue",
-    "chunkName": "pages/employees/employmentdetails"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employees\\\\employmentdetails.vue",
     "chunkName": "pages/employees/employmentdetails",
-    "_name": "_01e85c18"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_5e62ff5c"
   },
   {
     "name": "google-site",
     "path": "/google/site",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\google\\\\site.vue",
-    "chunkName": "pages/google/site"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\google\\\\site.vue",
     "chunkName": "pages/google/site",
-    "_name": "_7d8b2103"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_590bc32a"
   },
   {
     "name": "profile-profile",
     "path": "/profile/profile",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\profile\\\\profile.vue",
-    "chunkName": "pages/profile/profile"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\profile\\\\profile.vue",
     "chunkName": "pages/profile/profile",
-    "_name": "_65ed083a"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_6eeb854b"
   },
   {
     "name": "contactinfo-name",
     "path": "/contactinfo/:name?",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\contactinfo\\\\_name.vue",
-    "chunkName": "pages/contactinfo/_name"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\contactinfo\\\\_name.vue",
     "chunkName": "pages/contactinfo/_name",
-    "_name": "_5858e7df"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_09de3747"
   },
   {
     "name": "editEmployee-name",
     "path": "/editEmployee/:name?",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\editEmployee\\\\_name.vue",
-    "chunkName": "pages/editEmployee/_name"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\editEmployee\\\\_name.vue",
     "chunkName": "pages/editEmployee/_name",
-    "_name": "_324e751f"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_9d19da92"
   },
   {
     "name": "employees-name",
     "path": "/employees/:name?",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employees\\\\_name.vue",
-    "chunkName": "pages/employees/_name"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\employees\\\\_name.vue",
     "chunkName": "pages/employees/_name",
-    "_name": "_1f86e788"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_7d2e1e20"
   },
   {
     "name": "jobdetails-name",
     "path": "/jobdetails/:name?",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\jobdetails\\\\_name.vue",
-    "chunkName": "pages/jobdetails/_name"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\jobdetails\\\\_name.vue",
     "chunkName": "pages/jobdetails/_name",
-    "_name": "_f011e99c"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_22562eca"
   },
   {
     "name": "index",
     "path": "/",
-<<<<<<< HEAD
     "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
-=======
-    "component": "C:\\\\Users\\\\Itoro\\\\Desktop\\\\newHrm\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_2ca3589f"
->>>>>>> 2aa69bae75d8be2851d40cb6941d5c86544d72a2
+    "_name": "_2ea92037"
   }
 ]

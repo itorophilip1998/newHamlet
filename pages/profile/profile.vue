@@ -137,7 +137,9 @@
                     class="form-control"
                     v-model="profileInfo.phone"
                     v-validate="'numeric'"
-                    :class="{ 'is-invalid': submitted && errors.has('phone') }"
+                    :class="{
+                      'is-invalid': submitted && errors.has('phone'),
+                    }"
                   />
                   <small
                     v-if="submitted && errors.has('phone')"

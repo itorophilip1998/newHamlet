@@ -7,10 +7,10 @@
     <!-- hero-start -->
     <section class="desktop-display">
       <div class="bg-down">
-        <div class="bg-hero container-fluid">
+        <div class="bg-hero container">
           <div class="row">
             <div class="col-lg-6">
-              <div class="grid-left">
+              <div class="">
                 <div class="hero-text">
                   Do more than what is expected of you with
                   <span style="color: #0065fc; font-weight: bolder"
@@ -35,7 +35,7 @@
             </div>
             <div class="col-lg-6">
               <div class="tooltip-container">
-                <div class="tooltip-wrapper">
+                <div class="tooltip-wrapper d-flex">
                   <div>
                     <img
                       src="/img/profilePic.jpg"
@@ -450,7 +450,7 @@ export default {
   display: none;
 }
 .tooltip-container {
-  width: 25%;
+  width: 34%;
   height: 20px;
   /* border-radius: 8px; */
   margin-top: 5rem;
@@ -468,11 +468,11 @@ export default {
     top: 0px;
   }
   25% {
-    left: 500px;
+    left: 400px;
     top: -50px;
   }
   50% {
-    left: 500px;
+    left: 400px;
     top: 200px;
   }
   75% {
@@ -485,10 +485,10 @@ export default {
   }
 }
 .tooltip-wrapper {
-  display: flex;
+  /* display: flex; */
   padding: 0.8rem 0 0 0.5rem;
-  flex-direction: row;
-  background: #ffffff;
+  /* flex-direction: row; */
+  background-color: #ffffff;
   box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
   border-radius: 8px;
 }

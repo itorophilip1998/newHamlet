@@ -749,7 +749,7 @@
 
 <script>
 import sidebar from "~/components/sidebar2.vue";
-import navbar from "~/components/navbar4.vue";
+import navbar from "~/components/navbar7.vue";
 import appLoader from "~/components/loader-1.vue";
 import newLoader from "~/components/loader.vue";
 import swal from "sweetalert";

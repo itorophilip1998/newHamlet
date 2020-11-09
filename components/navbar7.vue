@@ -3,7 +3,7 @@
     <div class="one desktopView">
       <nav class="navbar navbar-expand-lg navbar-light">
         <nuxt-link to="/dashboard">
-          <a class="navbar-brand" style="color: #0065FC">Hamlet</a>
+          <a class="navbar-brand" style="color: #0065fc">Hamlet</a>
         </nuxt-link>
         <button
           class="navbar-toggler"
@@ -23,7 +23,13 @@
       {{auth.user.email}}
       <span class="ml-3">Log out</span>
             </li>-->
-            <li class="nav-item active"></li>
+            <li class="nav-item active mt-3">
+              <div @click="notificationOpen" style="cursor : pointer">
+                <span style="color : #0065fc"><font-awesome-icon :icon="['fa', 'bell']" /></span> 
+                 <span class="badge">0</span>
+              </div>
+              
+            </li>
             <li class="nav-item active">
               <nuxt-link to="/profile/profile">
                 <img
@@ -38,7 +44,9 @@
             </li>
 
             <li class="nav-item active mt-1">
-              <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
+              <button v-if="loader" @click="logOut" class="btn1">
+                Log Out
+              </button>
               <span v-else>
                 <app-loader />
               </span>
@@ -47,6 +55,30 @@
         </div>
       </nav>
     </div>
+
+    <transition name="slide" v-if="displayModal" appear>
+    <div class="modal-new">
+      <div class="d-flex justify-content-between">
+        <div class="notify">
+          Notification (0)
+        </div>
+         <div class="" @click="notificationClose" style="cursor : pointer;  transition: 0.3s;">
+        <font-awesome-icon :icon="['fa', 'times']" />
+      </div>
+      </div>
+     <div class="border-line"></div>
+  <div class="d-flex mt-3 mb-3">
+    <div class="icon-edit">
+       <font-awesome-icon :icon="['fa', 'volume-up']" />
+    </div>
+    <div class="ml-3">
+      <div class="header-notify">Application Update</div>
+      <div class="text-notify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, quis.</div>
+    </div>
+  </div>
+  <div class="border-line"></div>
+    </div>
+    </transition>
     <!-- desktop view end -->
 
     <!-- mobile-view -->
@@ -55,7 +87,12 @@
         <div class="mobileView">
           <div id="mySidenav" :style="styleObject" class="sidenav">
             <div class="float-right pb-5">
-              <span to class="closebtn" style="color : #FFFFFF" @click="closeNav">
+              <span
+                to
+                class="closebtn"
+                style="color: #ffffff"
+                @click="closeNav"
+              >
                 <font-awesome-icon :icon="['fa', 'times']" />
               </span>
             </div>
@@ -66,30 +103,42 @@
                 :src="this.company.company_logo"
                 alt
                 class="w-50"
-                style="margin-bottom:1rem"
+                style="margin-bottom: 1rem"
               />
               <p>
                 <nuxt-link
                   to="/company/company-overview"
-                  style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"
+                  style="
+                    text-decoration: none;
+                    color: #ffffff;
+                    margin-top: 2rem !important;
+                  "
                 >
-                  <h5 style="margin-bottom:1rem">Company Overview</h5>
+                  <h5 style="margin-bottom: 1rem">Company Overview</h5>
                 </nuxt-link>
               </p>
               <p>
                 <nuxt-link
                   to="/all-employees"
-                  style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"
+                  style="
+                    text-decoration: none;
+                    color: #ffffff;
+                    margin-top: 2rem !important;
+                  "
                 >
-                  <h5 style="margin-bottom:1rem">Directory</h5>
+                  <h5 style="margin-bottom: 1rem">Directory</h5>
                 </nuxt-link>
               </p>
               <p>
                 <nuxt-link
                   to="/department/add-department"
-                  style="text-decoration:none; color : #FFFFFF; margin-top:2rem !important"
+                  style="
+                    text-decoration: none;
+                    color: #ffffff;
+                    margin-top: 2rem !important;
+                  "
                 >
-                  <h5 style="margin-bottom:1rem">Departments</h5>
+                  <h5 style="margin-bottom: 1rem">Departments</h5>
                 </nuxt-link>
               </p>
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -110,7 +159,9 @@
                   </nuxt-link>
                 </li>
                 <li class="nav-item active">
-                  <button v-if="loader" @click="logOut" class="btn1">Log Out</button>
+                  <button v-if="loader" @click="logOut" class="btn1">
+                    Log Out
+                  </button>
                   <span v-else>
                     <app-loader />
                   </span>
@@ -121,9 +172,15 @@
             </div>
           </div>
           <div class="wrapper2">
-            <div class="logo2">Hamlet</div>
+            <nuxt-link to="/dashboard">
+              <div class="logo2">Hamlet</div>
+            </nuxt-link>
             <div>
-              <span style="font-size:30px;cursor:pointer" class="openNav" @click="openNav">
+              <span
+                style="font-size: 30px; cursor: pointer"
+                class="openNav"
+                @click="openNav"
+              >
                 <font-awesome-icon :icon="['fa', 'bars']" />
               </span>
             </div>
@@ -138,25 +195,37 @@
 import axios from "axios";
 import newLoader from "~/components/loader.vue";
 export default {
+  name: "navbar7",
   data() {
     return {
+      displayModal: false,
       profile_pic: {},
       styleObject: {
-        width: "0px"
+        width: "0px",
       },
       loader: true,
-      company: {}
+      company: {},
     };
   },
   mounted() {
     this.getProfile(), this.getCompany();
   },
   methods: {
+    notificationOpen(){
+      this.displayModal = true
+      // alert("clicked")
+    },
+    notificationClose(){
+      this.displayModal = false
+      // alert("clicked")
+    },
     getProfile() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data.profile);
-        this.profile_pic = res.data.user.profile;
-      });
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.profile);
+          this.profile_pic = res.data.user.profile;
+        });
     },
     openNav() {
       this.styleObject.width = "100%";
@@ -172,16 +241,18 @@ export default {
       this.$router.push("/signin");
       this.$message({
         message: "You Logged out successfully!",
-        type: "success"
+        type: "success",
       });
     },
     getCompany() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data.company);
-        this.company = res.data.user.company;
-      });
-    }
-  }
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.company);
+          this.company = res.data.user.company;
+        });
+    },
+  },
 };
 </script>>
 <style scoped>
@@ -191,9 +262,61 @@ export default {
 ul li {
   margin-left: 1.5rem;
 }
+.modal-new {
+  position: fixed;
+  top: 17%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  /* z-index: 99; */
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  /* border-radius: 16px; */
+  padding: 10px;
+  /* position: absolute; */
+  z-index: 1001;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: opacity 0.6s;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.05);
+}
+.badge {
+  position: absolute;
+  /* top: 1px; */
+  /* right: 1px; */
+  padding: 2px;
+  border-radius: 50%;
+  /* background: red; */
+  color: #000;
+}
+.notify{
+  color: #0065fc;
+}
+.icon-edit{
+  padding: 1rem;
+  background: #e6ecf2;
+  border-radius: 50%;
+  /* line-height: 3; */
+  height: 55px;
+    width: 55px;
+}
+.border-line{
+  border: 1px solid #e6ecf2;
+  width: 100%;
+  margin: .1rem;
+}
+.header-notify{
+font-weight: bold;
+}
+.text-notify{
+  font-size: .8rem;
+}
 .boxShadow {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
   background-color: rgba(255, 255, 255, 1) !important;
+}
+a {
+  text-decoration: none !important;
 }
 .one {
   margin-left: 100px;
@@ -301,6 +424,9 @@ ul li {
     }
     } */
 @media only screen and (min-width: 300px) and (max-width: 350px) {
+  a {
+    text-decoration: none !important;
+  }
   .closebtn {
     position: absolute;
     top: 1rem;
@@ -319,6 +445,9 @@ ul li {
   }
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
+  a {
+    text-decoration: none !important;
+  }
   .desktopView {
     display: none;
   }
@@ -334,6 +463,9 @@ ul li {
   }
 }
 @media only screen and (min-width: 579px) and (max-width: 996px) {
+  a {
+    text-decoration: none !important;
+  }
   .one {
     margin-left: 20px;
     margin-right: 20px;

@@ -160,7 +160,7 @@
 
 <script>
 import sidebar from "~/components/sidebar4.vue";
-import navbar from "~/components/navbar5.vue";
+import navbar from "~/components/navbar7.vue";
 import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import Loader from "~/components/loader-1.vue";

@@ -20,30 +20,34 @@
               >{{ this.profile.first_name }} {{ this.profile.last_name }}</span
             >
           </div>
-          <button type="button" class="btn cancel" @click="closeForm
-          ">
+          <button type="button" class="btn cancel" @click="closeForm">
             <i class="fa fa-angle-double-down"></i>
           </button>
         </div>
       </div>
 
-      <form @submit.prevent="sendMessage" class="form-container  bg-white ">
+      <form @submit.prevent="sendMessage" class="form-container bg-white">
         <div class="chat-down">
           <ul class="pl-md-2">
-          <li
-            class="pl-2 user-text clearfix "
-            v-for="(chat, index) in chats"
-            :key="index"
-          >
-            <div :class="`${(chat.user.id == profile.id) ? 'myChat bg-primary float-right text-white ' : 'adminChat text-dark '} message p-2  border rounded-lg shadow`">
-              {{ chat.message }}
-            </div>
-          </li>
-        </ul>
+            <li
+              class="pl-2 user-text clearfix"
+              v-for="(chat, index) in chats"
+              :key="index"
+            >
+              <div
+                :class="`${
+                  chat.user.id == profile.id
+                    ? 'myChat bg-primary float-right text-white '
+                    : 'adminChat text-dark '
+                } message p-2  border rounded-lg shadow`"
+              >
+                {{ chat.message }}
+              </div>
+            </li>
+          </ul>
         </div>
 
-
-        <div class="form-down bg-white ">
+        <div class="form-down bg-white">
           <div class="d-flex">
             <div class="">
               <input
@@ -131,8 +135,8 @@ export default {
           console.log(error);
           this.loader = true;
         });
-        this.viewMessage();
-        this.message=""
+      this.viewMessage();
+      this.message = "";
     },
     viewMessage() {
       this.$axios
@@ -151,24 +155,23 @@ export default {
 </script>
 
 <style scoped>
-  .message{
+.message {
   max-width: 90%;
   border-radius: 20px;
-                margin-bottom: 10px ;
-                position: relative;
-                display:inline-block;
-  }
-.adminChat{
-  background:whitesmoke
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+.adminChat {
+  background: whitesmoke;
 }
 li {
-            list-style-type: none;
-        }
-#chat{
+  list-style-type: none;
+}
+#chat {
   z-index: 3 !important;
 }
 .open-button {
-
   /* padding: 16px 20px; */
   border: none;
   border-radius: 50%;
@@ -300,5 +303,101 @@ li {
   /* width: 17%; */
   /* background: #64a2ff; */
   /* right: px; */
+}
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 500px;
+    right: 15px;
+    border: 1px solid #ffffff;
+    z-index: 9;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+    transition: 0.2s ease;
+  }
+  .closeBtn {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #000000;
+    box-shadow: -1px 6px 13px 0px rgba(243, 241, 241, 0.44);
+    position: fixed;
+    width: 90%;
+    z-index: 1;
+    outline: none !important;
+    /* top: 0;
+  left: 0; */
+  }
+  .form-container {
+    max-width: 290px;
+    padding: 10px;
+    /* margin-top: 2rem; */
+    /* height: 100vh; */
+    background-color: white;
+  }
+  ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  ul.pl-md-2 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .form-down {
+    position: fixed;
+    bottom: 10px;
+    width: 90%;
+    /* background: #64a2ff; */
+    /* right: px; */
+  }
+}
+@media only screen and (min-width: 360px) and (max-width: 578px) {
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 500px;
+    right: 15px;
+    border: 1px solid #ffffff;
+    z-index: 9;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+    transition: 0.2s ease;
+  }
+  .closeBtn {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #000000;
+    box-shadow: -1px 6px 13px 0px rgba(243, 241, 241, 0.44);
+    position: fixed;
+    width: auto;
+    z-index: 1;
+    outline: none !important;
+    /* top: 0;
+  left: 0; */
+  }
+  .form-container {
+    max-width: 290px;
+    padding: 10px;
+    /* margin-top: 2rem; */
+    /* height: 100vh; */
+    background-color: white;
+  }
+  ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  ul.pl-md-2 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .form-down {
+    position: fixed;
+    bottom: 10px;
+    width: auto;
+    /* background: #64a2ff; */
+    /* right: px; */
+  }
 }
 </style>

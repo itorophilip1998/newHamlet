@@ -371,7 +371,7 @@ export default {
 .bg-color {
   background-color: #e6ecf2 !important;
   margin-top: 3rem;
-  height: 130vh;
+  height: auto;
 }
 .side-bar {
   background-color: #0065fc;

@@ -288,17 +288,23 @@ a:hover {
 }
 @media only screen and (min-width: 300px) and (max-width: 350px) {
   .bg-color {
-    padding: 10rem 0.5rem 2rem 0.5rem;
+    padding: 7rem 0.5rem 2rem 0.5rem;
     height: auto;
   }
   .quick-mobile {
     display: none;
   }
+  h2 {
+    margin-top: 1.5rem;
+  }
 }
 @media only screen and (min-width: 360px) and (max-width: 578px) {
   .bg-color {
-    padding: 10rem 0.5rem 2rem 0.5rem;
+    padding: 7rem 0.5rem 2rem 0.5rem;
     height: auto;
+  }
+  h2 {
+    margin-top: 1.5rem;
   }
   .quick-mobile {
     display: none;

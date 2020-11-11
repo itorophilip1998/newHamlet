@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="chat">
     <button class="open-button" @click="openForm">
       <i class="fa fa-commenting"></i>
     </button>
@@ -26,47 +26,28 @@
         </div>
       </div>
 
-      <form @submit.prevent="sendMessage" class="form-container">
+      <form @submit.prevent="sendMessage" class="form-container bg-white">
         <div class="chat-down">
-          <div>
-            <img
-              v-if="this.profile"
-              :src="this.profile.profile_pic"
-              alt
-              class="rounded-circle"
-              width="40px"
-              height="40px"
-            />
-          </div>
-          <div
-            class="pl-2 user-text br/"
-            v-for="(chat, index) in chats"
-            :key="index"
-          >
-            <p class="" style="margin-top: 1rem; margin-left: 0.5rem">
-              {{ chat.message }}
-            </p>
-          </div>
+          <ul class="pl-md-2">
+            <li
+              class="pl-2 user-text clearfix"
+              v-for="(chat, index) in chats"
+              :key="index"
+            >
+              <div
+                :class="`${
+                  chat.user.id == profile.id
+                    ? 'myChat bg-primary float-right text-white '
+                    : 'adminChat text-dark '
+                } message p-2  border rounded-lg shadow`"
+              >
+                {{ chat.message }}
+              </div>
+            </li>
+          </ul>
         </div>
 
-        <!-- <div class="d-flex mt-4">
-          <div>
-            <img
-              v-if="this.profile_pic"
-              src="/img/averter.jpg"
-              alt
-              class="rounded-circle"
-              width="40px"
-              height="40px"
-            />
-          </div>
-          <div class="pl-2 admin-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
-            culpa?
-          </div>
-        </div> -->
-
-        <div class="form-down">
+        <div class="form-down bg-white">
           <div class="d-flex">
             <div class="">
               <input
@@ -154,6 +135,8 @@ export default {
           console.log(error);
           this.loader = true;
         });
+      this.viewMessage();
+      this.message = "";
     },
     viewMessage() {
       this.$axios
@@ -172,6 +155,22 @@ export default {
 </script>
 
 <style scoped>
+.message {
+  max-width: 90%;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+.adminChat {
+  background: whitesmoke;
+}
+li {
+  list-style-type: none;
+}
+#chat {
+  z-index: 3 !important;
+}
 .open-button {
   /* padding: 16px 20px; */
   border: none;
@@ -201,7 +200,7 @@ export default {
   display: none;
   position: fixed;
   bottom: 0;
-  height: 710px;
+  height: 600px;
   right: 15px;
   border: 1px solid #ffffff;
   z-index: 9;
@@ -304,5 +303,101 @@ export default {
   /* width: 17%; */
   /* background: #64a2ff; */
   /* right: px; */
+}
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 500px;
+    right: 15px;
+    border: 1px solid #ffffff;
+    z-index: 9;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+    transition: 0.2s ease;
+  }
+  .closeBtn {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #000000;
+    box-shadow: -1px 6px 13px 0px rgba(243, 241, 241, 0.44);
+    position: fixed;
+    width: 90%;
+    z-index: 1;
+    outline: none !important;
+    /* top: 0;
+  left: 0; */
+  }
+  .form-container {
+    max-width: 290px;
+    padding: 10px;
+    /* margin-top: 2rem; */
+    /* height: 100vh; */
+    background-color: white;
+  }
+  ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  ul.pl-md-2 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .form-down {
+    position: fixed;
+    bottom: 10px;
+    width: 90%;
+    /* background: #64a2ff; */
+    /* right: px; */
+  }
+}
+@media only screen and (min-width: 360px) and (max-width: 578px) {
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 500px;
+    right: 15px;
+    border: 1px solid #ffffff;
+    z-index: 9;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+    transition: 0.2s ease;
+  }
+  .closeBtn {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #000000;
+    box-shadow: -1px 6px 13px 0px rgba(243, 241, 241, 0.44);
+    position: fixed;
+    width: auto;
+    z-index: 1;
+    outline: none !important;
+    /* top: 0;
+  left: 0; */
+  }
+  .form-container {
+    max-width: 290px;
+    padding: 10px;
+    /* margin-top: 2rem; */
+    /* height: 100vh; */
+    background-color: white;
+  }
+  ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  ul.pl-md-2 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .form-down {
+    position: fixed;
+    bottom: 10px;
+    width: auto;
+    /* background: #64a2ff; */
+    /* right: px; */
+  }
 }
 </style>

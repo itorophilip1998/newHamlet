@@ -245,7 +245,7 @@
 
 
 <script>
-import navbar from "~/components/navbar6.vue";
+import navbar from "~/components/navbar7.vue";
 import newLoader from "~/components/loader-1.vue";
 export default {
   // auth: false,

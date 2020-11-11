@@ -7,31 +7,35 @@
     <!-- hero-start -->
     <section class="desktop-display">
       <div class="bg-down">
-        <div class="bg-hero">
-          <div class="grid-hero">
-            <div class="grid-left">
-              <div class="hero-text">
-                Do more than what is expected of you with
-                <span style="color: #0065fc; font-weight: bolder">HAMLET</span>
-              </div>
-              <div class="hero-text-1">
-                Great leaders know their strengths, but they know their
-                weaknesses even better.
-              </div>
-              <div class="mt-3 m-align">
-                <nuxt-link to="/signup">
-                  <button class="btn2 mt-3 btn-sm">
-                    Get started
-                    <span class="ml-2">
-                      <font-awesome-icon :icon="['fa', 'angle-right']" />
-                    </span>
-                  </button>
-                </nuxt-link>
+        <div class="bg-hero container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="">
+                <div class="hero-text">
+                  Do more than what is expected of you with
+                  <span style="color: #0065fc; font-weight: bolder"
+                    >HAMLET</span
+                  >
+                </div>
+                <div class="hero-text-1">
+                  Great leaders know their strengths, but they know their
+                  weaknesses even better.
+                </div>
+                <div class="mt-3 m-align">
+                  <nuxt-link to="/signup">
+                    <button class="btn2 mt-3 btn-sm">
+                      Get started
+                      <span class="ml-2">
+                        <font-awesome-icon :icon="['fa', 'angle-right']" />
+                      </span>
+                    </button>
+                  </nuxt-link>
+                </div>
               </div>
             </div>
-            <div class="">
+            <div class="col-lg-6">
               <div class="tooltip-container">
-                <div class="tooltip-wrapper">
+                <div class="tooltip-wrapper d-flex">
                   <div>
                     <img
                       src="/img/profilePic.jpg"
@@ -446,7 +450,7 @@ export default {
   display: none;
 }
 .tooltip-container {
-  width: 25%;
+  width: 34%;
   height: 20px;
   /* border-radius: 8px; */
   margin-top: 5rem;
@@ -464,11 +468,11 @@ export default {
     top: 0px;
   }
   25% {
-    left: 500px;
+    left: 400px;
     top: -50px;
   }
   50% {
-    left: 500px;
+    left: 400px;
     top: 200px;
   }
   75% {
@@ -481,10 +485,10 @@ export default {
   }
 }
 .tooltip-wrapper {
-  display: flex;
+  /* display: flex; */
   padding: 0.8rem 0 0 0.5rem;
-  flex-direction: row;
-  background: #ffffff;
+  /* flex-direction: row; */
+  background-color: #ffffff;
   box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
   border-radius: 8px;
 }

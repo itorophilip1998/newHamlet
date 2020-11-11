@@ -65,130 +65,144 @@
               </div>
             </div>
           </div>
-          <div v-else>
-            <form class="p-5">
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>First Name</label>
-                  <input
-                    type="text"
-                    name="first-name"
-                    class="form-control"
-                    v-model="profileInfo.first_name"
-                    v-validate="'required'"
-                    :class="{
-                      'is-invalid': submitted && errors.has('first-name'),
-                    }"
-                  />
-                  <small
-                    v-if="submitted && errors.has('first-name')"
-                    class="invalid-feedback"
-                    >{{ errors.first("first-name") }}</small
-                  >
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Last Name</label>
-                  <input
-                    type="text"
-                    name="last-name"
-                    class="form-control"
-                    v-model="profileInfo.last_name"
-                    v-validate="'required'"
-                    :class="{
-                      'is-invalid': submitted && errors.has('last-name'),
-                    }"
-                  />
-                  <small
-                    v-if="submitted && errors.has('last-name')"
-                    class="invalid-feedback"
-                    >{{ errors.first("last-name") }}</small
-                  >
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Address</label>
-                  <input
-                    type="text"
-                    name="address"
-                    class="form-control"
-                    v-model="profileInfo.address"
-                    v-validate="'required'"
-                    :class="{
-                      'is-invalid': submitted && errors.has('address'),
-                    }"
-                  />
-                  <small
-                    v-if="submitted && errors.has('address')"
-                    class="invalid-feedback"
-                    >{{ errors.first("address") }}</small
-                  >
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Phone umber</label>
-                  <input
-                    type="text"
-                    name="phone"
-                    maxlength="11"
-                    class="form-control"
-                    v-model="profileInfo.phone"
-                    v-validate="'numeric'"
-                    :class="{ 'is-invalid': submitted && errors.has('phone') }"
-                  />
-                  <small
-                    v-if="submitted && errors.has('phone')"
-                    class="invalid-feedback"
-                    >{{ errors.first("phone") }}</small
-                  >
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Profile Picture</label>
-                  <br />
-                  <input
-                    type="file"
-                    name="profile-picture"
-                    class="file-border img-fluid"
-                    required
-                    id
-                    placeholder
-                    @change="upload()"
-                    v-validate="'required|ext:jpeg,jpg,svg,png'"
-                    :class="{
-                      'is-invalid': submitted && errors.has('profile-picture'),
-                    }"
-                  />
-                  <small id="emailHelp" class="form-text text-muted"
-                    >(Picture must be of .jpeg, .png, .svg, .jpg format)</small
-                  >
-                  <small
-                    v-if="submitted && errors.has('profile-picture')"
-                    class="invalid-feedback"
-                    >{{ errors.first("profile-picture") }}</small
-                  >
-                </div>
-              </div>
-              <div style="text-align: center">
-                <button type="submit" class="btn btn2" @click="canceledit">
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  class="btn btn2"
-                  @click.prevent="updateProfile(profileInfo.id)"
-                >
-                  <span v-if="isloading_1">Update</span>
-                  <div v-else>
-                    <app-loader />
+          <div class="">
+            <transition name="fade" v-if="displayModal" appear>
+              <div class="modal-overlay-1"></div>
+            </transition>
+            <transition name="slide" v-if="displayModal" appear>
+              <div class="modal-new">
+                <form class="p-4">
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>First Name</label>
+                      <input
+                        type="text"
+                        name="first-name"
+                        class="form-control"
+                        v-model="profileInfo.first_name"
+                        v-validate="'required'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('first-name'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('first-name')"
+                        class="invalid-feedback"
+                        >{{ errors.first("first-name") }}</small
+                      >
+                    </div>
                   </div>
-                </button>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Last Name</label>
+                      <input
+                        type="text"
+                        name="last-name"
+                        class="form-control"
+                        v-model="profileInfo.last_name"
+                        v-validate="'required'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('last-name'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('last-name')"
+                        class="invalid-feedback"
+                        >{{ errors.first("last-name") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Address</label>
+                      <input
+                        type="text"
+                        name="address"
+                        class="form-control"
+                        v-model="profileInfo.address"
+                        v-validate="'required'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('address'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('address')"
+                        class="invalid-feedback"
+                        >{{ errors.first("address") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Phone umber</label>
+                      <input
+                        type="text"
+                        name="phone"
+                        maxlength="11"
+                        class="form-control"
+                        v-model="profileInfo.phone"
+                        v-validate="'numeric'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('phone'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('phone')"
+                        class="invalid-feedback"
+                        >{{ errors.first("phone") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Profile Picture</label>
+                      <br />
+                      <input
+                        type="file"
+                        name="profile-picture"
+                        class="file-border img-fluid"
+                        id
+                        placeholder
+                        @change="upload()"
+                        v-validate="'required|ext:jpeg,jpg,svg,png'"
+                        :class="{
+                          'is-invalid':
+                            submitted && errors.has('profile-picture'),
+                        }"
+                      />
+                      <small id="emailHelp" class="form-text text-muted"
+                        >(Picture must be of .jpeg, .png, .svg, .jpg
+                        format)</small
+                      >
+                      <small
+                        v-if="submitted && errors.has('profile-picture')"
+                        class="invalid-feedback"
+                        >{{ errors.first("profile-picture") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="d-flex" style="text-align: center">
+                    <button
+                      type="submit"
+                      class="btn btn2"
+                      @click.prevent="canceledit"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn2 l-left"
+                      @click.prevent="updateProfile(profileInfo.id)"
+                    >
+                      <span v-if="isloading_1">Update</span>
+                      <div v-else>
+                        <app-loader />
+                      </div>
+                    </button>
+                  </div>
+                </form>
               </div>
-            </form>
+            </transition>
           </div>
         </div>
       </div>
@@ -199,7 +213,7 @@
 <script>
 import sidebar from "~/components/sidebar5.vue";
 import VueJwtDecode from "vue-jwt-decode";
-import navbar from "~/components/navbar5.vue";
+import navbar from "~/components/navbar7.vue";
 import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import load from "~/components/loader-1.vue";
@@ -213,6 +227,7 @@ export default {
   },
   data() {
     return {
+      displayModal: false,
       company: {},
       profile: {},
       loader: true,
@@ -301,15 +316,23 @@ export default {
                   )
                   .then(
                     (res) => {
+                      // let close = document.getElementsByClassName(
+                      //   "modal-backdrop"
+                      // )[0];
+                      // let modal = document.getElementById("exampleModal");
+                      // let body = document.getElementsByTagName("body")[0];
+                      // close.style.display = "none";
+                      // modal.style.display = "none";
+                      // modal.classList.remove("modal-backdrop");
+                      // body.style.paddingRight = "0px";
                       // this.getProfile();
                       // this.getCompany();
-                      console.log(res);
+                      this.$router.push("/dashboard");
                       this.$message({
                         message: "Manager Profile Updated Successfully!",
                         type: "success",
                       });
                       this.isloading_1 = true;
-                      this.$router.push("/dashboard");
                       // this.getallBlogs()
                     },
                     function (error) {
@@ -355,11 +378,13 @@ export default {
         });
     },
     edititems(id) {
-      this.edit = false;
+      // this.edit = false;
+      this.displayModal = true;
       this.profileInfo = id;
     },
     canceledit() {
       this.edit = true;
+      this.displayModal = false;
     },
     upload() {
       var input = event.target;
@@ -376,12 +401,13 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   font-family: "Overpass", sans-serif;
+  overflow-x: hidden;
 }
 .form-row {
-  margin-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
 }
 .one2 {
   width: 50%;
@@ -409,7 +435,7 @@ export default {
 .one3 {
   padding-left: 70px;
   padding-right: 70px;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 hr {
@@ -491,12 +517,68 @@ textarea {
 .file-border {
   width: 100%;
 }
+.modal-overlay-1 {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2;
+}
+.modal-new {
+  position: fixed;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 5px;
+}
+.modal h1 {
+  color: #222;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+.modal p {
+  color: #666;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translateY(-50%) translateX(100vw);
+}
 
 @media (max-width: 567px) {
   .one2 {
     width: 100%;
     margin-left: 0px;
   }
+
   .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -516,6 +598,10 @@ textarea {
   }
   .btn2 {
     margin-left: 0px;
+    padding: 8px 40px;
+  }
+  .l-left {
+    margin-left: 1rem !important;
   }
   .btn1 {
     margin-bottom: 30px;

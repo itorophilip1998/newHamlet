@@ -295,6 +295,9 @@ export default {
   /* background-repeat: no-repeat; */
   min-height: 100vh;
 }
+a {
+  text-decoration: none;
+}
 .bg-big {
   /* background-color:#F9F9F9; */
   background-color: rgb(192, 192, 192, 0.1);

@@ -200,7 +200,7 @@ li {
   display: none;
   position: fixed;
   bottom: 0;
-  height: 600px;
+  height: 430px;
   right: 15px;
   border: 1px solid #ffffff;
   z-index: 9;

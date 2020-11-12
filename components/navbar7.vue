@@ -26,7 +26,7 @@
             <li class="nav-item active mt-3">
               <div @click="notificationOpen" style="cursor : pointer">
                 <span style="color : #0065fc"><font-awesome-icon :icon="['fa', 'bell']" /></span> 
-                 <span class="badge">0</span>
+                 <span class="badge">{{notifications.length}}</span>
               </div>
               
             </li>
@@ -60,23 +60,23 @@
     <div class="modal-new">
       <div class="d-flex justify-content-between">
         <div class="notify">
-          Notification (0)
+          Notification ({{notifications.length}})
         </div>
          <div class="" @click="notificationClose" style="cursor : pointer;  transition: 0.3s;">
         <font-awesome-icon :icon="['fa', 'times']" />
       </div>
       </div>
      <div class="border-line"></div>
-  <div class="d-flex mt-3 mb-3">
+  <div class="d-flex mt-3 mb-3"  v-for="(notification,index) in notifications" :key="index">
     <div class="icon-edit">
        <font-awesome-icon :icon="['fa', 'volume-up']" />
     </div>
-    <div class="ml-3">
-      <div class="header-notify">Application Update</div>
-      <div class="text-notify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, quis.</div>
+    <div class="ml-3 border-bottom">
+      <div class="header-notify">{{notification.title}}</div>
+      <div class="text-notify">{{notification.body}}</div>
     </div>
   </div>
-  <div class="border-line"></div>
+  <!-- <div class="border-line"></div> -->
     </div>
     </transition>
     <!-- desktop view end -->
@@ -200,19 +200,34 @@ export default {
     return {
       displayModal: false,
       profile_pic: {},
+      notifications : [],
       styleObject: {
         width: "0px",
+      },
+      displayNote: {
+        display : "block"
       },
       loader: true,
       company: {},
     };
   },
   mounted() {
-    this.getProfile(), this.getCompany();
+    this.getProfile()
+    this.getCompany()
+    this.getNotification()
   },
   methods: {
+    getNotification(){
+        this.$axios
+        .get("https://hamlet.payfill.co/api/update/notify")
+        .then((res) => {
+          this.notifications = res.data.notice;
+          console.log(this.notifications)
+        });
+    },
     notificationOpen(){
       this.displayModal = true
+      this.displayNote.display = "none";
       // alert("clicked")
     },
     notificationClose(){
@@ -264,7 +279,7 @@ ul li {
 }
 .modal-new {
   position: fixed;
-  top: 17%;
+  top: 19rem;
   left: 80%;
   transform: translate(-50%, -50%);
   /* z-index: 99; */
@@ -280,13 +295,16 @@ ul li {
   transition: opacity 0.6s;
   box-shadow: 0 0 5px 1px rgba(0,0,0,.05);
 }
+.border-bottom{
+  border-bottom: 1px solid #e6ecf2 !important;
+}
 .badge {
   position: absolute;
-  /* top: 1px; */
-  /* right: 1px; */
-  padding: 2px;
+  /* top: 13px;  */
+     /* right: 1px; */
+  padding: 1px;
   border-radius: 50%;
-  /* background: red; */
+  /* background: #FF00FF; */
   color: #000;
 }
 .notify{
@@ -298,7 +316,7 @@ ul li {
   border-radius: 50%;
   /* line-height: 3; */
   height: 55px;
-    width: 55px;
+  width: 55px;
 }
 .border-line{
   border: 1px solid #e6ecf2;

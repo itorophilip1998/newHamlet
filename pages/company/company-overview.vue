@@ -581,9 +581,7 @@ export default {
   overflow-x: hidden;
   font-family: "Overpass", sans-serif;
 }
-.form-row {
-  /* margin-bottom: 0.5rem !important; */
-}
+
 label {
   margin: 0 !important;
 }

@@ -47,7 +47,8 @@
               </div>-->
               <div class="row mt-5 p-4">
                 <nuxt-link to="/employee-details">
-                  <div class="circle-name-1">
+                  <div class="circle-name-1"
+                   v-if="department == ''">
                     <font-awesome-icon :icon="['fa', 'plus']" />
                   </div>
                 </nuxt-link>
@@ -59,7 +60,7 @@
                 >
                   <div class>
                     <nuxt-link :to="`/employees/${employee.id}`">
-                      <img
+                      <img 
                         v-if="employee"
                         :src="employee.profile_pic"
                         alt
@@ -79,7 +80,8 @@
                   </div>
                 </div>
                 <nuxt-link to="/directory">
-                  <div class="circle-name-1">...</div>
+                  <div class="circle-name-1"
+                   v-if="department == ''">...</div>
                 </nuxt-link>
               </div>
             </div>

@@ -121,6 +121,7 @@ export default {
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/auth",
+    '@nuxtjs/moment',
     //  'vue-jwt-decode',
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",

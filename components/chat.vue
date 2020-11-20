@@ -5,7 +5,7 @@
         </button>
 
         <div class="chat-popup" id="myForm">
-            <div class="closeBtn">
+            <div class="closeBtn fixed-top">
                 <div class="d-flex justify-content-between">
                     <div class="p-3">
                         <img
@@ -227,6 +227,7 @@ li {
     height: 430px;
     right: 15px;
     border: 1px solid #ffffff;
+    background-color: #ffffff;
     z-index: 9;
     overflow-x: hidden;
     overflow-y: auto;
@@ -289,8 +290,8 @@ li {
     background-color: #ffffff !important;
     border-bottom: 1px solid #000000;
     box-shadow: -1px 6px 13px 0px rgba(243, 241, 241, 0.44);
-    position: fixed;
-    width: 18.9%;
+    position: sticky;
+    /* width: 18.5%; */
     z-index: 1;
     outline: none !important;
     /* top: 0;
@@ -323,7 +324,7 @@ li {
 }
 .form-down {
     position: sticky;
-    bottom: 10px;
+    bottom: 0;
     /* width: 17%; */
     /* background: #64a2ff; */
     /* right: px; */

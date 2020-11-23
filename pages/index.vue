@@ -1,10 +1,11 @@
 <template>
-    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+    <div class="scrollSmooth">
         <div>
             <app-navbar />
         </div>
 
         <!-- hero-start -->
+
         <section class="desktop-display">
             <div class="bg-down">
                 <div class="bg-hero container">
@@ -438,6 +439,7 @@
         </section>
         <!-- testimonial end -->
         <Footer />
+        <back-to-top />
     </div>
 </template>
 
@@ -490,8 +492,8 @@ export default {
 * {
     font-family: "Overpass", sans-serif;
 }
-html {
-    scroll-behavior: smooth;
+.scrollSmooth {
+    scroll-behavior: smooth !important;
 }
 .grid-hero {
     display: grid;

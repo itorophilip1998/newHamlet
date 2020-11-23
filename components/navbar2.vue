@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="scrollSmooth">
         <div class="boxShadowV fixed-top bg-white">
             <!-- desktop view -->
             <div class="container desktopViewV">
@@ -164,7 +164,9 @@ export default {
 * {
     font-family: "Overpass", sans-serif;
 }
-
+.scrollSmooth {
+    scroll-behavior: smooth !important;
+}
 .nav-item {
     margin-left: 2rem;
 }

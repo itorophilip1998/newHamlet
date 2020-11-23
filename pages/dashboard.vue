@@ -179,6 +179,7 @@ import newLoader from "~/components/loader.vue";
 // import { mapGetters } from "vuex";
 export default {
     // middleware: "authenticated",
+    // layout: "blog",
     components: {
         "app-navbar": navbar,
         "app-loader": newLoader,

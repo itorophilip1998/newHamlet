@@ -1,4 +1,10 @@
 {
+  "BackToTop": {
+    "description": "Auto imported from components/BackToTop.vue"
+  },
+  "LazyBackToTop": {
+    "description": "Auto imported from components/BackToTop.vue"
+  },
   "Chat": {
     "description": "Auto imported from components/chat.vue"
   },

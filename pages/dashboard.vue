@@ -48,7 +48,7 @@
               <div class="row mt-5 p-4">
                 <nuxt-link to="/employee-details">
                   <div class="circle-name-1"
-                   v-if="department == ''">
+                   >
                     <font-awesome-icon :icon="['fa', 'plus']" />
                   </div>
                 </nuxt-link>

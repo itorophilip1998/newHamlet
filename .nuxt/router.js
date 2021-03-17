@@ -13,6 +13,7 @@ const _015f1f8e = () => interopDefault(import('..\\pages\\employee-details.vue' 
 const _64af8572 = () => interopDefault(import('..\\pages\\manager-account.vue' /* webpackChunkName: "pages/manager-account" */))
 const _5127454d = () => interopDefault(import('..\\pages\\signin.vue' /* webpackChunkName: "pages/signin" */))
 const _65bd9bc3 = () => interopDefault(import('..\\pages\\signup.vue' /* webpackChunkName: "pages/signup" */))
+const _6b93231b = () => interopDefault(import('..\\pages\\subscriptions.vue' /* webpackChunkName: "pages/subscriptions" */))
 const _3103cfaa = () => interopDefault(import('..\\pages\\company\\company-overview.vue' /* webpackChunkName: "pages/company/company-overview" */))
 const _0798a8ec = () => interopDefault(import('..\\pages\\company\\locations.vue' /* webpackChunkName: "pages/company/locations" */))
 const _479a7867 = () => interopDefault(import('..\\pages\\company\\taxinfo.vue' /* webpackChunkName: "pages/company/taxinfo" */))
@@ -82,6 +83,10 @@ export const routerOptions = {
     path: "/signup",
     component: _65bd9bc3,
     name: "signup"
+  }, {
+    path: "/subscriptions",
+    component: _6b93231b,
+    name: "subscriptions"
   }, {
     path: "/company/company-overview",
     component: _3103cfaa,

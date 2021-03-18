@@ -2,155 +2,162 @@
   {
     "name": "all-employees",
     "path": "/all-employees",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\all-employees.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\all-employees.vue",
     "chunkName": "pages/all-employees",
-    "_name": "_e2399584"
+    "_name": "_017964fe"
   },
   {
     "name": "company-details",
     "path": "/company-details",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company-details.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company-details.vue",
     "chunkName": "pages/company-details",
-    "_name": "_e8dddfd2"
+    "_name": "_9d4b6052"
   },
   {
     "name": "contact-us",
     "path": "/contact-us",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\contact-us.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\contact-us.vue",
     "chunkName": "pages/contact-us",
-    "_name": "_66543ed6"
+    "_name": "_979bb1d4"
   },
   {
     "name": "dashboard",
     "path": "/dashboard",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\dashboard.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\dashboard.vue",
     "chunkName": "pages/dashboard",
-    "_name": "_48208279"
+    "_name": "_6276db8e"
   },
   {
     "name": "directory",
     "path": "/directory",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\directory.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\directory.vue",
     "chunkName": "pages/directory",
-    "_name": "_d553bc5c"
+    "_name": "_1bfa3192"
   },
   {
     "name": "employee",
     "path": "/employee",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employee.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employee.vue",
     "chunkName": "pages/employee",
-    "_name": "_7b8ea559"
+    "_name": "_0c499d99"
   },
   {
     "name": "employee-details",
     "path": "/employee-details",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employee-details.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employee-details.vue",
     "chunkName": "pages/employee-details",
-    "_name": "_6e00674e"
+    "_name": "_015f1f8e"
   },
   {
     "name": "manager-account",
     "path": "/manager-account",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\manager-account.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\manager-account.vue",
     "chunkName": "pages/manager-account",
-    "_name": "_3ee645b2"
+    "_name": "_64af8572"
   },
   {
     "name": "signin",
     "path": "/signin",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\signin.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\signin.vue",
     "chunkName": "pages/signin",
-    "_name": "_498b3d0d"
+    "_name": "_5127454d"
   },
   {
     "name": "signup",
     "path": "/signup",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\signup.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\signup.vue",
     "chunkName": "pages/signup",
-    "_name": "_5e219383"
+    "_name": "_65bd9bc3"
+  },
+  {
+    "name": "subscriptions",
+    "path": "/subscriptions",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\subscriptions.vue",
+    "chunkName": "pages/subscriptions",
+    "_name": "_6b93231b"
   },
   {
     "name": "company-company-overview",
     "path": "/company/company-overview",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\company-overview.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company\\\\company-overview.vue",
     "chunkName": "pages/company/company-overview",
-    "_name": "_951cef2a"
+    "_name": "_3103cfaa"
   },
   {
     "name": "company-locations",
     "path": "/company/locations",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\locations.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company\\\\locations.vue",
     "chunkName": "pages/company/locations",
-    "_name": "_5df1fea8"
+    "_name": "_0798a8ec"
   },
   {
     "name": "company-taxinfo",
     "path": "/company/taxinfo",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\company\\\\taxinfo.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company\\\\taxinfo.vue",
     "chunkName": "pages/company/taxinfo",
-    "_name": "_97887fb2"
+    "_name": "_479a7867"
   },
   {
     "name": "department-add-department",
     "path": "/department/add-department",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\department\\\\add-department.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\department\\\\add-department.vue",
     "chunkName": "pages/department/add-department",
-    "_name": "_5938e1bb"
+    "_name": "_68be49fb"
   },
   {
     "name": "employees-employmentdetails",
     "path": "/employees/employmentdetails",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employees\\\\employmentdetails.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employees\\\\employmentdetails.vue",
     "chunkName": "pages/employees/employmentdetails",
-    "_name": "_5e62ff5c"
+    "_name": "_bba150c8"
   },
   {
     "name": "google-site",
     "path": "/google/site",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\google\\\\site.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\google\\\\site.vue",
     "chunkName": "pages/google/site",
-    "_name": "_590bc32a"
+    "_name": "_217ef6ab"
   },
   {
     "name": "profile-profile",
     "path": "/profile/profile",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\profile\\\\profile.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\profile\\\\profile.vue",
     "chunkName": "pages/profile/profile",
-    "_name": "_6eeb854b"
+    "_name": "_024a3d8b"
   },
   {
     "name": "contactinfo-name",
     "path": "/contactinfo/:name?",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\contactinfo\\\\_name.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\contactinfo\\\\_name.vue",
     "chunkName": "pages/contactinfo/_name",
-    "_name": "_09de3747"
+    "_name": "_406fdf87"
   },
   {
     "name": "editEmployee-name",
     "path": "/editEmployee/:name?",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\editEmployee\\\\_name.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\editEmployee\\\\_name.vue",
     "chunkName": "pages/editEmployee/_name",
-    "_name": "_9d19da92"
+    "_name": "_4d167277"
   },
   {
     "name": "employees-name",
     "path": "/employees/:name?",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\employees\\\\_name.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employees\\\\_name.vue",
     "chunkName": "pages/employees/_name",
-    "_name": "_7d2e1e20"
+    "_name": "_54c7a930"
   },
   {
     "name": "jobdetails-name",
     "path": "/jobdetails/:name?",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\jobdetails\\\\_name.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\jobdetails\\\\_name.vue",
     "chunkName": "pages/jobdetails/_name",
-    "_name": "_22562eca"
+    "_name": "_0a6302ec"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\USER\\\\Desktop\\\\newHamlet\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_2ea92037"
+    "_name": "_8969e012"
   }
 ]

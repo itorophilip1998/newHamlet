@@ -6,18 +6,18 @@
         <div>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-4 sub3" >                                                                   
+                    <div class="col-sm-12 col-md-6 col-lg-4 sub3" >                                                                   
                         <div class="card shadow rounded">
                             <div class="card-body">
                                 <p style="color: #01445F;margin-top:-15px"><span style="font-size:40px;font-weight:500">$0</span><span>/month</span></p>
-                                <h5 style="color: #0392CE">Free</h5>
+                                <h5 style="color: #01445F">Free</h5>
                                 <div class="sub7">
                                     <p>Our goverment backed plan designed Lorem ipsum dolor sit amet. to keep your business legaly and secure</p>
                                    <hr>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset=""> Free forever</p> 
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">10 free signals everyday</p>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Access to free ebooks</p>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Account Management</p>
+                                   <p>Free forever <font-awesome-icon :icon="['fas', 'check']"/></p> 
+                                   <p>10 free signals everyday <font-awesome-icon :icon="['fas', 'check']"/></p>
+                                   <p>Access to free ebooks <font-awesome-icon :icon="['fas', 'check']"/></p>
+                                   <p>Account Management <font-awesome-icon :icon="['fas', 'check']"/></p>
                                    
                                 </div>
                                 
@@ -25,9 +25,9 @@
                             </div>
                             
                         </div>
-                        <nuxt-link to="dashboard"><div class="card-footer sub6"><p>Select Package</p></div></nuxt-link>
+                        <nuxt-link class="link" to="dashboard"><div class="card-footer sub6"><p>Select Package</p></div></nuxt-link>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4 sub3" >
+                    <div class="col-sm-12 col-md-6 col-lg-4 sub3" >
                         <div class="card shadow rounded">
                             <div class="card-body">
                                 <p style="color: #01445F;margin-top:-15px"><span style="font-size:40px;font-weight:500">$1500</span><span>/month</span></p>
@@ -35,19 +35,19 @@
                                 <div class="sub7">
                                     <p>Unlimited analytics, plans, demographic insights. All you need to grow-up your business</p>
                                    <hr>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Live trading signals</p> 
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">News and market update</p>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Signal and performance report</p>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Lorem ipsum dolor sit</p>
+                                   <p>Free forever <font-awesome-icon :icon="['fas', 'check']"/></p> 
+                                   <p>10 free signals everyday <font-awesome-icon :icon="['fas', 'check']"/></p>
+                                   <p>Access to free ebooks <font-awesome-icon :icon="['fas', 'check']"/></p>
+                                   <p>Account Management <font-awesome-icon :icon="['fas', 'check']"/></p>
                                    
                                 </div>
                                 
                                 
                             </div>
                             
-                        </div><div class="card-footer sub5"><p>Select Package</p></div>
+                        </div><nuxt-link class="link" to="dashboard"><div class="card-footer sub5"><p>Select Package</p></div></nuxt-link>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4 sub3" >
+                    <div class="col-sm-12 col-md-6 col-lg-4 sub3" >
                         <div class="card shadow rounded">
                             <div class="card-body">
                                 <p style="color: #01445F;margin-top:-15px"><span style="font-size:40px;font-weight:500">$1500</span><span>/month</span></p>
@@ -55,17 +55,17 @@
                                 <div class="sub7">
                                     <p>Unlock powerfull time-saving tools for creating email delivery and collecting marketing data</p>
                                    <hr>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Live trading signals</p> 
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">News and market update</p>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Signal and performance report</p>
-                                   <p><img src="/img/brokers/vec.png"  alt="" srcset="">Lorem ipsum dolor sit</p>
+                                   <p>Free forever <font-awesome-icon :icon="['fas', 'check']"/></p> 
+                                   <p>10 free signals everyday <font-awesome-icon :icon="['fas', 'check']"/></p>
+                                   <p>Access to free ebooks <font-awesome-icon :icon="['fas', 'check']"/></p>
+                                   <p>Account Management <font-awesome-icon :icon="['fas', 'check']"/></p>
                                    
                                 </div>
                                 
                                 
                             </div>
                             
-                        </div><div class="card-footer sub4"><p>Select Package</p></div>
+                        </div><nuxt-link class="link" to="dashboard"><div class="card-footer sub4"><p>Select Package</p></div></nuxt-link>
                     </div>
                 </div>
             </div>
@@ -89,10 +89,13 @@
     .sub2 h2{
         font-size: 40px;
         color: #01445F;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
     .sub3{
         text-align: center;
+    }
+    .link{
+        text-decoration: none;
     }
     p img{
         width:1rem;
@@ -103,7 +106,7 @@
         color: #01445F;
     }
     .sub4{
-        background-color: #CB6E17;
+        background-color: #01445F;
         color: white;   
         border-radius: 0px 0px 16px 16px;
         text-align: center;
@@ -113,7 +116,7 @@
         font-weight: 500;
     }
     .sub5{
-        background:silver;
+        background:#01445F;
         color: white;
         border-radius: 0px 0px 16px 16px;
         text-align: center;
@@ -123,7 +126,7 @@
         font-weight: 500;
     }
     .sub6{
-        background: #0392CE;
+        background: #01445F;
         border-radius: 0px 0px 16px 16px;   
         text-align: center;
     }
@@ -154,6 +157,19 @@
     }
     .sub3{
         margin-bottom: 2rem;
+    }
+    }
+
+
+
+    @media(min-width:568px) and (max-width:768px){
+        .card-footer{
+            margin-bottom: 1.5rem;
+        }
+        .sub1{
+        background: #F4FAFD;
+        height: 200vh;
+        text-align: center;
     }
     }
 </style>

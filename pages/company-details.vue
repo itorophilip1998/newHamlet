@@ -430,7 +430,7 @@ export default {
               "Company Details added successfully, Registration Completed!",
             type: "success",
           });
-          this.$router.push("/dashboard");
+          this.$router.push("/subscriptions");
           this.loader = false;
           console.log(res.data);
         })

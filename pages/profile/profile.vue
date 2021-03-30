@@ -29,8 +29,8 @@
                 <!-- {{ user }} -->
                 <h2>{{ this.company.company_name }}</h2>
                 <p>
-                  Total Headcount: {{ employees.length}} |
-                  Services: {{ this.company.services }}
+                  Total Headcount: {{ employees.length }} | Services:
+                  {{ this.company.services }}
                 </p>
               </div>
             </div>
@@ -39,23 +39,23 @@
                 <h3>Manager's Information</h3>
                 <hr />
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">First Name</p>
+                  <p style="color: #0065fc; font-weight: 400">First Name</p>
                   <p>{{ this.profile.first_name }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Last Name</p>
+                  <p style="color: #0065fc; font-weight: 400">Last Name</p>
                   <p>{{ this.profile.last_name }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Address</p>
+                  <p style="color: #0065fc; font-weight: 400">Address</p>
                   <p>{{ this.profile.address }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Phone Number</p>
+                  <p style="color: #0065fc; font-weight: 400">Phone Number</p>
                   <p>{{ this.profile.phone }}</p>
                 </div>
                 <div class="grid">
-                  <p style="color : #0065fc; font-weight : 400">Email</p>
+                  <p style="color: #0065fc; font-weight: 400">Email</p>
                   <p>{{ this.managerEmail }}</p>
                 </div>
                 <hr />
@@ -65,116 +65,144 @@
               </div>
             </div>
           </div>
-          <div v-else>
-            <form class="p-5">
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>First Name</label>
-                  <input
-                    type="text"
-                    name="first-name"
-                    class="form-control"
-                    v-model="profileInfo.first_name"
-                    v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('first-name') }"
-                  />
-                  <small
-                    v-if="submitted && errors.has('first-name')"
-                    class="invalid-feedback"
-                  >{{ errors.first("first-name")}}</small>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Last Name</label>
-                  <input
-                    type="text"
-                    name="last-name"
-                    class="form-control"
-                    v-model="profileInfo.last_name"
-                    v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('last-name')}"
-                  />
-                  <small
-                    v-if="submitted && errors.has('last-name')"
-                    class="invalid-feedback"
-                  >{{ errors.first("last-name")}}</small>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Address</label>
-                  <input
-                    type="text"
-                    name="address"
-                    class="form-control"
-                    v-model="profileInfo.address"
-                    v-validate="'required'"
-                    :class="{ 'is-invalid': submitted && errors.has('address') }"
-                  />
-                  <small
-                    v-if="submitted && errors.has('address')"
-                    class="invalid-feedback"
-                  >{{ errors.first("address")}}</small>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Phone umber</label>
-                  <input
-                    type="text"
-                    name="phone"
-                    maxlength="11"
-                    class="form-control"
-                    v-model="profileInfo.phone"
-                    v-validate="'numeric'"
-                    :class="{ 'is-invalid': submitted && errors.has('phone') }"
-                  />
-                  <small
-                    v-if="submitted && errors.has('phone')"
-                    class="invalid-feedback"
-                  >{{ errors.first("phone")}}</small>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label>Profile Picture</label>
-                  <br />
-                  <input
-                    type="file"
-                    name="profile-picture"
-                    class="file-border img-fluid"
-                    required
-                    id
-                    placeholder
-                    @change="upload()"
-                    v-validate="'required|ext:jpeg,jpg,svg,png'"
-                    :class="{ 'is-invalid': submitted && errors.has('profile-picture') }"
-                  />
-                  <small
-                    id="emailHelp"
-                    class="form-text text-muted"
-                  >(Picture must be of .jpeg, .png, .svg, .jpg format)</small>
-                  <small
-                    v-if="submitted && errors.has('profile-picture')"
-                    class="invalid-feedback"
-                  >{{ errors.first("profile-picture")}}</small>
-                </div>
-              </div>
-              <div style="text-align:center">
-                <button type="submit" class="btn btn2" @click="canceledit">Cancel</button>
-                <button
-                  type="submit"
-                  class="btn btn2"
-                  @click.prevent="updateProfile(profileInfo.id)"
-                >
-                  <span v-if="isloading_1">Update</span>
-                  <div v-else>
-                    <app-loader />
+          <div class="">
+            <transition name="fade" v-if="displayModal" appear>
+              <div class="modal-overlay-1"></div>
+            </transition>
+            <transition name="slide" v-if="displayModal" appear>
+              <div class="modal-new">
+                <form class="p-4">
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>First Name</label>
+                      <input
+                        type="text"
+                        name="first-name"
+                        class="form-control"
+                        v-model="profileInfo.first_name"
+                        v-validate="'required'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('first-name'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('first-name')"
+                        class="invalid-feedback"
+                        >{{ errors.first("first-name") }}</small
+                      >
+                    </div>
                   </div>
-                </button>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Last Name</label>
+                      <input
+                        type="text"
+                        name="last-name"
+                        class="form-control"
+                        v-model="profileInfo.last_name"
+                        v-validate="'required'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('last-name'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('last-name')"
+                        class="invalid-feedback"
+                        >{{ errors.first("last-name") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Address</label>
+                      <input
+                        type="text"
+                        name="address"
+                        class="form-control"
+                        v-model="profileInfo.address"
+                        v-validate="'required'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('address'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('address')"
+                        class="invalid-feedback"
+                        >{{ errors.first("address") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Phone umber</label>
+                      <input
+                        type="text"
+                        name="phone"
+                        maxlength="11"
+                        class="form-control"
+                        v-model="profileInfo.phone"
+                        v-validate="'numeric'"
+                        :class="{
+                          'is-invalid': submitted && errors.has('phone'),
+                        }"
+                      />
+                      <small
+                        v-if="submitted && errors.has('phone')"
+                        class="invalid-feedback"
+                        >{{ errors.first("phone") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>Profile Picture</label>
+                      <br />
+                      <input
+                        type="file"
+                        name="profile-picture"
+                        class="file-border img-fluid"
+                        id
+                        placeholder
+                        @change="upload()"
+                        v-validate="'required|ext:jpeg,jpg,svg,png'"
+                        :class="{
+                          'is-invalid':
+                            submitted && errors.has('profile-picture'),
+                        }"
+                      />
+                      <small id="emailHelp" class="form-text text-muted"
+                        >(Picture must be of .jpeg, .png, .svg, .jpg
+                        format)</small
+                      >
+                      <small
+                        v-if="submitted && errors.has('profile-picture')"
+                        class="invalid-feedback"
+                        >{{ errors.first("profile-picture") }}</small
+                      >
+                    </div>
+                  </div>
+                  <div class="d-flex" style="text-align: center">
+                    <button
+                      type="submit"
+                      class="btn btn2"
+                      @click.prevent="canceledit"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn2 l-left"
+                      @click.prevent="updateProfile(profileInfo.id)"
+                    >
+                      <span v-if="isloading_1">Update</span>
+                      <div v-else>
+                        <app-loader />
+                      </div>
+                    </button>
+                  </div>
+                </form>
               </div>
-            </form>
+            </transition>
           </div>
         </div>
       </div>
@@ -185,7 +213,7 @@
 <script>
 import sidebar from "~/components/sidebar5.vue";
 import VueJwtDecode from "vue-jwt-decode";
-import navbar from "~/components/navbar5.vue";
+import navbar from "~/components/navbar7.vue";
 import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 import load from "~/components/loader-1.vue";
@@ -195,10 +223,11 @@ export default {
     "app-sidebar": sidebar,
     "app-navbar": navbar,
     "app-loader": newLoader,
-    load
+    load,
   },
   data() {
     return {
+      displayModal: false,
       company: {},
       profile: {},
       loader: true,
@@ -208,15 +237,15 @@ export default {
       isloading_1: true,
       edit: true,
       submitted: false,
-      employees : [],
+      employees: [],
       profileInfo: {
         first_name: "",
         last_name: "",
         address: "",
         phone: "",
-        profile_pic: {}
+        profile_pic: {},
         // _method: "PUT",
-      }
+      },
     };
   },
   mounted() {
@@ -236,23 +265,25 @@ export default {
       }
     },
     getCompany() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data.user.company);
-        this.company = res.data.user.company;
-        this.managerEmail = res.data.user.email;
-        this.employees = res.data.user.employees
-        //   for (let key in data) {
-        //     const details = data[key];
-        //     details.company.id = key;
-        //     this.company.unshift(details);
-        //   }
-        //   this.company = res.data.company;
-        this.loader = false;
-      });
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.user.company);
+          this.company = res.data.user.company;
+          this.managerEmail = res.data.user.email;
+          this.employees = res.data.user.employees;
+          //   for (let key in data) {
+          //     const details = data[key];
+          //     details.company.id = key;
+          //     this.company.unshift(details);
+          //   }
+          //   this.company = res.data.company;
+          this.loader = false;
+        });
     },
     updateProfile(i) {
       this.submitted = true;
-      this.$validator.validateAll().then(valid => {
+      this.$validator.validateAll().then((valid) => {
         if (valid) {
           console.log("Login");
           swal({
@@ -260,9 +291,9 @@ export default {
             text: "Once you Update, previous manager information will be lost",
             icon: "warning",
             buttons: true,
-            dangerMode: true
+            dangerMode: true,
           })
-            .then(willDelete => {
+            .then((willDelete) => {
               if (willDelete) {
                 this.isloading_1 = false;
                 const formData = new FormData();
@@ -279,24 +310,32 @@ export default {
                     {
                       headers: {
                         Authorization: `Bearer ${this.user}`,
-                        "Content-Type": "multipart/form-data"
-                      }
+                        "Content-Type": "multipart/form-data",
+                      },
                     }
                   )
                   .then(
-                    res => {
+                    (res) => {
+                      // let close = document.getElementsByClassName(
+                      //   "modal-backdrop"
+                      // )[0];
+                      // let modal = document.getElementById("exampleModal");
+                      // let body = document.getElementsByTagName("body")[0];
+                      // close.style.display = "none";
+                      // modal.style.display = "none";
+                      // modal.classList.remove("modal-backdrop");
+                      // body.style.paddingRight = "0px";
                       // this.getProfile();
                       // this.getCompany();
-                      console.log(res);
+                      this.$router.push("/dashboard");
                       this.$message({
                         message: "Manager Profile Updated Successfully!",
-                        type: "success"
+                        type: "success",
                       });
                       this.isloading_1 = true;
-                      this.$router.push("/dashboard");
                       // this.getallBlogs()
                     },
-                    function(error) {
+                    function (error) {
                       console.log(error);
                     }
                   );
@@ -304,66 +343,71 @@ export default {
               } else {
                 this.$message({
                   message: "Manager Profile remains the same !",
-                  type: "info"
+                  type: "info",
                 });
               }
             })
-            .catch(error => {
+            .catch((error) => {
               this.$message({
                 message: "Error, Unable to update, Try again!",
-                type: "error"
+                type: "error",
               });
             });
           this.isloading = true;
         } else {
           this.$message({
             message: "Error, field cannot be empty!",
-            type: "error"
+            type: "error",
           });
         }
       });
     },
     getProfile() {
-      this.$axios.get("https://hamlet.payfill.co/api/auth/admin").then(res => {
-        console.log(res.data.user.profile);
-        this.profile = res.data.user.profile;
-        //   for (let key in data) {
-        //     const details = data[key];
-        //     details.company.id = key;
-        //     this.company.unshift(details);
-        //   }
-        //   this.company = res.data.company;
-        this.loader = false;
-      });
+      this.$axios
+        .get("https://hamlet.payfill.co/api/auth/admin")
+        .then((res) => {
+          console.log(res.data.user.profile);
+          this.profile = res.data.user.profile;
+          //   for (let key in data) {
+          //     const details = data[key];
+          //     details.company.id = key;
+          //     this.company.unshift(details);
+          //   }
+          //   this.company = res.data.company;
+          this.loader = false;
+        });
     },
     edititems(id) {
-      this.edit = false;
+      // this.edit = false;
+      this.displayModal = true;
       this.profileInfo = id;
     },
     canceledit() {
       this.edit = true;
+      this.displayModal = false;
     },
     upload() {
       var input = event.target;
       this.profileInfo.profile_pic = input.files[0];
       console.log(this.profileInfo.profile_pic);
-    }
+    },
   },
   created() {
     // this.getCompany();
-  }
+  },
 };
 </script>
 
 <style scoped>
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   font-family: "Overpass", sans-serif;
+  overflow-x: hidden;
 }
 .form-row {
-  margin-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
 }
 .one2 {
   width: 50%;
@@ -391,7 +435,7 @@ export default {
 .one3 {
   padding-left: 70px;
   padding-right: 70px;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 hr {
@@ -473,12 +517,68 @@ textarea {
 .file-border {
   width: 100%;
 }
+.modal-overlay-1 {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2;
+}
+.modal-new {
+  position: fixed;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 5px;
+}
+.modal h1 {
+  color: #222;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+.modal p {
+  color: #666;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translateY(-50%) translateX(100vw);
+}
 
 @media (max-width: 567px) {
   .one2 {
     width: 100%;
     margin-left: 0px;
   }
+
   .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -498,6 +598,10 @@ textarea {
   }
   .btn2 {
     margin-left: 0px;
+    padding: 8px 40px;
+  }
+  .l-left {
+    margin-left: 1rem !important;
   }
   .btn1 {
     margin-bottom: 30px;

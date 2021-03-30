@@ -204,7 +204,7 @@
 
 <script>
 import sidebar from "~/components/sidebar.vue";
-import navbar from "~/components/navbar.vue";
+import navbar from "~/components/navbar7.vue";
 import swal from "sweetalert";
 import newLoader from "~/components/loader.vue";
 export default {

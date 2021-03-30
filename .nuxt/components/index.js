@@ -1,3 +1,5 @@
+export { default as BackToTop } from '../..\\components\\BackToTop.vue'
+export { default as Chat } from '../..\\components\\chat.vue'
 export { default as Footer } from '../..\\components\\footer.vue'
 export { default as Loader1 } from '../..\\components\\loader-1.vue'
 export { default as Loader } from '../..\\components\\loader.vue'
@@ -16,6 +18,8 @@ export { default as Sidebar4 } from '../..\\components\\sidebar4.vue'
 export { default as Sidebar5 } from '../..\\components\\sidebar5.vue'
 export { default as WizardForm } from '../..\\components\\wizardForm.vue'
 
+export const LazyBackToTop = import('../..\\components\\BackToTop.vue' /* webpackChunkName: "components_BackToTop" */).then(c => c.default || c)
+export const LazyChat = import('../..\\components\\chat.vue' /* webpackChunkName: "components_chat" */).then(c => c.default || c)
 export const LazyFooter = import('../..\\components\\footer.vue' /* webpackChunkName: "components_footer" */).then(c => c.default || c)
 export const LazyLoader1 = import('../..\\components\\loader-1.vue' /* webpackChunkName: "components_loader-1" */).then(c => c.default || c)
 export const LazyLoader = import('../..\\components\\loader.vue' /* webpackChunkName: "components_loader" */).then(c => c.default || c)

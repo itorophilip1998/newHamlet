@@ -235,6 +235,7 @@
 // import VeeValidate from 'vee-validate';
 import Navbar from "@/components/navbar2.vue";
 import newLoader from "~/components/loader-1.vue";
+
 export default {
     auth: false,
     components: {

@@ -40,6 +40,11 @@ export default {
       },
       {
         rel: "stylesheet",
+        href:
+          "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      },
+      {
+        rel: "stylesheet",
         type: "font",
         href: "https://fonts.googleapis.com/css2?family=Overpass&display=swap",
         rel: "stylesheet"
@@ -66,6 +71,11 @@ export default {
       {
         src:
           "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js",
+        type: "text/javascript"
+      },
+      {
+        src:
+          "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js",
         type: "text/javascript"
       },
       {
@@ -122,6 +132,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/auth",
     '@nuxtjs/moment',
+    '@nuxtjs/proxy',
     //  'vue-jwt-decode',
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",
@@ -141,6 +152,22 @@ export default {
       }
     ]
   ],
+  proxy: {
+    // Simple proxy
+    '/api': 'http://example.com',
+
+    // With options
+    '/api2': {
+      target: 'http://example.com',
+      ws: false
+    },
+
+    // Proxy to backend unix socket
+    '/api3': {
+      changeOrigin: false,
+      target: { socketPath: '/var/run/http-sockets/backend.sock' }
+    }
+  },
   axios: {
     baseURL: "https://hamlet.payfill.co/api"
     // requestInterceptor: (config, { store }) => {
@@ -159,7 +186,8 @@ export default {
   auth: {
     redirect: {
       login: "/signin",
-      logout: "/signin"
+      logout: "/signin",
+     
     },
     strategies: {
       local: {

@@ -153,26 +153,17 @@ export default {
     ]
   ],
   proxy: {
-    // Simple proxy
-    '/api': 'http://example.com',
-
-    // With options
-    '/api2': {
-      target: 'http://example.com',
-      ws: false
-    },
-
-    // Proxy to backend unix socket
-    '/api3': {
-      changeOrigin: false,
-      target: { socketPath: '/var/run/http-sockets/backend.sock' }
-    }
+    '/api/': { target: 'https://api.example.com/', pathRewrite: {'^/api/': ''}, changeOrigin: true }
   },
   axios: {
     baseURL: "https://hamlet.payfill.co/api"
     // requestInterceptor: (config, { store }) => {
     //    config.headers.common['Authorization'] = `Bearer ${store.getters['auth/token']}`;
-    // }
+    // },
+    ,
+    proxyHeaders: false,
+    credentials: false
+
   },
   /*
    ** Build configuration

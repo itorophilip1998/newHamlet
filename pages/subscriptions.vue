@@ -250,11 +250,14 @@ export default {
         .post(`https://hamlet.payfill.co/api/subscribe`, formData,
         {
                       headers: {
-                        Authorization: `Bearer ${this.user}`,
+                        "Authorization": `Bearer ${this.user}`,
                         "Content-Type": "multipart/form-data",
-                         'Access-Control-Allow-Origin' : 'http://localhost:3000',
-      'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-      'Origin': 'http://localhost:3000'
+                    //     "Access-Control-Allow-Credentials": false,
+                    //     "Access-Control-Max-Age": "1800",
+                    //     "Access-Control-Allow-Origin": "https://hamlet.payfill.co/subscribe",
+                    //    "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, PATCH, OPTIONS",
+                    //   "Access-Control-Allow-Headers":"content-type"
+      
                       },
                     })
         .then((res) => {

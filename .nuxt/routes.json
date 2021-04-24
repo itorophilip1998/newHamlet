@@ -3,161 +3,138 @@
     "name": "all-employees",
     "path": "/all-employees",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\all-employees.vue",
-    "chunkName": "pages/all-employees",
-    "_name": "_017964fe"
+    "chunkName": "pages/all-employees"
   },
   {
     "name": "company-details",
     "path": "/company-details",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company-details.vue",
-    "chunkName": "pages/company-details",
-    "_name": "_9d4b6052"
+    "chunkName": "pages/company-details"
   },
   {
     "name": "contact-us",
     "path": "/contact-us",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\contact-us.vue",
-    "chunkName": "pages/contact-us",
-    "_name": "_979bb1d4"
+    "chunkName": "pages/contact-us"
   },
   {
     "name": "dashboard",
     "path": "/dashboard",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\dashboard.vue",
-    "chunkName": "pages/dashboard",
-    "_name": "_6276db8e"
+    "chunkName": "pages/dashboard"
   },
   {
     "name": "directory",
     "path": "/directory",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\directory.vue",
-    "chunkName": "pages/directory",
-    "_name": "_1bfa3192"
+    "chunkName": "pages/directory"
   },
   {
     "name": "employee",
     "path": "/employee",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employee.vue",
-    "chunkName": "pages/employee",
-    "_name": "_0c499d99"
+    "chunkName": "pages/employee"
   },
   {
     "name": "employee-details",
     "path": "/employee-details",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employee-details.vue",
-    "chunkName": "pages/employee-details",
-    "_name": "_015f1f8e"
+    "chunkName": "pages/employee-details"
   },
   {
     "name": "manager-account",
     "path": "/manager-account",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\manager-account.vue",
-    "chunkName": "pages/manager-account",
-    "_name": "_64af8572"
+    "chunkName": "pages/manager-account"
   },
   {
     "name": "signin",
     "path": "/signin",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\signin.vue",
-    "chunkName": "pages/signin",
-    "_name": "_5127454d"
+    "chunkName": "pages/signin"
   },
   {
     "name": "signup",
     "path": "/signup",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\signup.vue",
-    "chunkName": "pages/signup",
-    "_name": "_65bd9bc3"
+    "chunkName": "pages/signup"
   },
   {
     "name": "subscriptions",
     "path": "/subscriptions",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\subscriptions.vue",
-    "chunkName": "pages/subscriptions",
-    "_name": "_6b93231b"
+    "chunkName": "pages/subscriptions"
   },
   {
     "name": "company-company-overview",
     "path": "/company/company-overview",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company\\\\company-overview.vue",
-    "chunkName": "pages/company/company-overview",
-    "_name": "_3103cfaa"
+    "chunkName": "pages/company/company-overview"
   },
   {
     "name": "company-locations",
     "path": "/company/locations",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company\\\\locations.vue",
-    "chunkName": "pages/company/locations",
-    "_name": "_0798a8ec"
+    "chunkName": "pages/company/locations"
   },
   {
     "name": "company-taxinfo",
     "path": "/company/taxinfo",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\company\\\\taxinfo.vue",
-    "chunkName": "pages/company/taxinfo",
-    "_name": "_479a7867"
+    "chunkName": "pages/company/taxinfo"
   },
   {
     "name": "department-add-department",
     "path": "/department/add-department",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\department\\\\add-department.vue",
-    "chunkName": "pages/department/add-department",
-    "_name": "_68be49fb"
+    "chunkName": "pages/department/add-department"
   },
   {
     "name": "employees-employmentdetails",
     "path": "/employees/employmentdetails",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employees\\\\employmentdetails.vue",
-    "chunkName": "pages/employees/employmentdetails",
-    "_name": "_bba150c8"
+    "chunkName": "pages/employees/employmentdetails"
   },
   {
     "name": "google-site",
     "path": "/google/site",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\google\\\\site.vue",
-    "chunkName": "pages/google/site",
-    "_name": "_217ef6ab"
+    "chunkName": "pages/google/site"
   },
   {
     "name": "profile-profile",
     "path": "/profile/profile",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\profile\\\\profile.vue",
-    "chunkName": "pages/profile/profile",
-    "_name": "_024a3d8b"
+    "chunkName": "pages/profile/profile"
   },
   {
     "name": "contactinfo-name",
     "path": "/contactinfo/:name?",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\contactinfo\\\\_name.vue",
-    "chunkName": "pages/contactinfo/_name",
-    "_name": "_406fdf87"
+    "chunkName": "pages/contactinfo/_name"
   },
   {
     "name": "editEmployee-name",
     "path": "/editEmployee/:name?",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\editEmployee\\\\_name.vue",
-    "chunkName": "pages/editEmployee/_name",
-    "_name": "_4d167277"
+    "chunkName": "pages/editEmployee/_name"
   },
   {
     "name": "employees-name",
     "path": "/employees/:name?",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\employees\\\\_name.vue",
-    "chunkName": "pages/employees/_name",
-    "_name": "_54c7a930"
+    "chunkName": "pages/employees/_name"
   },
   {
     "name": "jobdetails-name",
     "path": "/jobdetails/:name?",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\jobdetails\\\\_name.vue",
-    "chunkName": "pages/jobdetails/_name",
-    "_name": "_0a6302ec"
+    "chunkName": "pages/jobdetails/_name"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\user\\\\desktop\\\\newhamlet\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_8969e012"
+    "chunkName": "pages/index"
   }
 ]
